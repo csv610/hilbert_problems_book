@@ -1,0 +1,254 @@
+% ============================================================
+% Chapter 20: Problem 19 — Regularity of Solutions of PDEs
+% ============================================================
+
+\chapter{Regularity of Solutions of Differential Equations}
+\label{ch:problem-19}
+
+\begin{partiallybox}
+Hilbert's nineteenth problem asked whether solutions to regular problems in the calculus of variations are necessarily analytic functions. The answer, developed over the twentieth century, is one of the deepest chapters in the theory of partial differential equations. For \emph{elliptic} equations with smooth coefficients, solutions are indeed analytic (Bernstein, 1904; later generalizations). For equations with merely measurable coefficients, De Giorgi and Nash proved in the 1950s that solutions are at least H\"older continuous---a stunning result, but far from analyticity. Regularity theory for minimal surfaces and other geometric variational problems has been developed extensively, yet complete regularity in the most general settings remains an open frontier. Hilbert's problem is therefore \textbf{partially solved}: we understand a great deal, but the full picture is not yet in hand.
+\end{partiallybox}
+
+% ------------------------------------------------------------
+\section{Historical Context}
+% ------------------------------------------------------------
+
+Partial differential equations are the mathematical language of the physical world. The motion of fluids, the flow of heat, the bending of elastic plates, the propagation of waves---all are governed by PDEs. The theory of PDEs is one of the oldest and most active branches of mathematics, and its development has been driven, from the beginning, by questions from physics.
+
+\subsection{The Three Classical Equations}
+
+By the time of Hilbert's lecture in 1900, three types of PDEs had already become central to mathematical physics.
+
+\paragraph{The heat equation.}
+The equation
+\[
+    \frac{\partial u}{\partial t} = k \, \nabla^2 u
+\]
+governs the distribution of heat in a body over time. Here $u(x, t)$ represents temperature at position $x$ and time $t$, and $k$ is the thermal diffusivity. Fourier introduced this equation in his \emph{Th\'eorie analytique de la chaleur} (1822), and its study led him to develop the theory of Fourier series---one of the great achievements of nineteenth-century mathematics. The heat equation is \emph{parabolic}: it describes a process that evolves irreversibly in time, smoothing out irregularities as it goes.
+
+\paragraph{The wave equation.}
+The equation
+\[
+    \frac{\partial^2 u}{\partial t^2} = c^2 \, \nabla^2 u
+\]
+describes the propagation of waves---sound, light, electromagnetic radiation. Unlike the heat equation, it is \emph{hyperbolic}: it preserves information, allowing waves to travel without dissipating. d'Alembert, Euler, and Bernoulli studied this equation in the context of vibrating strings and membranes, and its solution theory involves characteristics along which information propagates.
+
+\paragraph{Laplace's equation.}
+The equation
+\[
+    \nabla^2 u = 0
+\]
+describes steady-state phenomena: the equilibrium temperature distribution, the gravitational potential in empty space, the shape of an electrostatic field. Solutions are called \emph{harmonic functions}, and the study of harmonic functions became one of the great enterprises of nineteenth-century mathematics, connecting potential theory, complex analysis, and geometry. Laplace's equation is \emph{elliptic}: its solutions are remarkably smooth, a property that would become central to Hilbert's problem.
+
+\subsection{The Classification}
+
+These three types---elliptic, parabolic, and hyperbolic---form the basic classification of second-order linear PDEs. In two spatial dimensions, a general second-order linear PDE has the form
+\[
+    A \, u_{xx} + 2B \, u_{xy} + C \, u_{yy} + D \, u_x + E \, u_y + F \, u = G,
+\]
+and the type is determined by the discriminant $B^2 - AC$:
+\begin{itemize}
+    \item \textbf{Elliptic:} $B^2 - AC < 0$ (e.g., Laplace's equation: $A = C = 1$, $B = 0$). Elliptic equations describe equilibria and steady states. Their solutions tend to be smooth and global.
+    \item \textbf{Parabolic:} $B^2 - AC = 0$ (e.g., the heat equation). Parabolic equations describe diffusive processes. Solutions smooth out over time.
+    \item \textbf{Hyperbolic:} $B^2 - AC > 0$ (e.g., the wave equation). Hyperbolic equations describe wave propagation. Solutions can develop singularities (shocks, discontinuities) along characteristics.
+\end{itemize}
+
+This classification is more than a taxonomy. The \emph{type} of an equation determines the kind of information that can be expected of its solutions, the boundary conditions that can be imposed, and the methods available for solving it. It is the organizing principle of the entire theory.
+
+% ------------------------------------------------------------
+\section{The Problem}
+% ------------------------------------------------------------
+
+\begin{problem_statement}[Hilbert's Nineteenth Problem, 1900]
+Are the solutions to \textbf{regular problems} in the calculus of variations necessarily \textbf{analytic functions}---that is, functions that can be locally represented by convergent power series?
+\end{problem_statement}
+
+To understand this question, we need to recall what the calculus of variations is about. A \textbf{variational problem} asks: among all functions (or surfaces, or curves) satisfying certain boundary conditions, which one minimizes (or maximizes) a given integral? For example: among all curves connecting two points in the plane, which one has the shortest length? The answer, of course, is a straight line. But for more complicated integrals---involving derivatives of the unknown function---the minimizing function satisfies a differential equation derived from the \textbf{Euler--Lagrange equation}.
+
+A variational problem is called \textbf{regular} if the integrand (the function being integrated) satisfies certain smoothness and convexity conditions, and the minimizing function is known to exist. Hilbert's question is: must this minimizing function be not just continuous, and not just differentiable, but in fact \emph{analytic}?
+
+The question is profound. It asks about the relationship between a \emph{global} optimization problem (minimize an integral over a large class of functions) and the \emph{local} properties of the solution (is it given by a power series?). If the answer is yes, then the smoothness of the world described by variational principles is far deeper than one might initially expect.
+
+In modern language, the question is equivalent to asking: if a function $u$ satisfies a second-order elliptic PDE with smooth coefficients, must $u$ be analytic? This is the formulation we will discuss.
+
+% ------------------------------------------------------------
+\section{Key Developments}
+% ------------------------------------------------------------
+
+\subsection{Bernstein's Theorem (1904)}
+
+The first major result came remarkably quickly. In 1904, just four years after Hilbert's lecture, Sergei Bernstein proved that solutions of certain elliptic PDEs are analytic.
+
+\begin{theorem}[Bernstein, 1904]
+Let $u$ be a solution of the equation
+\[
+    F(x, y, u_x, u_y, u_{xx}, u_{xy}, u_{yy}) = 0
+\]
+in a domain $\Omega \subset \mathbb{R}^2$, where $F$ is a real-analytic function of its arguments and satisfies appropriate ellipticity conditions. If $u$ is a $C^2$ solution, then $u$ is analytic in $\Omega$.
+\end{theorem}
+
+Bernstein's original result dealt with equations arising from the minimization of integrals of the form
+\[
+    \iint_\Omega F(x, y, u_x, u_y) \, dx \, dy,
+\]
+where $F$ is analytic and convex in the gradient variables. His proof was a tour de force: he showed that the difference quotients of $u$ satisfy a system of equations that can be controlled, leading to the convergence of the Taylor series.
+
+The result was later extended to higher dimensions and to systems of equations by various authors, but the fundamental message remained: \emph{analytic integrands plus ellipticity yield analytic solutions}. The regularity of solutions to elliptic equations is, in a sense, inherited from the smoothness of the equation itself.
+
+\subsection{The Regularity Theory for Second-Order Elliptic Equations}
+
+The deeper question is what happens when the coefficients of the elliptic equation are \emph{not} smooth. What if the equation has merely measurable, or merely bounded, coefficients? Must solutions still be smooth?
+
+This question turned out to be one of the central problems of twentieth-century analysis. The answer came in a remarkable series of developments in the 1950s and 1960s.
+
+\paragraph{The De Giorgi--Nash theorem.}
+In 1956--57, Ennio De Giorgi and John Nash independently proved one of the most surprising results in the theory of PDEs:
+
+\begin{theorem}[De Giorgi, 1956; Nash, 1957]
+Let $u$ be a weak solution of a second-order elliptic equation
+\[
+    \sum_{i,j=1}^n a^{ij}(x) \, u_{x_i x_j} = 0
+\]
+in a domain $\Omega \subset \mathbb{R}^n$, where the coefficients $a^{ij}(x)$ are bounded and measurable, and the equation is uniformly elliptic (i.e., there exist $\lambda, \Lambda > 0$ such that $\lambda |\xi|^2 \leq \sum a^{ij} \xi_i \xi_j \leq \Lambda |\xi|^2$ for all $\xi$). Then $u$ is \textbf{H\"older continuous}: there exist $\alpha \in (0, 1)$ and $C > 0$ such that
+\[
+    |u(x) - u(y)| \leq C \, |x - y|^\alpha
+\]
+for all $x, y$ in any compact subset of $\Omega$.
+\end{theorem}
+
+This is a remarkable result. The coefficients $a^{ij}$ can be wildly discontinuous---they can jump around arbitrarily, as long as they remain bounded and measurable---and yet every solution is continuous, in fact H\"older continuous with some exponent $\alpha > 0$. The regularity is not inherited from the coefficients; it is an intrinsic property of the ellipticity condition itself.
+
+Nash's proof was particularly elegant, using a clever interpolation inequality (now called \textbf{Nash's estimate}) to derive H\"older continuity directly from an energy argument. De Giorgi's proof, developed over several papers, was more geometric and used techniques from the theory of minimal surfaces.
+
+The Moser--Nash theorem, proved independently by Jürgen Moser in 1960, provided an alternative proof using the method of \emph{De~Giorgi--Moser iteration}, which has become one of the most widely used techniques in the theory of nonlinear PDEs.
+
+\paragraph{Further regularity: the Schauder theory.}
+If the coefficients of the elliptic equation are not just measurable but \emph{H\"older continuous} (i.e., the equation is in Schauder class), then Schauder theory, developed in the 1930s by Erhard Schauder, gives much stronger regularity:
+
+\begin{theorem}[Schauder estimates]
+If $a^{ij} \in C^{0,\alpha}(\Omega)$ (H\"older continuous with exponent $\alpha$) and $u$ is a $C^2$ solution of $\sum a^{ij} u_{x_i x_j} = f$ with $f \in C^{0,\alpha}$, then $u \in C^{2,\alpha}$---the solution gains two derivatives in H\"older regularity compared to the right-hand side.
+\end{theorem}
+
+Schauder estimates are \emph{local}: they hold on compact subsets and give quantitative control on the regularity of $u$ in terms of the regularity of the coefficients and the right-hand side.
+
+\subsection{Regularity for Minimal Surfaces}
+
+The calculus of variations leads naturally to the study of \emph{minimal surfaces}: surfaces that locally minimize area among all surfaces with the same boundary. The equation for a minimal surface is a nonlinear elliptic PDE, and the question of regularity for minimal surfaces is a central problem in geometric analysis.
+
+The theory has a long and beautiful history:
+
+\begin{itemize}
+    \item \textbf{Plateau's problem (1850s):} Given a closed curve in space, find the surface of least area spanning it. This physical problem---a soap film stretched across a wire frame---was formulated mathematically by Plateau and attacked by many mathematicians.
+    \item \textbf{Douglas and Rad\'o (1931):} Jesse Douglas and Tibor Rad\'o independently solved Plateau's problem, proving the existence of a disk-type minimal surface spanning any given Jordan curve. Douglas received the Fields Medal in 1936 for this work.
+    \item \textbf{Federer and Fleming (1960):} Herbert Federer and Wendell Fleming proved that Plateau's problem has a solution in the framework of \emph{geometric measure theory}, using \emph{currents}---higher-dimensional generalizations of oriented surfaces---to handle the problem in full generality, including for surfaces that may not be expressible as graphs.
+    \item \textbf{Regularity:} The regularity theory for minimal surfaces---showing that minimizing surfaces are smooth away from a set of small singularities---was developed through the work of Reifenberg, Federer, and in a landmark paper by Ennio De Giorgi (1955), who showed that minimizing hypersurfaces are smooth in dimension up to 7. For higher dimensions, the singular set can have codimension at most 7. (This was later refined by Simons, Fleming, and others.)
+\end{itemize}
+
+The connection to Hilbert's problem is direct: a minimal surface is a solution to a variational problem, and its regularity---smoothness, even analyticity---is a question about the regularity of solutions to the Euler--Lagrange equation. The theory shows that minimal surfaces are remarkably smooth: in low dimensions, they are analytic; in all dimensions, they are smooth away from a singular set of small measure.
+
+\subsection{The Hildebrandt--Weyl Theorem}
+
+A deep result connecting the regularity of minimal surfaces to the theory of harmonic functions is the following:
+
+\begin{theorem}[Hildebrandt--Weyl--Widman, 1970]
+A minimal surface that is a local area minimizer (not necessarily a global minimizer) is smooth and even analytic at every interior point. More precisely, if a minimal surface is a solution to the minimal surface equation in a domain $\Omega \subset \mathbb{R}^2$, then the solution is analytic in $\Omega$.
+\end{theorem}
+
+This result is the geometric analogue of Bernstein's theorem: it says that the solutions to the variational problem (minimize area) inherit the smoothness of the equation itself. The minimal surface equation is a quasilinear elliptic equation, and its analyticity follows from the general theory of analyticity for elliptic equations with analytic structure.
+
+% ------------------------------------------------------------
+\section{Current Status}
+% ------------------------------------------------------------
+
+\begin{partiallybox}
+Hilbert's nineteenth problem is \textbf{partially solved}. The regularity theory for elliptic and parabolic PDEs is one of the great achievements of twentieth-century mathematics, and its core is well understood:
+
+\begin{itemize}
+    \item \textbf{Analytic coefficients, analytic solutions:} Bernstein's theorem and its generalizations show that elliptic equations with analytic coefficients have analytic solutions. This answers Hilbert's original question in the affirmative, under the hypothesis that the variational problem has analytic data.
+
+    \item \textbf{Low regularity:} The De Giorgi--Nash theorem and its generalizations show that even equations with merely measurable coefficients have H\"older continuous solutions. This is a fundamental regularity result that works in extraordinary generality.
+
+    \item \textbf{Minimal surfaces:} The regularity theory for area-minimizing surfaces is largely complete in low dimensions, and well understood in general. The singular set has codimension at least 7.
+
+    \item \textbf{Nonlinear equations:} For fully nonlinear elliptic equations (equations that are nonlinear in the highest-order derivatives), the regularity theory is an active area of research. Caffarelli's theory of viscosity solutions has made great progress, but many questions remain open.
+
+    \item \textbf{Parabolic regularity:} The regularity theory for parabolic equations (like the heat equation) is also well developed, but there are subtle differences from the elliptic case. Harnack inequalities, Harnack chains, and the H\"older regularity of parabolic equations were developed by Moser, Krylov, and Safonov.
+\end{itemize}
+
+The full answer to Hilbert's question, in its most general form, depends on what one means by ``regular problem.'' If the variational problem has analytic data, the answer is yes: solutions are analytic. If the data is merely smooth, solutions are smooth. If the data is merely measurable, solutions are H\"older continuous. The theory has grown far beyond what Hilbert imagined, touching on some of the deepest ideas in modern analysis. But there are still open questions---particularly for nonlinear and degenerate equations---that continue to challenge mathematicians.
+\end{partiallybox}
+
+% ------------------------------------------------------------
+\section*{Common Questions}
+% ------------------------------------------------------------
+
+\begin{description}[font=\bfseries, leftmargin=2em, style=nextline]
+
+\item[Q: What does ``regularity'' mean? Smooth? Analytic?]\hfill\\
+A solution is \emph{smooth} if it has continuous derivatives of all orders ($C^\infty$). It is \emph{analytic} if it can be locally expanded as a convergent power series---a strictly stronger condition. Regularity theory asks: given a PDE, how differentiable must every solution be? The answer depends on the type of equation and the smoothness of its coefficients.
+
+\item[Q: Why is it surprising that weak solutions are smooth?]\hfill\\
+A weak solution is defined by an integral equation that only requires one derivative in a loose sense (the function need not be classically differentiable at all). It is remarkable that such a rough object, defined by an averaged condition, turns out to be $C^\infty$ or even analytic---the equation forces smoothness out of near-nothing.
+
+\item[Q: How does the De Giorgi-Nash theorem work in one sentence?]\hfill\\
+It shows that if $u$ satisfies an elliptic equation with merely bounded, measurable coefficients, then $u$ cannot oscillate too violently---the equation forces H\"older continuity through an energy estimate that controls the growth of $u$ at every scale.
+
+\item[Q: Are there PDEs whose solutions are never smooth?]\hfill\\
+Yes. Hyperbolic equations (like the wave equation) can propagate singularities indefinitely. Even elliptic equations with non-smooth coefficients can have solutions that are only H\"older continuous, not $C^1$ or better. The De Giorgi--Nash theorem gives the best possible result under minimal assumptions.
+
+\item[Q: Why are elliptic equations special for regularity?]\hfill\\
+Elliptic equations have no preferred direction---information propagates in all directions at once. This means irregularities cannot be ``carried away'' along characteristics, as they are in hyperbolic equations. Instead, the equation forces the solution to average out its values locally, which smooths it.
+
+\item[Q: What is a ``bootstrap'' argument in regularity theory?]\hfill\\
+Start with a weak solution that is only known to be in $H^1$ (one weak derivative in $L^2$). Show that the PDE gives enough control to upgrade this to $H^2$, then $H^3$, and so on. Each step uses the improved regularity from the previous step as input, ``pulling yourself up by your bootstraps'' until the solution is as smooth as the data allows.
+
+\end{description}
+
+% ------------------------------------------------------------
+\section{Exercises}
+% ------------------------------------------------------------
+
+\begin{enumerate}
+
+    \item \textbf{Harmonic functions are smooth.}
+    \begin{enumerate}
+        \item Verify directly that $u(x,y) = x^2 - y^2$ is harmonic (i.e., satisfies $\nabla^2 u = u_{xx} + u_{yy} = 0$) by computing $u_{xx}$ and $u_{yy}$.
+        \item Verify that $u(r, \theta) = r^n \cos(n\theta)$ (in polar coordinates) satisfies Laplace's equation for each positive integer $n$. (\emph{Hint:} Use the polar coordinate form of the Laplacian: $\nabla^2 u = u_{rr} + \frac{1}{r} u_r + \frac{1}{r^2} u_{\theta\theta}$.)
+        \item Conclude that $u(x,y) = x^n - \binom{n}{2} x^{n-2} y^2 + \binom{n}{4} x^{n-4} y^4 - \cdots$ is harmonic for every $n$. Why does this show that harmonic functions can be locally represented by power series?
+    \end{enumerate}
+
+    \item \textbf{Elliptic vs.\ hyperbolic equations.}
+    \begin{enumerate}
+        \item The wave equation $u_{tt} - c^2 u_{xx} = 0$ has solutions of the form $u(x,t) = f(x - ct)$ for any twice-differentiable function $f$. Show that these solutions satisfy the wave equation for any choice of $f$. Interpret this physically.
+        \item Laplace's equation $u_{xx} + u_{yy} = 0$ does \emph{not} have solutions of the form $u(x,y) = g(x + ay)$ for any constant $a$ (except the trivial case $g = \text{const}$). Show this. Why does this reflect a fundamental difference between elliptic and hyperbolic equations?
+        \item The equation $u_{xx} - u_{yy} = 0$ is hyperbolic. Its general solution is $u(x,y) = F(x+y) + G(x-y)$. Show that solutions can be arbitrary (even discontinuous) along the characteristic lines $x + y = \text{const}$ and $x - y = \text{const}$. Why can't this happen for elliptic equations?
+    \end{enumerate}
+
+    \item \textbf{A counterexample: non-smooth solutions.} The equation $u_x = 0$ has solutions $u(x,y) = f(y)$ for any function $f$. This is a degenerate (non-elliptic) equation. Give an example of a solution that is not even continuous. Why doesn't this contradict the De Giorgi--Nash theorem? (\emph{Hint:} Is the equation uniformly elliptic?)
+
+    \item \textbf{Maximum principle for harmonic functions.}
+    \begin{enumerate}
+        \item The \textbf{weak maximum principle} for harmonic functions states: if $u$ is harmonic on a bounded domain $\Omega$ and continuous on $\overline{\Omega}$, then $u$ achieves its maximum and minimum on the boundary $\partial \Omega$. Verify this for $u(x,y) = x$ on the unit disk.
+        \item Explain why the maximum principle implies that a harmonic function on a bounded domain is completely determined by its boundary values (the \textbf{Dirichlet problem}). This is a qualitative statement about regularity: the solution inside the domain is as smooth as the boundary data allows.
+    \end{enumerate}
+
+    \item \textbf{The heat equation and smoothing.}
+    \begin{enumerate}
+        \item The solution to the heat equation $u_t = u_{xx}$ on the real line with initial data $u(x, 0) = f(x)$ is given by
+        \[
+            u(x, t) = \frac{1}{\sqrt{4\pi t}} \int_{-\infty}^{\infty} e^{-(x-y)^2 / (4t)} f(y) \, dy.
+        \]
+        Even if $f$ is discontinuous (say, $f(x) = 1$ for $x > 0$ and $f(x) = 0$ for $x \leq 0$), the solution $u(x,t)$ is smooth for $t > 0$. This is the \emph{smoothing property} of parabolic equations. Sketch a picture of $u(x,t)$ for small $t$.
+        \item The wave equation does \emph{not} have this smoothing property: discontinuities in the initial data propagate along characteristics. Explain this in terms of the difference between elliptic/parabolic and hyperbolic equations.
+    \end{enumerate}
+
+    \item[$\star$] \textbf{Bernstein's theorem in one dimension.} In one spatial dimension, the equation $u'' = 0$ is trivially elliptic, and its solutions $u(x) = ax + b$ are entire analytic functions. Consider instead $u'' + f(x, u, u') = 0$, where $f$ is analytic. State (without proof) why one expects solutions to be analytic. What role does the ellipticity condition play?
+
+    \item[$\star$] \textbf{The Dirichlet problem and regularity.} The Dirichlet problem asks: given a continuous function $g$ on the boundary of a domain $\Omega$, find a function $u$ that is harmonic in $\Omega$ and equals $g$ on $\partial \Omega$.
+    \begin{enumerate}
+        \item Show that if $g$ is smooth, the solution $u$ is smooth up to the boundary. (\emph{Hint:} Use the Poisson integral formula for the disk, and differentiate under the integral sign.)
+        \item Show that if $g$ is merely continuous, the solution $u$ is still continuous on $\overline{\Omega}$. (\emph{Hint:} This follows from the maximum principle and an approximation argument.)
+        \item Can you think of a boundary function $g$ for which the solution $u$ is \emph{not} analytic up to the boundary? What does this tell you about the relationship between boundary regularity and interior regularity?
+    \end{enumerate}
+
+\end{enumerate}

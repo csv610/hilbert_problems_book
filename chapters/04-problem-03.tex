@@ -1,0 +1,311 @@
+% ============================================================
+% Chapter 4: Problem 3 — Equality of Volumes of Two Tetrahedra
+% ============================================================
+
+\chapter{The Equality of Volumes of Two Tetrahedra}
+
+\begin{solvedbox}
+This problem was solved by Max Dehn in 1901, just one year after Hilbert posed it. The full characterization of when two polyhedra are scissors congruent was completed by Jean-Pierre Sydler in 1965.
+\end{solvedbox}
+
+% ------------------------------------------------------------
+\section{Historical Context}
+% ------------------------------------------------------------
+
+The question of volume is among the oldest in mathematics. In Book XII of the \emph{Elements} (circa 300~BCE), Euclid established that the volume of a pyramid is one-third the volume of a prism with the same base and height---a result that is far from obvious and requires the method of exhaustion, a precursor to integral calculus. But Euclid's treatment of volume was careful in a way that modern students sometimes overlook: he did not merely \emph{assign numbers} to shapes. Instead, he reasoned about volume through \emph{dissection}.
+
+Two polygons in the plane have the same area if and only if one can be cut into finitely many pieces and reassembled to form the other. This idea---now called \textbf{scissors congruence}---is so natural that it predates the formal concept of area itself. In two dimensions, the theory is complete and satisfying: two polygons are scissors congruent if and only if they have the same area. This was known in antiquity, and the constructive nature of the proof means that if two polygons have equal area, you can actually \emph{find} a dissection.
+
+Hilbert's third problem asks whether the same story holds in three dimensions. Given two polyhedra with the same volume, can one always be cut into finitely many polyhedral pieces and reassembled to form the other? Or, more pointedly: is there something \emph{beyond} volume that obstructs such a dissection?
+
+The question arises naturally from a classical construction. The formula for the volume of a tetrahedron with base area $B$ and height $h$ is
+\[
+    V = \frac{1}{3}\,B\,h.
+\]
+Consider two tetrahedra that share the same base and the same altitude. They have equal volumes by this formula. If scissors congruence in three dimensions worked as it does in two, we should be able to dissect one into the other. Hilbert asked: \emph{can this always be done?}
+
+\begin{remark}
+The name ``scissors congruence'' comes from the physical act of cutting a solid with scissors (or, more realistically, a saw) into finitely many polyhedral pieces. Two polyhedra $P$ and $Q$ are \textbf{scissors congruent}, written $P \sim Q$, if there exist polyhedra $P_1, \ldots, P_n$ and $Q_1, \ldots, Q_m$ such that
+\[
+    P = P_1 \cup \cdots \cup P_n \quad \text{and} \quad Q = Q_1 \cup \cdots \cup Q_m,
+\]
+where each $P_i$ is congruent to some $Q_j$, and the pieces fit together without overlap. The relation $\sim$ is an equivalence relation on the set of polyhedra.
+\end{remark}
+
+% ------------------------------------------------------------
+\section{The Problem}
+% ------------------------------------------------------------
+
+We can now state Hilbert's third problem precisely.
+
+\begin{problem_statement}
+Let $T_1$ and $T_2$ be two tetrahedra with equal base area and equal altitude (hence equal volume $\tfrac{1}{3}Bh$). Must $T_1$ and $T_2$ be scissors congruent? More generally, is scissors congruence of polyhedra completely determined by volume?
+\end{problem_statement}
+
+The key phrase here is \emph{finitely many pieces}. Without the finiteness restriction, any two polyhedra of equal volume can be rearranged into each other (by results akin to the Banach--Tarski paradox, though that paradox itself involves non-measurable sets and is not a true ``dissection''). The constraint is that the pieces must themselves be polyhedra, and there must be finitely many of them.
+
+In two dimensions, Hadwiger and Glur (1951) showed that two polygons are scissors congruent if and only if they have the same area. The analogous statement in three dimensions would say: two polyhedra are scissors congruent if and only if they have the same volume. Hilbert's third problem is the question of whether this is true.
+
+The difficulty is that the formula $V = \tfrac{1}{3}Bh$ tells us that volume is determined by the base and height. But volume, as a numerical invariant, may not capture everything that matters for dissection. To see why, consider an analogy: two rectangles in the plane with the same area are always scissors congruent, but the proof uses the fact that any rectangle can be cut into two right triangles and rearranged. In three dimensions, the situation is fundamentally more complex, because the angles at which faces meet---the \emph{dihedral angles}---play a role that has no analogue in two dimensions.
+
+% ------------------------------------------------------------
+\section{Scissors Congruence in Two Dimensions}
+% ------------------------------------------------------------
+
+Before diving into three dimensions, we should appreciate why the two-dimensional case is so clean. The result that area completely determines scissors congruence for polygons is known as the \textbf{Wallace--Bolyai--Gerwien theorem}, established independently by William Wallace in 1807 and by Farkas Bolyai and Paul Gerwien in 1833.
+
+\begin{theorem}[Wallace--Bolyai--Gerwien, 1807/1833]
+Two polygons in the plane are scissors congruent if and only if they have the same area.
+\end{theorem}
+
+The proof is constructive and can be summarized in three steps:
+
+\begin{enumerate}
+    \item Any polygon can be cut into finitely many triangles (triangulation).
+    \item Any triangle can be cut and reassembled into a rectangle of the same area.
+    \item Any rectangle can be cut and reassembled into a square of the same area. Since any two polygons with equal area can be transformed into the same square, they are scissors congruent to each other.
+\end{enumerate}
+
+\vspace{0.25em}
+\noindent \textbf{Example.} Consider a rectangle of dimensions $2 \times 6$ (area $12$) and a square of side $\sqrt{12} \approx 3.464$. Cut the rectangle along a line from one corner to a point $3.464$ units along the opposite side, producing a right triangle and a trapezoid. Slide the triangle to the other side to form a parallelogram, then cut along the altitude to form the square. The process is entirely elementary---anyone with a pair of scissors and some graph paper can verify it.
+
+The key point is that in the plane, area is a \emph{complete invariant}: it tells you everything you need to know. No additional data---not the angles, not the side lengths---is required. This is what made Hilbert's third problem so natural and so surprising: why should the analogous statement fail in three dimensions?
+
+\begin{remark}
+A deeper explanation is that the group of scissors congruence classes in the plane is isomorphic to $\mathbb{R}$, via the area map. In three dimensions, the group is much larger: it is isomorphic to $\mathbb{R} \oplus (\mathbb{R} \otimes_{\mathbb{Z}} (\mathbb{R}/\pi\mathbb{Q}))$, with volume giving the first factor and the Dehn invariant giving the second. The extra factor is what makes the three-dimensional problem richer---and what made Hilbert's question so profound.
+\end{remark}
+
+% ------------------------------------------------------------
+\section{Key Developments}
+% ------------------------------------------------------------
+
+\subsection{Dehn's Invariant (1901)}
+
+Just one year after Hilbert posed the problem, Max Dehn (1878--1952) gave a negative answer. He introduced an invariant---now called the \textbf{Dehn invariant}---that is preserved under scissors congruence but is \emph{not} determined by volume. This settled the problem: volume alone does not determine scissors congruence.
+
+\begin{definition}
+For a polyhedron $P$ with edge lengths $\ell_1, \ldots, \ell_n$ and corresponding dihedral angles $\theta_1, \ldots, \theta_n$, the \textbf{Dehn invariant} is
+\[
+    \delta(P) \;=\; \sum_{i=1}^{n} \ell_i \otimes \theta_i \;\;\in\; \mathbb{R} \otimes_{\mathbb{Z}} (\mathbb{R}/\pi\mathbb{Q}),
+\]
+where $\mathbb{R}/\pi\mathbb{Q}$ denotes the quotient of the additive group of real numbers by the subgroup $\pi\mathbb{Q} = \{q\pi : q \in \mathbb{Q}\}$ of rational multiples of $\pi$.
+\end{definition}
+
+The tensor product may look intimidating at first, but the idea is simple: we are measuring a ``weighted sum'' of dihedral angles, where the weights are the edge lengths, but we consider two sums to be equivalent if their difference is a rational multiple of $\pi$ (weighted by a real number). The point is that when you cut a polyhedron along a plane, the angles and edge lengths change, but the Dehn invariant remains constant.
+
+The key properties are:
+
+\begin{enumerate}
+    \item \textbf{Additivity:} If a polyhedron $P$ is cut into pieces $P_1, \ldots, P_k$, then $\delta(P) = \delta(P_1) + \cdots + \delta(P_k)$.
+    \item \textbf{Congruence invariance:} If $P$ and $Q$ are congruent, then $\delta(P) = \delta(Q)$.
+    \item \textbf{Obstruction:} If $P$ and $Q$ are scissors congruent, then $\delta(P) = \delta(Q)$.
+\end{enumerate}
+
+\begin{theorem}[Dehn, 1901]
+There exists a tetrahedron $T$ whose volume equals that of a cube $C$, but $\delta(T) \neq \delta(C)$. In particular, $T$ and $C$ are \emph{not} scissors congruent.
+\end{theorem}
+
+% ------------------------------------------------------------
+\subsection{Worked Example: The Regular Tetrahedron}
+% ------------------------------------------------------------
+
+Let us compute the Dehn invariant of a regular tetrahedron with edge length $1$. This is the archetypal example of a polyhedron with a non-vanishing Dehn invariant, and it explains why---despite having the same volume---a regular tetrahedron cannot be cut and reassembled into a cube.
+
+A regular tetrahedron has six edges, all of length $\ell = 1$, and all six dihedral angles are equal. The dihedral angle $\theta$ of a regular tetrahedron is the angle between two faces meeting at an edge. To compute it, place the tetrahedron with vertices at
+\[
+A = (0,0,0), \quad B = (1,0,0), \quad C = \left(\tfrac12, \tfrac{\sqrt3}{2}, 0\right), \quad D = \left(\tfrac12, \tfrac{\sqrt3}{6}, \tfrac{\sqrt6}{3}\right).
+\]
+The faces $ABC$ and $ABD$ share the edge $AB$. The normal vectors to these faces are obtained by taking cross products:
+\begin{align*}
+\mathbf{n}_{ABC} &= (B-A) \times (C-A) = (1,0,0) \times \left(\tfrac12, \tfrac{\sqrt3}{2}, 0\right) = \left(0,0,\tfrac{\sqrt3}{2}\right),\\
+\mathbf{n}_{ABD} &= (B-A) \times (D-A) = (1,0,0) \times \left(\tfrac12, \tfrac{\sqrt3}{6}, \tfrac{\sqrt6}{3}\right) = \left(0,-\tfrac{\sqrt6}{3}, \tfrac{\sqrt3}{6}\right).
+\end{align*}
+The dihedral angle $\theta$ satisfies
+\[
+\cos\theta = \frac{\mathbf{n}_{ABC} \cdot \mathbf{n}_{ABD}}
+{|\mathbf{n}_{ABC}|\,|\mathbf{n}_{ABD}|}
+= \frac{0\cdot0 + 0\cdot\left(-\tfrac{\sqrt6}{3}\right) + \tfrac{\sqrt3}{2} \cdot \tfrac{\sqrt3}{6}}
+{\left(\tfrac{\sqrt3}{2}\right) \cdot \sqrt{\left(\tfrac{\sqrt6}{3}\right)^2 + \left(\tfrac{\sqrt3}{6}\right)^2}}.
+\]
+Simplify the numerator: $\tfrac{\sqrt3}{2} \cdot \tfrac{\sqrt3}{6} = \tfrac{3}{12} = \tfrac14$. The denominator: $|\mathbf{n}_{ABC}| = \tfrac{\sqrt3}{2}$. For $\mathbf{n}_{ABD}$, we have
+\[
+\left(-\tfrac{\sqrt6}{3}\right)^2 + \left(\tfrac{\sqrt3}{6}\right)^2 = \tfrac{6}{9} + \tfrac{3}{36} = \tfrac{2}{3} + \tfrac{1}{12} = \tfrac{8}{12} + \tfrac{1}{12} = \tfrac{9}{12} = \tfrac34,
+\]
+so $|\mathbf{n}_{ABD}| = \sqrt{\tfrac34} = \tfrac{\sqrt3}{2}$. Hence
+\[
+\cos\theta = \frac{\tfrac14}{\left(\tfrac{\sqrt3}{2}\right)\left(\tfrac{\sqrt3}{2}\right)} = \frac{\tfrac14}{\tfrac34} = \frac13.
+\]
+Thus $\theta = \arccos(1/3)$, which is approximately $70.5288^\circ$, or about $1.2310$ radians.
+
+\begin{remark}
+The dihedral angle $\arccos(1/3)$ is \emph{not} a rational multiple of $\pi$. This is a nontrivial fact, but it can be seen by noting that if $\arccos(1/3) = r\pi$ with $r \in \mathbb{Q}$, then $2\cos(r\pi)$ would be an algebraic integer of degree $2$, whereas $2/3$ is not. A rigorous proof requires some algebraic number theory; for our purposes, it suffices to know that $\arccos(1/3) \notin \pi\mathbb{Q}$.
+\end{remark}
+
+Now compute the Dehn invariant. All six edges have length $\ell_i = 1$ and all six dihedral angles are $\theta = \arccos(1/3)$. Therefore
+\[
+\delta(\text{regular tetrahedron}) = \sum_{i=1}^{6} 1 \otimes \theta = 6 \otimes \arccos(1/3).
+\]
+Since $\arccos(1/3)$ is not a rational multiple of $\pi$, its image in $\mathbb{R}/\pi\mathbb{Q}$ is nonzero. The tensor product $6 \otimes \arccos(1/3)$ is therefore nonzero in $\mathbb{R} \otimes_{\mathbb{Z}} (\mathbb{R}/\pi\mathbb{Q})$, provided $6$ is not a zero divisor---and in this tensor product, no nonzero integer annihilates a nonzero angle class.
+
+Hence $\delta(\text{regular tetrahedron}) \neq 0$.
+
+% ------------------------------------------------------------
+\subsection{Comparison: The Cube}
+% ------------------------------------------------------------
+
+Now consider a cube with edge length $L$. A cube has twelve edges, each of length $L$, and all dihedral angles are $\pi/2$ (right angles between faces). The Dehn invariant is
+\[
+\delta(\text{cube}) = \sum_{i=1}^{12} L \otimes \frac{\pi}{2}
+= 12L \otimes \frac{\pi}{2}.
+\]
+But $\pi/2 = \frac12 \cdot \pi$ is a rational multiple of $\pi$, so its image in $\mathbb{R}/\pi\mathbb{Q}$ is zero. In the tensor product $\mathbb{R} \otimes_{\mathbb{Z}} (\mathbb{R}/\pi\mathbb{Q})$, any element of the form $r \otimes \theta$ is zero whenever $\theta \in \pi\mathbb{Q}$. Hence
+\[
+\delta(\text{cube}) = 0.
+\]
+
+\begin{remark}
+This explains why cubes can tile space: a cube has vanishing Dehn invariant, and the tiling property is compatible with scissors congruence. Regular tetrahedra, with their non-vanishing Dehn invariant, cannot tile space---they cannot even be cut and reassembled into a cube of the same volume. This is not merely a failure of our imagination; it is a provable mathematical fact.
+\end{remark}
+
+What about volume? The volume of a regular tetrahedron of edge $1$ is
+\[
+V_{\text{tet}} = \frac{\sqrt2}{12} \approx 0.11785,
+\]
+while a cube of volume $V_{\text{tet}}$ has side length $\sqrt[3]{\sqrt2/12} \approx 0.49$. Even though a tetrahedron and a cube can have identical volume, their Dehn invariants differ---one is zero, the other is not---and so they are not scissors congruent.
+
+% ------------------------------------------------------------
+\subsection{The Intuition Behind the Dehn Invariant}
+% ------------------------------------------------------------
+
+Why does the Dehn invariant capture something that volume misses? Think of it this way: when you cut a polyhedron with a plane, you introduce new edges and new dihedral angles. The volume changes in a predictable way (the pieces add up), but the dihedral angles and edge lengths interact in a more subtle way. The Dehn invariant measures the ``angular content'' of the polyhedron in a way that is robust under cutting.
+
+A useful analogy: think of two jigsaw puzzles that use the same number of pieces (same ``volume'') but have pieces with fundamentally different shapes (different ``Dehn invariant''). No matter how you rearrange the pieces of one puzzle, you cannot form the other puzzle if the piece shapes are incompatible.
+
+\begin{remark}
+Dehn's original example used an \textbf{orthoscheme}---a tetrahedron with a right-angle corner---whose dihedral angles include $\arccos(1/\sqrt{3})$, which is also not a rational multiple of $\pi$. The regular tetrahedron is a more symmetric example, but Dehn's original choice was technically simpler to work with.
+\end{remark}
+
+% ------------------------------------------------------------
+\subsection{Sydler's Theorem (1965)}
+% ------------------------------------------------------------
+
+Dehn's invariant answered Hilbert's question in the negative, but it left open a deeper question: \emph{what exactly determines scissors congruence?} Is the Dehn invariant the only obstruction, or could there be others?
+
+Jean-Pierre Sydler (1922--2016) settled this completely.
+
+\begin{theorem}[Sydler, 1965]
+Two polyhedra in $\mathbb{R}^3$ are scissors congruent if and only if they have the same volume and the same Dehn invariant.
+\end{theorem}
+
+This is a remarkable result. It says that volume and the Dehn invariant together form a \emph{complete} set of invariants for scissors congruence in three dimensions. No other obstruction exists. The proof is highly nontrivial and uses techniques from geometry, algebra, and topology; it was later simplified by Jessen (1968) and by Dupont and Sah (1982).
+
+% ------------------------------------------------------------
+\section{Higher Dimensions and the Hadwiger Invariants}
+% ------------------------------------------------------------
+
+What about scissors congruence in four dimensions and higher? The situation becomes dramatically more complex. In dimensions $n \geq 4$, volume alone is no longer sufficient, and the Dehn invariant---which depends on dihedral angles (one-dimensional edges)---is only the first in an infinite family of invariants.
+
+In a groundbreaking series of papers, Hugo Hadwiger and his school developed a general theory of \textbf{Hadwiger invariants}. For polyhedra in $\mathbb{R}^n$, there are $n$ independent invariants of scissors congruence, each corresponding to a different ``dimension'' of the polyhedron's structure:
+
+\begin{itemize}
+    \item The \textbf{volume} ($n$-dimensional measure) is invariant.
+    \item The \textbf{Dehn invariant} (involving edge lengths and dihedral angles) is the second invariant.
+    \item For $n \geq 4$, additional invariants arise from the $(n-2)$-dimensional faces, involving their volumes and the angles at which they meet.
+\end{itemize}
+
+The classification is governed by the scissors congruence group, which in dimension $n$ is known to be isomorphic to
+\[
+\mathbb{R} \;\oplus\; \bigoplus_{k=1}^{\lfloor n/2 \rfloor} \mathbb{R} \otimes_{\mathbb{Z}} \bigl( \mathbb{R} / \pi\mathbb{Q} \bigr)^{\otimes k},
+\]
+up to subtleties involving the rational structure. This deep connection to algebraic K-theory was discovered by Dupont, Sah, and others in the 1970s and 1980s. The scissors congruence groups are intimately related to the \textbf{Bloch group}, which plays a role in the study of hyperbolic manifolds and special values of $L$-functions.
+
+\begin{remark}
+For a taste of how quickly the complexity grows: in dimension $4$, the additional invariants involve sums of products of dihedral angles from complementary pairs of faces. These are no longer just weighted by lengths but by areas of faces, and the algebraic structure required to capture them is much richer. The theory is far from complete in higher dimensions, but it has deep connections to number theory, algebraic topology, and mathematical physics.
+\end{remark}
+
+% ------------------------------------------------------------
+\section{Significance and Legacy}
+% ------------------------------------------------------------
+
+Dehn's result was one of the very first of Hilbert's problems to be solved. It came just one year after the 1900 lecture, and it demonstrated that Hilbert's problems were not merely philosophical musings---they were questions with sharp, concrete answers.
+
+\subsection{Who Was Max Dehn?}
+
+Max Dehn (1878--1952) was a German mathematician who studied under David Hilbert. He earned his doctorate in 1900---the same year Hilbert announced his problems---with a dissertation on the Legendre angle-sum theorem in non-Euclidean geometry. Upon hearing Hilbert's third problem, Dehn solved it almost immediately, publishing the result in 1901. This was only the beginning of a remarkable career.
+
+Dehn went on to make fundamental contributions to combinatorial topology (Dehn's lemma, Dehn surgery, the word problem for groups) and geometry. He was one of the first to study the word problem for groups, now a central topic in geometric group theory. A Jewish academic, Dehn was forced to leave Germany in 1938. He fled to Copenhagen and eventually settled in the United States, where he taught at several institutions until his death in 1952. The Dehn invariant---his first major result---remains his most widely known contribution.
+
+\subsection{Why Hilbert Chose This Problem}
+
+Hilbert chose this problem because the question of whether volume determines scissors congruence was an open question since antiquity. Euclid had treated volume through dissection, but he never proved---nor could he have proved with the tools of his time---that two tetrahedra with equal base area and height must be decomposable into congruent pieces. The problem was old, deep, and accessible enough to be stated clearly.
+
+Hilbert's choice of this problem also reflected his philosophical commitment to the unity of mathematics. The third problem sits at the intersection of geometry, algebra, and number theory---a property shared by many of his 23 problems. Dehn's solution, relying on the algebraic structure of a tensor product to capture a geometric invariant, was a beautiful confirmation that these branches of mathematics are deeply intertwined.
+
+\subsection{The Dehn Invariant in Modern Mathematics}
+
+The Dehn invariant has become a fundamental tool in \emph{geometric topology} and \emph{algebraic K-theory}. The group of scissors congruence classes of polyhedra in $\mathbb{R}^3$ (with a suitable notion of ``addition'' given by disjoint union) can be described explicitly using the Dehn invariant. This group, and its higher-dimensional analogues, are closely related to the algebraic K-theory of $\mathbb{Z}$ and to the Bloch group---objects that lie at the intersection of algebra, topology, and number theory.
+
+In dimensions $n \geq 4$, the situation is much more complex. Sydler showed that the analogues of volume and the Dehn invariant are still relevant, but additional invariants are needed. The complete classification of scissors congruence in higher dimensions remains an active area of research, connected to deep questions in algebraic K-theory and motivic cohomology.
+
+% ------------------------------------------------------------
+\section{Current Status}
+% ------------------------------------------------------------
+
+\begin{solvedbox}
+\textbf{Solved.} The problem is fully resolved in three dimensions. Two polyhedra are scissors congruent if and only if they have the same volume and the same Dehn invariant (Sydler, 1965). In higher dimensions, the problem is understood in terms of algebraic K-theory, though the explicit classification is ongoing.
+\end{solvedbox}
+
+% ------------------------------------------------------------
+\section*{Common Questions}
+% ------------------------------------------------------------
+
+\begin{description}[font=\bfseries, leftmargin=2em, style=nextline]
+
+\item[Q: How can two shapes with the same volume NOT be scissors congruent?]\hfill\\
+Volume is only one invariant of a polyhedron. Imagine two jigsaw puzzles with the same number of pieces but different piece shapes---you cannot transform one into the other just by counting pieces. Similarly, scissors congruence requires matching not only volume but also the ``shape'' of the cuts, encoded by the Dehn invariant. Two polyhedra can have the same volume but different Dehn invariants, making them impossible to cut and reassemble into each other.
+
+\item[Q: Does the Dehn invariant mean we can never square the circle by cutting?]\hfill\\
+The impossibility of squaring the circle is a different issue---it concerns ruler-and-compass constructions, not cutting and reassembling. Scissors congruence in the plane (the Wallace--Bolyai--Gerwien theorem) tells us that any two polygons of equal area are scissors congruent. For circles, the problem is that a circle is not a polygon; cutting a circle into finitely many pieces and reassembling them into a square is impossible because circles are curved and the theorem only applies to polygons. The Dehn invariant is about 3D polyhedra, not 2D shapes.
+
+\item[Q: Is scissors congruence the same as ``having the same volume'' in higher dimensions?]\hfill\\
+In dimensions $n \geq 4$, volume alone is no longer sufficient to determine scissors congruence, just as it fails in 3D. Higher-dimensional analogues of the Dehn invariant exist, and the classification of scissors congruence classes becomes tied to algebraic $K$-theory---a deep area of abstract algebra. The complete picture in dimensions 4 and above is still not fully understood.
+
+\item[Q: What exactly is a dihedral angle, and why does it matter for the Dehn invariant?]\hfill\\
+A dihedral angle is the angle between two faces of a polyhedron along their shared edge---think of the angle you'd measure if you opened a book. The Dehn invariant sums $(\text{edge length}) \otimes (\text{dihedral angle modulo } \pi\mathbb{Q})$ over all edges. The key point is that volume alone collapses many distinctions, but the Dehn invariant captures the fine-grained angular structure that prevents reassembly.
+
+\item[Q: Does the Dehn invariant vanish for all polyhedra that tile space?]\hfill\\
+Yes---any polyhedron that can tile space by translations (like a cube) must have a vanishing Dehn invariant, because tiling implies that copies of the polyhedron can be reassembled into a larger version of itself, which forces the invariant to be zero. A regular tetrahedron does not tile space, and indeed its Dehn invariant is nonzero. This gives a beautiful connection between tiling and Dehn invariants.
+
+\item[Q: Why is the tensor product used in the definition of the Dehn invariant?]\hfill\\
+The tensor product $\mathbb{R} \otimes_{\mathbb{Q}} (\mathbb{R}/\pi\mathbb{Q})$ is used because the Dehn invariant must be additive under cutting (cutting a polyhedron adds edge lengths and preserves angles) and must vanish for degenerate decompositions involving ``trivial'' rational combinations of angles. The tensor product is the natural algebraic gadget that enforces bilinearity: length and angle contributions combine multiplicatively, and rational multiples of $\pi$ (corresponding to straight lines and flat angles) collapse to zero.
+
+\end{description}
+
+% ------------------------------------------------------------
+\section{Exercises}
+% ------------------------------------------------------------
+
+\begin{enumerate}
+    \item \textbf{Scissors congruence in two dimensions.} Explain why two rectangles with the same area are scissors congruent. Describe explicitly how to dissect a $2 \times 3$ rectangle into pieces that can be reassembled into a $1 \times 6$ rectangle.
+
+    \item \textbf{Volume of a tetrahedron.} Verify that a tetrahedron with vertices at $(0,0,0)$, $(1,0,0)$, $(0,1,0)$, and $(0,0,1)$ has volume $\frac{1}{6}$. How does this relate to the formula $V = \frac{1}{3}Bh$?
+
+    \item \textbf{Dihedral angles of a cube.} Compute the Dehn invariant of a cube with edge length $\ell$. Show that it vanishes (i.e., $\delta(\text{cube}) = 0$). \emph{Hint:} What are the dihedral angles of a cube? What is $\pi/2$ modulo $\pi\mathbb{Q}$?
+
+    \item \textbf{Dehn invariant of a regular tetrahedron.} Following the worked example in the text, verify that the volume of a regular tetrahedron of edge length $1$ is $\sqrt2/12$. Given that $\arccos(1/3)$ is not a rational multiple of $\pi$, argue that the Dehn invariant does not vanish. What would you need to compute to show that two regular tetrahedra of different edge lengths are \emph{not} scissors congruent?
+
+    \item \textbf{Dehn invariant of a square pyramid.} Consider a square pyramid with a square base of side length $1$ and apex directly above the center at height $h$. Its lateral edges all have the same length. Compute the dihedral angles between the base and a lateral face, and between two adjacent lateral faces. Determine the Dehn invariant. For what values of $h$ does it vanish?
+
+    \item \textbf{Two tetrahedra, same volume, different Dehn invariants.} Take the tetrahedron with vertices $(0,0,0), (1,0,0), (0,1,0), (0,0,1)$ (volume $1/6$) and a cube of the same volume (side length $\sqrt[3]{1/6}$). Compute the Dehn invariant of the tetrahedron and show it is nonzero. Why does this prove that volume alone does not determine scissors congruence? Assume that one of the dihedral angles of this tetrahedron is $\arccos(1/\sqrt{3})$, which is not a rational multiple of $\pi$.
+
+    \item \textbf{The analogy with jigsaw puzzles.} Explain the analogy between the Dehn invariant and the ``shape'' of jigsaw puzzle pieces. Why is it possible for two puzzles to have the same number of pieces but be impossible to transform one into the other?
+
+    \item \textbf{Wallace--Bolyai--Gerwien in practice.} Show that any triangle can be cut and reassembled into a rectangle of the same area. Concretely, for a triangle with base $b$ and height $h$, describe a dissection into pieces that form an $h/2 \times b$ rectangle.
+
+    \item \textbf{$\star$ Cutting a tetrahedron.} Attempt to dissect a regular tetrahedron into pieces that can be reassembled into a square-based pyramid of the same volume. What obstacles do you encounter? Relate your observations to the Dehn invariant.
+
+    \item \textbf{$\star$ Higher dimensions.} Research and write a short paragraph on why scissors congruence becomes more complicated in dimensions 4 and higher. What new invariants appear, and how do they relate to algebraic K-theory?
+
+    \item \textbf{$\star\star$ The Dehn invariant of a right triangular prism.} Consider a right prism whose base is a right triangle with legs $a$ and $b$, and whose height is $c$. Compute the Dehn invariant in terms of $a$, $b$, $c$, and the dihedral angles. When does it vanish? Compare with a cube of the same volume.
+
+\end{enumerate}

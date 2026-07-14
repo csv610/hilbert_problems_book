@@ -1,0 +1,330 @@
+% ============================================================
+% Chapter 18: Hilbert's Problem 17 — Representation by Quadratic Forms
+% ============================================================
+
+\chapter{Representation by Quadratic Forms}
+
+\begin{solvedbox}
+Hilbert's Seventeenth Problem asks whether every non-negative polynomial over the real numbers can be written as a sum of squares of rational functions. Emil Artin solved this in the affirmative in 1927, proving a deep result that connects real algebraic geometry, the theory of ordered fields, and the structure of positive semidefinite forms. His theorem remains a cornerstone of real algebraic geometry today.
+\end{solvedbox}
+
+% ------------------------------------------------------------
+\section{Historical Context}
+% ------------------------------------------------------------
+
+The question of representing numbers and functions as sums of squares is one of the oldest in number theory. Its origins stretch back centuries, and its influence runs deep through modern mathematics.
+
+\subsection{Sums of Squares of Integers}
+
+The most ancient form of this question is deceptively simple: \emph{which positive integers can be written as a sum of squares?}
+
+\begin{enumerate}
+    \item \textbf{Sums of two squares.} A positive integer $n$ can be written as $n = a^2 + b^2$ for integers $a, b$ if and only if in the prime factorization of $n$, every prime of the form $4k+3$ appears to an even power. This characterization, due to Fermat, Euler, and later Gauss, connects sums of squares to the structure of the Gaussian integers $\mathbb{Z}[i]$.
+
+    \item \textbf{Sums of three squares.} Legendre proved that a positive integer is a sum of three squares if and only if it is not of the form $4^a(8b+7)$ for non-negative integers $a, b$. The excluded values---numbers like $7, 15, 23, 28, 31, \ldots$---cannot be represented.
+
+    \item \textbf{Sums of four squares.} The great theorem of \textbf{Lagrange} (1770) states that \emph{every} positive integer is a sum of four squares. That is, for every $n \geq 1$, there exist integers $a_1, a_2, a_3, a_4$ such that
+    \[
+        n = a_1^2 + a_2^2 + a_3^2 + a_4^2.
+    \]
+\end{enumerate}
+
+The four-square theorem deserves a sketch of its proof, since it is the historical template for Hilbert's problem.
+
+\subsection{Proof Sketch of Lagrange's Theorem}
+
+The proof rests on three ingredients: an algebraic identity, a pigeonhole argument, and a descent.
+
+\textbf{Step 1: Multiplicativity.} Euler discovered the identity
+\[
+    (a_1^2 + a_2^2 + a_3^2 + a_4^2)(b_1^2 + b_2^2 + b_3^2 + b_4^2) = c_1^2 + c_2^2 + c_3^2 + c_4^2
+\]
+where the $c_i$ are bilinear in the $a_i$ and $b_i$:
+\begin{align*}
+    c_1 &= a_1 b_1 - a_2 b_2 - a_3 b_3 - a_4 b_4,\\
+    c_2 &= a_1 b_2 + a_2 b_1 + a_3 b_4 - a_4 b_3,\\
+    c_3 &= a_1 b_3 - a_2 b_4 + a_3 b_1 + a_4 b_2,\\
+    c_4 &= a_1 b_4 + a_2 b_3 - a_3 b_2 + a_4 b_1.
+\end{align*}
+Thus if $m$ and $n$ are sums of four squares, so is $mn$. Since $1 = 1^2 + 0^2 + 0^2 + 0^2$, it suffices to prove that every prime $p$ is a sum of four squares.
+
+\textbf{Step 2: Every prime works.} The prime $2 = 1^2 + 1^2 + 0^2 + 0^2$ is immediate. For an odd prime $p$, consider the sets
+\[
+    A = \{a^2 \bmod p : a = 0,1,\ldots,(p-1)/2\},\qquad
+    B = \{-1-b^2 \bmod p : b = 0,1,\ldots,(p-1)/2\}.
+\]
+Each set contains $(p+1)/2$ distinct residues modulo $p$. By the pigeonhole principle, $A \cap B \neq \varnothing$, so there exist integers $a,b$ with $a^2 \equiv -1-b^2 \pmod{p}$. Hence
+\[
+    a^2 + b^2 + 1^2 + 0^2 = mp
+\]
+for some positive integer $m$. Since $|a|,|b| \leq (p-1)/2$, we have $mp < p^2$ and therefore $m < p$.
+
+\textbf{Step 3: Descent.} Let $mp = a_1^2 + a_2^2 + a_3^2 + a_4^2$ with $1 < m < p$. Choose integers $x_i$ such that $x_i \equiv a_i \pmod{m}$ and $-m/2 < x_i \leq m/2$. Then $x_1^2 + x_2^2 + x_3^2 + x_4^2 = m'm$ for some $0 < m' < m$. Now apply the Euler identity to the product $(mp)(m'm)$: the result is a sum of four squares, each term divisible by $m^2$. Dividing by $m^2$ shows that $m'p$ is a sum of four squares. Since $m' < m$, repeating this descent eventually reaches $m = 1$, proving that $p$ itself is a sum of four squares.
+
+By the multiplicative property, every positive integer is a sum of four squares. Lagrange's theorem is a beautiful and complete answer to the integer version of the question.
+
+\subsection{From Integers to Polynomials}
+
+Hilbert's insight was to ask the same question not for integers, but for \emph{polynomials} and \emph{rational functions}. If every positive integer is a sum of four squares, is every polynomial that is non-negative (on $\mathbb{R}$ or $\mathbb{Q}$) a sum of squares of polynomials?
+
+This is a natural question because polynomials behave in many ways like integers: they can be added, multiplied, and factored. The theory of quadratic forms---which studies expressions like $a_1 x_1^2 + a_2 x_2^2 + \cdots + a_n x_n^2$---was already well-developed by Hilbert's time, with deep results from Gauss, Hermite, Minkowski, and Hasse. Hilbert wanted to know whether this theory extended naturally to the polynomial setting.
+
+% ------------------------------------------------------------
+\section{Worked Examples: PSD vs.\ SOS}
+% ------------------------------------------------------------
+
+Before tackling Hilbert's problem in full generality, it is illuminating to examine some concrete cases. These examples reveal the subtle gap between polynomials that are \textbf{positive semidefinite} (PSD)---non-negative everywhere on $\mathbb{R}^n$---and those that are \textbf{sums of squares} (SOS) of polynomials.
+
+\subsection{A Trivial Example: $x^2 + y^2$}
+
+The polynomial $f(x,y) = x^2 + y^2$ is manifestly a sum of two squares:
+\[
+    x^2 + y^2 = x \cdot x + y \cdot y,
+\]
+so it is both PSD and SOS. This is the simplest illustration of the fact that every sum of squares is automatically PSD. The converse---is every PSD polynomial automatically SOS?---is the heart of Hilbert's problem.
+
+\subsection{Hilbert's Non-Constructive Result (1888)}
+
+In 1888, Hilbert proved a surprising theorem: for polynomials in two or more variables of degree at least $4$, \emph{not} every non-negative polynomial is a sum of squares of polynomials. His proof was non-constructive---it showed existence of such polynomials without producing a single explicit example. Hilbert used dimension-counting arguments on the cones of PSD and SOS forms, showing that the SOS cone is strictly contained in the PSD cone when $n \geq 2$ and $\deg f \geq 4$.
+
+This was a stunning result: it showed that the integer analogy breaks down for polynomials. Some non-negative polynomials simply cannot be written as sums of squares of polynomials. The question Hilbert posed in his 1900 address was whether allowing \emph{rational functions} instead of polynomials would remedy this gap.
+
+\subsection{The Motzkin Polynomial: An Explicit Counterexample}
+
+It took nearly eighty years for an explicit example to appear. In 1967, T. S. Motzkin published
+\[
+    M(x,y) = x^4 y^2 + x^2 y^4 - 3x^2 y^2 + 1.
+\]
+
+\begin{enumerate}
+    \item \textbf{$M$ is PSD.} By the arithmetic-geometric mean inequality,
+    \[
+        \frac{x^4 y^2 + x^2 y^4 + 1}{3} \geq \bigl(x^4 y^2 \cdot x^2 y^4 \cdot 1\bigr)^{1/3} = (x^6 y^6)^{1/3} = x^2 y^2.
+    \]
+    Thus $M(x,y) \geq 0$ for all real $x,y$, with equality when $x^4 y^2 = x^2 y^4 = 1$, i.e., when $x^2 = y^2 = 1$.
+
+    \item \textbf{$M$ is NOT a sum of squares of polynomials.} Suppose $M = \sum g_i^2$ where each $g_i \in \mathbb{R}[x,y]$ is a polynomial. Since $\deg M = 6$, each $g_i$ must have degree at most $3$. A degree-$3$ polynomial in $x,y$ is a linear combination of the monomials
+    \[
+        x^3,\; x^2y,\; xy^2,\; y^3,\; x^2,\; xy,\; y^2,\; x,\; y,\; 1.
+    \]
+    When squared, the term $x^4 y^2$ can only arise from $(x^2 y)^2$, and $x^2 y^4$ from $(x y^2)^2$. But any sum of squares that includes both $(x^2 y)^2$ and $(x y^2)^2$ necessarily produces the cross-term $2x^3 y^3$ (from the product $x^2 y \cdot xy^2$), and $M$ has no $x^3 y^3$ term. More generally, a systematic analysis of the Gram matrix of $M$ reveals that the required matrix of coefficients cannot be positive semidefinite---a concrete algebraic obstruction.
+
+    \item \textbf{$M$ IS a sum of squares of rational functions.} By Artin's theorem (proved forty years earlier), such a representation must exist. One explicit representation is
+    \[
+        M(x,y) = \frac{(x^2 y (x^2+y^2-2))^2}{(x^2+y^2)^2}
+               + \frac{(x y^2 (x^2+y^2-2))^2}{(x^2+y^2)^2}
+               + \frac{((x^2-y^2)(x^2+y^2-2))^2}{2(x^2+y^2)^2}
+               + \frac{(x^2+y^2-1)^2}{(x^2+y^2)^2}.
+    \]
+    (Verification is a straightforward algebraic simplification.)
+\end{enumerate}
+
+The Motzkin polynomial is the canonical example of the gap between PSD and SOS: it is PSD but not SOS of polynomials, yet it \emph{is} SOS of rational functions. This illustrates precisely why Hilbert's question is about rational functions rather than polynomials.
+
+% ------------------------------------------------------------
+\section{The Problem}
+% ------------------------------------------------------------
+
+\begin{problem_statement}[Hilbert's Seventeenth Problem]
+Let $f$ be a polynomial in $n$ variables with real coefficients that is \textbf{positive semidefinite}---that is, $f(x_1, \ldots, x_n) \geq 0$ for all $(x_1, \ldots, x_n) \in \mathbb{R}^n$. Can $f$ always be written as a \textbf{sum of squares} of rational functions? That is, does there exist a representation
+\[
+    f = g_1^2 + g_2^2 + \cdots + g_k^2
+\]
+where $g_1, g_2, \ldots, g_k$ are rational functions (ratios of polynomials) with real coefficients?
+\end{problem_statement}
+
+This question has several layers that deserve careful attention.
+
+\subsection{What Does ``Represented as a Sum of Squares'' Mean?}
+
+We say a polynomial $f$ is \textbf{represented} by the quadratic form $g_1^2 + g_2^2 + \cdots + g_k^2$ if the identity
+\[
+    f \equiv g_1^2 + g_2^2 + \cdots + g_k^2
+\]
+holds as an identity of rational functions---that is, it holds for all values of the variables (where the denominators do not vanish). The $g_i$ need not be polynomials; they are allowed to be rational functions, meaning $g_i = p_i/q_i$ for polynomials $p_i, q_i$.
+
+\subsection{Polynomials vs.\ Rational Functions}
+
+A crucial subtlety is the distinction between \emph{sums of squares of polynomials} and \emph{sums of squares of rational functions}. As the Motzkin polynomial shows, the former is strictly weaker than the latter: allowing rational functions gives strictly more expressive power. Hilbert's question was precisely about this: \emph{does allowing rational functions always suffice?}
+
+\subsection{Relation to the Theory of Quadratic Forms}
+
+Hilbert's problem can also be viewed as a question about quadratic forms over the field $\mathbb{R}(x_1,\ldots,x_n)$ of rational functions. A rational function $g$ is a sum of squares precisely when the quadratic form $q = g$ is represented by the standard sum-of-squares form. In this language, Hilbert asks: is every positive semidefinite rational function contained in the cone generated by squares in $\mathbb{R}(x_1,\ldots,x_n)$? This perspective connects the problem to the algebraic theory of quadratic forms, where the Hasse--Minkowski theorem and the theory of Pfister forms provide powerful tools.
+
+% ------------------------------------------------------------
+\section{Key Developments}
+% ------------------------------------------------------------
+
+\subsection{Emil Artin's Theorem (1927)}
+
+The answer to Hilbert's question is \emph{yes}. This was proved by the Austrian mathematician \textbf{Emil Artin} (1898--1962) in 1927, when he was just 28 years old.
+
+\begin{theorem}[Artin, 1927]
+\label{thm:artin}
+Let $f \in \mathbb{R}[x_1, \ldots, x_n]$ be a polynomial that is non-negative on $\mathbb{R}^n$. Then $f$ can be written as a sum of squares of rational functions with real coefficients.
+\end{theorem}
+
+Artin's proof was a landmark in algebra and real algebraic geometry. Rather than constructing the rational functions explicitly (which is in general impossible), Artin proved their \emph{existence} using deep results from the theory of ordered fields.
+
+\subsection{The Proof Idea: Ordered Fields and Formally Real Fields}
+
+Artin's approach connects Hilbert's problem to the theory of \textbf{formally real fields}---fields in which $-1$ is not a sum of squares.
+
+The key idea is the following. Consider the field $\mathbb{R}(x_1, \ldots, x_n)$ of rational functions in $n$ variables over $\mathbb{R}$. A rational function $g$ can be evaluated at any point where its denominator does not vanish, and we say $g$ is \emph{non-negative} if $g(\mathbf{a}) \geq 0$ at all points $\mathbf{a} \in \mathbb{R}^n$ where $g$ is defined. This notion of non-negativity defines a partial order on $\mathbb{R}(x_1,\ldots,x_n)$, but it does \emph{not} extend to a total ordering compatible with field operations.
+
+Artin's insight was to study all possible total orderings of $\mathbb{R}(x_1,\ldots,x_n)$ that extend the usual ordering of $\mathbb{R}$. The key theorem from the Artin--Schreier theory of ordered fields states:
+
+\begin{theorem}[Artin--Schreier]
+A field $K$ is formally real if and only if it admits a total ordering compatible with its field operations. Moreover, in a formally real field $K$, an element $a$ is a sum of squares in $K$ if and only if $a$ is non-negative in \emph{every} ordering of $K$.
+\end{theorem}
+
+The field $\mathbb{R}(x_1,\ldots,x_n)$ is formally real because it embeds in $\mathbb{R}$ (choose any point where all rational functions in question are defined). The proof of Artin's theorem proceeds in two steps:
+
+\begin{enumerate}
+    \item Show that if a polynomial $f$ is non-negative on $\mathbb{R}^n$, then $f$ is non-negative in \emph{every} ordering of $\mathbb{R}(x_1,\ldots,x_n)$. This is the hard part, and it relies on the fact that every ordering of a rational function field can be ``specialized'' to a point in $\mathbb{R}^n$: if $f$ were negative in some ordering, then that ordering would force $f$ to be negative at some real point, contradicting the hypothesis that $f \geq 0$ on $\mathbb{R}^n$. The technical tool here is the \textbf{real spectrum} of $\mathbb{R}[x_1,\ldots,x_n]$, which parametrizes all possible orderings.
+    \item By the Artin--Schreier theorem, an element of a formally real field that is non-negative in every ordering is a sum of squares in that field. Since $\mathbb{R}(x_1,\ldots,x_n)$ is formally real and $f$ is non-negative in all orderings, $f$ is a sum of squares of rational functions.
+\end{enumerate}
+
+This argument is a masterpiece of abstract algebra: it proves the existence of a representation without constructing it.
+
+\subsection{Schreier's Contributions}
+
+Artin's work built on earlier results by \textbf{Otto Schreier} (1901--1929), who had studied the structure of orderings on fields. Schreier proved that the set of orderings on a field forms a topological space, and that formally real fields have a rich structure of orderings. Artin's theorem exploited this structure in a precise way.
+
+Schreier's work was cut short by his untimely death at age 28, just two years after Artin's proof. But his contributions to the theory of orderings were foundational.
+
+\subsection{The Real Nullstellensatz and Positivstellensatz}
+
+Artin's theorem is part of a larger family of results known as \textbf{real algebraic geometry}. The most important generalization is the \textbf{Positivstellensatz}, proved by Stengle in 1974.
+
+\begin{theorem}[Stengle's Positivstellensatz, 1974]
+Let $f, g_1, \ldots, g_m, h_1, \ldots, h_r \in \mathbb{R}[x_1,\ldots,x_n]$, and let
+\[
+    S = \{x \in \mathbb{R}^n : g_1(x) \geq 0, \ldots, g_m(x) \geq 0,\; h_1(x) \neq 0, \ldots, h_r(x) \neq 0\}.
+\]
+If $f(x) > 0$ for all $x \in S$, then there exist sums of squares $\sigma_0, \sigma_1, \ldots, \sigma_m$ of polynomials and polynomials $\tau_J, \eta_K$ such that
+\[
+    f = \sigma_0 + \sum_{i=1}^m \sigma_i g_i + \sum_{J \subseteq \{1,\ldots,m\}} \tau_J \prod_{j \in J} g_j + \sum_{K \subseteq \{1,\ldots,r\}} \eta_K \prod_{k \in K} h_k^2,
+\]
+where each product in the last sum is squared. In particular, $f$ can be expressed as a combination of the $g_i$ and $h_k$ with SOS coefficients.
+\end{theorem}
+
+The Positivstellensatz is a \emph{certificate theorem}: it provides an algebraic proof of any strict polynomial inequality on a semialgebraic set. When the $g_i$ are absent and $f \geq 0$ on all of $\mathbb{R}^n$ (so $m = r = 0$), the theorem reduces to Artin's result that $f$ is a sum of squares of rational functions. In this sense, the Positivstellensatz is a far-reaching generalization of Artin's theorem.
+
+Closely related is the \textbf{Real Nullstellensatz}:
+\[
+    I_{\mathbb{R}}(V_{\mathbb{R}}(I)) = \sqrt[R]{I},
+\]
+where $\sqrt[R]{I}$, the real radical of an ideal $I$, consists of polynomials $f$ such that $f^{2m} + \sum g_i^2 \in I$ for some $m$ and some $g_i$. This characterizes exactly which polynomials vanish on the real zero set of an ideal, playing the role in real geometry that Hilbert's Nullstellensatz plays in complex geometry.
+
+\subsection{Modern Applications: SOS Optimization}
+
+Artin's theorem and the Positivstellensatz have found powerful applications in modern optimization. The key idea is the \textbf{sum-of-squares (SOS) hierarchy}, developed independently by Pablo Parrilo and Jean-Bernard Lasserre around 2000.
+
+The core observation is this: checking whether a polynomial $f$ is non-negative is computationally hard (NP-hard in general). But checking whether $f$ is a sum of squares of polynomials is a \textbf{semidefinite program} (SDP)---a tractable convex optimization problem. By solving a sequence of SDP relaxations of increasing degree, we obtain increasingly tight lower bounds on the minimum of a polynomial.
+
+\begin{itemize}
+    \item \textbf{How it works.} Write $f = \mathbf{m}^T Q \mathbf{m}$ where $\mathbf{m}$ is the vector of monomials up to degree $\deg(f)/2$ and $Q$ is a symmetric matrix. Then $f$ is SOS if and only if $Q$ is positive semidefinite. The condition $Q \succeq 0$ is an SDP constraint. For a polynomial $f$ of degree $2d$, we can choose a monomial basis $\mathbf{m}$ of degree $\leq d$ and search for $Q \succeq 0$ such that $f(\mathbf{x}) = \mathbf{m}(\mathbf{x})^T Q \mathbf{m}(\mathbf{x})$ identically.
+    \item \textbf{The hierarchy.} For polynomial optimization $\min_{x \in \mathbb{R}^n} p(x)$ subject to $g_i(x) \geq 0$, we can relax the non-negativity of certain polynomial expressions to SOS conditions. The Lasserre hierarchy produces a sequence of SDP relaxations whose optimal values converge to the global minimum, often in few steps.
+    \item \textbf{Applications.} SOS optimization is used in control theory (Lyapunov function synthesis), robotics (motion planning, verification), power systems (optimal power flow), machine learning (certified robustness), and many other fields. Software toolboxes like YALMIP, SOSOPT, and TSSOS make these techniques accessible to practitioners.
+\end{itemize}
+
+The connection to Hilbert's problem is profound: Artin's theorem guarantees that the SOS hierarchy over rational functions is \emph{complete}---every non-negative polynomial has a certificate. The SOS hierarchy over polynomials, by contrast, is incomplete (as Motzkin shows), but computationally more convenient. Understanding this trade-off between completeness and tractability is an active area of research.
+
+\subsection{The Real Spectrum and Beyond}
+
+Artin's theorem can be understood through the lens of the \textbf{real spectrum} of a ring---a geometric object that encodes all orderings of a field or ring. The real spectrum of $\mathbb{R}[x_1, \ldots, x_n]$ consists of all prime ideals equipped with a sign function, and the connection to sums of squares is mediated by the Positivstellensatz.
+
+The modern formulation, due to Schweighofer and others, states roughly that a polynomial $f$ is a sum of squares in the fraction field if and only if it is non-negative on the real spectrum. This gives a complete algebraic characterization of when Hilbert's representation is possible, and it connects to deep results in model theory (the Tarski--Seidenberg theorem on quantifier elimination for the theory of real closed fields).
+
+% ------------------------------------------------------------
+\section{Current Status: Solved}
+% ------------------------------------------------------------
+
+\begin{solvedbox}
+Hilbert's Seventeenth Problem is \textbf{solved}. Emil Artin proved in 1927 that every non-negative polynomial over $\mathbb{R}$ is a sum of squares of rational functions. This theorem is a foundational result in real algebraic geometry, connecting the theory of ordered fields, formally real fields, and positive semidefinite forms. The distinction between sums of squares of polynomials (which do not always suffice, as shown by Motzkin) and sums of squares of rational functions (which always suffice, by Artin) is a key insight that continues to influence optimization, algebraic geometry, and the study of positive polynomials.
+\end{solvedbox}
+
+% ------------------------------------------------------------
+\section*{Common Questions}
+
+\begin{description}[font=\bfseries, leftmargin=2em, style=nextline]
+
+\item[Q: What's the difference between PSD and SOS?]\hfill\\
+A polynomial is \emph{positive semidefinite} (PSD) if it evaluates to a non-negative number for every real input. A polynomial is a \emph{sum of squares} (SOS) if it can be written as $\sum_i p_i(x)^2$, which automatically makes it PSD. The subtlety is that the converse is false: there exist PSD polynomials that are \emph{not} sums of squares of polynomials. Motzkin's polynomial $x^4 y^2 + x^2 y^4 + 1 - 3x^2 y^2$ is the classic example. However, as Artin proved, every PSD polynomial \emph{is} a sum of squares of \emph{rational functions}---this extra flexibility (allowing denominators) makes all the difference.
+
+\item[Q: Why does Artin's theorem use rational functions instead of polynomials?]\hfill\\
+If we only allow polynomial squares, Motzkin's polynomial (and many others) provide counterexamples: they are non-negative everywhere but cannot be expressed as $\sum p_i(x)^2$ with polynomial $p_i$. By allowing \emph{rational functions} (ratios of polynomials), we gain enough flexibility to represent every PSD polynomial. Intuitively, the denominators can cancel troublesome zeros or adjust signs in a way that pure polynomials cannot. This is the celebrated solution to Hilbert's 17th problem: $\mathbb{R}[x_1,\dots,x_n]_{\geq 0} = \Sigma \mathbb{R}(x_1,\dots,x_n)^2$.
+
+\item[Q: How is this used in optimization?]\hfill\\
+Checking whether a polynomial is PSD is computationally hard (NP-hard in general), but checking whether it is SOS is a semidefinite program (SDP), which can be solved efficiently. This is the foundation of \emph{polynomial optimization}: relax a hard PSD constraint to an SOS constraint, solve the SDP, and obtain a provable lower bound. This technique powers sum-of-squares optimization, which is used in control theory, robotics, signal processing, and combinatorial optimization. The gap between PSD and SOS is precisely the gap between the true optimum and the SDP relaxation.
+
+\item[Q: What was Hilbert's original question?]\hfill\\
+Hilbert asked whether every non-negative polynomial in $n$ variables over $\mathbb{R}$ can be represented as a sum of squares of rational functions. He already knew that for $n=1$ (single-variable polynomials) every non-negative polynomial is a sum of two squares of polynomials, and for $n=2$ (bivariate) every non-negative form of degree $2$ is a sum of three squares. But for more variables and higher degrees, he suspected rational functions might be required. Artin confirmed this in 1927 using the theory of real closed fields.
+
+\item[Q: What is the connection to ordered fields?]\hfill\\
+Artin's solution uses the theory of \emph{formally real fields}---fields in which $-1$ is not a sum of squares. Every ordered field is formally real. Artin showed that a polynomial is PSD if and only if it remains non-negative in every ordering of the field $\mathbb{R}(x_1,\dots,x_n)$ that extends the usual ordering of $\mathbb{R}$. Then, using a theorem of Sturmfels and the Tarski--Seidenberg principle, he concluded that such a polynomial must be a sum of squares of rational functions. This viewpoint links Hilbert's 17th problem to the model theory of real closed fields.
+
+\item[Q: What is the state of the art on the PSD vs. SOS gap?]\hfill\\
+The gap between PSD and SOS is well understood theoretically: there are PSD polynomials that require SOS representations with arbitrarily high degree denominators. The Motzkin polynomial is the simplest example. The gap also has practical implications: SOS relaxations can be tightened by increasing the degree of the SDP, at computational cost. There is active research on structured PSD polynomials (e.g., symmetric, sparse, or determinantal) that are ``PSD = SOS'' for their specific class, and on using techniques like Reznick's theorem (which gives explicit bounds for positive definite forms).
+
+\item[Q: Why does the title mention ``quadratic forms'' along with sums of squares?]\hfill\\
+Hilbert originally listed the problem as ``\emph{Representation of definite forms by sums of squares}.'' A quadratic form $Q(x) = x^T A x$ is PSD iff the matrix $A$ is positive semidefinite, and it is automatically a sum of squares (by the Cholesky or spectral decomposition). The interesting difficulty starts with \emph{higher-degree} forms (degree $\geq 4$). The quadratic forms part of the title acknowledges that Hilbert was thinking about generalizing Lagrange's four-square theorem to higher-degree homogeneous polynomials, while the sums-of-squares formulation captures the full problem.
+
+\end{description}
+
+% ------------------------------------------------------------
+\section*{Exercises}
+% ------------------------------------------------------------
+
+\begin{enumerate}
+
+    \item \textbf{Lagrange's Four-Square Theorem.}
+    \begin{enumerate}
+        \item Verify the Euler four-square identity:
+        \[
+            (a_1^2 + a_2^2 + a_3^2 + a_4^2)(b_1^2 + b_2^2 + b_3^2 + b_4^2) = c_1^2 + c_2^2 + c_3^2 + c_4^2
+        \]
+        where $c_1 = a_1 b_1 - a_2 b_2 - a_3 b_3 - a_4 b_4$, $c_2 = a_1 b_2 + a_2 b_1 + a_3 b_4 - a_4 b_3$, $c_3 = a_1 b_3 - a_2 b_4 + a_3 b_1 + a_4 b_2$, $c_4 = a_1 b_4 + a_2 b_3 - a_3 b_2 + a_4 b_1$. (This is a computation, but a rewarding one.)
+        \item Using this identity, explain why the set of integers that are sums of four squares is closed under multiplication.
+        \item Use the pigeonhole argument to show that for any odd prime $p$, there exist integers $a,b$ with $a^2 + b^2 + 1 \equiv 0 \pmod{p}$.
+    \end{enumerate}
+
+    \item \textbf{Motzkin's Polynomial.}
+    \begin{enumerate}
+        \item Verify that $M(x,y) = x^4 y^2 + x^2 y^4 - 3x^2 y^2 + 1 \geq 0$ for all real $(x,y)$. (Hint: Use the AM-GM inequality on the terms $x^4 y^2$, $x^2 y^4$, and $1$.)
+        \item Explain why $M$ cannot be a sum of squares of polynomials. (Hint: Consider the degree and the terms of $M$.)
+        \item Find an explicit representation of $M$ as a sum of squares of rational functions. (Hint: Try expressions of the form $\frac{p(x,y)}{x^2 + y^2}$ for simple polynomials $p$.)
+    \end{enumerate}
+
+    \item \textbf{Sums of Squares and Positive Semidefiniteness.}
+    \begin{enumerate}
+        \item Show that if $f = g_1^2 + g_2^2 + \cdots + g_k^2$ is a sum of squares of rational functions, then $f \geq 0$ wherever the $g_i$ are defined. (This is the easy direction.)
+        \item Is the converse true? That is, is every non-negative rational function a sum of squares of rational functions? Discuss in light of Artin's theorem.
+    \end{enumerate}
+
+    \item \textbf{Two Variables.}
+    \begin{enumerate}
+        \item Show that every non-negative polynomial in one variable, $f(x) \in \mathbb{R}[x]$, is a sum of squares of polynomials. (Hint: Factor $f$ over $\mathbb{C}$ and pair conjugate roots.)
+        \item Show that the polynomial $f(x,y) = x^2 + y^2$ is a sum of squares of polynomials (trivially). Is it a sum of squares of \emph{rational functions} in a non-trivial way?
+    \end{enumerate}
+
+    \item \textbf{Simple PSD Examples.}
+    \begin{enumerate}
+        \item Show that $x^2 y^2$ is a sum of squares of polynomials (trivially).
+        \item Determine whether $f(x,y) = x^4 + y^4 - x^2 y^2$ is PSD. Is it a sum of squares of polynomials? (Hint: Consider the substitution $u = x^2$, $v = y^2$ and examine $u^2 + v^2 - uv$.)
+        \item Show that $f(x,y) = x^2 + xy + y^2$ is PSD and write it as a sum of squares explicitly.
+    \end{enumerate}
+
+    \item \textbf{Ordered Fields.}
+    \begin{enumerate}
+        \item Explain what it means for a field to be \emph{formally real}. Give an example of a field that is formally real and one that is not.
+        \item The field $\mathbb{Q}$ of rational numbers is formally real. Is $\mathbb{Q}(\sqrt{2})$ formally real? Is $\mathbb{Q}(i)$? Justify your answers.
+        \item Show that the field $\mathbb{R}(x)$ of rational functions in one variable is formally real. Why does this not contradict the fact that $x^2+1$ has no real roots?
+    \end{enumerate}
+
+    \item \textbf{Toward the Positivstellensatz.} Let $f(x) = (x^2-1)^2$ and $g(x) = 1-x^2$. Observe that $f(x) \geq 0$ on $\{x \in \mathbb{R} : g(x) \geq 0\} = [-1,1]$. Find an algebraic certificate of the form $f = \sigma_0 + \sigma_1 g$ with $\sigma_0, \sigma_1$ sums of squares of polynomials. (This is a baby version of the Positivstellensatz.)
+
+    \item[$\star$] \textbf{The SOS Hierarchy.} In optimization, the \textbf{sum-of-squares (SOS) hierarchy} is a sequence of semidefinite programs that provide increasingly tight approximations to the set of non-negative polynomials. Research and explain in one or two paragraphs: how does the SOS hierarchy work? Why is it computationally tractable even though the exact characterization of non-negative polynomials is hard? What is the connection to Artin's theorem?
+
+\end{enumerate}

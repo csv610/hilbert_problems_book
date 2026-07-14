@@ -1,0 +1,242 @@
+% ============================================================
+% Chapter 16: Problem 15 — Schubert's Enumerative Calculus
+% ============================================================
+
+\chapter{Schubert's Enumerative Calculus}
+
+% ------------------------------------------------------------
+\section{Historical Context}
+% ------------------------------------------------------------
+
+\textbf{Enumerative geometry} is one of the oldest branches of mathematics. Its central question is disarmingly simple: \emph{how many geometric objects of a given type satisfy a specified set of conditions?}
+
+The ancient Greeks asked such questions. Apollonius of Perga (c.~262--190~BCE) determined how many circles can be drawn tangent to three given circles---the famous \textbf{Problem of Apollonon}, which has up to~8 solutions. In the seventeenth century, Blaise Pascal asked how many points of intersection a curve of degree~$m$ and a curve of degree~$n$ can have, arriving at his remarkable \textbf{hexagrammum mysticum} theorem. These are enumerative questions: count the solutions.
+
+By the nineteenth century, enumerative geometry had become a thriving discipline. Mathematicians posed ever more elaborate counting problems:
+
+\begin{itemize}
+    \item \textbf{How many lines lie on a cubic surface?} A smooth cubic surface in $\mathbb{P}^3$ (defined by a degree-3 polynomial in four homogeneous variables) always contains exactly \textbf{27 lines}. This astonishing fact was discovered by Arthur Cayley and George Salmon in 1849, and the number~27 has captivated geometers ever since.
+
+    \item \textbf{How many conics are tangent to five given conics in the plane?} The answer, found by Georges--Henri Beauville and others, is~\textbf{3264}. This number arises from a careful intersection-theoretic computation on a suitable parameter space.
+
+    \item \textbf{How many straight lines pass through exactly 4 of 10 general points in $\mathbb{P}^3$?} The answer is~\textbf{1}. Such questions about configurations of points and lines pervade classical geometry.
+\end{itemize}
+
+But how does one \emph{prove} that these numbers are correct? For the 27 lines, one can verify the answer by direct computation. But for harder problems---like counting the conics tangent to five conics---direct enumeration is impractical. What is needed is a \emph{systematic theory}: a calculus for computing intersection numbers on parameter spaces.
+
+This theory was invented by the German mathematician \textbf{Hermann Schubert} (1848--1911) in the 1870s and 1880s. Schubert introduced what are now called \textbf{Schubert calculus}---a set of rules for computing intersection numbers on the \textbf{Grassmannian}, the parameter space of all linear subspaces of a given dimension inside a fixed vector space. Using these rules, Schubert was able to count solutions to enumerative problems that had resisted simpler methods.
+
+But Schubert's work was not rigorous by modern standards. He argued by analogy and geometric intuition, using methods that contemporary mathematicians recognized as powerful but not fully justified. The question of giving Schubert's calculus a \emph{rigorous mathematical foundation}---placing it on firm ground using the tools of modern algebra and topology---was one that Hilbert posed as his fifteenth problem.
+
+% ------------------------------------------------------------
+\section{The Problem}
+% ------------------------------------------------------------
+
+\begin{problem_statement}[Hilbert's Fifteenth Problem]
+Give a rigorous foundation to Schubert's enumerative calculus---that is, develop a systematic and rigorous theory of intersection numbers on algebraic varieties, particularly on the Grassmannian and its generalizations, that validates and extends the results of Schubert.
+\end{problem_statement}
+
+Hilbert was not asking for a computation of any specific number. He was asking for \emph{foundations}: a framework in which Schubert's intuitive arguments could be placed on rigorous footing, and in which new enumerative problems could be attacked systematically. This is a question about the \emph{structure} of intersection theory on algebraic varieties.
+
+To appreciate the scope of this request, consider what Schubert needed. The \textbf{Grassmannian} $\Gr(k, n)$ is the space of all $k$-dimensional linear subspaces of an $n$-dimensional vector space. For example, $\Gr(1, 3)$---the space of lines through the origin in $\mathbb{R}^3$---is the real projective plane $\mathbb{P}^2$. The Grassmannian is a smooth projective algebraic variety, and enumerative questions like ``how many lines lie on a cubic surface?'' translate into questions about \emph{intersection numbers} on $\Gr(k, n)$.
+
+Schubert introduced special subvarieties of the Grassmannian---now called \textbf{Schubert varieties}---corresponding to subspaces that satisfy certain position conditions with respect to a fixed sequence of nested subspaces (a \textbf{flag}). These subvarieties have natural classes in the cohomology of the Grassmannian, and Schubert's ``calculus'' amounts to computing products of these classes. Hilbert wanted this computation justified.
+
+% ------------------------------------------------------------
+\section{Key Developments}
+% ------------------------------------------------------------
+
+\subsection{The Grassmannian and Schubert Classes}
+
+Let us fix notation. Work over an algebraically closed field (typically $\mathbb{C}$). The \textbf{Grassmannian} $\Gr(k, n)$ parameterizes $k$-dimensional linear subspaces of $\mathbb{C}^n$. It is a smooth projective variety of dimension $k(n-k)$.
+
+\begin{definition}[Schubert variety]
+Fix a \textbf{flag}---a sequence of nested subspaces
+\[
+    0 = F_0 \subset F_1 \subset F_2 \subset \cdots \subset F_n = \mathbb{C}^n
+\]
+with $\dim F_i = i$. Given a sequence of integers $\sigma = (a_1, a_2, \ldots, a_k)$ with $n - k \geq a_1 \geq a_2 \geq \cdots \geq a_k \geq 0$, the \textbf{Schubert variety} $\Sigma_\sigma$ is the set of $k$-planes $V \in \Gr(k, n)$ such that
+\[
+    \dim(V \cap F_{n - k + i - a_i}) \geq i \quad \text{for each } i = 1, 2, \ldots, k.
+\]
+The sequence $\sigma = (a_1, \ldots, a_k)$ is called a \textbf{partition} fitting inside a $k \times (n-k)$ rectangle.
+\end{definition}
+
+Each Schubert variety $\Sigma_\sigma$ has dimension $|\sigma| = a_1 + a_2 + \cdots + a_k$, and its \textbf{cohomology class} $[\Sigma_\sigma] \in H^{2(k(n-k) - |\sigma|)}(\Gr(k,n))$ is independent of the choice of flag (for generic flags). The collection of these classes forms a $\mathbb{Z}$-basis for the cohomology ring:
+
+\begin{theorem}
+The cohomology ring $H^*(\Gr(k,n), \mathbb{Z})$ is freely generated as a $\mathbb{Z}$-module by the Schubert classes $\sigma_\lambda$ indexed by partitions $\lambda$ fitting inside a $k \times (n-k)$ box:
+\[
+    H^*(\Gr(k,n), \mathbb{Z}) = \bigoplus_{\lambda \subseteq k \times (n-k)} \mathbb{Z} \cdot \sigma_\lambda.
+\]
+\end{theorem}
+
+Schubert's calculus, then, amounts to computing \emph{intersection products} of these classes. If $\lambda$ and $\mu$ are partitions, what is $\sigma_\lambda \cdot \sigma_\mu$ in the cohomology ring? The answer is given by the \textbf{Littlewood--Richardson rule}:
+
+\begin{theorem}[Littlewood--Richardson Rule]
+For partitions $\lambda, \mu$ of size $|\lambda|$ and $|\mu|$, the product
+\[
+    \sigma_\lambda \cdot \sigma_\mu = \sum_{\nu} c_{\lambda\mu}^{\nu} \, \sigma_\nu
+\]
+where the sum is over partitions $\nu$ with $|\nu| = |\lambda| + |\mu|$ and $c_{\lambda\mu}^{\nu}$ are non-negative integers called the \textbf{Littlewood--Richardson coefficients}. These coefficients count certain combinatorial objects---specifically, \textbf{Yamanouchi words} or \textbf{reverse lattice words} obtained from a semistandard Young tableau of shape $\nu / \lambda$ and content $\mu$.
+\end{theorem}
+
+The Littlewood--Richardson rule is a beautiful synthesis of combinatorics and geometry: the algebraic problem of computing cohomology products on the Grassmannian is solved by a purely combinatorial algorithm involving tableaux and words. Schubert's intuitive rules are vindicated and extended.
+
+\subsection{Modern Intersection Theory: Fulton and MacPherson}
+
+While the Grassmannian is the most classical setting for Schubert calculus, Hilbert's problem calls for a general theory of intersection numbers on \emph{arbitrary} algebraic varieties. This was achieved in a landmark work by \textbf{William Fulton} and \textbf{Robert MacPherson} in the 1980s.
+
+\begin{definition}[Intersection multiplicity]
+Let $X$ be a smooth variety, and let $V$ and $W$ be subvarieties of $X$ meeting properly (i.e., every irreducible component of $V \cap W$ has codimension in $X$ equal to $\codim V + \codim W$). The \textbf{intersection multiplicity} of $V$ and $W$ at a component $Z$ of $V \cap W$ is a local integer $\operatorname{mult}_Z(V, W)$ that generalizes the familiar notion from Bézout's theorem.
+\end{definition}
+
+Fulton's \emph{Intersection Theory} (1984) provides a complete and rigorous foundation:
+
+\begin{itemize}
+    \item For any pair of subvarieties $V, W$ of a smooth variety $X$ meeting properly, there is a well-defined \textbf{intersection product}
+    \[
+        [V] \cdot [W] = \sum_Z \operatorname{mult}_Z(V, W) \cdot [Z]
+    \]
+    in the Chow ring $A_*(X)$ of $X$, satisfying all the expected properties (linearity, symmetry, projection formula, etc.).
+
+    \item The theory extends to \textbf{singular} varieties via \textbf{resolution of singularities}: one pulls back to a smooth ambient space and computes there.
+
+    \item Fulton and MacPherson developed a beautiful \textbf{refined intersection product} on the Chow ring of singular varieties, allowing intersection-theoretic computations even when the varieties are not smooth.
+\end{itemize}
+
+This framework gives Hilbert's fifteenth problem a satisfying answer: Schubert's calculus is a special case of Fulton's intersection theory applied to the Grassmannian. Every intersection number that Schubert computed (and many he could not) can be rigorously justified within this framework.
+
+\subsection{Schubert Calculus via Characteristic Classes}
+
+There is another perspective on Schubert classes that connects enumerative geometry to topology. The cohomology classes of Schubert varieties in the Grassmannian can be identified with \textbf{characteristic classes} of vector bundles.
+
+Recall that the Grassmannian $\Gr(k, n)$ carries a natural \textbf{tautological bundle} $\mathcal{S}$---the rank-$k$ subbundle whose fiber over a point $[V]$ is the subspace $V \subset \mathbb{C}^n$. The Schubert classes can be expressed in terms of the \textbf{Chern classes} of $\mathcal{S}$ and its complement $\mathcal{Q} = \mathbb{C}^n / \mathcal{S}$ (the \textbf{quotient bundle}).
+
+For example, in $\Gr(1, n) = \mathbb{P}^{n-1}$, the Schubert class $\sigma_1$ is the hyperplane class $c_1(\mathcal{Q})$. More generally:
+
+\begin{theorem}
+The cohomology ring of the Grassmannian can be presented as a \textbf{quotient of a polynomial ring}:
+\[
+    H^*(\Gr(k,n), \mathbb{Z}) \cong \mathbb{Z}[c_1, c_2, \ldots, c_k, \bar{c}_1, \bar{c}_2, \ldots, \bar{c}_{n-k}] / I
+\]
+where $c_i = c_i(\mathcal{S})$, $\bar{c}_j = c_j(\mathcal{Q})$, and $I$ is the ideal generated by the relations $c(\mathcal{S}) \cdot c(\mathcal{Q}) = 1$ in the total Chern class.
+\end{theorem}
+
+This presentation makes the connection to characteristic classes explicit: enumerative geometry on the Grassmannian \emph{is} the theory of Chern classes. Schubert's calculus is not just a combinatorial artifact---it reflects deep topological structure.
+
+\subsection{Quantum Cohomology and Gromov--Witten Invariants}
+
+The story of enumerative geometry did not end with the rigorous foundations of the 1980s. In the 1990s, a revolutionary new idea emerged: \textbf{quantum cohomology}, which enriches the classical cohomology ring of a variety with information about \emph{rational curves}.
+
+Classical intersection theory counts solutions to polynomial equations. But many enumerative problems ask not just about the \emph{intersection} of subvarieties, but about the existence and multiplicity of \textbf{rational curves}---maps $\mathbb{P}^1 \to X$---satisfying given conditions. For instance: how many rational curves of degree $d$ pass through a given collection of points in a variety $X$?
+
+The answer is encoded in the \textbf{Gromov--Witten invariants} of $X$, defined by integrating against the fundamental class of the \textbf{moduli space} $\overline{\mathcal{M}}_{0,n}(X, d)$ of stable maps from genus-zero curves with $n$ marked points to $X$ in class $d$:
+
+\[
+    \langle \alpha_1, \ldots, \alpha_n \rangle_{0, d, X} = \int_{[\overline{\mathcal{M}}_{0,n}(X,d)]^{\mathrm{virt}}} \operatorname{ev}_1^*(\alpha_1) \cup \cdots \cup \operatorname{ev}_n^*(\alpha_n)
+\]
+where $\operatorname{ev}_i$ are the evaluation maps at the $n$ marked points, and $[\overline{\mathcal{M}}_{0,n}(X,d)]^{\mathrm{virt}}$ is the \textbf{virtual fundamental class}---a brilliant technical device introduced by Behrend and Fantechi to handle the fact that the moduli space of maps need not be smooth or of the expected dimension.
+
+The \textbf{quantum cohomology ring} $QH^*(X)$ is a deformation of the classical cohomology ring $H^*(X)$, where the ordinary cup product is replaced by a \textbf{quantum product} $\star$:
+\[
+    \alpha \star \beta = \sum_{d \geq 0} q^d \sum_{\gamma} \langle \alpha, \beta, \gamma^{\vee} \rangle_{0,d,X} \, \gamma
+\]
+where $\{\gamma\}$ is a basis for $H^*(X)$ and $\{\gamma^{\vee}\}$ is the dual basis. The variable $q$ tracks the degree of the rational curves. This product is associative (by the WDVV equation---the Witten--Dijkgraaf--Verlinde--Verlinde equation) and contains rich geometric information.
+
+For the Grassmannian, the quantum cohomology ring $QH^*(\Gr(k,n))$ has been computed explicitly by Bertram, Ciocan-Fontanine, Kim, and others, and its structure reveals deep connections to representation theory and integrable systems.
+
+\subsection{Mirror Symmetry and Further Developments}
+
+The theory of Gromov--Witten invariants and quantum cohomology connects to one of the most surprising developments in modern mathematics: \textbf{mirror symmetry}.
+
+Mirror symmetry originated in string theory as a conjecture that certain pairs of Calabi--Yau manifolds (complex manifolds with trivial canonical bundle) should give rise to equivalent physics. Mathematically, this translates into the statement that the quantum cohomology of one manifold (the ``A-model'') is related to the variation of Hodge structure on the other (the ``B-model''). For the quintic threefold---a Calabi--Yau manifold defined by a degree-5 polynomial in $\mathbb{P}^4$---mirror symmetry, as developed by Candelas, de la Ossa, Green, and Parkes, allowed the computation of \emph{all} genus-zero Gromov--Witten invariants, counting rational curves of every degree. The answers involve the golden ratio and nested radicals---beauty that surprised even the experts.
+
+Mirror symmetry has since become a fertile source of conjectures and theorems in enumerative geometry, connecting it to modular forms, knot theory, and integrable hierarchies. The Yukawa coupling on the mirror side---which encodes three-point Gromov--Witten invariants---can be computed by solving differential equations, yielding enumerative predictions of extraordinary precision.
+
+Beyond mirror symmetry, the landscape of enumerative geometry continues to expand:
+
+\begin{itemize}
+    \item \textbf{Tropical geometry} provides a combinatorial shadow of algebraic geometry in which intersection numbers on toric varieties become piecewise-linear computations.
+    \item \textbf{Equivariant intersection theory} on flag varieties and Bott--Samelson varieties refines Schubert calculus with group actions, connecting to representation theory via the Borel--Weil--Bott theorem.
+    \item \textbf{Positive geometry} and \textbf{amplituhedra}, introduced by Arkani-Hamed and Trnka in the study of scattering amplitudes in particle physics, suggest that enumerative geometry has a deeper combinatorial foundation yet to be uncovered.
+\end{itemize}
+
+% ------------------------------------------------------------
+\section{Current Status: Partially Solved}
+% ------------------------------------------------------------
+
+\begin{partiallybox}
+Hilbert's fifteenth problem is \textbf{partially solved}. The foundational question---giving a rigorous theory of intersection numbers on algebraic varieties---was answered definitively by Fulton and MacPherson in the 1980s. Schubert calculus on the Grassmannian is fully understood via the Littlewood--Richardson rule, Schubert polynomials, and the cohomology of flag varieties. Quantum cohomology and Gromov--Witten theory extend enumerative geometry to curve-counting problems, with mirror symmetry providing powerful computational tools. However, many enumerative questions remain open or only partially answered: higher-genus curve counting, enumerative geometry over non-algebraically-closed fields, and the search for a unified foundation that encompasses all known intersection-theoretic frameworks are active areas of research. The spirit of Hilbert's challenge---to understand the deep structure behind counting solutions to geometric problems---continues to drive modern mathematics.
+\end{partiallybox}
+
+% ------------------------------------------------------------
+\section*{Common Questions}
+
+\begin{description}[font=\bfseries, leftmargin=2em, style=nextline]
+
+\item[Q: What does ``enumerative'' mean in this context?]\hfill\\
+Enumerative geometry asks ``how many?'' questions about geometric configurations: How many lines pass through two points in the plane? (One.) How many circles are tangent to three given circles? (Eight, by Apollonius.) How many conics pass through five points? (One.) Schubert calculus provides algebraic tools to answer such questions systematically for families of subspaces (like lines, planes, and their higher-dimensional analogues) intersecting given constraints.
+
+\item[Q: Why was Schubert's calculus controversial?]\hfill\\
+Schubert's ``Principle of Conservation of Number'' asserted that the number of solutions to an enumerative problem stays constant as you deform the constraints---provided you count complex solutions and account for multiplicities. This was a powerful heuristic, but without rigorous foundations, it led to errors. Hilbert's 15th problem called for a rigorous foundation, which was eventually provided by intersection theory in algebraic geometry (Chow rings, Chern classes, and the work of Fulton, MacPherson, and others). The controversy was essentially about whether Schubert's enumerative ``magic'' could be trusted.
+
+\item[Q: What is a Grassmannian and why does it matter?]\hfill\\
+The Grassmannian $\Gr(k, n)$ is the set of all $k$-dimensional subspaces of an $n$-dimensional vector space. It is itself a geometric object (a projective algebraic variety). Schubert calculus studies intersection numbers on Grassmannians, which directly answer enumerative questions: for example, the number of lines in $\mathbb{P}^3$ meeting four given lines in general position is 2, which is computed as an intersection product on $\Gr(2, 4)$. Grassmannians are the natural playground for enumerative geometry.
+
+\item[Q: What is a Schubert cell or Schubert variety?]\hfill\\
+A Schubert cell is a subset of a Grassmannian defined by incidence conditions with respect to a fixed flag of subspaces. For example, in $\Gr(2, 4)$, you can fix a line $\ell$ and a plane $P$ containing it, then consider all 2-planes that intersect $\ell$ and lie in $P$ in specified dimensional ways. Schubert cells give a cell decomposition of the Grassmannian, and their closures---Schubert varieties---generate the cohomology ring. The intersection numbers of Schubert varieties encode the answers to enumerative questions.
+
+\item[Q: How does the Littlewood--Richardson rule fit in?]\hfill\\
+The Littlewood--Richardson rule is a combinatorial algorithm for multiplying Schubert classes in the cohomology ring of a Grassmannian. The coefficients it produces are precisely the numbers that answer enumerative geometry questions---for example, the number of lines meeting four given lines. The rule connects Schubert calculus to representation theory (tensor products of $\mathrm{GL}_n$ representations) and combinatorics (Young tableaux), making it a beautiful crossroads of mathematics.
+
+\item[Q: What is quantum Schubert calculus?]\hfill\\
+Quantum Schubert calculus is a modern extension that counts curves (not just intersections) on Grassmannians. While classical Schubert calculus counts, say, the number of lines meeting four given lines, quantum Schubert calculus counts the number of rational curves of a given degree that satisfy similar incidence conditions. It arises from Gromov--Witten theory and mirror symmetry, and it is related to quantum cohomology, where the product structure is deformed by powers of a formal variable $q$.
+
+\item[Q: What is Problem~15's status today?]\hfill\\
+The foundational challenge---rigorous intersection theory---is fully solved. Schubert calculus on Grassmannians and flag varieties is well understood via the cohomology ring and the Littlewood--Richardson rule. However, many enumerative questions in more general settings (higher-genus curves, non-algebraically-closed fields, tropical geometry) remain active research areas. Hilbert's problem is thus ``partially solved'' in the sense that the core theory is rigorous and complete, while the broader program it inspired continues to grow.
+
+\end{description}
+
+% ------------------------------------------------------------
+\section*{Exercises}
+% ------------------------------------------------------------
+
+\begin{enumerate}
+
+    \item \textbf{Lines on a cubic surface.}
+    \begin{enumerate}
+        \item A line in $\mathbb{P}^3$ can be described by two linear equations. Count the parameters: the Grassmannian $\Gr(2, 4)$ of lines in $\mathbb{P}^3$ has dimension $2 \cdot (4 - 2) = 4$. A cubic surface is defined by a polynomial of degree~3 in four variables; the space of such polynomials has dimension $\binom{3+3}{3} = 20$. A line lies on the cubic if the restriction of the cubic polynomial to the line vanishes identically. How many conditions is this? (Hint: a degree-3 polynomial on $\mathbb{P}^1$ has 4 coefficients.)
+        \item Show that the expected dimension of the family of lines on a cubic surface is $4 - 4 = 0$. Conclude that a \emph{finite} number of lines is expected. (The actual answer is 27.)
+        \item Verify that 27 is indeed the correct count by considering the \emph{dual} of the problem: each line on the cubic determines a point on a certain curve of degree~27 in the Grassmannian.
+    \end{enumerate}
+
+    \item \textbf{Intersection numbers on $\mathbb{P}^2$.}
+    \begin{enumerate}
+        \item In $\mathbb{P}^2$, let $H$ denote the class of a line (a hyperplane). Using the cohomology ring $H^*(\mathbb{P}^2, \mathbb{Z}) \cong \mathbb{Z}[H]/(H^3)$, compute $H \cdot H$. Interpret this geometrically.
+        \item Let $C$ and $D$ be curves of degrees $c$ and $d$ in $\mathbb{P}^2$ meeting transversally. Using the fact that the class of a degree-$k$ curve is $kH$, compute $C \cdot D$. This is \textbf{B\'ezout's theorem}.
+        \item How many intersections (counted with multiplicity) do a conic and a cubic have in $\mathbb{P}^2$?
+    \end{enumerate}
+
+    \item \textbf{Schubert varieties in $\Gr(1, 3) = \mathbb{P}^2$.}
+    \begin{enumerate}
+        \item The Grassmannian $\Gr(1, 3)$ of lines in $\mathbb{C}^3$ is $\mathbb{P}^2$. Identify the Schubert varieties $\Sigma_{(0)}$, $\Sigma_{(1)}$, and $\Sigma_{(2)}$ with classical objects in $\mathbb{P}^2$.
+        \item Compute the intersection $\Sigma_{(1)} \cdot \Sigma_{(1)}$ in $H^*(\mathbb{P}^2)$.
+    \end{enumerate}
+
+    \item \textbf{Counting conics.}
+    \begin{enumerate}
+        \item A conic in $\mathbb{P}^2$ is defined by a degree-2 polynomial $ax^2 + bxy + cy^2 + dxz + eyz + fz^2 = 0$. The space of conics is therefore $\mathbb{P}^5$. Show that the Grassmannian is not needed here: the parameter space is itself a projective space.
+        \item The condition ``conic $C$ is tangent to a given conic $D$'' defines a hypersurface of degree~6 in $\mathbb{P}^5$ (this requires work, but accept it for now). Five such tangency conditions give five hypersurfaces of degree~6. If these intersect transversally, what does B\'ezout's theorem predict for the number of solutions?
+    \end{enumerate}
+
+    \item \textbf{$\star$ Quantum cohomology of $\mathbb{P}^2$.}
+    \begin{enumerate}
+        \item The quantum cohomology ring of $\mathbb{P}^2$ is $QH^*(\mathbb{P}^2) \cong \mathbb{Z}[H, q] / (H^3 = q)$, where $H$ is the hyperplane class and $q$ is a formal variable of degree~3. Verify that this is an associative ring under the quantum product.
+        \item Compute $H \star H$ and $H \star H \star H$ in $QH^*(\mathbb{P}^2)$. Interpret the coefficient of $q$ in $H^{\star 3}$ as a count of rational curves of degree~1 through appropriate cycles.
+        \item How many lines (rational curves of degree~1) in $\mathbb{P}^2$ pass through a given point? Recover this from the quantum product.
+    \end{enumerate}
+
+    \item[$\star$] \textbf{The 27 lines.} Search for a picture or model of the 27 lines on a cubic surface (many are available online, and the book by Silverman and Tate, \emph{Rational Points on Elliptic Curves}, discusses them). Can you find a particular cubic surface (say, $x^3 + y^3 + z^3 + w^3 = 0$) and explicitly determine all 27 lines? (This is a computational challenge, not a pen-and-paper exercise.)
+
+\end{enumerate}

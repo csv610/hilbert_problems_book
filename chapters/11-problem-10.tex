@@ -1,0 +1,294 @@
+% ============================================================
+% Chapter 11: Hilbert's Problem 10 — Decision Procedure for Diophantine Equations
+% ============================================================
+
+\chapter{Decision Procedure for Diophantine Equations}
+
+% ------------------------------------------------------------
+\section{Historical Context}
+% ------------------------------------------------------------
+
+The story of Diophantine equations begins in the ancient world. Diophantus of Alexandria, a Greek mathematician who lived around 250~CE, wrote a series of books he called \emph{Arithmetica}---a collection of problems asking for integer or rational solutions to polynomial equations. Unlike his contemporaries, who worked primarily with geometric methods, Diophantus focused on pure number-theoretic questions: find whole numbers that satisfy a given algebraic relation.
+
+Consider, for example, the equation
+\[
+    x^2 + y^2 = z^2.
+\]
+This asks for \emph{integer} solutions $(x, y, z)$. We all know some: $(3, 4, 5)$, $(5, 12, 13)$, $(8, 15, 17)$. These are the Pythagorean triples---the side lengths of right triangles with integer sides. The problem of characterizing \emph{all} such triples occupied mathematicians for centuries, from Diophantus himself to Fermat in the seventeenth century.
+
+But Diophantus's equations were not limited to quadratics. He also studied equations like
+\[
+    x^3 + y^3 = z^3,
+\]
+and more generally,
+\[
+    x^n + y^n = z^n
+\]
+for arbitrary positive integers $n$.
+
+Fermat famously wrote in the margin of his copy of \emph{Arithmetica} that this last equation has no positive integer solutions when $n \geq 3$. He claimed to have a ``truly marvelous proof'' of this fact, but the margin was too narrow to contain it. This assertion, which became known as \textbf{Fermat's Last Theorem}, resisted proof for over three hundred years until Andrew Wiles finally proved it in 1994---using techniques from algebraic geometry and the theory of elliptic curves that Fermat could never have imagined.
+
+The key point for us is this: \emph{some} Diophantine equations have integer solutions and some do not. Fermat's Last Theorem tells us that $x^n + y^n = z^n$ has no positive integer solutions for $n \geq 3$. The Pythagorean equation $x^2 + y^2 = z^2$ has infinitely many. The equation $x^2 + y^2 = 3$ has \emph{none} in integers (since $3$ is not a sum of two integer squares). And some equations, like
+\[
+    x^3 + y^3 + z^3 = 33,
+\]
+can be extremely hard to analyze: this particular equation was only shown to have the solution $x = 886{,}612{,}897{,}523{,}968{,}960$ in 2019, after years of computational search.
+
+Hilbert's tenth problem asks whether there is a \emph{general} method---an \emph{algorithm}---that can settle the question for every Diophantine equation: given any polynomial equation in several variables with integer coefficients, does it have integer solutions?
+
+% ------------------------------------------------------------
+\section{The Problem}
+% ------------------------------------------------------------
+
+Let us first make precise what we mean by a Diophantine equation.
+
+\begin{definition}[Diophantine equation]
+A \textbf{Diophantine equation} is a polynomial equation of the form
+\[
+    p(x_1, x_2, \ldots, x_n) = 0
+\]
+where $p$ is a polynomial with integer coefficients and the variables $x_1, \ldots, x_n$ are required to take \emph{integer} values.
+\end{definition}
+
+Note the emphasis on \emph{integer} solutions. Over the real numbers, the equation $x^2 + y^2 = 3$ has plenty of solutions (it describes a circle of radius $\sqrt{3}$). But there is no pair of integers $(x, y)$ satisfying it, because $3$ cannot be written as a sum of two perfect squares. The restriction to integers is what makes these problems hard---and interesting.
+
+\begin{problem_statement}[Hilbert's Tenth Problem]
+Is there a general algorithm that, given any Diophantine equation, decides whether or not it has solutions in integers?
+\end{problem_statement}
+
+Before we can answer this question, we need to be precise about what ``algorithm'' means. This requires a detour into the foundations of computability theory.
+
+% ------------------------------------------------------------
+\section{What Is an Algorithm?}
+% ------------------------------------------------------------
+
+The notion of an ``algorithm''---a definite, mechanical procedure that terminates after finitely many steps and produces an answer---was made rigorous in the 1930s. Several mathematicians, working independently, arrived at the same answer from different directions.
+
+\begin{definition}[Informal]
+An \textbf{algorithm} is a finite set of unambiguous instructions that, when applied to an input, will always terminate after a finite number of steps and produce a correct output.
+\end{definition}
+
+The key formalization is the \textbf{Turing machine}, introduced by Alan Turing in 1936.
+
+\begin{definition}[Turing machine]
+A \textbf{Turing machine} consists of:
+\begin{itemize}
+    \item A finite set of \textbf{states}, including a special \emph{halt} state and an \emph{accept} state.
+    \item An infinite \textbf{tape} divided into cells, each containing a symbol from a finite alphabet.
+    \item A \textbf{head} that reads and writes symbols on the tape and moves left or right.
+    \item A \textbf{transition function} that, given the current state and the symbol being read, specifies the new state, the symbol to write, and the direction to move.
+\end{itemize}
+The machine starts with the input written on the tape and repeatedly applies its transition rules until it halts, at which point the contents of the tape (or the fact that it halted in the accept state) constitute the output.
+\end{definition}
+
+Turing's great insight was that \emph{anything that can be computed by any reasonable device can be computed by a Turing machine}. This is the \textbf{Church--Turing thesis}: the class of ``computable functions'' is exactly the class of functions computable by Turing machines. It is not a theorem in the usual sense---it is a definition-by-consensus of what ``computable'' means. No one has ever found a function that is computable by some reasonable method but not by a Turing machine.
+
+We can now restate Hilbert's tenth problem in the language of computability:
+
+\begin{problem_statement}[Hilbert's Tenth Problem, Restated]
+Is there a Turing machine $M$ such that, for every Diophantine equation $p(x_1, \ldots, x_n) = 0$ with integer coefficients, $M$ halts and outputs ``yes'' if the equation has integer solutions, and ``no'' otherwise?
+\end{problem_statement}
+
+The answer to this question is one of the most profound results in twentieth-century mathematics.
+
+% ------------------------------------------------------------
+\section{Key Developments}
+% ------------------------------------------------------------
+
+\subsection{The Road to Undecidability}
+
+The resolution of Hilbert's tenth problem came in stages, over two decades, through the work of four mathematicians: Martin Davis, Hilary Putnam, Julia Robinson, and Yuri Matiyasevich.
+
+\paragraph{Davis (1950s).} Martin Davis introduced the concept of a \textbf{Diophantine set}---a set of natural numbers that can be ``encoded'' as the set of values assumed by one variable in a Diophantine equation. For example, the set of even numbers is Diophantine because $x$ is even if and only if there exist integers $y$ such that $x = 2y$, which can be rewritten as $x - 2y = 0$, a Diophantine equation in two variables.
+
+Davis showed that if one could prove a certain conjecture---now called the \textbf{DPRM conjecture}---then Hilbert's tenth problem would have a negative answer. The conjecture was:
+
+\begin{quote}
+Every recursively enumerable (computably enumerable) set is Diophantine.
+\end{quote}
+
+\paragraph{Robinson (1950s--1960s).} Julia Robinson made a crucial contribution by showing that a certain set---the set of numbers that are `` Fibonacci-like'' in a specific technical sense---was Diophantine, assuming the DPRM conjecture. Her work established a deep connection between the theory of Diophantine equations and the theory of computation.
+
+\paragraph{Putnam (1960).} Hilary Putnam, building on Davis's and Robinson's work, showed that if the DPRM conjecture held for a certain restricted class of Diophantine equations, then Hilbert's tenth problem would have a negative answer.
+
+\paragraph{Matiyasevich (1970).} The final piece fell into place when the young Soviet mathematician Yuri Matiyasevich proved the DPRM conjecture in 1970. His proof was a masterful combination of number theory and recursion theory, using properties of \textbf{Fibonacci numbers} to show that every recursively enumerable set can be represented as the set of values of a Diophantine polynomial.
+
+\subsection{The DPRM Theorem}
+
+The heart of the resolution is the following theorem, which bears the initials of all four contributors:
+
+\begin{theorem}[Matiyasevich, 1970]
+\label{thm:dprm}
+Every recursively enumerable set is Diophantine.
+\end{theorem}
+
+Let us unpack this statement.
+
+\begin{definition}[Recursively enumerable set]
+A set $S \subseteq \mathbb{N}$ is \textbf{recursively enumerable} (or \textbf{computably enumerable}) if there exists a Turing machine that, when run on an empty input, will eventually list all the elements of $S$ (one at a time). Equivalently, $S$ is recursively enumerable if there is a Turing machine $M$ such that $x \in S$ if and only if $M$ halts when given input $x$.
+\end{definition}
+
+Many important sets are recursively enumerable:
+\begin{itemize}
+    \item The set of \emph{prime numbers} is recursively enumerable (you can write a program that lists all primes).
+    \item The set of \emph{even numbers} is recursively enumerable.
+    \item The set of \emph{provable statements of arithmetic} is recursively enumerable (you can systematically check all proofs).
+    \item The set of \emph{Turing machines that halt} on empty input is recursively enumerable.
+\end{itemize}
+
+The last example is crucial: it is recursively enumerable because you can run all Turing machines simultaneously and report which ones halt---but you can never know for certain that a given machine will \emph{not} halt. The \textbf{complement} of this set---the set of Turing machines that do \emph{not} halt---is \emph{not} recursively enumerable (and hence not decidable). This asymmetry is central to the undecidability result.
+
+Now, the DPRM theorem says that every such set can be ``encoded'' as the set of values of a Diophantine polynomial. That is, for every recursively enumerable set $S \subseteq \mathbb{N}$, there exists a polynomial
+\[
+    p(x, y_1, y_2, \ldots, y_k)
+\]
+with integer coefficients such that
+\[
+    n \in S \iff \exists\, y_1, y_2, \ldots, y_k \in \mathbb{Z} \text{ such that } p(n, y_1, y_2, \ldots, y_k) = 0.
+\]
+
+The number of variables $k$ can be large (the original proof used around 9 or 10 variables), but the polynomial always exists.
+
+\subsection{The Undecidability of Hilbert's Tenth Problem}
+
+The DPRM theorem immediately implies that Hilbert's tenth problem has a negative answer:
+
+\begin{theorem}[Matiyasevich, 1970]
+Hilbert's tenth problem is undecidable. There is no algorithm that, given a Diophantine equation, decides whether it has integer solutions.
+\end{theorem}
+
+\begin{proof}
+Suppose for contradiction that such an algorithm $M$ exists. We will show that we can decide membership in any recursively enumerable set---in particular, in sets that are known to be undecidable.
+
+Let $S \subseteq \mathbb{N}$ be any recursively enumerable set. By the DPRM theorem, there is a polynomial $p(x, y_1, \ldots, y_k)$ such that
+\[
+    n \in S \iff \exists\, y_1, \ldots, y_k \in \mathbb{Z} : p(n, y_1, \ldots, y_k) = 0.
+\]
+Now, given any $n \in \mathbb{N}$, we can construct the Diophantine equation
+\[
+    p(n, y_1, \ldots, y_k) = 0
+\]
+by substituting the concrete integer $n$ for $x$. Running algorithm $M$ on this equation tells us whether there exist integer solutions---which tells us whether $n \in S$.
+
+This gives a decision procedure for $S$: to decide whether $n \in S$, construct the equation $p(n, y_1, \ldots, y_k) = 0$ and ask $M$.
+
+But there exist recursively enumerable sets that are \emph{not} decidable---for example, the set of Gödel numbers of Turing machines that halt on empty input. (This is a consequence of the Halting Problem, which Turing showed to be undecidable in 1936.) We have obtained a contradiction.
+
+Therefore, no such algorithm $M$ can exist.
+\end{proof}
+
+\subsection{Connection to the Halting Problem}
+
+The proof above connects Hilbert's tenth problem to the \textbf{Halting Problem}---Alan Turing's celebrated undecidability result from 1936.
+
+Turing showed that there is no algorithm that can decide, given an arbitrary Turing machine $T$ and an input $w$, whether $T$ halts on $w$. This is the \emph{ Halting Problem}, and it is the ``prototype'' for all undecidability results in computer science.
+
+The connection to Hilbert's tenth problem is not merely analogous---it is direct. The Halting Problem shows that certain questions about Turing machines are undecidable. The DPRM theorem translates questions about Turing machines into questions about Diophantine equations. The undecidability of the Halting Problem is therefore \emph{inherited} by Diophantine equations.
+
+To put it another way: because Turing machines can compute anything that any reasonable device can compute, and because Diophantine equations can encode the behavior of Turing machines (via the DPRM theorem), Diophantine equations can encode \emph{any} computational process. Deciding whether a Diophantine equation has solutions is therefore ``at least as hard'' as deciding any computational question whatsoever---and no algorithm can do that.
+
+\subsection{Why This Is Surprising}
+
+The undecidability of Hilbert's tenth problem is remarkable for several reasons.
+
+First, Diophantine equations are \emph{purely number-theoretic objects}. They involve only integers, addition, multiplication, and equality. There is no mention of Turing machines, algorithms, or computation in the definition. Yet the theory of these simple objects is powerful enough to encode all of computation.
+
+Second, the result shows a profound \emph{unexpected connection} between two areas of mathematics that seem, at first glance, to have nothing in common: \textbf{number theory} and \textbf{computability theory}. Number theory studies properties of integers; computability theory studies what can and cannot be computed. The DPRM theorem reveals that these two subjects are deeply intertwined.
+
+Third, the result is \emph{negative}: it tells us that certain questions cannot be answered by any finite procedure, no matter how clever. This is a fundamental limitation on the power of algorithmic reasoning in mathematics.
+
+Finally, the result is somewhat paradoxical. Individual Diophantine equations can be decided---we can prove $x^2 + y^2 = 3$ has no integer solutions, and we can verify that $x^2 + y^2 = 5$ does. The undecidability is a \emph{global} phenomenon: there is no single algorithm that works for \emph{all} equations. This is analogous to the Halting Problem: for any particular Turing machine, we may be able to determine whether it halts---but there is no universal procedure.
+
+\subsection{The Modern Perspective}
+
+The DPRM theorem remains one of the most elegant and surprising results in mathematical logic. It has been refined and extended in various directions:
+
+\begin{itemize}
+    \item \textbf{Bounds on the polynomial.} Matiyasevich's original proof used polynomials with many variables. Subsequent work has reduced the number of variables needed. It is now known that there exists a single polynomial in 9 variables whose positive values are exactly the set of prime numbers---a stunning fact that would have astonished Diophantus.
+
+    \item \textbf{Hilbert's Tenth Problem over other rings.} While Hilbert's tenth problem is undecidable over $\mathbb{Z}$, it has been solved positively over certain other rings. For example, the problem \emph{is} decidable over $\mathbb{Q}$ (the rational numbers)---though this was only proved in 2007 by Poonen, building on earlier work by Matiyasevich. The problem remains open over $\mathbb{Z}[i]$ (the Gaussian integers) and other rings.
+
+    \item \textbf{Connections to algebraic geometry.} The Diophantine equations studied by Hilbert are the same objects studied by algebraic geometers---but algebraic geometers typically work over algebraically closed fields (like $\mathbb{C}$), where every non-constant polynomial equation has solutions. The restriction to $\mathbb{Z}$ is what makes the problem hard.
+\end{itemize}
+
+% ------------------------------------------------------------
+\section{Current Status: Solved --- but Answer~Is ``No''}
+% ------------------------------------------------------------
+
+\begin{solvedbox}
+Hilbert's tenth problem is \textbf{solved}. The answer is \emph{negative}: there is no general algorithm that decides, given a Diophantine equation, whether it has integer solutions. This was proved by Yuri Matiyasevich in 1970, completing work of Davis, Putnam, and Robinson. The key result---the DPRM theorem---establishes that every recursively enumerable set is Diophantine, linking number theory to computability theory in a profound way.
+\end{solvedbox}
+
+% ------------------------------------------------------------
+\section*{Common Questions}
+% ------------------------------------------------------------
+
+\begin{description}[font=\bfseries, leftmargin=2em, style=nextline]
+
+\item[Q: Does ``no algorithm exists'' mean it's impossible in principle, or just that we haven't found one?]\hfill\\
+It means impossible \emph{in principle}. The proof of undecidability shows that no Turing machine---no possible computer program, no finite set of instructions, no conceivable deterministic procedure---can solve the problem for all Diophantine equations. This is not a statement about current technology or human cleverness; it is a mathematical fact about the limits of computation itself. Just as there is no algorithm that can decide whether an arbitrary program halts (the Halting Problem), there is no algorithm that can decide whether an arbitrary Diophantine equation has integer solutions.
+
+\item[Q: How can a Diophantine equation ``encode'' a computer program?]\hfill\\
+The DPRM theorem shows that for any Turing machine $M$, you can construct a polynomial $p(x, y_1, \ldots, y_k)$ with integer coefficients such that $p(n, y_1, \ldots, y_k) = 0$ has integer solutions if and only if $M$ halts on input $n$. The variables $y_i$ encode the entire history of the computation---states, tape contents, head position---all packaged into integer values. The polynomial is designed so that its vanishing ``checks'' that the transitions between configurations follow the machine's rules. The existence of such an encoding is what bridges number theory and computability theory, and it's why any undecidable problem about programs becomes an undecidable problem about Diophantine equations.
+
+\item[Q: Does this mean number theory is useless for computation?]\hfill\\
+Not at all! The undecidability result is about the \emph{impossibility of a universal algorithm} for all Diophantine equations. In practice, number theory is essential for computation: primality testing (AKS algorithm), cryptography (RSA, elliptic curve cryptography), coding theory, and computer algebra systems all rely heavily on number theory. The undecidability result tells us that there is no ``master key'' for all equations, but individual equations and useful classes of equations can be---and routinely are---solved algorithmically. For instance, linear Diophantine equations are decidable via the Euclidean algorithm, and quadratic Diophantine equations in two variables are decidable via the theory of Pell equations.
+
+\item[Q: What's the difference between ``undecidable'' and ``unsolved''?]\hfill\\
+A problem is \textbf{unsolved} if nobody has yet determined the answer, but an answer could theoretically exist. Goldbach's conjecture is unsolved: it is either true or false, and we just do not know which. A problem is \textbf{undecidable} when it has been \emph{proved} that no algorithm can determine the answer for all instances. Once a problem is proved undecidable, it is not merely unsolved---it is unsolvable in principle. Hilbert's tenth problem is undecidable (proved in 1970), but many specific Diophantine equations within the problem remain unsolved individually.
+
+\item[Q: If Hilbert's tenth problem is undecidable over $\mathbb{Z}$, is it also undecidable over $\mathbb{Q}$?]\hfill\\
+Remarkably, this is an open problem! It is not known whether there exists an algorithm to decide whether a Diophantine equation has rational solutions. This is sometimes called ``Hilbert's tenth problem over $\mathbb{Q}$'' and is one of the most important open problems in mathematical logic. Progress has been made---for example, it is known that the problem over $\mathbb{Q}$ is at least as hard as the problem over $\mathbb{Z}$ in a certain technical sense---but a full resolution remains elusive. Over $\mathbb{R}$ it is decidable (by Tarski's quantifier elimination), and over $\mathbb{C}$ it is trivial (every non-constant polynomial has solutions).
+
+\item[Q: Why did it take so long to prove the DPRM theorem?]\hfill\\
+The key difficulty was showing that exponentiation can be encoded using only addition and multiplication. To say ``$a = b^c$'' as a Diophantine equation requires a clever trick. Matiyasevich's breakthrough was using the Fibonacci numbers, which have a growth property (the $n$th Fibonacci number grows exponentially) and satisfy a purely Diophantine recurrence relation. Specifically, the equation $F_{n+1}^2 - F_{n+1}F_n - F_n^2 = (-1)^n$ allows you to encode exponential growth using only polynomial constraints. Once exponentiation is encoded, you can simulate Turing machines, and undecidability follows. This one insight was the missing piece that Davis, Putnam, and Robinson had been chasing for over a decade.
+
+\item[Q: Does undecidability mean we should stop trying to solve Diophantine equations?]\hfill\\
+No. Undecidability says there is no \emph{universal} algorithm that works for every equation, but specific equations and useful families of equations can still be studied and solved. Mathematicians and computer scientists continue to develop powerful methods for particular classes of Diophantine equations (elliptic curves, Pell equations, Thue equations, etc.). In fact, the undecidability proof itself led to a deeper understanding of the relationship between number theory and computation, and it opened up new questions---like Hilbert's tenth problem over other rings---that continue to drive research today.
+
+\end{description}
+
+% ------------------------------------------------------------
+\section*{Exercises}
+% ------------------------------------------------------------
+
+\begin{enumerate}
+
+    \item \textbf{Solving Diophantine equations.} Find all integer solutions to each of the following equations, or prove that no integer solutions exist.
+    \begin{enumerate}
+        \item $2x + 3y = 1$.
+        \item $x^2 + y^2 = 25$.
+        \item $x^2 + y^2 = 3$.
+        \item $x^3 + y^3 = z^3$ with $xyz \neq 0$. (Hint: Fermat's Last Theorem.)
+    \end{enumerate}
+
+    \item \textbf{Encoding sets as Diophantine equations.}
+    \begin{enumerate}
+        \item Show that the set of \emph{even natural numbers} is Diophantine. That is, find a polynomial $p(x, y)$ with integer coefficients such that $n$ is even if and only if there exists an integer $y$ with $p(n, y) = 0$.
+        \item Show that the set of \emph{perfect squares} is Diophantine.
+        \item Show that the set $\{1\}$ is Diophantine. (Hint: use the fact that $x = 1$ if and only if $x^2 - x = 0$ and $x > 0$, and express $x > 0$ as a Diophantine condition.)
+    \end{enumerate}
+
+    \item \textbf{Decidable and undecidable.}
+    \begin{enumerate}
+        \item Explain in your own words what it means for a problem to be \emph{decidable}. Give an example of a decidable problem about integers.
+        \item Explain what it means for a problem to be \emph{undecidable}. Why is the Halting Problem undecidable?
+        \item A student says: ``The undecidability of Hilbert's tenth problem means that for some specific Diophantine equation, we can never know whether it has solutions.'' Is this interpretation correct? Explain.
+    \end{enumerate}
+
+    \item \textbf{The Halting Problem connection.}
+    \begin{enumerate}
+        \item State the Halting Problem precisely.
+        \item Explain how the DPRM theorem transforms the Halting Problem into a statement about Diophantine equations.
+        \item If you had an oracle that could solve any Diophantine equation, what could you compute with it?
+    \end{enumerate}
+
+    \item \textbf{Decidability over other number systems.}
+    \begin{enumerate}
+        \item Consider the equation $x^2 + y^2 = z^2$ over the \emph{rational numbers} $\mathbb{Q}$. Show that this equation has non-trivial rational solutions (i.e., solutions other than $(0,0,0)$). Does this mean Hilbert's tenth problem is decidable over $\mathbb{Q}$?
+        \item Consider the equation $x^2 + y^2 = -1$ over $\mathbb{Z}$. Show this has no solutions. Does it have solutions over $\mathbb{C}$? Over $\mathbb{Z}[i]$ (the Gaussian integers)?
+    \end{enumerate}
+
+    \item[$\star$] \textbf{The Matiyasevich polynomial.} It is known that there exists a specific polynomial in 26 variables whose set of positive values, as the variables range over all integers, is exactly the set of prime numbers. Look up this polynomial (or a simpler variant). How many variables and what degree are needed to represent the primes as values of a polynomial?
+
+\end{enumerate}

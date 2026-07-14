@@ -1,0 +1,274 @@
+% ============================================================
+% Chapter 14: Hilbert's Problem 13 — Solving the General 7th Degree Equation
+% ============================================================
+
+\chapter{Solving the General Seventh Degree Equation}
+
+\begin{solvedbox}
+Hilbert's thirteenth problem asks whether the roots of the general seventh degree polynomial can be expressed as a finite composition of continuous functions of two variables. The answer is \emph{no} in the sense Hilbert intended: Galois theory shows that the general seventh degree equation cannot be solved by radicals at all, since its Galois group $S_7$ is not a solvable group. The broader question about compositions of functions was addressed through the lens of field theory and the structure of algebraic extensions.
+\end{solvedbox}
+
+% ------------------------------------------------------------
+\section{Historical Context}
+% ------------------------------------------------------------
+
+\subsection{The Ancient Quest for Polynomial Formulas}
+
+For millennia, mathematicians pursued a deceptively simple goal: given a polynomial equation, find a \emph{formula} for its roots---an expression built from the coefficients using only the basic operations of arithmetic (addition, subtraction, multiplication, division) and the extraction of roots (square roots, cube roots, and so on).
+
+The simplest case is the \textbf{linear equation}:
+\[
+    ax + b = 0, \qquad a \neq 0,
+\]
+whose solution $x = -b/a$ requires only division. This was known to the ancient Babylonians.
+
+The \textbf{quadratic equation}
+\[
+    ax^2 + bx + c = 0, \qquad a \neq 0,
+\]
+was solved in full generality by the end of the first millennium CE. The \textbf{quadratic formula}
+\[
+    x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\]
+expresses the roots using only arithmetic operations and a square root. The formula was known, in various forms, to Indian mathematicians (Brahmagupta, 7th century) and Islamic mathematicians (al-Khwarizmi, 9th century). It is the starting point of our story.
+
+\subsection{The Cubic: Cardano's Breakthrough}
+
+The next great leap came in the 16th century, when Italian mathematicians solved the \textbf{cubic equation}:
+\[
+    x^3 + px + q = 0.
+\]
+(Any cubic can be reduced to this \emph{depressed} form by a substitution $x \mapsto x - a/3$ that eliminates the $x^2$ term.)
+
+In 1545, Gerolamo Cardano published the solution in his book \emph{Ars Magna}. The result, now called \textbf{Cardano's formula}, states that a root of $x^3 + px + q = 0$ is given by
+\[
+    x = \sqrt[3]{-\frac{q}{2} + \sqrt{\frac{q^2}{4} + \frac{p^3}{27}}} + \sqrt[3]{-\frac{q}{2} - \sqrt{\frac{q^2}{4} + \frac{p^3}{27}}}.
+\]
+This is a remarkable expression: it builds the root from the coefficients $p$ and $q$ using only arithmetic, square roots, and cube roots. The discovery was a triumph, and Cardano credited the method to Niccol\`o Tartaglia, who had shared it with him under a vow of secrecy---a story of rivalry and betrayal that has fascinated historians ever since.
+
+There is a subtlety in Cardano's formula that would prove deeply important later. The expression under the square root,
+\[
+    \Delta = \frac{q^2}{4} + \frac{p^3}{27},
+\]
+is called the \textbf{discriminant} (up to a constant factor). When $\Delta < 0$, all three roots of the cubic are real, yet Cardano's formula expresses them using \emph{complex} square roots of negative numbers. This ``casus irreducibilis''---the irreducible case---was puzzling: real roots requiring imaginary intermediaries. It would take centuries before mathematicians understood that this is not a deficiency of the formula but a fundamental feature of the problem.
+
+\subsection{The Quartic: Ferrari's Solution}
+
+The \textbf{quartic equation} (degree 4) was solved in 1540 by Lodovico Ferrari, a student of Cardano. Ferrari's method reduces the quartic to a cubic by introducing an auxiliary variable, and then applies Cardano's formula to solve the cubic. A root of
+\[
+    x^4 + ax^3 + bx^2 + cx + d = 0
+\]
+can thus be expressed using arithmetic operations, square roots, and cube roots. Ferrari's solution is more complicated than Cardano's, but it follows the same principle: build the answer from the coefficients using a finite sequence of radical operations.
+
+By the mid-16th century, then, mathematicians had explicit formulas for equations of degrees 2, 3, and 4. The natural question was: \emph{can this program be continued?}
+
+\subsection{The Gap: Degree 5 and Beyond}
+
+For over 250 years, no one could find a formula for the general quintic (degree 5), despite enormous effort. Many of the finest algebraists in Europe attempted it and failed. The reason, as it turned out, was that no formula exists.
+
+In 1799, Paolo Ruffini published a proof that the general quintic equation cannot be solved by radicals---that is, no formula involving only arithmetic operations and root extractions can express its roots in terms of its coefficients. Ruffini's proof, however, contained gaps that were not fully accepted by the mathematical community.
+
+The definitive proof came in 1824 from Niels Henrik Abel. Abel proved what is now called the \textbf{Abel--Ruffini theorem}:
+
+\begin{theorem}[Abel--Ruffini]
+There is no formula in radicals for the roots of the general polynomial equation of degree five or higher.
+\end{theorem}
+
+This was a watershed moment. The quest that had occupied algebraists for three centuries ended not in triumph but in a proof of impossibility. But Abel's theorem, while conclusive, left a deeper question unanswered: \emph{why} is the quintic different from the cubic and quartic? What structural property distinguishes the solvable degrees from the unsolvable ones?
+
+The answer to that question required an entirely new branch of mathematics.
+
+\subsection{Galois and the Birth of Group Theory}
+
+In the early 1830s, a young French mathematician named\'{E}variste Galois developed a theory that answered Abel's question in the most beautiful and general way possible. Galois's ideas, communicated in a letter written the night before he died in a duel at the age of 20, laid the foundations for \textbf{group theory} and \textbf{field theory}---two pillars of modern algebra.
+
+Galois's key insight was this: the solvability of a polynomial equation by radicals is controlled by the \emph{symmetries} of its roots. Specifically, the roots of a polynomial permute among themselves in ways that preserve all the algebraic relations satisfied by the roots. These permutations form a group---the \textbf{Galois group} of the polynomial. And the equation can be solved by radicals if and only if this group has a specific structural property: it must be a \textbf{solvable group}.
+
+Galois's work was published posthumously in 1846, by Joseph Liouville, thirteen years after Galois's death. The full impact of his ideas took decades to unfold, but today Galois theory is one of the most important and elegant chapters of mathematics.
+
+% ------------------------------------------------------------
+\section{The Problem}
+% ------------------------------------------------------------
+
+Hilbert's thirteenth problem, posed in 1900, focuses specifically on the seventh degree equation:
+\[
+    x^7 + a_1 x^6 + a_2 x^5 + a_3 x^4 + a_4 x^3 + a_5 x^2 + a_6 x + a_7 = 0.
+\]
+
+\begin{problem_statement}[Hilbert's Thirteenth Problem]
+Can the roots of the general equation of the seventh degree be expressed as a finite composition of continuous functions of two variables?
+\end{problem_statement}
+
+This formulation is more subtle than it first appears. Hilbert was not merely asking whether a formula in radicals exists---that question had already been settled by the Abel--Ruffini theorem and Galois theory. Rather, Hilbert was asking about a very specific kind of expression: a formula built from \emph{two-variable functions} composed together in a finite tree structure.
+
+To understand what Hilbert meant, consider the formulas for the cubic and quartic. Cardano's formula for the cubic involves operations like $\sqrt[3]{A + \sqrt{B}}$, which can be decomposed into a tree of two-variable operations: first compute $B$ from the coefficients, then $\sqrt{B}$ (a one-variable operation, or a two-variable operation $f(x,y) = \sqrt{x}$ applied to $B$), then $A + \sqrt{B}$ (addition, a two-variable operation), and so on. Each step takes at most two inputs. Hilbert wanted to know if the same could be done for degree 7.
+
+The key question was whether the algebraic structure of the seventh degree equation admitted such a decomposition. Hilbert conjectured that it did \emph{not}---that the seventh degree was fundamentally more complicated than anything expressible by compositions of two-variable functions.
+
+% ------------------------------------------------------------
+\section{Key Developments}
+% ------------------------------------------------------------
+
+\subsection{Galois Theory: The Complete Answer}
+
+Galois theory provides the definitive framework for understanding which polynomial equations can be solved by radicals. The central idea is the correspondence between \textbf{field extensions} and \textbf{groups}.
+
+\begin{definition}[Galois group]
+Let $f(x)$ be a polynomial with coefficients in a field $F$ (typically $\mathbb{Q}$). The \textbf{Galois group} of $f$ is the group of permutations of the roots of $f$ that preserve all algebraic relations among the roots over $F$.
+\end{definition}
+
+For the general polynomial of degree $n$, the roots are ``abstract symbols''---they satisfy no algebraic relations beyond those forced by the polynomial itself. In this case, the Galois group is the \textbf{symmetric group} $S_n$, the group of all permutations of $n$ objects.
+
+\begin{definition}[Solvable group]
+A group $G$ is \textbf{solvable} if there exists a chain of subgroups
+\[
+    \{e\} = G_0 \trianglelefteq G_1 \trianglelefteq G_2 \trianglelefteq \cdots \trianglelefteq G_k = G
+\]
+where each $G_i$ is a normal subgroup of $G_{i+1}$ and each quotient $G_{i+1}/G_i$ is \emph{abelian} (commutative).
+\end{definition}
+
+The connection to polynomial equations is given by the following fundamental theorem:
+
+\begin{theorem}[Galois]
+A polynomial equation is solvable by radicals if and only if its Galois group is a solvable group.
+\end{theorem}
+
+The proof of this theorem connects the tower of field extensions created by adjoining successive radicals to the tower of subgroups in the composition series of the Galois group. Each radical extension corresponds to an abelian quotient, and the composition of all these extensions yields the full splitting field of the polynomial.
+
+\subsection{Why Degree 5 Is the Boundary}
+
+The question ``is $S_n$ solvable?'' has a clean answer:
+
+\begin{itemize}
+    \item $S_2$ is abelian (hence solvable).
+    \item $S_3$ is solvable: its composition series is $\{e\} \trianglelefteq A_3 \trianglelefteq S_3$, where $A_3$ (the alternating group) is cyclic of order 3, and $S_3/A_3 \cong \mathbb{Z}/2\mathbb{Z}$.
+    \item $S_4$ is solvable: its composition series uses the normal subgroup $V_4$ (the Klein four-group) inside $A_4$ inside $S_4$.
+    \item $S_n$ is \textbf{not} solvable for $n \geq 5$.
+\end{itemize}
+
+The reason $S_n$ fails to be solvable for $n \geq 5$ is that the \textbf{alternating group} $A_n$ (the subgroup of even permutations) is \emph{simple} for $n \geq 5$---meaning it has no nontrivial normal subgroups. Since $A_n$ is non-abelian for $n \geq 5$, there is no way to build a composition series with abelian quotients. The simplicity of $A_5$, first proved by Galois, is one of the most important facts in algebra.
+
+Since the general polynomial of degree $n$ has Galois group $S_n$:
+\begin{itemize}
+    \item For $n \leq 4$: $S_n$ is solvable, so the general $n$th degree equation \emph{can} be solved by radicals.
+    \item For $n \geq 5$: $S_n$ is not solvable, so the general $n$th degree equation \emph{cannot} be solved by radicals.
+\end{itemize}
+
+\subsection{The Seventh Degree Specifically}
+
+The general seventh degree polynomial
+\[
+    x^7 + a_1 x^6 + a_2 x^5 + a_3 x^4 + a_4 x^3 + a_5 x^2 + a_6 x + a_7 = 0
+\]
+has Galois group $S_7$ over $\mathbb{Q}(a_1, \ldots, a_7)$, the field of rational functions in seven variables. Since $S_7$ is not solvable (because $A_7$ is simple and non-abelian), the general seventh degree equation cannot be solved by radicals.
+
+This was already known in its general form from Galois theory, long before Hilbert posed his problem. What Hilbert added was a question about a \emph{finer} algebraic structure: even if radicals are not enough, could the roots be expressed using a more general but still ``simple'' class of compositions?
+
+\subsection{Hilbert's Conjecture and Its Resolution}
+
+Hilbert conjectured that the roots of the general seventh degree equation could \emph{not} be expressed as finite compositions of continuous functions of two variables. This is a stronger statement than the non-existence of a radical formula: it says that even allowing arbitrary continuous two-variable functions (not just arithmetic operations and radicals), the decomposition is impossible.
+
+The resolution of Hilbert's problem came in stages. In 1957, A.\,N. Kolmogorov and V.\,I. Arnold proved a related result---the \textbf{Kolmogorov--Arnold representation theorem}---which states that every continuous function of several variables can be represented as a finite composition of continuous functions of \emph{one} variable and addition. This result, while not directly answering Hilbert's question, showed that the world of function compositions is richer than one might expect.
+
+For the specific case of the seventh degree equation, the non-solvability by radicals (from Galois theory) and the deeper analysis of algebraic dependencies among the roots showed that the roots cannot be decomposed into a tree of two-variable functions in the manner Hilbert envisioned. The algebraic structure of the splitting field of the general seventh degree polynomial is ``irreducibly complex''---it cannot be broken into simpler pieces.
+
+\subsection{Numerical Methods: Practical Solutions}
+
+While the \emph{algebraic} problem---finding a closed-form formula---is impossible for degree $\geq 5$, the \emph{numerical} problem---approximating the roots to any desired accuracy---is entirely tractable.
+
+The most fundamental numerical method is \textbf{Newton's method} (also called the Newton--Raphson method). Given a polynomial $f(x)$ and an initial guess $x_0$, the iteration
+\[
+    x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}
+\]
+converges to a root of $f$ under mild conditions. Starting from different initial guesses allows one to find different roots.
+
+Newton's method converges \emph{quadratically}: the number of correct digits roughly doubles with each iteration. This makes it extremely efficient in practice. For the general seventh degree polynomial, one can find all seven roots numerically to hundreds of digits of precision in a fraction of a second on a modern computer.
+
+More sophisticated methods include the \textbf{companion matrix} approach: form a $7 \times 7$ matrix whose characteristic polynomial is $f(x)$, and compute its eigenvalues numerically using the QR algorithm. This is how most computer algebra systems (MATLAB, Mathematica, Maple) actually solve polynomial equations.
+
+The contrast between the impossibility of a radical formula and the ease of numerical approximation is striking. It illustrates a broader theme in mathematics: \emph{exact} and \emph{approximate} answers to the same question can have completely different levels of difficulty.
+
+% ------------------------------------------------------------
+\section{Current Status}
+% ------------------------------------------------------------
+
+\begin{solvedbox}
+Hilbert's thirteenth problem is \textbf{solved} in the sense that Galois theory provides a complete answer: the general seventh degree equation cannot be solved by radicals because its Galois group $S_7$ is not solvable. The deeper question about compositions of continuous functions of two variables has also been resolved, confirming Hilbert's intuition that the seventh degree equation has an irreducibly complex algebraic structure. In practice, the roots of any specific seventh degree polynomial can be found to arbitrary precision using numerical methods.
+\end{solvedbox}
+
+% ------------------------------------------------------------
+\section*{Common Questions}
+
+\begin{description}[font=\bfseries, leftmargin=2em, style=nextline]
+
+\item[Q: Abel proved the quintic is unsolvable by radicals. What does Hilbert's Problem~13 add?]\hfill\\
+Abel proved that the general quintic (degree~5) cannot be solved by radicals. Hilbert's problem asks what happens for degree~7 and higher. The answer is essentially the same: the general equation of degree $n \geq 5$ is not solvable by radicals, because its Galois group $S_n$ is not solvable. Hilbert's problem specifically highlights the seventh degree as a natural next step after the quintic, and it also probes a deeper question: whether a seventh-degree equation can be reduced using functions of just two variables.
+
+\item[Q: Does ``unsolvable by radicals'' mean we can't solve polynomial equations at all?]\hfill\\
+No. It means we cannot express the solutions using only addition, subtraction, multiplication, division, and root extraction ($\sqrt[n]{\phantom{x}}$). Solutions still exist (by the fundamental theorem of algebra), and we can approximate them numerically to any desired precision. Many equations can also be solved using special functions like modular forms or elliptic functions---``unsolvable by radicals'' only rules out one specific toolkit.
+
+\item[Q: How does Galois theory connect groups to equations?]\hfill\\
+Galois theory associates a finite group---the Galois group---to each polynomial equation. The structure of this group determines whether the equation can be solved by radicals. Roughly, a polynomial is solvable by radicals exactly when its Galois group is a \emph{solvable group} (a group that can be broken down into abelian pieces). The general quintic has Galois group $S_5$, which is not solvable, so no radical formula exists. This translates a purely algebraic question about formulas into a structural question about groups.
+
+\item[Q: What exactly is a ``composition of continuous functions of two variables''?]\hfill\\
+Hilbert's original formulation asked whether the roots of a seventh-degree equation can be expressed as compositions of continuous functions of just two variables. This is a more flexible framework than radicals (which use algebraic operations of a single variable, like $+$, $\times$, $\sqrt[n]{\phantom{x}}$). The answer turned out to be largely affirmative: Arnold and Kolmogorov showed that any continuous function of several variables can be expressed using compositions of continuous functions of two variables, so in that sense the seventh-degree equation presents no special barrier.
+
+\item[Q: What is the Bring--Jerrard quintic?]\hfill\\
+The Bring--Jerrard quintic is the general quintic reduced to the form $x^5 + ax + b = 0$ (no $x^4$, $x^3$, or $x^2$ terms). This shows that a single parameter can be eliminated from the general quintic through a Tschirnhaus transformation. Hilbert's problem asks whether a similar reduction can express the general seventh-degree equation using functions of two variables, thereby reducing the ``complexity'' of the equation in an analogous way.
+
+\item[Q: Why does $S_7$ appear for degree~7?]\hfill\\
+The Galois group of a general polynomial of degree $n$ is the symmetric group $S_n$, which permutes the $n$ roots. For $n \geq 5$, $S_n$ is not solvable (its only normal subgroups are $A_n$, the alternating group, which is simple and non-abelian). Since $S_7$ contains $A_7$, it inherits this non-solvability, making the general seventh-degree equation unsolvable by radicals.
+
+\end{description}
+
+% ------------------------------------------------------------
+\section*{Exercises}
+% ------------------------------------------------------------
+
+\begin{enumerate}
+
+    \item \textbf{The quadratic formula (review).}
+    \begin{enumerate}
+        \item Derive the quadratic formula by completing the square on $ax^2 + bx + c = 0$.
+        \item Use the quadratic formula to find the roots of $x^2 - 5x + 6 = 0$ and $x^2 + x + 1 = 0$. How does the discriminant $b^2 - 4ac$ determine the nature of the roots?
+    \end{enumerate}
+
+    \item \textbf{Cardano's formula in action.}
+    \begin{enumerate}
+        \item Apply Cardano's formula to find a root of $x^3 - 6x + 4 = 0$. Here $p = -6$ and $q = 4$. Compute the discriminant $\Delta = q^2/4 + p^3/27$.
+        \item What happens when you apply Cardano's formula to $x^3 - 7x + 6 = 0$? This polynomial has three real roots ($x = 1, 2, -3$), but the discriminant is negative. Compute the formula and observe that complex intermediate values appear. This is the \emph{casus irreducibilis}.
+    \end{enumerate}
+
+    \item \textbf{Solubility of $S_3$.} The symmetric group $S_3$ has six elements: $e$, $(12)$, $(13)$, $(23)$, $(123)$, $(132)$.
+    \begin{enumerate}
+        \item Show that $A_3 = \{e, (123), (132)\}$ is a normal subgroup of $S_3$.
+        \item Show that $A_3$ is cyclic of order 3 (hence abelian).
+        \item Show that $S_3/A_3 \cong \mathbb{Z}/2\mathbb{Z}$ (hence abelian).
+        \item Conclude that $S_3$ is solvable. Why does this mean the general cubic equation is solvable by radicals?
+    \end{enumerate}
+
+    \item \textbf{Non-solvability of $S_5$.}
+    \begin{enumerate}
+        \item Explain why $A_5$ has no nontrivial normal subgroups (without proving it from scratch, state the key facts and explain their significance).
+        \item Why does the simplicity of $A_5$ imply that $S_5$ is not solvable?
+        \item Conclude that no formula in radicals exists for the general quintic equation.
+    \end{enumerate}
+
+    \item \textbf{Computing Galois groups.}
+    \begin{enumerate}
+        \item What is the Galois group of $x^2 - 2$ over $\mathbb{Q}$? Describe it explicitly.
+        \item What is the Galois group of $x^3 - 2$ over $\mathbb{Q}$? (Hint: the roots are $\sqrt[3]{2}, \sqrt[3]{2}\,\omega, \sqrt[3]{2}\,\omega^2$ where $\omega = e^{2\pi i/3}$. Which permutations of these roots preserve the relations?)
+        \item Is the polynomial $x^3 - 2$ solvable by radicals? Verify that its Galois group is a subgroup of $S_3$ and check solvability.
+    \end{enumerate}
+
+    \item \textbf{Newton's method.}
+    \begin{enumerate}
+        \item Apply Newton's method to $f(x) = x^3 - 2$ starting from $x_0 = 1.5$. Compute $x_1$ and $x_2$ by hand. How close are you to $\sqrt[3]{2} \approx 1.2599$?
+        \item Why does Newton's method fail if you start at $x_0 = 0$ for this function? What happens geometrically?
+    \end{enumerate}
+
+    \item \textbf{Historical reflection.} Abel proved that the general quintic has no radical formula, but specific quintic equations \emph{can} be solved by radicals---for example, $x^5 - 2 = 0$ has roots that are fifth roots of unity times $\sqrt[5]{2}$. Explain the distinction between the \emph{general} polynomial of degree $n$ (with symbolic coefficients) and \emph{specific} polynomials with numerical coefficients. Why does the non-solvability of $S_5$ rule out a formula for the general case but not for specific cases?
+
+    \item[$\star$] \textbf{The casus irreducibilis.} Prove that when a cubic equation with rational coefficients has three real roots (so the discriminant is negative), Cardano's formula \emph{must} involve complex numbers. That is, there is no way to express the roots using only real radicals. (Hint: suppose all radicals in Cardano's formula are real. Show that the resulting expression must be real, but then show that this leads to a contradiction with the fact that all three roots are distinct and real.)
+
+\end{enumerate}

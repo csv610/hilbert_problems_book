@@ -1,0 +1,309 @@
+% ============================================================
+% Chapter 6: Problem 5 — Continuous Groups of Transformations
+% ============================================================
+
+\chapter{Continuous Groups of Transformations}
+
+\section{Historical Context}
+
+By the end of the nineteenth century, the Norwegian mathematician Sophus Lie (1842--1899) had developed a vast and beautiful theory of \emph{continuous transformation groups}---what we now call \textbf{Lie groups}. Lie's ambition was nothing less than a complete theory of symmetry: he wanted to classify all continuous symmetries of differential equations, just as Galois had classified the discrete symmetries of polynomial equations via finite groups.
+
+Lie's key insight was that a continuous group of transformations---a group that is simultaneously a smooth manifold, with group operations that are smooth maps---carries with it a linearized version of itself: its \textbf{Lie algebra}. The Lie algebra, living in the tangent space at the identity, is often far easier to study than the group itself. Lie and his collaborator Friedrich Engel spent decades codifying this theory in their monumental three-volume work \emph{Theorie der Transformationsgruppen} (1888--1896).
+
+But a subtle foundational question lingered. Lie \emph{assumed} from the start that his groups were smooth---that the group operations (multiplication and inversion) were differentiable maps. This was natural from the geometric perspective: the groups Lie cared about, like rotations of $\mathbb{R}^n$, were clearly smooth. But could one \emph{prove} that continuity alone was enough? If you only know that a group is a topological manifold and that multiplication and inversion are \emph{continuous}, must they automatically be \emph{smooth}?
+
+This is the question Hilbert posed as his fifth problem.
+
+\section{The Problem}
+
+\begin{problem_statement}
+Let $G$ be a \emph{topological group} and a topological manifold---a space locally homeomorphic to $\mathbb{R}^n$, with continuous group operations
+\[
+    \mu \colon G \times G \to G, \qquad \mu(g,h) = g \cdot h,
+\]
+\[
+    \iota \colon G \to G, \qquad \iota(g) = g^{-1},
+\]
+are continuous. Must $G$ be a \emph{Lie group}---that is, must $G$ admit a smooth structure making these operations not just continuous but differentiable (in fact, analytic)?
+\end{problem_statement}
+
+In other words: \textbf{does continuity imply differentiability for groups?} If a group happens to look like a manifold and its operations happen to be continuous, is the smooth structure already there, waiting to be discovered?
+
+\section{Key Developments}
+
+\subsection{What Is a Lie Group?}
+
+Before diving into the resolution, let us make sure we understand the objects at stake.
+
+\begin{definition}[Lie group]
+A \textbf{Lie group} $G$ is a smooth manifold that is also a group, such that the multiplication map $\mu(g,h) = g \cdot h$ and the inversion map $\iota(g) = g^{-1}$ are smooth (infinitely differentiable) maps.
+\end{definition}
+
+Here are some fundamental examples:
+
+\begin{itemize}
+    \item \textbf{The general linear group $\GL(n,\mathbb{R})$.} This is the group of all invertible $n \times n$ real matrices, with matrix multiplication as the group operation. It is an open subset of the vector space of all $n \times n$ matrices (since invertibility is an open condition), so it is a smooth manifold of dimension $n^2$. The group operations are given by polynomial and rational functions of the matrix entries, hence smooth.
+
+    \item \textbf{The special orthogonal group $\SO(n)$.} This is the group of $n \times n$ orthogonal matrices with determinant~$1$---the group of rotations of $\mathbb{R}^n$. It is a smooth submanifold of $\GL(n,\mathbb{R})$ of dimension $\tfrac{n(n-1)}{2}$.
+
+    \item \textbf{The circle group $S^1$.} The unit circle in $\mathbb{C}$, with multiplication of complex numbers, is a Lie group of dimension~$1$.
+
+    \item \textbf{The Heisenberg group.} The group of $3 \times 3$ upper-triangular matrices with $1$s on the diagonal is a non-abelian Lie group of dimension~$3$, central to both Lie theory and quantum mechanics.
+\end{itemize}
+
+\subsection{What Is a Lie Algebra?}
+
+The power of Lie's theory lies in the passage from the global (the group) to the local (its tangent space at the identity).
+
+\begin{definition}[Lie algebra]
+The \textbf{Lie algebra} $\mathfrak{g}$ of a Lie group $G$ is the tangent space $T_e G$ at the identity element $e$, equipped with the \textbf{Lie bracket}: a bilinear, antisymmetric operation $[\cdot, \cdot] \colon \mathfrak{g} \times \mathfrak{g} \to \mathfrak{g}$ satisfying the Jacobi identity
+\[
+[X,[Y,Z]] + [Y,[Z,X]] + [Z,[X,Y]] = 0.
+\]
+\end{definition}
+
+The Lie bracket can be defined concretely: for $X, Y \in \mathfrak{g}$, regard them as left-invariant vector fields on $G$, and define $[X,Y]$ as the commutator of vector fields. Alternatively, in matrix groups, the Lie algebra consists of all matrices $X$ such that $e^{tX} \in G$ for all $t \in \mathbb{R}$, and the bracket is the matrix commutator $[X,Y] = XY - YX$.
+
+For example:
+\begin{itemize}
+    \item The Lie algebra of $\GL(n,\mathbb{R})$ is $\mathfrak{gl}(n,\mathbb{R})$, the space of all $n \times n$ real matrices, with bracket $[X,Y] = XY - YX$.
+    \item The Lie algebra of $\SO(n)$ is $\mathfrak{so}(n)$, the space of skew-symmetric $n \times n$ matrices.
+    \item The Lie algebra of $S^1$ is $\mathbb{R}$, with trivial bracket $[x,y] = 0$ (the group is abelian).
+\end{itemize}
+
+\subsection{Worked Example: The Lie Algebra of $\SO(3)$}
+
+Let us compute the Lie algebra $\mathfrak{so}(3)$ explicitly. Recall that $\SO(3)$ is the group of $3 \times 3$ real matrices $R$ satisfying $R^T R = I$ and $\det R = 1$. To find its tangent space at the identity, consider a smooth path $R(t)$ through the identity: $R(0) = I$, $R(t) \in \SO(3)$ for all $t$. Differentiate $R(t)^T R(t) = I$:
+
+\[
+\frac{d}{dt}\Big|_{t=0} \big(R(t)^T R(t)\big) = \dot R(0)^T I + I^T \dot R(0) = \dot R(0)^T + \dot R(0) = 0,
+\]
+
+so $\dot R(0)$ is skew-symmetric: $X^T = -X$. Thus $\mathfrak{so}(3)$ consists of all $3 \times 3$ skew-symmetric matrices. Any such matrix can be written as
+
+\[
+X = \begin{pmatrix}
+0 & -a_3 & a_2 \\
+a_3 & 0 & -a_1 \\
+-a_2 & a_1 & 0
+\end{pmatrix}
+= a_1 L_x + a_2 L_y + a_3 L_z,
+\]
+
+where $\mathbf{a} = (a_1,a_2,a_3) \in \mathbb{R}^3$ and
+
+\[
+L_x = \begin{pmatrix} 0 & 0 & 0 \\ 0 & 0 & -1 \\ 0 & 1 & 0 \end{pmatrix},\;
+L_y = \begin{pmatrix} 0 & 0 & 1 \\ 0 & 0 & 0 \\ -1 & 0 & 0 \end{pmatrix},\;
+L_z = \begin{pmatrix} 0 & -1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}.
+\]
+
+The dimension of $\mathfrak{so}(3)$ is $3$, matching $\dim \SO(3) = 3$.
+
+Now compute the Lie bracket $[X,Y] = XY - YX$ for the basis matrices. A straightforward calculation gives
+
+\[
+[L_x, L_y] = L_z,\qquad
+[L_y, L_z] = L_x,\qquad
+[L_z, L_x] = L_y,
+\]
+
+and all other brackets follow by antisymmetry. This is precisely the cross product on $\mathbb{R}^3$: under the identification $X \leftrightarrow \mathbf{a}$, we have $[X,Y] \leftrightarrow \mathbf{a} \times \mathbf{b}$.
+
+These commutation relations are instantly recognizable to physicists: $L_x, L_y, L_z$ are precisely the angular momentum operators of quantum mechanics, satisfying the same commutation relations $[L_x, L_y] = i\hbar L_z$ (up to the factor $i\hbar$). No coincidence---angular momentum \emph{is} the infinitesimal generator of rotations, and the Lie algebra $\mathfrak{so}(3)$ encodes the structure of rotational symmetry in three-dimensional space.
+
+\subsection{The Exponential Map}
+
+The bridge between a Lie group and its Lie algebra is the \textbf{exponential map}:
+\[
+    \exp \colon \mathfrak{g} \to G.
+\]
+For matrix groups, this is the familiar matrix exponential:
+\[
+    \exp(X) = \sum_{k=0}^{\infty} \frac{X^k}{k!} = I + X + \frac{X^2}{2} + \frac{X^3}{6} + \cdots.
+\]
+The exponential map is a local diffeomorphism near the origin: it maps a neighborhood of $0$ in $\mathfrak{g}$ diffeomorphically onto a neighborhood of $e$ in $G$. This is why the Lie algebra, a purely linear object, captures the local structure of the group so effectively.
+
+Let us see this concretely. For $\mathfrak{so}(2)$:
+\[
+\exp\!\begin{pmatrix} 0 & -\theta \\ \theta & 0 \end{pmatrix}
+= \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix},
+\]
+the familiar $2 \times 2$ rotation matrix. Every rotation arises by exponentiating a skew-symmetric matrix, confirming that $\SO(2)$ is essentially the circle $S^1$.
+
+For $\mathfrak{so}(3)$, the exponential map yields \textbf{Rodrigues' rotation formula}. Given a skew-symmetric matrix $X$ corresponding to a rotation axis $\mathbf{u}$ (a unit vector) and angle $\theta$, we have
+\[
+\exp(\theta X) = I + (\sin\theta) X + (1 - \cos\theta) X^2.
+\]
+Explicitly, for a rotation by angle $\theta$ about the unit vector $\mathbf{u} = (u_1,u_2,u_3)$,
+\[
+R_{\mathbf{u}}(\theta) = I + (\sin\theta)\,
+\begin{pmatrix}
+0 & -u_3 & u_2 \\
+u_3 & 0 & -u_1 \\
+-u_2 & u_1 & 0
+\end{pmatrix}
++ (1-\cos\theta)\,
+\begin{pmatrix}
+u_1^2-1 & u_1u_2 & u_1u_3 \\
+u_1u_2 & u_2^2-1 & u_2u_3 \\
+u_1u_3 & u_2u_3 & u_3^2-1
+\end{pmatrix}.
+\]
+This is a beautiful illustration of how the exponential map turns the linear algebra of $\mathfrak{so}(3)$ into the geometry of rotations.
+
+The fundamental relation connecting the exponential map to the Lie bracket is the \textbf{Baker--Campbell--Hausdorff formula}:
+\[
+    \exp(X)\exp(Y) = \exp\!\left(X + Y + \tfrac{1}{2}[X,Y] + \tfrac{1}{12}[X,[X,Y]] - \tfrac{1}{12}[Y,[X,Y]] + \cdots\right).
+\]
+This remarkable formula shows that the entire group structure near the identity is encoded in the Lie algebra; the group multiplication is determined, in a neighbourhood of $e$, by iterated Lie brackets.
+
+\subsection{The Maurer--Cartan Form}
+
+A deeper perspective on the exponential map comes from the \textbf{Maurer--Cartan form}, a $\mathfrak{g}$-valued $1$-form on $G$ defined as the left-translate of the identity tangent:
+\[
+\omega_g = L_{g^{-1}}^* \colon T_g G \to T_e G = \mathfrak{g},
+\]
+where $L_g(h) = gh$ is left multiplication. For matrix groups, the Maurer--Cartan form has a simple expression:
+\[
+\omega = g^{-1}\, dg,
+\]
+where $g$ denotes the matrix of coordinates on $G$. This form satisfies the \textbf{Maurer--Cartan equation}
+\[
+d\omega + \tfrac12 [\omega, \omega] = 0,
+\]
+which encodes the structure of the group in a purely differential-geometric way.
+
+Using the Maurer--Cartan form, one can prove that the exponential map is a local diffeomorphism: the derivative of $\exp$ at $0 \in \mathfrak{g}$ is the identity map on $\mathfrak{g}$, and by the inverse function theorem, $\exp$ maps a neighbourhood of $0$ diffeomorphically onto a neighbourhood of $e$ in $G$. This is the fundamental reason that the Lie algebra---a linear object---completely determines the local structure of the group.
+
+\subsection{Hilbert's Question: Does Continuity Imply Differentiability?}
+
+Hilbert's fifth problem asks whether we can drop the assumption of differentiability from the definition of a Lie group. Suppose we start with something weaker---a group that is a topological manifold, with only \emph{continuous} multiplication and inversion. Must the manifold structure be smooth?
+
+The difficulty is clear: topological manifolds can be very wild. Continuous functions need not be differentiable. A continuous bijection between manifolds need not be a diffeomorphism. Why should the algebraic structure of a group force analyticity?
+
+Lie himself believed the answer was yes, and much of his work implicitly relied on this principle. But a rigorous proof required tools that did not exist in 1900.
+
+\subsection{The Resolution}
+
+The resolution of Hilbert's fifth problem came in stages, over several decades:
+
+\paragraph{Cartan (1930).} Élie Cartan proved that every \emph{closed subgroup} of $\GL(n,\mathbb{R})$ is automatically a Lie group. This was an important partial result: it showed that any continuous group that can be faithfully represented as a matrix group inherits a smooth structure. However, it left open whether every topological group that is a manifold can be realized as a Lie group---the smooth structure had to be constructed from scratch, not inherited from an ambient matrix group.
+
+\paragraph{von Neumann (1933).} John von Neumann proved a remarkable special case: every \emph{compact} topological group that is a topological manifold is automatically a Lie group. His proof used the Peter--Weyl theorem, a deep result about representations of compact groups.
+
+\paragraph{The Peter--Weyl Theorem.} Proved by Hans Peter and Helmut Weyl around 1927, it says every compact group has a faithful finite-dimensional representation---i.e., can be realized as a matrix group. This was a crucial step, because once you know a group sits inside $\GL(n,\mathbb{R})$, Cartan's earlier result gives the smooth structure.
+
+\paragraph{Gleason, Montgomery, and Zippin (1950s).} The full resolution came in the early 1950s. David Gleason proved that every finite-dimensional locally compact topological group has \emph{no small subgroups}: there exists a neighbourhood of the identity containing no nontrivial subgroup. This seemingly technical property turns out to be the key to constructing a Lie algebra from the group alone. Deane Montgomery and Leo Zippin, building on Gleason's work, proved the general theorem:
+
+\begin{theorem}[Solution to Hilbert's Fifth Problem]
+Every topological group that is a topological manifold---equivalently, every locally Euclidean topological group---admits a unique analytic structure making it a Lie group.
+\end{theorem}
+
+In particular, every continuous homomorphism between such groups is automatically smooth (in fact, analytic). Continuity \emph{does} imply differentiability, provided the group is finite-dimensional.
+
+This was a stunning vindication of Lie's original vision: the smooth structure is not an additional assumption but a \emph{consequence} of the group structure and the topology. The proof earned Montgomery and Zippin the 1952 AMS Böcher Prize.
+
+\subsection{Counterexamples in Infinite Dimensions}
+
+Hilbert's fifth problem is finite-dimensional. The moment we move to infinite-dimensional groups, the answer becomes \textbf{no}.
+
+Consider the \textbf{diffeomorphism group} $\Diff(M)$ of a smooth manifold $M$: the set of all smooth diffeomorphisms $f \colon M \to M$, with composition as the group operation. This is a topological group under the $C^\infty$ topology, and it is a continuous group in the sense that its operations are continuous. However, $\Diff(M)$ is \emph{infinite-dimensional}---it cannot be given the structure of a finite-dimensional manifold, and while it can be modeled on an infinite-dimensional Fréchet space, such infinite-dimensional Lie groups lack many of the properties of finite-dimensional Lie groups.
+
+Key failures in infinite dimensions include:
+\begin{itemize}
+    \item The exponential map need not be a local diffeomorphism. There may be smooth curves through the identity whose derivatives do not exponentiate to give the group.
+    \item The Lie algebra is infinite-dimensional, and the integrability of Lie algebra homomorphisms to group homomorphisms (Lie's third theorem) fails in general.
+    \item The ``no small subgroups'' property---essential to the Montgomery--Zippin proof---does not hold.
+\end{itemize}
+
+Thus Hilbert's fifth problem is a fundamentally finite-dimensional phenomenon: continuity implies differentiability \emph{because} the finite dimensionality of the group imposes enough rigidity to force analyticity. In infinite dimensions, the group can be much floppier, and the smooth structure must be imposed by hand.
+
+\subsection{The Modern Perspective}
+
+More broadly, Lie groups have become one of the central objects of modern mathematics and physics:
+
+\begin{itemize}
+    \item \textbf{In physics,} Lie groups are the language of symmetry. \textbf{Noether's theorem} states that every continuous symmetry of a physical system corresponds to a conserved quantity---and the symmetry is described by a Lie group. For example, rotational symmetry (the Lie group $\SO(3)$) leads to conservation of angular momentum; time-translation symmetry (the Lie group $\mathbb{R}$) leads to conservation of energy. The \textbf{Standard Model} of particle physics is built on the gauge group $SU(3) \times SU(2) \times U(1)$, whose representations classify all known elementary particles. The search for a unified theory beyond the Standard Model often involves larger Lie groups such as $SU(5)$ or $E_8$.
+
+    \item \textbf{In quantum mechanics,} the representation theory of Lie groups is indispensable. The angular momentum operators $L_x, L_y, L_z$ from Section~3.3 are the infinitesimal generators of the rotation group $\SO(3)$. Particles with integer spin correspond to representations of $\SO(3)$, while particles with half-integer spin correspond to representations of its double cover $SU(2)$.
+
+    \item \textbf{In geometry,} Lie groups act on manifolds, and the study of homogeneous spaces $G/H$ (quotients of a Lie group by a closed subgroup) is a cornerstone of Riemannian and symplectic geometry.
+
+    \item \textbf{In analysis,} the representation theory of Lie groups underpins harmonic analysis, signal processing, and the theory of special functions.
+\end{itemize}
+
+That continuity automatically implies differentiability---Hilbert's fifth problem---is not just a technical nicety. It tells us that continuous symmetry in finite dimensions is far more rigid and structured than one might expect. A group that merely \emph{looks} smooth from a topological point of view \emph{is} smooth. Nature, it seems, does not tolerate half-measures when it comes to continuous symmetry.
+
+\begin{solvedbox}
+Hilbert's fifth problem is \textbf{solved}. Every finite-dimensional topological group that is a topological manifold admits a unique analytic structure making it a Lie group, as proved by Montgomery and Zippin in the 1950s.
+\end{solvedbox}
+
+\section*{Common Questions}
+
+\begin{description}[font=\bfseries, leftmargin=2em, style=nextline]
+
+\item[Q: What does it mean for a group to be ``continuous''? Aren't all groups continuous?]\hfill\\
+Most groups studied in abstract algebra (like finite groups or the group $\mathbb{Z}$) are \emph{discrete}: there is a smallest distance between distinct elements. A continuous group, or Lie group, has uncountably many elements that form a smooth manifold---you can vary the parameters of group elements continuously. For example, the rotation group $\SO(3)$ is continuous because you can rotate by any angle $\theta$, and small changes in $\theta$ give nearby rotations. Not all groups are continuous: $\GL(2,\mathbb{Q})$ is a group of matrices with rational entries, but it is not a Lie group because the rationals are not a manifold.
+
+\item[Q: How does a Lie algebra capture the ``infinitesimal'' structure of a Lie group?]\hfill\\
+The Lie algebra of a Lie group $G$ is the tangent space at the identity element. Think of it as the set of ``infinitesimal'' directions you can move from the identity while staying in the group. The Lie bracket $[X,Y]$ measures the extent to which two infinitesimal motions fail to commute. The exponential map sends an infinitesimal element $X$ to a finite group element $\exp(tX)$, which traces out a one-parameter subgroup. This is analogous to how the derivative of a function at a point captures its local behavior.
+
+\item[Q: Why did Hilbert think this was an open problem?]\hfill\\
+At the time, the definition of a Lie group required the group to be \emph{analytic} (real power series) from the outset. Hilbert wondered whether the smoothness assumption was necessary---could there be a continuous group of transformations that was differentiable without being analytic? Or worse, continuous without being differentiable at all? The problem was to determine whether the continuity of the group operations forces them to be smooth. This was a foundational question: are smoothness and continuity equivalent for finite-dimensional groups?
+
+\item[Q: What's the difference between a topological group and a Lie group?]\hfill\\
+A \emph{topological group} is a group that is also a topological space, with the requirement that multiplication and inversion are continuous. A \emph{Lie group} is a topological group that is also a smooth manifold, with the requirement that multiplication and inversion are smooth (infinitely differentiable). Hilbert's fifth problem asks: if a topological group is a topological manifold (locally Euclidean), does it automatically admit a smooth structure making it a Lie group? The answer is yes, as proved by Montgomery and Zippin.
+
+\item[Q: Why does the Montgomery--Zippin proof use the ``no small subgroups'' property?]\hfill\\
+The ``no small subgroups'' property says there exists a neighborhood of the identity that contains no nontrivial subgroup. This holds for Lie groups (e.g., in $\mathbb{R}$, a small interval around $0$ contains no subgroup other than $\{0\}$). The Montgomery--Zippin proof shows that any finite-dimensional topological group that is a manifold must satisfy this property, and then uses it to construct a smooth structure. Infinite-dimensional groups, like $\Diff(S^1)$, fail to have this property---they contain arbitrarily small subgroups, which is why Hilbert's fifth problem does not extend to infinite dimensions.
+
+\item[Q: Can a Lie group be compact and non-abelian at the same time?]\hfill\\
+Yes, many important Lie groups are both compact and non-abelian. The rotation group $\SO(3)$ is compact (it is the set of $3 \times 3$ matrices with determinant $1$, which is a bounded subset of $\mathbb{R}^9$) and non-abelian (rotations about different axes do not commute). The unitary group $\mathrm{U}(n)$ and the special unitary group $\mathrm{SU}(n)$ are compact and non-abelian for $n \geq 2$. The classification of compact Lie groups is one of the great achievements of 20th-century mathematics.
+
+\item[Q: What does the exponential map look like for matrix groups?]\hfill\\
+For a matrix group, the exponential map is the usual matrix exponential: $\exp(X) = I + X + \frac{X^2}{2!} + \frac{X^3}{3!} + \cdots$. This always converges for any square matrix $X$. For $\SO(3)$, $\exp$ maps a skew-symmetric matrix (representing an axis and angle of rotation) to the corresponding rotation matrix. The exponential map is surjective onto the connected component of the identity for compact Lie groups, but it is not injective---$\exp(\theta X)$ and $\exp((\theta+2\pi)X)$ give the same group element.
+
+\end{description}
+
+\section*{Exercises}
+
+\begin{enumerate}
+    \item \textbf{Verifying Lie groups.}
+    \begin{enumerate}
+        \item Show that $\GL(n,\mathbb{R})$ is an open subset of $\mathbb{R}^{n^2}$ and is therefore a smooth manifold of dimension $n^2$.
+        \item Show that $\SO(2)$, the group of rotations of the plane, is diffeomorphic to the circle $S^1$ and is therefore a Lie group of dimension~$1$.
+        \item Explain why the group $(\mathbb{R}, +)$ of real numbers under addition is a Lie group. What is its Lie algebra?
+    \end{enumerate}
+
+    \item \textbf{Computing Lie algebras.}
+    \begin{enumerate}
+        \item The Lie algebra $\mathfrak{so}(2)$ of $\SO(2)$ consists of $2 \times 2$ skew-symmetric matrices. Show that every such matrix has the form $\begin{pmatrix} 0 & -\theta \\ \theta & 0 \end{pmatrix}$ for some $\theta \in \mathbb{R}$. Conclude that $\mathfrak{so}(2) \cong \mathbb{R}$.
+        \item Compute the Lie bracket on $\mathfrak{so}(2)$. Is it abelian (i.e., is $[X,Y] = 0$ for all $X, Y$)?
+        \item Verify that the basis matrices $L_x, L_y, L_z$ of $\mathfrak{so}(3)$ satisfy $[L_x, L_y] = L_z$ and its cyclic permutations. Conclude that $\mathfrak{so}(3) \cong (\mathbb{R}^3, \times)$ as Lie algebras.
+    \end{enumerate}
+
+    \item \textbf{The exponential map.}
+    \begin{enumerate}
+        \item Compute $\exp\!\begin{pmatrix} 0 & -\theta \\ \theta & 0 \end{pmatrix}$ by summing the series, and verify that it gives a rotation by angle $\theta$.
+        \item Show that the exponential map $\exp \colon \mathfrak{so}(2) \to \SO(2)$ is surjective but not injective (hint: periodicity).
+        \item Let $X = \begin{pmatrix} 0 & -1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix} \in \mathfrak{so}(3)$. Compute $\exp(\pi X)$ and $\exp(2\pi X)$. What rotation does each represent?
+    \end{enumerate}
+
+    \item \textbf{The Jacobi identity.}
+    \begin{enumerate}
+        \item Verify that the Jacobi identity holds for the basis matrices $L_x, L_y, L_z$ of $\mathfrak{so}(3)$ by computing $[L_x, [L_y, L_z]] + [L_y, [L_z, L_x]] + [L_z, [L_x, L_y]]$ explicitly.
+        \item Show that the Jacobi identity is automatically satisfied for any Lie algebra arising from a matrix group: $[X,[Y,Z]] = X(YZ - ZY) - (YZ - ZY)X$, and simplify.
+    \end{enumerate}
+
+    \item \textbf{Non-examples.}
+    \begin{enumerate}
+        \item The \emph{ax+b group} (affine transformations $x \mapsto ax + b$ with $a > 0$) is a Lie group of dimension~$2$. Identify its Lie algebra and compute the Lie bracket of two basis elements.
+        \item Is $(\mathbb{Z}, +)$ a Lie group? Why or why not? What about $(\mathbb{Q}, +)$?
+        \item Explain why the diffeomorphism group $\Diff(S^1)$ is not a finite-dimensional Lie group, even though it is a topological group.
+    \end{enumerate}
+
+    \item \textbf{$\star$ Vector fields and the Maurer--Cartan form.} For the group $\GL(n,\mathbb{R})$, the Maurer--Cartan form is $\omega = g^{-1} dg$. Show that $d\omega + \omega \wedge \omega = 0$, where $\omega \wedge \omega$ denotes the matrix wedge product $(\omega \wedge \omega)_{ij} = \sum_k \omega_{ik} \wedge \omega_{kj}$.
+
+    \item \textbf{$\star$ Conceptual question.} Why does Hilbert's fifth problem fail in infinite dimensions? What goes wrong when the manifold is modeled on an infinite-dimensional Banach space rather than $\mathbb{R}^n$? (Hint: the Montgomery--Zippin proof relies on the existence of a finite-dimensional invariant---the dimension itself---to pin down the smooth structure.)
+\end{enumerate}

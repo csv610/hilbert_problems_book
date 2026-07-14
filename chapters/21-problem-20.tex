@@ -1,0 +1,295 @@
+% ============================================================
+% Chapter 21: Hilbert's Problem 20 — Boundary Value Problems
+% ============================================================
+
+\chapter{Boundary Value Problems}
+\label{ch:problem-20}
+
+\begin{partiallybox}
+\textbf{Partially solved.} Hilbert's twentieth problem asked for a general theory of boundary value problems for partial differential equations---particularly the Dirichlet problem for elliptic equations. Deep results have been achieved: the Dirichlet problem is solved for wide classes of domains and equations, Sobolev spaces and weak solutions provide a powerful framework, and elliptic regularity theory guarantees that weak solutions are often classical. However, the \emph{general} theory Hilbert envisioned---encompassing all elliptic equations on all domains with all boundary conditions---remains incomplete. Singular domains, nonlinear equations, and free boundary problems continue to pose fundamental challenges.
+\end{partiallybox}
+
+% ------------------------------------------------------------
+\section{Historical Context}
+% ------------------------------------------------------------
+
+The study of boundary value problems begins with a question that seems almost childishly simple. Imagine a flat metal plate shaped like a disk. You heat the edge of the plate to various prescribed temperatures---say, $100°$ on the left half and $0°$ on the right half. After a long time, the temperature distribution inside the plate settles into a steady state. What is that steady-state temperature at each interior point?
+
+This is \textbf{Dirichlet's problem}, one of the oldest and most important questions in mathematical physics. Mathematically, a steady-state temperature distribution $u(x, y)$ satisfies \textbf{Laplace's equation}:
+\[
+    \Delta u = \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0.
+\]
+A function satisfying Laplace's equation is called \textbf{harmonic}. The problem is to find a harmonic function inside a domain $\Omega$ that takes prescribed values on the boundary $\partial\Omega$:
+\[
+    \begin{cases}
+        \Delta u = 0 & \text{in } \Omega, \\
+        u = g & \text{on } \partial\Omega.
+    \end{cases}
+\]
+This is a \emph{boundary value problem}: the differential equation governs the behavior inside the domain, and the boundary conditions pin down which solution we want.
+
+\subsection{The Dirichlet Principle}
+
+In the 1840s, Karl Gustav Jacobi and others observed that the solution to Dirichlet's problem can be characterized as the function that \emph{minimizes} a certain energy functional. Define the \textbf{Dirichlet integral}:
+\[
+    D[u] = \frac{1}{2} \int_\Omega |\nabla u|^2 \, dx\,dy.
+\]
+Among all functions $u$ that agree with $g$ on $\partial\Omega$, the harmonic function minimizes $D[u]$. This is the \textbf{Dirichlet principle}: the solution to the boundary value problem is the minimizer of an energy.
+
+The principle is physically intuitive. The Dirichlet integral measures the total ``variation'' or ``roughness'' of the function $u$. A harmonic function is, in a precise sense, the smoothest possible interpolation of the boundary data---the one with the least energy.
+
+\subsection{Riemann's Use of the Principle}
+
+Bernhard Riemann (1826--1866) seized on the Dirichlet principle as a cornerstone of his revolutionary work on complex analysis and Riemann surfaces. In his 1851 doctoral dissertation, Riemann used the principle to prove the \textbf{Riemann mapping theorem}---that any simply connected domain (other than the whole plane) can be conformally mapped onto the unit disk. His approach was breathtaking in its ambition: he argued that the Dirichlet integral, being bounded below, must attain its minimum, and that minimum must be the desired harmonic function.
+
+Riemann's arguments were not rigorous by the standards that would later prevail. He assumed without proof that the minimum of the Dirichlet integral actually \emph{exists}---that is, that there exists a function achieving the minimum. This assumption, known as the \textbf{Dirichlet principle}, was widely accepted for a time. It had the stamp of physical intuition and seemed too natural to fail.
+
+\subsection{Weierstrass's Criticism}
+
+The disaster came in 1870, when Karl Weierstrass published a devastating counterexample. He showed that the Dirichlet integral need \emph{not} attain its minimum among functions satisfying the boundary conditions. In other words, one can construct a sequence of admissible functions $u_n$ with
+\[
+    D[u_n] \to \inf D[u],
+\]
+but no function $u$ in the admissible class actually achieves the infimum. The ``minimum'' is merely an infimum, never attained.
+
+Weierstrass's example did not mean that Dirichlet's problem has no solution---only that the variational argument (minimizing the Dirichlet integral) fails as a proof technique. The \emph{conclusion} might still be true, but the \emph{method} was flawed. This distinction is crucial: a wrong proof of a correct theorem leaves the theorem still open.
+
+The mathematical community was shaken. Riemann's brilliant but unrigorous use of the Dirichlet principle became a cautionary tale about the dangers of assuming the existence of minimizers. For decades, the Dirichlet problem remained without a satisfactory general proof.
+
+% ------------------------------------------------------------
+\section{The Problem}
+% ------------------------------------------------------------
+
+Hilbert's twentieth problem, as stated in his 1900 address, calls for:
+
+\begin{problem_statement}[Hilbert's Twentieth Problem]
+Develop a general theory of boundary value problems for partial differential equations. In particular, prove the existence of solutions to the Dirichlet problem for elliptic equations, and develop the mathematical framework needed to treat boundary conditions rigorously.
+\end{problem_statement}
+
+The problem encompasses several interrelated questions:
+\begin{enumerate}
+    \item \textbf{Existence:} Under what conditions on the domain $\Omega$, the boundary data $g$, and the differential equation does a solution exist?
+    \item \textbf{Uniqueness:} When is the solution unique?
+    \item \textbf{Regularity:} How smooth is the solution? If the boundary data is continuous, is the solution continuously differentiable? Infinitely differentiable? Real-analytic?
+    \item \textbf{Dependence:} How does the solution depend on the boundary data and the domain?
+\end{enumerate}
+
+These questions are fundamental to mathematical physics. Heat conduction, electrostatics, fluid flow, and gravitational fields are all governed by elliptic partial differential equations with boundary conditions. A general theory would unify and rigorize these applications.
+
+% ------------------------------------------------------------
+\section{Key Developments}
+% ------------------------------------------------------------
+
+\subsection{Hilbert's Vindication: The Direct Method (1904)}
+
+The first major breakthrough came from Hilbert himself. In 1904, Hilbert showed how to rescue the Dirichlet principle---not by patching Weierstrass's counterexample, but by fundamentally changing the space of functions in which the minimization is performed.
+
+Hilbert's idea, now called the \textbf{direct method in the calculus of variations}, proceeds in three steps:
+
+\begin{enumerate}
+    \item \textbf{Bounded below:} The Dirichlet integral $D[u] \geq 0$ for all admissible $u$, so it has an infimum $m$.
+    \item \textbf{Minimizing sequence:} Take a sequence $u_n$ with $D[u_n] \to m$. This sequence might oscillate wildly, but its energy is controlled.
+    \item \textbf{Compactness and convergence:} By extracting a subsequence (using what we now call weak compactness in a Sobolev space), obtain a limit $u$ that still achieves $D[u] = m$.
+\end{enumerate}
+
+The key insight is that one must work in a \emph{completion} of the space of smooth functions---a space large enough to guarantee that minimizing sequences have convergent subsequences. Hilbert worked with what we would now recognize as $\ell^2$ spaces and $L^2$ Sobolev spaces, though the formal language had not yet been developed.
+
+This was a turning point. Hilbert had shown that the Dirichlet principle \emph{does} work, provided one is careful about the function spaces involved. Weierstrass's objection was valid for the original naive formulation, but the correct formulation---minimizing over a suitable completion---overcomes the difficulty.
+
+\subsection{Sobolev Spaces and Weak Solutions}
+
+The formal framework for Hilbert's direct method was developed over the following decades, culminating in the theory of \textbf{Sobolev spaces}, introduced by Sergei Sobolev in the 1930s.
+
+\begin{definition}[Sobolev space]
+For an open set $\Omega \subset \mathbb{R}^n$ and a non-negative integer $k$, the \textbf{Sobolev space} $H^k(\Omega)$ consists of all functions $u \in L^2(\Omega)$ whose weak derivatives up to order $k$ also belong to $L^2(\Omega)$. It is equipped with the inner product:
+\[
+    \langle u, v \rangle_{H^k} = \sum_{|\alpha| \leq k} \int_\Omega D^\alpha u \cdot D^\alpha v \, dx
+\]
+where the sum ranges over all multi-indices $\alpha$ with $|\alpha| \leq k$.
+\end{definition}
+
+The space $H^1_0(\Omega)$---the closure of smooth functions with compact support in $\Omega$ under the $H^1$ norm---is the natural setting for the Dirichlet problem with zero boundary data.
+
+The notion of \textbf{weak derivative} is essential. A function $u \in L^2(\Omega)$ has a weak derivative $v = D_i u$ if, for every smooth test function $\varphi$ with compact support,
+\[
+    \int_\Omega u \, \frac{\partial \varphi}{\partial x_i} \, dx = -\int_\Omega v \, \varphi \, dx.
+\]
+This allows us to differentiate functions that are not classically differentiable---a crucial relaxation that makes the direct method work.
+
+A \textbf{weak solution} to the Dirichlet problem is a function $u \in H^1(\Omega)$ satisfying $u - g \in H^1_0(\Omega)$ and
+\[
+    \int_\Omega \nabla u \cdot \nabla \varphi \, dx = 0 \quad \text{for all } \varphi \in H^1_0(\Omega).
+\]
+This is obtained by multiplying the Laplace equation by a test function and integrating by parts. The weak formulation requires less regularity than the classical one, which is precisely why it admits solutions when the classical approach fails.
+
+\begin{theorem}[Existence via the Direct Method]
+\label{thm:dirichlet-existence}
+Let $\Omega \subset \mathbb{R}^n$ be a bounded domain and let $g \in H^1(\Omega)$. Then there exists a unique weak solution $u \in H^1(\Omega)$ to the Dirichlet problem $\Delta u = 0$ in $\Omega$, $u = g$ on $\partial\Omega$. Moreover, $u$ minimizes the Dirichlet integral over all admissible functions.
+\end{theorem}
+
+\begin{proof}
+The proof applies the direct method. Among all $v \in H^1(\Omega)$ with $v - g \in H^1_0(\Omega)$, the Dirichlet integral $D[v]$ is bounded below by zero. Take a minimizing sequence $u_n$. By the coercivity of the Dirichlet integral and the Poincar\'e inequality, the $H^1$ norms of $u_n$ are bounded. By the Banach--Alaoglu theorem (weak compactness of bounded sets in reflexive Banach spaces), a subsequence converges weakly in $H^1$ to some $u$. The Dirichlet integral is weakly lower semicontinuous, so $D[u] \leq \liminf D[u_n] = m$. Hence $u$ is a minimizer. Uniqueness follows from the strict convexity of $D[u]$.
+\end{proof}
+
+\subsection{The Maximum Principle}
+
+One of the most elegant and powerful tools in the theory of elliptic equations is the \textbf{maximum principle}. It requires no function spaces or weak derivatives---only the differential equation itself.
+
+\begin{theorem}[Weak Maximum Principle]
+\label{thm:max-principle}
+Let $\Omega$ be a bounded domain and $u$ a function that is continuous on $\overline{\Omega}$ and harmonic in $\Omega$ (i.e., $\Delta u = 0$). Then
+\[
+    \max_{\overline{\Omega}} u = \max_{\partial\Omega} u, \qquad \min_{\overline{\Omega}} u = \min_{\partial\Omega} u.
+\]
+That is, the maximum and minimum of $u$ are achieved on the boundary.
+\end{theorem}
+
+The maximum principle has profound consequences:
+\begin{itemize}
+    \item \textbf{Uniqueness:} If $u$ and $v$ are both harmonic in $\Omega$ and agree on $\partial\Omega$, then $u - v$ is harmonic and zero on the boundary, so $u - v = 0$ everywhere.
+    \item \textbf{Stability:} Small changes in boundary data produce small changes in the solution.
+    \item \textbf{A priori estimates:} The solution is bounded by the boundary data, regardless of the shape of the domain.
+\end{itemize}
+
+The maximum principle extends to general elliptic operators: if $Lu = 0$ where $L$ is a second-order elliptic operator with no zeroth-order term, then $u$ achieves its extrema on the boundary. This is a cornerstone of elliptic PDE theory.
+
+\subsection{Perron's Method (1923)}
+
+In 1923, Oskar Perron gave a beautiful direct construction of solutions to the Dirichlet problem that avoids the calculus of variations entirely. His method is purely PDE-theoretic and works for any bounded domain.
+
+The idea is to build the solution as the \emph{upper envelope} of all subharmonic functions below the boundary data. A function $u$ is \textbf{subharmonic} if $\Delta u \geq 0$ in the weak sense. Define:
+\[
+    \overline{u}(x) = \sup\{v(x) : v \text{ is subharmonic in } \Omega \text{ and } \limsup_{y \to x'} v(y) \leq g(x') \text{ for all } x' \in \partial\Omega\}.
+\]
+Perron showed that $\overline{u}$ is harmonic in $\Omega$. Whether it solves the Dirichlet problem---that is, whether $\overline{u}$ takes the correct boundary values---depends on the geometry of $\partial\Omega$.
+
+\begin{theorem}[Perron's Method]
+If $\overline{u}$ is the Perron solution and $g$ is continuous on $\partial\Omega$, then $\overline{u}$ solves the Dirichlet problem if and only if every boundary point is \textbf{regular} (in the sense of Wiener's criterion, which relates to the ``thickness'' of the complement of $\Omega$ near the point).
+\end{theorem}
+
+For domains with smooth boundaries, all boundary points are regular, and Perron's method gives a complete solution to the Dirichlet problem. For domains with cusps or other pathological features, boundary points may be irregular, and the Dirichlet problem may fail to have a classical solution.
+
+\subsection{Elliptic Regularity}
+
+A natural question arises: if the weak solution is only in $H^1(\Omega)$, how smooth is it really?
+
+The answer is one of the crown jewels of PDE theory: \textbf{elliptic regularity}.
+
+\begin{theorem}[Elliptic Regularity]
+Let $\Omega$ be a bounded domain with smooth boundary, and let $u$ be a weak solution to $\Delta u = 0$ in $\Omega$. Then $u$ is real-analytic in $\Omega$. More generally, if $u$ solves $Lu = f$ where $L$ is a linear elliptic operator with smooth coefficients and $f$ is smooth, then $u$ is smooth up to the boundary.
+\end{theorem}
+
+The regularity theorem says that weak solutions are actually classical solutions---and more. The smoothness of the solution is inherited from the smoothness of the equation and the domain, not from the regularity of the initial guess. This is remarkable: the weak formulation is a technical device for proving existence, but the conclusion is as strong as one could hope for.
+
+Elliptic regularity is proved by a bootstrapping argument: if $u \in H^1$, interior regularity estimates show that $u \in H^2$ locally; then $u \in H^3$, and so on. Each step gains two derivatives, and the process continues until $u$ is as smooth as the data permits.
+
+\subsection{Generalizations and Modern Developments}
+
+Hilbert's vision of a \emph{general} theory of boundary value problems has been realized in broad outlines, but the details continue to unfold.
+
+\paragraph{The Dirichlet problem for the Laplacian.}
+For bounded domains with Lipschitz boundary, the Dirichlet problem for the Laplacian is fully understood: existence, uniqueness, and regularity are established. For unbounded domains and exterior domains, the theory requires additional conditions at infinity (e.g., decay conditions) but is largely complete.
+
+\paragraph{Elliptic systems.}
+For systems of elliptic equations (such as the equations of elasticity), the regularity theory is more subtle. The scalar theory does not always generalize: there are examples of weak solutions to elliptic systems that are \emph{not} smooth. The regularity theory for elliptic systems remains an active area of research.
+
+\paragraph{Nonlinear elliptic equations.}
+For nonlinear equations such as
+\[
+    -\Delta u = f(x, u, \nabla u),
+\]
+the theory is vastly more complex. Existence and regularity depend on the growth conditions of $f$, the structure of the nonlinearity, and the geometry of $\Omega$. The \textbf{Calabi conjecture}, solved by Shing-Tung Yau in 1976, showed that every compact K\"ahler manifold with negative first Chern class admits a Ricci-flat metric---a profound existence result for a nonlinear elliptic equation arising from geometry.
+
+\paragraph{Boundary integral equations.}
+The \textbf{boundary element method} reformulates the Dirichlet problem as an integral equation on $\partial\Omega$, reducing the dimension of the problem by one. This approach, rooted in Green's representation formula, is computationally efficient and has become a standard tool in engineering.
+
+\paragraph{Numerical methods: finite elements.}
+The \textbf{finite element method} (FEM) discretizes the weak formulation of the Dirichlet problem on a triangulation of $\Omega$ and solves the resulting linear system. FEM is the workhorse of computational engineering and physics, used to simulate everything from bridge stresses to electromagnetic fields. The theoretical foundation of FEM rests squarely on the Sobolev space framework developed for Hilbert's problem.
+
+% ------------------------------------------------------------
+\section{Current Status: Partially Solved}
+% ------------------------------------------------------------
+
+\begin{partiallybox}
+Hilbert's twentieth problem is \textbf{partially solved} in the following sense: the Dirichlet problem for linear elliptic equations on domains with reasonable boundaries is essentially complete. The framework of Sobolev spaces, weak solutions, and elliptic regularity provides a rigorous and powerful theory. However, the \emph{general} boundary value problem---encompassing nonlinear equations, systems, domains with singularities, and non-standard boundary conditions---is far from fully understood. Elliptic regularity for systems, fully nonlinear equations (such as the Monge--Amp\`ere equation), free boundary problems, and the interplay between geometry and PDE theory continue to generate deep mathematics. The spirit of Hilbert's challenge---to understand the existence, uniqueness, and regularity of solutions to boundary value problems---remains at the heart of modern analysis.
+\end{partiallybox}
+
+% ------------------------------------------------------------
+\section*{Common Questions}
+% ------------------------------------------------------------
+
+\begin{description}[font=\bfseries, leftmargin=2em, style=nextline]
+
+\item[Q: What is the Dirichlet principle, and why was it controversial?]\hfill\\
+The Dirichlet principle says that among all functions matching given boundary data, the one that minimizes the Dirichlet integral $\int |\nabla u|^2$ solves Laplace's equation. Riemann relied on it heavily. But Weierstrass showed that a minimizing sequence can approach an infimum that no actual function attains---the ``minimum'' may be merely a dream. Hilbert rescued the principle by working in a complete function space where minima are guaranteed to exist.
+
+\item[Q: Does every PDE with boundary conditions have a solution?]\hfill\\
+No. Even for the simple Laplace equation, the Dirichlet problem may fail if the domain boundary is rough (e.g., a sharp cusp). Wiener's criterion characterizes exactly which boundary points are ``regular.'' For nonlinear or singular problems, existence is a deep and often open question.
+
+\item[Q: How does Hilbert's direct method work?]\hfill\\
+Three steps: (1) find a sequence of admissible functions whose energy approaches the infimum (a minimizing sequence); (2) show the sequence has a convergent subsequence in a suitable weak topology (compactness); (3) prove the energy is lower semicontinuous, so the limit actually attains the minimum. The key is working in a space large enough that limits exist but small enough that the energy is well-behaved.
+
+\item[Q: What is a weak solution, and why do we need one?]\hfill\\
+A weak solution satisfies an integrated (integral) version of the PDE, involving one fewer derivative than the original equation. We introduce them because the direct method produces a limit that may not be differentiable enough to plug into the original PDE. Once existence is proved, elliptic regularity often shows the weak solution is in fact a classical solution anyway.
+
+\item[Q: What is the Sobolev space $H^1_0(\Omega)$?]\hfill\\
+$H^1_0(\Omega)$ is the space of functions that vanish on the boundary and have one square-integrable weak derivative. It is the natural ``energy space'' for the Dirichlet problem: the Dirichlet integral defines an inner product on it, and it is complete (a Hilbert space), so the direct method works.
+
+\item[Q: Why was Riemann's use of the Dirichlet principle considered acceptable for so long?]\hfill\\
+Physical intuition strongly suggested that minimizing an energy should produce a genuine function---a stretched membrane or a steady temperature distribution obviously exists. Nineteenth-century mathematicians trusted this intuition. It took Weierstrass's precise counterexample to reveal the gap between physics and rigorous mathematics.
+
+\end{description}
+
+% ------------------------------------------------------------
+\section*{Exercises}
+% ------------------------------------------------------------
+
+\begin{enumerate}
+
+    \item \textbf{The Dirichlet integral and harmonic functions.}
+    \begin{enumerate}
+        \item Verify that the function $u(x,y) = x^2 - y^2$ is harmonic in $\mathbb{R}^2$ (i.e., $\Delta u = 0$).
+        \item Compute the Dirichlet integral $D[u]$ over the unit disk $D = \{(x,y) : x^2 + y^2 < 1\}$.
+        \item Consider the function $v(x,y) = x^2 - y^2 + \varepsilon \sin(\pi x)$ for small $\varepsilon > 0$. Is $v$ harmonic? Compute $D[v]$ over $D$ and compare with $D[u]$.
+    \end{enumerate}
+
+    \item \textbf{The maximum principle.}
+    \begin{enumerate}
+        \item State the weak maximum principle precisely.
+        \item Use the maximum principle to prove that the solution to the Dirichlet problem for the Laplacian on a bounded domain is unique.
+        \item Give an example showing that the maximum principle fails for the operator $L[u] = u_{xx} - u_{yy}$ (the wave operator). Why does it fail?
+    \end{enumerate}
+
+    \item \textbf{Weak solutions.}
+    \begin{enumerate}
+        \item Define what it means for $u \in L^2(\Omega)$ to have a weak derivative $v = D_i u$.
+        \item Show that the function $u(x) = |x|$ on $\Omega = (-1, 1)$ has a weak derivative, and find it. Is the weak derivative the same as the classical derivative?
+        \item Write the weak formulation of the Dirichlet problem $\Delta u = 0$ in $\Omega$, $u = 0$ on $\partial\Omega$.
+    \end{enumerate}
+
+    \item \textbf{Explicit solutions.}
+    \begin{enumerate}
+        \item Solve the Dirichlet problem on the unit disk in $\mathbb{R}^2$ with boundary data $g(\theta) = \cos(\theta)$ using separation of variables. (Recall that the general solution to Laplace's equation in polar coordinates is $u(r,\theta) = a_0 + \sum_{n=1}^{\infty} r^n(a_n \cos n\theta + b_n \sin n\theta)$.)
+        \item Solve the Dirichlet problem on the unit disk with boundary data $g(\theta) = |\cos(\theta)|$. (Hint: you will need to compute Fourier coefficients of $|\cos\theta|$.)
+    \end{enumerate}
+
+    \item \textbf{Finite element intuition.}
+    Consider the Dirichlet problem $-\Delta u = 1$ in $\Omega = (0,1) \times (0,1)$ with $u = 0$ on $\partial\Omega$.
+    \begin{enumerate}
+        \item By symmetry, the solution depends only on $r = \sqrt{(x-1/2)^2 + (y-1/2)^2}$. Write the problem in polar coordinates centered at the midpoint and solve the resulting ODE.
+        \item Approximate the solution by a single bilinear function $u(x,y) = c \cdot x(1-x)y(1-y)$ and determine $c$ by requiring $-\Delta u$ to be as close to 1 as possible in an average sense. Compare this approximation with the exact solution at the center of the square.
+    \end{enumerate}
+
+    \item[$\star$] \textbf{Weierstrass's counterexample.}
+    Weierstrass showed that the Dirichlet integral need not attain its minimum in the space of all continuous functions with given boundary values. Consider the following example on $\Omega = (-1, 1)$:
+    \[
+        u_n(x) = \begin{cases} 1 - n|x| & \text{if } |x| \leq 1/n, \\ 0 & \text{if } 1/n \leq |x| \leq 1. \end{cases}
+    \]
+    with boundary data $g(-1) = g(1) = 0$.
+    \begin{enumerate}
+        \item Compute $D[u_n] = \int_{-1}^{1} (u_n'(x))^2 \, dx$ for each $n$.
+        \item Show that $D[u_n] \to 0$ as $n \to \infty$, but no continuous function $u$ with $u(-1) = u(1) = 0$ satisfies $D[u] = 0$ except $u \equiv 0$, which does not match the boundary data at $x = 0$. Explain why the infimum is not attained in the classical space.
+        \item Explain how Hilbert's direct method resolves this by working in $H^1_0(-1, 1)$ instead of $C[-1,1]$.
+    \end{enumerate}
+
+\end{enumerate}

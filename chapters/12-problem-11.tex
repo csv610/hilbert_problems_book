@@ -1,0 +1,284 @@
+% ============================================================
+% Chapter 12: Hilbert's Problem 11 — Quadratic Forms with
+%             Arbitrary Algebraic Coefficients
+% ============================================================
+
+\chapter{Quadratic Forms with Arbitrary Algebraic Coefficients}
+
+\begin{partiallybox}
+Hilbert's eleventh problem asks for a classification of quadratic forms over rings of algebraic integers. The central tool---the \textbf{Hasse--Minkowski theorem}---is fully established: a quadratic form represents zero over a number field if and only if it does so over every completion (the ``local--global principle''). However, a complete, elegant classification of quadratic forms over general number fields, analogous to the classical theory over $\mathbb{Q}$, remains an active area of research with deep connections to algebraic K-theory and the structure of the Witt ring.
+\end{partiallybox}
+
+% ------------------------------------------------------------
+\section{Historical Context}
+% ------------------------------------------------------------
+
+\subsection{What Is a Quadratic Form?}
+
+A \textbf{quadratic form} is a homogeneous polynomial of degree~2 in several variables. The simplest examples are familiar:
+\[
+    Q(x, y) = x^2 + y^2, \qquad Q(x, y, z) = x^2 + y^2 + z^2, \qquad Q(x, y) = x^2 - 2y^2.
+\]
+More generally, a quadratic form in $n$ variables over a ring $R$ is an expression
+\[
+    Q(x_1, \ldots, x_n) = \sum_{1 \le i \le j \le n} a_{ij}\, x_i x_j, \qquad a_{ij} \in R.
+\]
+The central question of the theory is: \emph{which elements of $R$ can be represented by $Q$?} That is, given $c \in R$, does the equation $Q(x_1, \ldots, x_n) = c$ have a solution in $R$?
+
+Quadratic forms arise naturally throughout mathematics. The distance formula in Euclidean geometry is the quadratic form $x^2 + y^2 + z^2$. The theory of Pythagorean triples is the study of which integers are represented by $x^2 + y^2 = z^2$. The famous identity
+\[
+    (a^2 + b^2)(c^2 + d^2) = (ac - bd)^2 + (ad + bc)^2
+\]
+shows that the product of two sums of two squares is again a sum of two squares---a fact that hints at deep algebraic structure.
+
+\subsection{Lagrange's Four-Square Theorem}
+
+The oldest result in the theory of quadratic forms is a theorem of Lagrange (1770):
+
+\begin{theorem}[Lagrange]
+Every positive integer can be represented as the sum of four squares of integers:
+\[
+    n = a^2 + b^2 + c^2 + d^2, \qquad a, b, c, d \in \mathbb{Z}.
+\]
+\end{theorem}
+
+Lagrange's theorem tells us that the quadratic form $x^2 + y^2 + z^2 + w^2$ represents \emph{every} positive integer. This is a remarkable fact: four squares suffice, and three do not (since $7 = a^2 + b^2 + c^2$ has no integer solution, as one can check modulo~8).
+
+Lagrange's theorem was a starting point, not an endpoint. It raised natural questions: \emph{which} positive integers are represented by $x^2 + y^2$ (sums of two squares)? By $x^2 + 2y^2$? By $x^2 + 3y^2$? By $x^2 + xy + y^2$? Each of these questions leads into deep number theory.
+
+\subsection{Gauss and Genus Theory}
+
+Gauss, in his \emph{Disquisitiones Arithmeticae} (1801), laid the foundations of a systematic theory. He introduced the notion of \textbf{composition} of quadratic forms and began the study of \textbf{genus theory}.
+
+The key idea is this: two quadratic forms $Q_1$ and $Q_2$ are \textbf{equivalent} (over $\mathbb{Z}$) if one can be transformed into the other by an invertible change of variables. Gauss showed that the set of equivalence classes of forms of a given discriminant forms a group under composition. He also introduced a coarser grouping: two forms are in the same \textbf{genus} if they represent the same elements ``locally''---that is, modulo every prime power. Genus theory captures the idea that local information (behavior at each prime) constrains, but does not fully determine, global behavior (representation over $\mathbb{Z}$).
+
+This local--global theme---checking a condition at every prime and at infinity---recurs throughout the modern theory and reaches its fullest expression in the Hasse--Minkowski theorem.
+
+\subsection{Quadratic Forms over \texorpdfstring{$\mathbb{Q}$}{Q}}
+
+By the early twentieth century, the classification of quadratic forms over $\mathbb{Q}$ (the rational numbers) and $\mathbb{R}$ (the real numbers) was well understood. Over $\mathbb{R}$, Sylvester's law of inertia (1852) gives a complete invariant: a real quadratic form is determined up to equivalence by its \textbf{signature} $(p, q)$---the number of positive and negative squares in a diagonal representation. Over $\mathbb{Q}$, the situation is richer, involving not only the signature but also \textbf{Hilbert symbols} at each prime---local obstructions that measure whether a form represents zero $p$-adically.
+
+% ------------------------------------------------------------
+\section{The Problem}
+% ------------------------------------------------------------
+
+\begin{problem_statement}[Hilbert's Eleventh Problem]
+Classify quadratic forms with coefficients that are arbitrary algebraic numbers. More precisely: understand the representation theory of quadratic forms over rings of algebraic integers.
+\end{problem_statement}
+
+Hilbert's phrasing is deliberately open-ended. The question encompasses several layers:
+\begin{enumerate}
+    \item Over $\mathbb{Q}$, the theory of quadratic forms is essentially complete. What happens when we replace $\mathbb{Q}$ by an arbitrary number field $K$---a finite extension of $\mathbb{Q}$?
+    \item What is the right notion of ``equivalence'' of quadratic forms over $K$?
+    \item Which elements of $K$ (or its ring of integers $\mathcal{O}_K$) are represented by a given form?
+    \item Is there a local--global principle for quadratic forms over $K$, analogous to the one over $\mathbb{Q}$?
+\end{enumerate}
+
+The problem thus calls for a vast generalization of the classical theory of binary and ternary quadratic forms---from Gauss's genus theory for forms over $\mathbb{Z}$ to a theory valid over every algebraic number field.
+
+% ------------------------------------------------------------
+\section{Key Developments}
+% ------------------------------------------------------------
+
+\subsection{The Hasse--Minkowski Theorem}
+
+The most profound result in the theory of quadratic forms---and the one most directly relevant to Hilbert's eleventh problem---is the \textbf{Hasse--Minkowski theorem}. It is a generalization of a principle that was discovered empirically: to understand whether a quadratic equation has solutions globally (over $\mathbb{Q}$ or a number field $K$), it suffices to check whether it has solutions ``locally''---at every place of the field.
+
+To state the theorem, we need to understand what ``local'' and ``global'' mean.
+
+\subsubsection{Places and Completions}
+
+A \textbf{place} of a number field $K$ is an equivalence class of absolute values on $K$. Every number field $K$ has:
+\begin{itemize}
+    \item One \textbf{archimedean place} (coming from each embedding $K \hookrightarrow \mathbb{R}$ or $K \hookrightarrow \mathbb{C}$), and
+    \item For each prime $\mathfrak{p}$ of $\mathcal{O}_K$, a \textbf{non-archimedean place} (the $p$-adic absolute value $|\cdot|_\mathfrak{p}$).
+\end{itemize}
+
+The \textbf{completion} of $K$ at a place $v$ is the complete topological field $K_v$ obtained by filling in all Cauchy sequences:
+\begin{itemize}
+    \item The completion at the archimedean place is $\mathbb{R}$ (or $\mathbb{C}$).
+    \item The completion at a non-archimedean place $\mathfrak{p}$ is a \textbf{$p$-adic field} $K_\mathfrak{p}$---a finite extension of $\mathbb{Q}_p$.
+\end{itemize}
+
+We say that a quadratic form $Q$ over $K$ \textbf{represents zero locally} if $Q(x_1, \ldots, x_n) = 0$ has a non-trivial solution in $K_v$ for \emph{every} place $v$ of $K$. We say it \textbf{represents zero globally} if it has a non-trivial solution in $K$ itself.
+
+\subsubsection{The Theorem}
+
+\begin{theorem}[Hasse--Minkowski]
+\label{thm:hasse-minkowski}
+Let $K$ be a number field and let $Q$ be a quadratic form over $K$ in $n \ge 3$ variables. Then $Q$ represents zero over $K$ (has a non-trivial zero in $K^n$) if and only if $Q$ represents zero over $K_v$ for every place $v$ of $K$.
+\end{theorem}
+
+In symbols:
+\[
+    Q \text{ has a non-trivial zero over } K
+    \quad\Longleftrightarrow\quad
+    Q \text{ has a non-trivial zero over } K_v \text{ for all } v.
+\]
+
+This is the \textbf{local--global principle}: global representability is equivalent to local representability at every place. The theorem is striking because it says that \emph{there are no hidden global obstructions}: if a form behaves well at every prime and at infinity, it behaves well globally.
+
+\begin{remark}
+The condition $n \ge 3$ (at least three variables) is essential. For binary quadratic forms ($n = 2$), the local--global principle can fail. For example, the form $3x^2 + 2y^2$ represents zero locally at every place of $\mathbb{Q}$ but does not represent zero non-trivially over $\mathbb{Q}$. (The failure is subtle and involves the interaction of the discriminant with the class group.)
+\end{remark}
+
+\subsubsection{Why the Local--Global Principle Is Deep}
+
+The Hasse--Minkowski theorem is not merely a clever observation---it is a theorem with deep structural content. Here is why.
+
+Over $\mathbb{R}$, the question ``does $Q$ represent zero?'' is easy: a quadratic form over $\mathbb{R}$ represents zero non-trivially if and only if it is \emph{indefinite} (has both positive and negative coefficients in a diagonal form). This is just Sylvester's law.
+
+Over $\mathbb{Q}_p$ (the $p$-adic numbers), the question is more subtle. The $p$-adic numbers are a completely different world from the real numbers: they are totally disconnected, and the notion of ``closeness'' is governed by divisibility by $p$ rather than by magnitude. A quadratic form represents zero over $\mathbb{Q}_p$ if and only if certain conditions involving the \textbf{Hilbert symbol} $\left(\frac{a, b}{p}\right)$ are satisfied. The Hilbert symbol is a local invariant that records whether the form $ax^2 + by^2$ represents zero $p$-adically.
+
+The Hasse--Minkowski theorem says: check all these local conditions (at $\mathbb{R}$ and at each $\mathbb{Q}_p$), and if they are all satisfied, a global solution exists. The proof connects the local conditions through the \textbf{Brauer group}---an algebraic structure that measures the failure of the ``Hasse principle'' for related problems.
+
+\subsection{The Brauer Group and the Hasse Principle}
+
+The \textbf{Brauer group} $\Br(K)$ of a field $K$ is an abelian group that classifies \textbf{central simple algebras} over $K$ up to Brauer equivalence. For a number field $K$, the Brauer group is controlled by the local Brauer groups $\Br(K_v)$, and there is an exact sequence:
+\[
+    0 \longrightarrow \Br(K) \longrightarrow \bigoplus_v \Br(K_v) \longrightarrow \mathbb{Q}/\mathbb{Z} \longrightarrow 0.
+\]
+This sequence, due to Tate, encodes the local--global principle for the Brauer group and is the cohomological backbone of the Hasse--Minkowski theorem. The map to $\mathbb{Q}/\mathbb{Z}$ measures the ``defect'' of the local--global principle.
+
+The Brauer group perspective shows that the Hasse--Minkowski theorem is not an isolated fact about quadratic forms---it is a special case of a broader principle governing the local--global behavior of algebraic objects over number fields.
+
+\subsection{The Witt Ring and Pfister Forms}
+
+Over a general number field $K$, the algebraic structure that governs the behavior of quadratic forms is the \textbf{Witt ring} $W(K)$. This is the ring whose elements are equivalence classes of quadratic forms over $K$, with addition given by the orthogonal sum of forms and multiplication by the tensor product.
+
+The Witt ring encodes:
+\begin{itemize}
+    \item The \textbf{signature} at each real embedding of $K$.
+    \item The \textbf{Hilbert symbols} at each finite place of $K$.
+    \item The \textbf{discriminant} and \textbf{Hasse--Witt invariant} of each form.
+\end{itemize}
+
+A key concept in the modern theory is that of \textbf{Pfister forms}. A Pfister form is a quadratic form of the type
+\[
+    \langle\langle a_1, a_2, \ldots, a_n \rangle\rangle = \bigotimes_{i=1}^n \langle 1, -a_i \rangle,
+\]
+where $\langle 1, -a_i \rangle$ denotes the binary form $x^2 - a_i y^2$. Pfister forms are multiplicative: the product of two Pfister forms is again a Pfister form (up to equivalence). They play a role analogous to that of prime numbers in the multiplicative structure of $\mathbb{Z}$: every quadratic form over $K$ can be ``decomposed'' in terms of Pfister forms.
+
+The deep theorem of Arason and Pfister (1972) shows that Pfister forms are precisely the forms that vanish on the \textbf{fundamental ideal} of the Witt ring---they are the ``atoms'' from which the Witt ring is built.
+
+\subsection{Quadratic Forms over General Number Fields}
+
+For a number field $K$, the Hasse--Minkowski theorem still holds (with appropriate modifications: one must account for all archimedean places, not just one). The local--global principle for quadratic forms is thus valid over every number field.
+
+However, the \emph{classification} of quadratic forms over $\mathcal{O}_K$ (the ring of integers of $K$)---the analogue of Gauss's genus theory for $\mathbb{Z}$---is considerably harder when $K$ has class number greater than~1. The class group of $K$ introduces obstructions that do not appear over $\mathbb{Z}$ or $\mathbb{Q}$, and the full story involves a delicate interplay between:
+\begin{itemize}
+    \item The \textbf{class group} $\Cl(K)$ (which measures the failure of unique factorization in $\mathcal{O}_K$).
+    \item The \textbf{unit group} $\mathcal{O}_K^\times$ (which affects the local conditions at archimedean places).
+    \item The \textbf{Brauer group} $\Br(K)$ (which governs the local--global principle).
+\end{itemize}
+
+For specific families of number fields---real quadratic fields, imaginary quadratic fields, cyclotomic fields---partial results are known, and the picture is rich and beautiful. But a unified, complete classification for arbitrary number fields remains elusive.
+
+% ------------------------------------------------------------
+\section{Current Status}
+% ------------------------------------------------------------
+
+\begin{partiallybox}
+The Hasse--Minkowski theorem---the local--global principle for quadratic forms---is \textbf{fully established} over every number field. This is one of the great achievements of twentieth-century number theory.
+
+However, the full classification of quadratic forms over rings of algebraic integers (the precise content of Hilbert's eleventh problem) is \textbf{partially solved} and remains an active area of research. The Witt ring structure is well understood over $\mathbb{Q}$ and over many specific number fields, but a general, elegant theory for arbitrary number fields---particularly the classification of forms over $\mathcal{O}_K$ when $\Cl(K) \neq 1$---has not yet been achieved. The subject connects to deep current research in algebraic K-theory, arithmetic geometry, and the structure of Galois cohomology.
+\end{partiallybox}
+
+% ------------------------------------------------------------
+\section*{Common Questions}
+% ------------------------------------------------------------
+
+\begin{description}[font=\bfseries, leftmargin=2em, style=nextline]
+
+\item[Q: What does ``local--global principle'' mean with an example?]\hfill\\
+The local--global principle says that for certain problems, a solution exists over a number field $K$ (the ``global'' field) if and only if solutions exist over every completion of $K$ (the ``local'' fields). The completions are $\mathbb{R}$ (or $\mathbb{C}$) at the infinite place and the $p$-adic fields $K_\mathfrak{p}$ at each prime ideal. For a concrete example: take $Q(x,y,z) = x^2 + y^2 - 2z^2$ over $\mathbb{Q}$. To check locally, we ask: (1) Over $\mathbb{R}$, is the form indefinite? Yes, because $1^2 + 0^2 - 2\cdot 0^2 > 0$ and $0^2 + 0^2 - 2\cdot 1^2 < 0$, so there is a nontrivial real zero. (2) Over each $\mathbb{Q}_p$, does $x^2 + y^2 \equiv 2z^2 \pmod{p}$ have a non-trivial solution? The Hasse--Minkowski theorem guarantees that if all local checks pass, a global rational solution exists---and indeed $1^2 + 1^2 = 2\cdot 1^2$ gives $(1,1,1)$ globally.
+
+\item[Q: Why is the $n=2$ case special in the Hasse--Minkowski theorem?]\hfill\\
+The Hasse--Minkowski theorem requires $n \ge 3$ variables. For binary quadratic forms ($n=2$), the local--global principle can fail. For example, $3x^2 + 2y^2$ represents zero locally at every place of $\mathbb{Q}$ but does \emph{not} represent zero nontrivially over $\mathbb{Q}$. The obstruction is tied to the class group: for binary forms, the condition for representing zero involves not just local solvability but also the behavior of the discriminant in the class group. In cohomological terms, the failure is measured by the Tate--Shafarevich group of a certain algebraic torus. This is why the theorem explicitly requires $n \ge 3$.
+
+\item[Q: How do quadratic forms relate to the geometry of conic sections?]\hfill\\
+A quadratic form in three variables $Q(x,y,z) = 0$ is precisely the equation of a conic in projective space. Over $\mathbb{R}$, the classification of conics (ellipses, parabolas, hyperbolas) corresponds to the signature of the quadratic form: positive definite (ellipse), degenerate (parabola), or indefinite (hyperbola). The Hasse--Minkowski theorem therefore tells us exactly when a conic over $\mathbb{Q}$ has a rational point: it must have a real point and a $p$-adic point for every prime $p$. This is a complete solution to the ancient problem of finding rational points on conics, which goes back to Diophantus and Fermat.
+
+\item[Q: What is the Witt ring and why should I care about it?]\hfill\\
+The Witt ring $W(K)$ is the algebraic structure that organizes all quadratic forms over a field $K$. Its elements are equivalence classes of forms, addition is orthogonal sum ($Q_1 \perp Q_2$), and multiplication is tensor product. The Witt ring captures fundamental invariants: the signature (for real embeddings), the discriminant, and the Hasse--Witt invariant. Understanding $W(K)$ for a number field $K$ is equivalent to understanding the classification problem Hilbert posed. It connects quadratic forms to Galois cohomology, K-theory, and the Brauer group, making it a central object in arithmetic geometry.
+
+\item[Q: What does ``a form represents zero'' mean, and why is that the central question?]\hfill\\
+A quadratic form $Q$ \emph{represents zero} if there exists a nontrivial vector $(x_1,\ldots,x_n)$ (not all zero) such that $Q(x_1,\ldots,x_n) = 0$. This is the most basic question about a form because once you know which forms represent zero, you can often understand representation of arbitrary values. For example, if $Q$ represents $c$ (i.e., $Q(x) = c$), then the form $Q(x) - c x_{n+1}^2$ in one more variable represents zero. The Hasse--Minkowski theorem gives a complete answer for $n \ge 3$: local solvability implies global solvability. This is why the problem of representing zero is the central question in the theory.
+
+\item[Q: What's the difference between a quadratic form over $\mathbb{Z}$ and over $\mathbb{Q}$?]\hfill\\
+Over $\mathbb{Q}$, the classification is coarser and simpler because you can scale variables freely. The Hasse--Minkowski theorem gives a complete local--global classification of forms over $\mathbb{Q}$ (and over any number field). Over $\mathbb{Z}$, the problem is much finer: you care about \emph{integer} solutions, not rational ones, and scaling is not allowed. The theory of integer quadratic forms includes Gauss's genus theory, the study of class numbers, and the representation of specific integers by specific forms. Lagrange's four-square theorem ($n = a^2 + b^2 + c^2 + d^2$) is an integer result. Moving from $\mathbb{Q}$ to $\mathbb{Z}$ is like moving from solving an equation to solving it with restricted resources.
+
+\item[Q: Is Lagrange's four-square theorem related to the Hasse--Minkowski theorem?]\hfill\\
+Indirectly, yes. Lagrange's theorem says that $x^2 + y^2 + z^2 + w^2$ represents every positive integer over $\mathbb{Z}$. The Hasse--Minkowski theorem tells us when a quadratic form represents zero over $\mathbb{Q}$ or $\mathbb{R}$, but Lagrange's theorem is about representing specific nonzero values over $\mathbb{Z}$, which is a different (and harder) question. However, the same local--global philosophy underlies both: to check whether a form represents an integer $n$ globally, you check local conditions modulo powers of each prime and at $\mathbb{R}$. For sums of four squares, these local conditions always hold, so every $n$ is represented. This is an instance of the \emph{Hasse principle} for representation of numbers by quadratic forms.
+
+\end{description}
+
+% ------------------------------------------------------------
+\section*{Exercises}
+% ------------------------------------------------------------
+
+\begin{enumerate}
+
+    \item \textbf{Representing integers by quadratic forms.}
+    \begin{enumerate}
+        \item Show that $x^2 + y^2$ represents $5$ over $\mathbb{Z}$ (find integers $x, y$ with $x^2 + y^2 = 5$).
+        \item Show that $x^2 + y^2$ does \emph{not} represent $3$ over $\mathbb{Z}$. (Hint: consider $x^2 + y^2 \pmod{4}$.)
+        \item Which integers between $1$ and $20$ are represented by $x^2 + y^2$ over $\mathbb{Z}$?
+    \end{enumerate}
+
+    \item \textbf{Sylvester's law of inertia.}
+    \begin{enumerate}
+        \item Determine the signature $(p, q)$ of the quadratic form $Q(x,y,z) = 3x^2 - 2y^2 + 5z^2$ over $\mathbb{R}$.
+        \item Does $Q$ represent zero non-trivially over $\mathbb{R}$? Why or why not?
+        \item Give an example of a quadratic form in 3 variables over $\mathbb{R}$ that \emph{does} represent zero non-trivially.
+    \end{enumerate}
+
+    \item \textbf{The local--global principle in action.}
+    \begin{enumerate}
+        \item Consider the quadratic form $Q(x, y, z) = x^2 + y^2 - 2z^2$ over $\mathbb{Q}$. Does $Q$ represent zero non-trivially over $\mathbb{R}$? (Check: is the form indefinite?)
+        \item Does $Q$ represent zero over $\mathbb{Q}_3$? (Hint: check whether $x^2 + y^2 \equiv 2z^2 \pmod{3}$ has a non-trivial solution.)
+        \item Find a non-trivial rational solution to $x^2 + y^2 = 2z^2$.
+    \end{enumerate}
+
+    \item \textbf{Local obstructions.}
+    \begin{enumerate}
+        \item Show that $x^2 + y^2 + z^2 = 0$ has no non-trivial solution in $\mathbb{R}$ (so it fails to represent zero locally at the archimedean place).
+        \item Does $x^2 + y^2 + z^2 = 0$ have a non-trivial solution in $\mathbb{Q}_p$ for $p = 3$? (Hint: $-1$ is a square mod $3$ if and only if \ldots)
+        \item Conclude that $x^2 + y^2 + z^2$ does not represent zero over $\mathbb{Q}$, and explain how the Hasse--Minkowski theorem is consistent with this fact.
+    \end{enumerate}
+
+    \item \textbf{The product of two sums of two squares.}
+    \begin{enumerate}
+        \item Verify the identity $(a^2+b^2)(c^2+d^2) = (ac-bd)^2 + (ad+bc)^2$ by expanding both sides.
+        \item Using this identity, show that if $m$ and $n$ are both sums of two integer squares, then so is $mn$.
+        \item An integer is a sum of two squares if and only if in its prime factorization, every prime $p \equiv 3 \pmod{4}$ appears with even exponent. Verify this for the integers $50 = 2 \cdot 5^2$ and $21 = 3 \cdot 7$.
+    \end{enumerate}
+
+    \item \textbf{Quadratic forms over finite fields.} Let $\mathbb{F}_q$ be a finite field with $q$ elements.
+    \begin{enumerate}
+        \item Show that every element of $\mathbb{F}_q$ is a sum of two squares. (Hint: count the number of squares and the number of elements of the form $c - y^2$ for fixed $c$.)
+        \item Deduce that the quadratic form $x^2 + y^2$ represents every element of $\mathbb{F}_q$.
+    \end{enumerate}
+
+    \item[$\star$] \textbf{The Hilbert symbol.} The \textbf{Hilbert symbol} $(a, b)_p$ for $a, b \in \mathbb{Q}_p^\times$ is defined by:
+    \[
+        (a, b)_p = \begin{cases} \phantom{-}1 & \text{if } z^2 = ax^2 + by^2 \text{ has a non-trivial solution in } \mathbb{Q}_p^3, \\ -1 & \text{otherwise.} \end{cases}
+    \]
+    \begin{enumerate}
+        \item Show that $(a, b)_p = 1$ for all $p$ when $a = b = 1$. (Hint: $z^2 = x^2 + y^2$ always has a non-trivial solution over $\mathbb{Q}_p$ for $p$ odd.)
+        \item Compute $(-1, -1)_2$. (Hint: consider $x^2 + y^2 + z^2 = 0$ modulo 8.)
+        \item The \textbf{product formula} for Hilbert symbols states: $\prod_v (a, b)_v = 1$, where the product is over all places $v$ of $\mathbb{Q}$ (including $v = \infty$). Verify this for $a = -1, b = -1$ using your answers above.
+    \end{enumerate}
+
+    \item[$\star$] \textbf{The Witt ring.} The \textbf{Witt ring} $W(K)$ of a field $K$ is defined as the set of equivalence classes of non-degenerate quadratic forms over $K$, with:
+    \begin{itemize}
+        \item Addition: orthogonal sum $Q_1 \perp Q_2$.
+        \item Multiplication: tensor product $Q_1 \otimes Q_2$.
+    \end{itemize}
+    \begin{enumerate}
+        \item Show that $\langle 1 \rangle \otimes Q \cong Q$ for any form $Q$ (so $\langle 1 \rangle$ is the multiplicative identity).
+        \item Show that $\langle 1 \rangle \perp \langle -1 \rangle \cong \langle 1, -1 \rangle$ is a \emph{metabolic} form (it represents zero non-trivially via $x^2 - y^2 = (x-y)(x+y)$), so it is equivalent to $0$ in $W(K)$.
+        \item Deduce that $\langle -1 \rangle$ is the additive inverse of $\langle 1 \rangle$ in $W(K)$: $\langle 1 \rangle \perp \langle -1 \rangle = 0$.
+    \end{enumerate}
+
+\end{enumerate}

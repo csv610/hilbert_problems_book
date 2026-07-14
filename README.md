@@ -6,11 +6,11 @@ A LaTeX book introducing Hilbert's 23 problems at the undergraduate level.
 
 ## Objectives
 
-- **Introduce all 23 problems** in modern mathematical language, one per chapter, with historical context and current status.
-- **Remain accessible** to undergraduates with calculus, basic linear algebra, and mathematical maturity — no graduate prerequisites assumed.
-- **Emphasize ideas over machinery** — each chapter explains the core concepts without requiring the full technical apparatus of the field.
-- **Provide self-contained chapters** — readers can skip around freely; each chapter includes a problem statement, key developments, FAQs, and exercises.
-- **Serve as a roadmap** to deeper study, with appendices for timeline, glossary, notation, and further reading.
+- **Explain all 23 problems** in plain language, one per chapter, with history and where they stand today.
+- **Stay at an undergraduate level** — you need calculus, basic algebra, and some experience with proofs. No graduate courses required.
+- **Focus on the big ideas**, not the heavy math — you'll understand what each problem is about without needing to master the field.
+- **Let you jump around** — each chapter works on its own, with a problem statement, key results, FAQs, and exercises.
+- **Point you to what to read next** — the appendices include a timeline, glossary, notation guide, and book list.
 
 ## Build
 

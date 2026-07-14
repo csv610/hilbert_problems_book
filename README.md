@@ -1,5 +1,7 @@
 # Hilbert's 23 Problems — An Independent Study Guide
 
+![Cover](frontpage.png)
+
 A LaTeX book introducing Hilbert's 23 problems at the undergraduate level.
 
 ## Build

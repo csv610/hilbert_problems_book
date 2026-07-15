@@ -66,6 +66,58 @@ The fundamental question is: does the result depend on the path chosen?
 
 Given a function element $(f, \Omega)$ and a closed loop $\gamma$ in $\Omega$ based at a point $z_0$, we can analytically continue $f$ along $\gamma$. If the continuation returns to the same branch---that is, the continued function agrees with $f$ near $z_0$---then $\gamma$ is said to be \emph{transparent} to $f$. If the continuation lands on a different branch, the loop $\gamma$ has \emph{monodromy} for $f$.
 
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    scale=0.9,
+    font=\small,
+    path/.style={->, thick, color=blue!70},
+    branch/.style={circle, fill=red!70, inner sep=3pt},
+    point/.style={circle, fill=black, inner sep=2pt},
+    sheet/.style={draw, dashed, color=gray!50}
+]
+
+% Branch point at origin
+\node[branch] at (0,0) {};
+\node[above right] at (0,0) {branch point};
+
+% First sheet (bottom)
+\draw[sheet] (-3,-0.3) rectangle (3,0.3);
+\node[left, color=gray!70] at (-3,0) {Sheet 1};
+
+% Second sheet (top)
+\draw[sheet] (-3,1.7) rectangle (3,2.3);
+\node[left, color=gray!70] at (-3,2) {Sheet 2};
+
+% Base point
+\node[point] at (2,0) {};
+\node[below] at (2,0) {$z_0$};
+
+% Path going around branch point (on Sheet 1)
+\draw[path, color=green!60!black] (2,0) arc (0:360:2);
+\node[above, color=green!60!black] at (0,2.2) {Path $\gamma$};
+
+% Arrow showing continuation
+\draw[->, thick, color=orange!70] (2,0.3) -- (2,1.7);
+\node[right, color=orange!70] at (2.1,1) {analytic continuation};
+
+% Result on Sheet 2
+\node[point, color=orange!70] at (2,2) {};
+\node[above, color=orange!70] at (2,2) {$f(z_0) = -1$};
+
+% Start value
+\node[below, color=green!60!black] at (2,-0.3) {$f(z_0) = 1$};
+
+% Labels
+\node[below, align=center, text width=8cm] at (0, -1.5) {
+    \textbf{Monodromy of $\sqrt{z}$:} Starting at $z_0 = 1$ with $\sqrt{1} = 1$ on Sheet 1, analytic continuation along a loop around the branch point at $z = 0$ lands on Sheet 2 with $\sqrt{1} = -1$.
+};
+
+\end{tikzpicture}
+\caption{Analytic continuation of $w = \sqrt{z}$ around the branch point at $z = 0$. The function starts on Sheet 1 with $\sqrt{1} = 1$, but after traversing a loop around the branch point, it lands on Sheet 2 with $\sqrt{1} = -1$. This demonstrates nontrivial monodromy---the function does not return to its original value.}
+\label{fig:monodromy}
+\end{figure}
+
 For a simply connected domain, every closed loop is contractible to a point, and the monodromy theorem guarantees that every loop is transparent. But for a domain with holes, non-contractible loops can produce genuine monodromy.
 
 % ------------------------------------------------------------

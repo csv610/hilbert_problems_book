@@ -75,6 +75,67 @@ In the Euclidean metric, the unique shortest path from $(0,0)$ to $(1,1)$ is the
 Any path composed of axis-aligned segments that never backtracks has total length $|x_1-x_2|+|y_1-y_2|$ in this metric. The straight diagonal line also has length $2$---the same as the staircase paths---so the shortest path is far from unique. This shows that Hilbert's question ``is the straight line the shortest path?'' cannot be answered without first specifying the metric.
 \end{example}
 
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    scale=0.8,
+    font=\small,
+    grid/.style={help lines, color=gray!30},
+    point/.style={circle, fill=black, inner sep=2pt},
+    path/.style={thick, color=blue!70}
+]
+
+% Euclidean metric (left)
+\node[above, font=\bfseries] at (2, 3.5) {\textbf{Euclidean Metric}};
+
+% Grid
+\draw[grid] (0,0) grid (4,4);
+
+% Start and end points
+\node[point] at (0,0) {};
+\node[point] at (4,4) {};
+\node[below left] at (0,0) {$(0,0)$};
+\node[above right] at (4,4) {$(1,1)$};
+
+% Unique shortest path (straight line)
+\draw[path, color=green!60!black, line width=2pt] (0,0) -- (4,4);
+
+% Label
+\node[below, color=green!60!black, font=\bfseries] at (2, -0.5) {Unique shortest path};
+
+% Taxicab metric (right)
+\node[above, font=\bfseries] at (8, 3.5) {\textbf{Taxicab Metric}};
+
+% Grid
+\draw[grid] (6,0) grid (10,4);
+
+% Start and end points
+\node[point] at (6,0) {};
+\node[point] at (10,4) {};
+\node[below left] at (6,0) {$(0,0)$};
+\node[above right] at (10,4) {$(1,1)$};
+
+% Multiple shortest paths
+\draw[path, color=red!70] (6,0) -- (10,0) -- (10,4);
+\draw[path, color=orange!70] (6,0) -- (6,4) -- (10,4);
+\draw[path, color=purple!70] (6,0) -- (6,2) -- (10,2) -- (10,4);
+
+% Straight line (same length!)
+\draw[path, color=green!60!black, line width=2pt] (6,0) -- (10,4);
+
+% Labels
+\node[below, color=red!70, font=\footnotesize] at (8, -0.5) {All paths have length $2$};
+\node[below, color=green!60!black, font=\footnotesize] at (8, -1.0) {Straight line also has length $2$};
+
+% Distance annotations
+\node[above, font=\small] at (2, 4.5) {Distance $= \sqrt{2} \approx 1.41$};
+\node[above, font=\small] at (8, 4.5) {Distance $= 2$};
+
+\end{tikzpicture}
+\caption{Comparison of shortest paths in Euclidean and taxicab metrics. In the Euclidean metric (left), the straight line is the unique shortest path. In the taxicab metric (right), infinitely many staircase paths achieve the same minimal length as the straight line.}
+\label{fig:taxicab}
+\end{figure}
+
 \subsection{Riemannian Geometry: Distance on Curved Spaces}
 
 The deeper question is: how do we define distance on a curved surface or manifold? Bernhard Riemann answered this in his 1854 \emph{Habilitationsschrift}, laying the foundation for what is now called \textbf{Riemannian geometry}.

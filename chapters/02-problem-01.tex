@@ -37,6 +37,69 @@ Define a new real number $r = 0.r_1 r_2 r_3 \cdots$ by choosing
 Then $r \in (0,1)$ but $r \neq f(n)$ for every $n \in \mathbb{N}$, since $r$ differs from $f(n)$ in the $n$th decimal place. This contradicts the assumption that $f$ is surjective.
 \end{proof}
 
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    scale=0.9,
+    font=\small,
+    number/.style={minimum width=1.2cm, minimum height=0.6cm, anchor=center},
+    arrow/.style={->, thick, color=blue!70}
+]
+
+% Grid for the decimal expansions
+\foreach \i in {0,...,4} {
+    \foreach \j in {0,...,6} {
+        \node[number] at (\j*1.2, -\i*0.8) {\textcolor{gray!70}{0}};
+    }
+}
+
+% Function values f(0), f(1), f(2), ...
+\node[above] at (-1.2, 0) {$f(0) =$};
+\node[above] at (-1.2, -0.8) {$f(1) =$};
+\node[above] at (-1.2, -1.6) {$f(2) =$};
+\node[above] at (-1.2, -2.4) {$f(3) =$};
+\node[above] at (-1.2, -3.2) {$f(4) =$};
+
+% Decimal digits (simplified for illustration)
+\foreach \i/\digits in {0/7,3,8,4,1,2,9, 1/3,1,4,1,5,9,2, 2/2,7,1,8,2,8,1, 3/1,4,1,4,2,1,3, 4/6,2,3,4,5,6,7} {
+    \foreach \j [count=\k from 1] in \digits {
+        \node[number] at (\k*1.2, -\i*0.8) {\j};
+    }
+}
+
+% Highlight the diagonal
+\foreach \i in {0,...,4} {
+    \pgfmathtruncatemacro{\col}{\i+1}
+    \draw[red, thick, opacity=0.7] (\col*1.2-0.2, -\i*0.8-0.3) -- (\col*1.2+0.2, -\i*0.8+0.3);
+}
+
+% The new number r
+\node[below, color=blue!70!black, font=\bfseries] at (3.6, -4.2) {$r = 0.$};
+\node[below, color=blue!70!black, font=\bfseries] at (0, -4.2) {The new number:};
+
+% Show the diagonal digits
+\foreach \i in {0,...,4} {
+    \pgfmathtruncatemacro{\col}{\i+1}
+    \pgfmathtruncatemacro{\val}{\i==0 ? 3 : (\i==1 ? 7 : (\i==2 ? 3 : (\i==3 ? 7 : 3)))}
+    \node[blue!70!black, font=\bfseries] at (\col*1.2, -4.0) {\val};
+}
+
+% Arrows showing r differs from each f(n)
+\foreach \i in {0,...,4} {
+    \pgfmathtruncatemacro{\col}{\i+1}
+    \draw[red!60, thick, ->] (\col*1.2, -\i*0.8-0.35) -- (\col*1.2, -3.8);
+}
+
+% Caption
+\node[below, align=center, text width=8cm] at (3.6, -5.0) {
+    \textbf{Cantor's diagonal argument:} The new number $r$ differs from each $f(n)$ in the $n$th decimal place (shown in red), so $r$ is not in the list.
+};
+
+\end{tikzpicture}
+\caption{Visualization of Cantor's diagonal argument. The decimal expansions of a purported surjection $f\colon\mathbb{N}\to(0,1)$ are arranged in rows. The diagonal digits (red) are used to construct a new number $r$ that differs from each $f(n)$ in the $n$th decimal place, contradicting surjectivity.}
+\label{fig:diagonal}
+\end{figure}
+
 This result established that $|\mathbb{N}| < |\mathbb{R}|$. Cantor introduced notation for these cardinalities. The cardinality of $\mathbb{N}$ is called \textbf{countable infinity} and denoted $\aleph_0$ (read ``aleph-null''). The cardinality of $\mathbb{R}$ is called the \textbf{continuum} and denoted $\mathfrak{c}$.
 
 So Cantor knew that $\aleph_0 < \mathfrak{c}$. The natural question was: is there anything \emph{in between}? That is, does there exist a set $S$ with

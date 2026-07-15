@@ -26,6 +26,63 @@ A function satisfying Laplace's equation is called \textbf{harmonic}. The proble
         u = g & \text{on } \partial\Omega.
     \end{cases}
 \]
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    scale=0.9,
+    font=\small,
+    boundary/.style={thick, color=blue!70},
+    flow/.style={->, thick, color=red!60},
+    temp/.style={font=\footnotesize}
+]
+
+% Disk
+\draw[boundary, fill=blue!5] (0,0) circle (3);
+
+% Boundary temperatures (left half = 100°, right half = 0°)
+\foreach \angle in {10,20,...,170} {
+    \pgfmathsetmacro{\temp}{100}
+    \pgfmathsetmacro{\x}{3*cos(\angle)}
+    \pgfmathsetmacro{\y}{3*sin(\angle)}
+    \fill[red!70] (\x,\y) circle (2pt);
+    \node[temp, above] at (\x,\y+0.2) {\temp°};
+}
+
+\foreach \angle in {190,200,...,350} {
+    \pgfmathsetmacro{\temp}{0}
+    \pgfmathsetmacro{\x}{3*cos(\angle)}
+    \pgfmathsetmacro{\y}{3*sin(\angle)}
+    \fill[blue!70] (\x,\y) circle (2pt);
+    \node[temp, below] at (\x,\y-0.2) {\temp°};
+}
+
+% Interior temperature distribution
+\node[above] at (0, 3.5) {$u = g$ on $\partial\Omega$};
+
+% Heat flow arrows
+\draw[flow] (2.5, 1) -- (1, 0.5);
+\draw[flow] (2.5, -1) -- (1, -0.5);
+\draw[flow] (-2.5, 1) -- (-1, 0.5);
+\draw[flow] (-2.5, -1) -- (-1, -0.5);
+
+% Interior temperatures (interpolated)
+\node[temp, color=orange!80] at (0, 1.5) {$\approx 60°$};
+\node[temp, color=orange!80] at (0, -1.5) {$\approx 60°$};
+\node[temp, color=orange!80] at (0, 0) {$\approx 50°$};
+\node[temp, color=orange!80] at (1.5, 0) {$\approx 30°$};
+\node[temp, color=orange!80] at (-1.5, 0) {$\approx 70°$};
+
+% Labels
+\node[below, align=center, text width=8cm] at (0, -4.0) {
+    \textbf{Dirichlet problem:} Find $u$ with $\Delta u = 0$ in $\Omega$ and $u = g$ on $\partial\Omega$.
+    The solution interpolates boundary temperatures, minimizing the Dirichlet integral (energy).
+};
+
+\end{tikzpicture}
+\caption{The Dirichlet problem on a disk. Boundary temperatures are prescribed (100° on the left half, 0° on the right half). The harmonic function $u$ inside the disk satisfies Laplace's equation $\Delta u = 0$ and represents the steady-state temperature distribution, which minimizes the total energy (Dirichlet integral).}
+\label{fig:dirichlet}
+\end{figure}
+
 This is a \emph{boundary value problem}: the differential equation governs the behavior inside the domain, and the boundary conditions pin down which solution we want.
 
 \subsection{The Dirichlet Principle}

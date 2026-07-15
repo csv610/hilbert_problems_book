@@ -6,7 +6,7 @@
 \label{ch:problem-20}
 
 \begin{partiallybox}
-\textbf{Partially solved.} Hilbert's twentieth problem asked for a general theory of boundary value problems for partial differential equations---particularly the Dirichlet problem for elliptic equations. Deep results have been achieved: the Dirichlet problem is solved for wide classes of domains and equations, Sobolev spaces and weak solutions provide a powerful framework, and elliptic regularity theory guarantees that weak solutions are often classical. However, the \emph{general} theory Hilbert envisioned---encompassing all elliptic equations on all domains with all boundary conditions---remains incomplete. Singular domains, nonlinear equations, and free boundary problems continue to pose fundamental challenges.
+\textbf{Partially solved.} Hilbert's twentieth problem asked for a general theory of boundary value problems for partial differential equations---particularly the Dirichlet problem for elliptic equations. Significant results have been achieved: the Dirichlet problem is solved for wide classes of domains and equations, Sobolev spaces and weak solutions provide a powerful framework, and elliptic regularity theory guarantees that weak solutions are often classical. However, the \emph{general} theory Hilbert envisioned---encompassing all elliptic equations on all domains with all boundary conditions---remains incomplete. Singular domains, nonlinear equations, and free boundary problems continue to pose fundamental challenges.
 \end{partiallybox}
 
 % ------------------------------------------------------------
@@ -40,7 +40,7 @@ The principle is physically intuitive. The Dirichlet integral measures the total
 
 \subsection{Riemann's Use of the Principle}
 
-Bernhard Riemann (1826--1866) seized on the Dirichlet principle as a cornerstone of his revolutionary work on complex analysis and Riemann surfaces. In his 1851 doctoral dissertation, Riemann used the principle to prove the \textbf{Riemann mapping theorem}---that any simply connected domain (other than the whole plane) can be conformally mapped onto the unit disk. His approach was breathtaking in its ambition: he argued that the Dirichlet integral, being bounded below, must attain its minimum, and that minimum must be the desired harmonic function.
+Bernhard Riemann (1826--1866) seized on the Dirichlet principle as a cornerstone of his revolutionary work on complex analysis and Riemann surfaces. In his 1851 doctoral dissertation, Riemann used the principle to prove the \textbf{Riemann mapping theorem}---that any simply connected domain (other than the whole plane) can be conformally mapped onto the unit disk. His approach was ambitious in its scope: he argued that the Dirichlet integral, being bounded below, must attain its minimum, and that minimum must be the desired harmonic function.
 
 Riemann's arguments were not rigorous by the standards that would later prevail. He assumed without proof that the minimum of the Dirichlet integral actually \emph{exists}---that is, that there exists a function achieving the minimum. This assumption, known as the \textbf{Dirichlet principle}, was widely accepted for a time. It had the stamp of physical intuition and seemed too natural to fail.
 
@@ -54,7 +54,7 @@ but no function $u$ in the admissible class actually achieves the infimum. The `
 
 Weierstrass's example did not mean that Dirichlet's problem has no solution---only that the variational argument (minimizing the Dirichlet integral) fails as a proof technique. The \emph{conclusion} might still be true, but the \emph{method} was flawed. This distinction is crucial: a wrong proof of a correct theorem leaves the theorem still open.
 
-The mathematical community was shaken. Riemann's brilliant but unrigorous use of the Dirichlet principle became a cautionary tale about the dangers of assuming the existence of minimizers. For decades, the Dirichlet problem remained without a satisfactory general proof.
+The mathematical community was shaken. Riemann's sophisticated but unrigorous use of the Dirichlet principle became a cautionary tale about the dangers of assuming the existence of minimizers. For decades, the Dirichlet problem remained without a satisfactory general proof.
 
 % ------------------------------------------------------------
 \section{The Problem}
@@ -133,7 +133,7 @@ The proof applies the direct method. Among all $v \in H^1(\Omega)$ with $v - g \
 
 \subsection{The Maximum Principle}
 
-One of the most elegant and powerful tools in the theory of elliptic equations is the \textbf{maximum principle}. It requires no function spaces or weak derivatives---only the differential equation itself.
+One of the most useful and powerful tools in the theory of elliptic equations is the \textbf{maximum principle}. It requires no function spaces or weak derivatives---only the differential equation itself.
 
 \begin{theorem}[Weak Maximum Principle]
 \label{thm:max-principle}
@@ -144,7 +144,7 @@ Let $\Omega$ be a bounded domain and $u$ a function that is continuous on $\over
 That is, the maximum and minimum of $u$ are achieved on the boundary.
 \end{theorem}
 
-The maximum principle has profound consequences:
+The maximum principle has significant consequences:
 \begin{itemize}
     \item \textbf{Uniqueness:} If $u$ and $v$ are both harmonic in $\Omega$ and agree on $\partial\Omega$, then $u - v$ is harmonic and zero on the boundary, so $u - v = 0$ everywhere.
     \item \textbf{Stability:} Small changes in boundary data produce small changes in the solution.
@@ -155,7 +155,7 @@ The maximum principle extends to general elliptic operators: if $Lu = 0$ where $
 
 \subsection{Perron's Method (1923)}
 
-In 1923, Oskar Perron gave a beautiful direct construction of solutions to the Dirichlet problem that avoids the calculus of variations entirely. His method is purely PDE-theoretic and works for any bounded domain.
+In 1923, Oskar Perron gave a direct construction of solutions to the Dirichlet problem that avoids the calculus of variations entirely. His method is purely PDE-theoretic and works for any bounded domain.
 
 The idea is to build the solution as the \emph{upper envelope} of all subharmonic functions below the boundary data. A function $u$ is \textbf{subharmonic} if $\Delta u \geq 0$ in the weak sense. Define:
 \[
@@ -173,13 +173,13 @@ For domains with smooth boundaries, all boundary points are regular, and Perron'
 
 A natural question arises: if the weak solution is only in $H^1(\Omega)$, how smooth is it really?
 
-The answer is one of the crown jewels of PDE theory: \textbf{elliptic regularity}.
+The answer is one of the key results of PDE theory: \textbf{elliptic regularity}.
 
 \begin{theorem}[Elliptic Regularity]
 Let $\Omega$ be a bounded domain with smooth boundary, and let $u$ be a weak solution to $\Delta u = 0$ in $\Omega$. Then $u$ is real-analytic in $\Omega$. More generally, if $u$ solves $Lu = f$ where $L$ is a linear elliptic operator with smooth coefficients and $f$ is smooth, then $u$ is smooth up to the boundary.
 \end{theorem}
 
-The regularity theorem says that weak solutions are actually classical solutions---and more. The smoothness of the solution is inherited from the smoothness of the equation and the domain, not from the regularity of the initial guess. This is remarkable: the weak formulation is a technical device for proving existence, but the conclusion is as strong as one could hope for.
+The regularity theorem says that weak solutions are actually classical solutions---and more. The smoothness of the solution is inherited from the smoothness of the equation and the domain, not from the regularity of the initial guess. This is notable: the weak formulation is a technical device for proving existence, but the conclusion is as strong as one could hope for.
 
 Elliptic regularity is proved by a bootstrapping argument: if $u \in H^1$, interior regularity estimates show that $u \in H^2$ locally; then $u \in H^3$, and so on. Each step gains two derivatives, and the process continues until $u$ is as smooth as the data permits.
 
@@ -198,7 +198,7 @@ For nonlinear equations such as
 \[
     -\Delta u = f(x, u, \nabla u),
 \]
-the theory is vastly more complex. Existence and regularity depend on the growth conditions of $f$, the structure of the nonlinearity, and the geometry of $\Omega$. The \textbf{Calabi conjecture}, solved by Shing-Tung Yau in 1976, showed that every compact K\"ahler manifold with negative first Chern class admits a Ricci-flat metric---a profound existence result for a nonlinear elliptic equation arising from geometry.
+the theory is vastly more complex. Existence and regularity depend on the growth conditions of $f$, the structure of the nonlinearity, and the geometry of $\Omega$. The \textbf{Calabi conjecture}, solved by Shing-Tung Yau in 1976, showed that every compact K\"ahler manifold with negative first Chern class admits a Ricci-flat metric---a significant existence result for a nonlinear elliptic equation arising from geometry.
 
 \paragraph{Boundary integral equations.}
 The \textbf{boundary element method} reformulates the Dirichlet problem as an integral equation on $\partial\Omega$, reducing the dimension of the problem by one. This approach, rooted in Green's representation formula, is computationally efficient and has become a standard tool in engineering.
@@ -211,7 +211,7 @@ The \textbf{finite element method} (FEM) discretizes the weak formulation of the
 % ------------------------------------------------------------
 
 \begin{partiallybox}
-Hilbert's twentieth problem is \textbf{partially solved} in the following sense: the Dirichlet problem for linear elliptic equations on domains with reasonable boundaries is essentially complete. The framework of Sobolev spaces, weak solutions, and elliptic regularity provides a rigorous and powerful theory. However, the \emph{general} boundary value problem---encompassing nonlinear equations, systems, domains with singularities, and non-standard boundary conditions---is far from fully understood. Elliptic regularity for systems, fully nonlinear equations (such as the Monge--Amp\`ere equation), free boundary problems, and the interplay between geometry and PDE theory continue to generate deep mathematics. The spirit of Hilbert's challenge---to understand the existence, uniqueness, and regularity of solutions to boundary value problems---remains at the heart of modern analysis.
+Hilbert's twentieth problem is \textbf{partially solved} in the following sense: the Dirichlet problem for linear elliptic equations on domains with reasonable boundaries is essentially complete. The framework of Sobolev spaces, weak solutions, and elliptic regularity provides a rigorous and powerful theory. However, the \emph{general} boundary value problem---encompassing nonlinear equations, systems, domains with singularities, and non-standard boundary conditions---is far from fully understood. Elliptic regularity for systems, fully nonlinear equations (such as the Monge--Amp\`ere equation), free boundary problems, and the interplay between geometry and PDE theory continue to generate significant mathematics. The spirit of Hilbert's challenge---to understand the existence, uniqueness, and regularity of solutions to boundary value problems---remains at the heart of modern analysis.
 \end{partiallybox}
 
 % ------------------------------------------------------------

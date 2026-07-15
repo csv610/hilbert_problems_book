@@ -6,7 +6,7 @@
 
 \section{Historical Context}
 
-By the end of the nineteenth century, the Norwegian mathematician Sophus Lie (1842--1899) had developed a vast and beautiful theory of \emph{continuous transformation groups}---what we now call \textbf{Lie groups}. Lie's ambition was nothing less than a complete theory of symmetry: he wanted to classify all continuous symmetries of differential equations, just as Galois had classified the discrete symmetries of polynomial equations via finite groups.
+By the end of the nineteenth century, the Norwegian mathematician Sophus Lie (1842--1899) had developed a theory of \emph{continuous transformation groups}---what we now call \textbf{Lie groups}. Lie's ambition was a complete theory of symmetry: he wanted to classify all continuous symmetries of differential equations, just as Galois had classified the discrete symmetries of polynomial equations via finite groups.
 
 Lie's key insight was that a continuous group of transformations---a group that is simultaneously a smooth manifold, with group operations that are smooth maps---carries with it a linearized version of itself: its \textbf{Lie algebra}. The Lie algebra, living in the tangent space at the identity, is often far easier to study than the group itself. Lie and his collaborator Friedrich Engel spent decades codifying this theory in their monumental three-volume work \emph{Theorie der Transformationsgruppen} (1888--1896).
 
@@ -150,13 +150,13 @@ u_1u_2 & u_2^2-1 & u_2u_3 \\
 u_1u_3 & u_2u_3 & u_3^2-1
 \end{pmatrix}.
 \]
-This is a beautiful illustration of how the exponential map turns the linear algebra of $\mathfrak{so}(3)$ into the geometry of rotations.
+This is a clear illustration of how the exponential map turns the linear algebra of $\mathfrak{so}(3)$ into the geometry of rotations.
 
 The fundamental relation connecting the exponential map to the Lie bracket is the \textbf{Baker--Campbell--Hausdorff formula}:
 \[
     \exp(X)\exp(Y) = \exp\!\left(X + Y + \tfrac{1}{2}[X,Y] + \tfrac{1}{12}[X,[X,Y]] - \tfrac{1}{12}[Y,[X,Y]] + \cdots\right).
 \]
-This remarkable formula shows that the entire group structure near the identity is encoded in the Lie algebra; the group multiplication is determined, in a neighbourhood of $e$, by iterated Lie brackets.
+This formula shows that the entire group structure near the identity is encoded in the Lie algebra; the group multiplication is determined, in a neighbourhood of $e$, by iterated Lie brackets.
 
 \subsection{The Maurer--Cartan Form}
 
@@ -202,7 +202,7 @@ Every topological group that is a topological manifold---equivalently, every loc
 
 In particular, every continuous homomorphism between such groups is automatically smooth (in fact, analytic). Continuity \emph{does} imply differentiability, provided the group is finite-dimensional.
 
-This was a stunning vindication of Lie's original vision: the smooth structure is not an additional assumption but a \emph{consequence} of the group structure and the topology. The proof earned Montgomery and Zippin the 1952 AMS Böcher Prize.
+This was a significant vindication of Lie's original vision: the smooth structure is not an additional assumption but a \emph{consequence} of the group structure and the topology. The proof earned Montgomery and Zippin the 1952 AMS Böcher Prize.
 
 \subsection{Counterexamples in Infinite Dimensions}
 
@@ -259,7 +259,7 @@ A \emph{topological group} is a group that is also a topological space, with the
 The ``no small subgroups'' property says there exists a neighborhood of the identity that contains no nontrivial subgroup. This holds for Lie groups (e.g., in $\mathbb{R}$, a small interval around $0$ contains no subgroup other than $\{0\}$). The Montgomery--Zippin proof shows that any finite-dimensional topological group that is a manifold must satisfy this property, and then uses it to construct a smooth structure. Infinite-dimensional groups, like $\Diff(S^1)$, fail to have this property---they contain arbitrarily small subgroups, which is why Hilbert's fifth problem does not extend to infinite dimensions.
 
 \item[Q: Can a Lie group be compact and non-abelian at the same time?]\hfill\\
-Yes, many important Lie groups are both compact and non-abelian. The rotation group $\SO(3)$ is compact (it is the set of $3 \times 3$ matrices with determinant $1$, which is a bounded subset of $\mathbb{R}^9$) and non-abelian (rotations about different axes do not commute). The unitary group $\mathrm{U}(n)$ and the special unitary group $\mathrm{SU}(n)$ are compact and non-abelian for $n \geq 2$. The classification of compact Lie groups is one of the great achievements of 20th-century mathematics.
+Yes, many important Lie groups are both compact and non-abelian. The rotation group $\SO(3)$ is compact (it is the set of $3 \times 3$ matrices with determinant $1$, which is a bounded subset of $\mathbb{R}^9$) and non-abelian (rotations about different axes do not commute). The unitary group $\mathrm{U}(n)$ and the special unitary group $\mathrm{SU}(n)$ are compact and non-abelian for $n \geq 2$. The classification of compact Lie groups is one of the major achievements of 20th-century mathematics.
 
 \item[Q: What does the exponential map look like for matrix groups?]\hfill\\
 For a matrix group, the exponential map is the usual matrix exponential: $\exp(X) = I + X + \frac{X^2}{2!} + \frac{X^3}{3!} + \cdots$. This always converges for any square matrix $X$. For $\SO(3)$, $\exp$ maps a skew-symmetric matrix (representing an axis and angle of rotation) to the corresponding rotation matrix. The exponential map is surjective onto the connected component of the identity for compact Lie groups, but it is not injective---$\exp(\theta X)$ and $\exp((\theta+2\pi)X)$ give the same group element.

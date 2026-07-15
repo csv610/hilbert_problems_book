@@ -8,19 +8,19 @@
 \section{Historical Context}
 % ------------------------------------------------------------
 
-In the mid-nineteenth century, \textbf{Bernhard Riemann} (1826--1866) revolutionized mathematics by showing that the study of algebraic curves---the zero sets of polynomial equations in two variables---could be transformed into the study of \emph{topological surfaces}. This insight, one of the most profound in the history of mathematics, revealed a deep connection between algebra, geometry, and topology that continues to shape modern mathematics.
+In the mid-nineteenth century, \textbf{Bernhard Riemann} (1826--1866) transformed mathematics by showing that the study of algebraic curves---the zero sets of polynomial equations in two variables---could be transformed into the study of \emph{topological surfaces}. This insight, one of the significant developments in the history of mathematics, revealed a connection between algebra, geometry, and topology that continues to shape modern mathematics.
 
 \subsection{Riemann Surfaces}
 
 Consider a smooth algebraic curve $C$ defined over the complex numbers, say the curve $y^2 = x^3 - x$ in $\mathbb{C}^2$. At first glance, this is a complicated object: for each complex value of $x$, there are generally two values of $y$ (the square roots of $x^3 - x$), and as $x$ varies over $\mathbb{C}$, the curve ``branches'' at points where $x^3 - x = 0$.
 
-Riemann's genius was to ``unfold'' this multi-valued relationship by replacing $\mathbb{C}^2$ with a new surface---now called a \textbf{Riemann surface}---on which the curve becomes a well-defined, single-valued function. Imagine two copies of the complex plane, slit along certain curves, and glued together in a clever way: the result is a two-dimensional surface on which the algebraic curve lives as a smooth manifold.
+Riemann's approach was to ``unfold'' this multi-valued relationship by replacing $\mathbb{C}^2$ with a new surface---now called a \textbf{Riemann surface}---on which the curve becomes a well-defined, single-valued function. Imagine two copies of the complex plane, slit along certain curves, and glued together in a clever way: the result is a two-dimensional surface on which the algebraic curve lives as a smooth manifold.
 
 \begin{definition}[Riemann surface]
 A \textbf{Riemann surface} is a one-dimensional complex manifold---that is, a surface (in the topological sense) equipped with a complex structure at each point, allowing one to perform complex analysis locally. Every smooth algebraic curve over $\mathbb{C}$ gives rise to a compact Riemann surface, and conversely, every compact Riemann surface is algebraic (this deep result is due to Riemann and later formalized by others).
 \end{definition}
 
-The Riemann surface corresponding to $y^2 = x^3 - x$ is a \textbf{torus} (a doughnut shape), not a sphere. This is a remarkable fact: the topology of the surface---its genus---carries fundamental information about the algebraic curve.
+The Riemann surface corresponding to $y^2 = x^3 - x$ is a \textbf{torus} (a doughnut shape), not a sphere. This is a fact: the topology of the surface---its genus---carries fundamental information about the algebraic curve.
 
 \subsection{The Genus of a Curve}
 
@@ -39,7 +39,7 @@ Thus a line ($d=1$) has genus 0, a conic ($d=2$) has genus 0, a cubic ($d=3$) ha
 
 \subsection{The Riemann--Roch Theorem}
 
-Riemann discovered that the genus controls the space of functions on the curve. This insight was made precise by his student Gustav Roch in the \textbf{Riemann--Roch theorem}, one of the most important results in algebraic geometry.
+Riemann discovered that the genus controls the space of functions on the curve. This insight was made precise by his student Gustav Roch in the \textbf{Riemann--Roch theorem}, one of the fundamental results in algebraic geometry.
 
 \begin{theorem}[Riemann--Roch]
 Let $C$ be a smooth algebraic curve of genus $g$, and let $D$ be a divisor (a formal sum of points on $C$). Then
@@ -49,7 +49,7 @@ Let $C$ be a smooth algebraic curve of genus $g$, and let $D$ be a divisor (a fo
 where $\ell(D)$ is the dimension of the space of meromorphic functions $f$ with $(f) + D \geq 0$, $K$ is the canonical divisor (the divisor of a holomorphic 1-form), and $\deg(D)$ is the degree of $D$.
 \end{theorem}
 
-For a curve, the canonical divisor $K$ has degree $2g - 2$. When $\deg(D) > 2g - 2$, the term $\ell(K - D)$ vanishes, and the theorem gives an exact formula for $\ell(D)$. The Riemann--Roch theorem shows that the \emph{topology} (the genus) of a curve completely determines many of its algebraic properties---a stunning connection between topology and algebra.
+For a curve, the canonical divisor $K$ has degree $2g - 2$. When $\deg(D) > 2g - 2$, the term $\ell(K - D)$ vanishes, and the theorem gives an exact formula for $\ell(D)$. The Riemann--Roch theorem shows that the \emph{topology} (the genus) of a curve completely determines many of its algebraic properties---a connection between topology and algebra.
 
 \subsection{From Curves to Surfaces: Early Topological Questions}
 
@@ -83,13 +83,13 @@ Hilbert's formulation was characteristically open-ended. The problem can be brok
     \item \textbf{Topology of real algebraic varieties.} Understand the topology of the \emph{real} points of an algebraic variety---the set of real solutions to polynomial equations. Hilbert specifically mentioned the topology of real algebraic surfaces and curves.
 \end{enumerate}
 
-The first two questions relate to \textbf{complex algebraic geometry} and connect to the rapidly developing field of algebraic topology. The third question, about real algebraic varieties, remains one of the deepest and most difficult parts of Hilbert's problem, closely related to the topology of real manifolds and the study of real algebraic sets.
+The first two questions relate to \textbf{complex algebraic geometry} and connect to the rapidly developing field of algebraic topology. The third question, about real algebraic varieties, remains one of the difficult parts of Hilbert's problem, closely related to the topology of real manifolds and the study of real algebraic sets.
 
 % ------------------------------------------------------------
 \section{Key Developments}
 % ------------------------------------------------------------
 
-The twentieth century brought extraordinary progress on Hilbert's sixteenth problem, driven by the intertwined development of algebraic topology, algebraic geometry, and differential geometry.
+The twentieth century brought significant progress on Hilbert's sixteenth problem, driven by the intertwined development of algebraic topology, algebraic geometry, and differential geometry.
 
 \subsection{Algebraic Topology: Poincar\'e and Brouwer}
 
@@ -115,7 +115,7 @@ For a smooth complex projective variety of complex dimension $n$ (real dimension
 
 The classical tools of algebraic topology (singular homology, simplicial homology) proved insufficient for the subtle problems of algebraic geometry. A new tool was needed: \textbf{sheaf cohomology}.
 
-\textbf{Jean Leray} (1906--1998), while a prisoner of war in Germany during World War~II, developed the theory of \textbf{spectral sequences} and sheaf cohomology---one of the most remarkable mathematical achievements of the twentieth century. \textbf{Jean-Pierre Serre} (born 1926) subsequently showed that sheaf cohomology is the right tool for algebraic geometry.
+\textbf{Jean Leray} (1906--1998), while a prisoner of war in Germany during World War~II, developed the theory of \textbf{spectral sequences} and sheaf cohomology---one of the mathematical achievements of the twentieth century. \textbf{Jean-Pierre Serre} (born 1926) subsequently showed that sheaf cohomology is the right tool for algebraic geometry.
 
 \begin{definition}[Sheaf cohomology]
 Let $X$ be a topological space and $\mathcal{F}$ a sheaf of abelian groups on $X$. The \textbf{sheaf cohomology groups} $H^k(X, \mathcal{F})$ are defined as the right derived functors of the global sections functor. They measure the ``failure'' of local cohomological data to patch together globally.
@@ -125,11 +125,11 @@ Serre proved that for a smooth projective variety $X$ over $\mathbb{C}$, the she
 \[
     H^k(X, \mathbb{C}) = \bigoplus_{p+q=k} H^{p,q}(X)
 \]
-where $H^{p,q}(X)$ is the space of harmonic $(p,q)$-forms, or equivalently the Dolbeault cohomology group $H^{p,q}_{\bar\partial}(X)$. The dimensions $h^{p,q} = \dim H^{p,q}(X)$ are the \textbf{Hodge numbers}, and they satisfy the symmetry $h^{p,q} = h^{q,p}$ (complex conjugation) and $h^{p,q} = h^{n-p,n-q}$ (Hodge duality). This decomposition is a profound constraint on the topology of algebraic varieties: not every topological manifold has a Hodge decomposition.
+where $H^{p,q}(X)$ is the space of harmonic $(p,q)$-forms, or equivalently the Dolbeault cohomology group $H^{p,q}_{\bar\partial}(X)$. The dimensions $h^{p,q} = \dim H^{p,q}(X)$ are the \textbf{Hodge numbers}, and they satisfy the symmetry $h^{p,q} = h^{q,p}$ (complex conjugation) and $h^{p,q} = h^{n-p,n-q}$ (Hodge duality). This decomposition is a constraint on the topology of algebraic varieties: not every topological manifold has a Hodge decomposition.
 
 \subsection{The Lefschetz Hyperplane Theorem}
 
-One of the most powerful tools for understanding the topology of algebraic varieties is the \textbf{Lefschetz hyperplane theorem}, proved by \textbf{Solomon Lefschetz} (1884--1972) and later generalized by others.
+One of the tools for understanding the topology of algebraic varieties is the \textbf{Lefschetz hyperplane theorem}, proved by \textbf{Solomon Lefschetz} (1884--1972) and later generalized by others.
 
 \begin{theorem}[Lefschetz Hyperplane Theorem]
 Let $X \subset \mathbb{P}^n$ be a smooth projective variety of dimension $d$, and let $H$ be a smooth hyperplane section (i.e., $H = X \cap \{L = 0\}$ for a general linear form $L$). Then the restriction maps
@@ -147,7 +147,7 @@ In intuitive terms, the theorem says that a hyperplane section of a variety ``se
 
 \subsection{The Weil Conjectures}
 
-Perhaps the most spectacular achievement connecting topology and algebraic geometry was the proof of the \textbf{Weil conjectures}, formulated by \textbf{Andr\'e Weil} (1906--1998) in 1949 and proved by \textbf{Alexander Grothendieck} (1928--2014) and \textbf{Pierre Deligne} (born 1944) in 1974.
+Perhaps the achievement connecting topology and algebraic geometry was the proof of the \textbf{Weil conjectures}, formulated by \textbf{Andr\'e Weil} (1906--1998) in 1949 and proved by \textbf{Alexander Grothendieck} (1928--2014) and \textbf{Pierre Deligne} (born 1944) in 1974.
 
 The Weil conjectures concern the \textbf{zeta function} of a smooth projective variety $X$ over a finite field $\mathbb{F}_q$:
 \[
@@ -169,16 +169,16 @@ where each $P_i(t)$ is a polynomial with integer coefficients, $P_0(t)=1-t$, $P_
 \end{enumerate}
 \end{theorem}
 
-The Weil conjectures are extraordinary because they connect:
+The Weil conjectures are notable because they connect:
 \begin{itemize}
     \item \textbf{Algebra} (counting solutions over finite fields),
     \item \textbf{Topology} (Betti numbers and Euler characteristic),
     \item \textbf{Number theory} (the distribution of rational points).
 \end{itemize}
 
-Grothendieck's contribution was to reformulate the conjectures in terms of \textbf{\'{e}tale cohomology}, a new cohomology theory for algebraic varieties defined over arbitrary fields (not just $\mathbb{C}$). The key insight was that \'etale cohomology should behave like singular cohomology but work over finite fields. Grothendieck proved rationality and the functional equation. Deligne completed the proof by establishing the deepest part---the Riemann hypothesis---using a brilliant argument involving estimates for l-adic sheaves.
+Grothendieck's contribution was to reformulate the conjectures in terms of \textbf{\'{e}tale cohomology}, a new cohomology theory for algebraic varieties defined over arbitrary fields (not just $\mathbb{C}$). The key insight was that \'etale cohomology should behave like singular cohomology but work over finite fields. Grothendieck proved rationality and the functional equation. Deligne completed the proof by establishing the deepest part---the Riemann hypothesis---using an argument involving estimates for l-adic sheaves.
 
-The Weil conjectures demonstrate that the topology of an algebraic variety (encoded in its Betti numbers and cohomology) controls its arithmetic behavior (the number of rational points). This is a profound vindication of Hilbert's intuition that topology and algebraic geometry are deeply intertwined.
+The Weil conjectures demonstrate that the topology of an algebraic variety (encoded in its Betti numbers and cohomology) controls its arithmetic behavior (the number of rational points). This is a vindication of Hilbert's intuition that topology and algebraic geometry are intertwined.
 
 \subsection{The Hodge Conjecture}
 
@@ -221,7 +221,7 @@ The study of real algebraic varieties remains one of the most challenging aspect
 % ------------------------------------------------------------
 
 \begin{partiallybox}
-Hilbert's sixteenth problem is \textbf{partially solved}. The theory of complex algebraic varieties has seen spectacular progress: the development of sheaf cohomology (Leray, Serre, Grothendieck), the proof of the Lefschetz hyperplane theorem, the Hodge decomposition, and the proof of the Weil conjectures (Grothendieck, Deligne) have given us a deep understanding of the topology of complex algebraic varieties. The Hodge conjecture---one of the Clay Millennium Problems---remains open and is considered one of the most important unsolved problems in mathematics. The topology of real algebraic varieties is partially understood (Harnack's theorem, Viro's method, the Smith--Thom inequality), but many fundamental questions remain open, including the topology of real algebraic surfaces and the distribution of connected components of real varieties.
+Hilbert's sixteenth problem is \textbf{partially solved}. The theory of complex algebraic varieties has seen significant progress: the development of sheaf cohomology (Leray, Serre, Grothendieck), the proof of the Lefschetz hyperplane theorem, the Hodge decomposition, and the proof of the Weil conjectures (Grothendieck, Deligne) have given us an understanding of the topology of complex algebraic varieties. The Hodge conjecture---one of the Clay Millennium Problems---remains open and is considered one of the important unsolved problems in mathematics. The topology of real algebraic varieties is partially understood (Harnack's theorem, Viro's method, the Smith--Thom inequality), but many fundamental questions remain open, including the topology of real algebraic surfaces and the distribution of connected components of real varieties.
 \end{partiallybox}
 
 % ------------------------------------------------------------
@@ -233,7 +233,7 @@ Hilbert's sixteenth problem is \textbf{partially solved}. The theory of complex 
 A manifold is a space that locally looks like $\mathbb{R}^n$ (smooth and without singularities). An algebraic variety is the zero set of a system of polynomial equations, and it can have \emph{singularities}---points where it is not smooth, like the tip of a cone ($x^2 + y^2 = z^2$). Over the complex numbers, a smooth algebraic variety is a complex manifold, but not all complex manifolds are algebraic. The interplay between these two viewpoints---algebraic equations and smooth topology---is at the heart of Hilbert's 16th problem.
 
 \item[Q: What are the Weil conjectures in simple terms?]\hfill\\
-The Weil conjectures (proved by Deligne in 1974) relate the number of solutions to polynomial equations over finite fields to the topological structure of the corresponding complex algebraic variety. They predicted that the generating function counting solutions modulo $p$, modulo $p^2$, etc. is a rational function whose properties mirror the topology (Betti numbers, Poincaré duality) of the variety over $\mathbb{C}$. This is astonishing: counting points over finite fields reveals the shape of a space over the complex numbers.
+The Weil conjectures (proved by Deligne in 1974) relate the number of solutions to polynomial equations over finite fields to the topological structure of the corresponding complex algebraic variety. They predicted that the generating function counting solutions modulo $p$, modulo $p^2$, etc. is a rational function whose properties mirror the topology (Betti numbers, Poincaré duality) of the variety over $\mathbb{C}$. This is notable: counting points over finite fields reveals the shape of a space over the complex numbers.
 
 \item[Q: What's the Hodge conjecture about?]\hfill\\
 The Hodge conjecture asks whether every closed differential form of a certain type (a $(p,p)$-form) on a smooth complex projective variety can be expressed as a combination of algebraic cycles---essentially, whether topological information can be realized geometrically. It is one of the Clay Millennium Problems and remains open. In simpler terms: can every ``nice'' cohomology class be represented by an actual algebraic subvariety? Most mathematicians believe the answer is yes, but no one has proved it.

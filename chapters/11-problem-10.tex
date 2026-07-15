@@ -26,13 +26,13 @@ and more generally,
 \]
 for arbitrary positive integers $n$.
 
-Fermat famously wrote in the margin of his copy of \emph{Arithmetica} that this last equation has no positive integer solutions when $n \geq 3$. He claimed to have a ``truly marvelous proof'' of this fact, but the margin was too narrow to contain it. This assertion, which became known as \textbf{Fermat's Last Theorem}, resisted proof for over three hundred years until Andrew Wiles finally proved it in 1994---using techniques from algebraic geometry and the theory of elliptic curves that Fermat could never have imagined.
+Fermat wrote in the margin of his copy of \emph{Arithmetica} that this last equation has no positive integer solutions when $n \geq 3$. He claimed to have a ``truly marvelous proof'' of this fact, but the margin was too narrow to contain it. This assertion, which became known as \textbf{Fermat's Last Theorem}, resisted proof for over three hundred years until Andrew Wiles finally proved it in 1994---using techniques from algebraic geometry and the theory of elliptic curves that Fermat could never have imagined.
 
 The key point for us is this: \emph{some} Diophantine equations have integer solutions and some do not. Fermat's Last Theorem tells us that $x^n + y^n = z^n$ has no positive integer solutions for $n \geq 3$. The Pythagorean equation $x^2 + y^2 = z^2$ has infinitely many. The equation $x^2 + y^2 = 3$ has \emph{none} in integers (since $3$ is not a sum of two integer squares). And some equations, like
 \[
     x^3 + y^3 + z^3 = 33,
 \]
-can be extremely hard to analyze: this particular equation was only shown to have the solution $x = 886{,}612{,}897{,}523{,}968{,}960$ in 2019, after years of computational search.
+can be very hard to analyze: this particular equation was only shown to have the solution $x = 886{,}612{,}897{,}523{,}968{,}960$ in 2019, after years of computational search.
 
 Hilbert's tenth problem asks whether there is a \emph{general} method---an \emph{algorithm}---that can settle the question for every Diophantine equation: given any polynomial equation in several variables with integer coefficients, does it have integer solutions?
 
@@ -81,7 +81,7 @@ A \textbf{Turing machine} consists of:
 The machine starts with the input written on the tape and repeatedly applies its transition rules until it halts, at which point the contents of the tape (or the fact that it halted in the accept state) constitute the output.
 \end{definition}
 
-Turing's great insight was that \emph{anything that can be computed by any reasonable device can be computed by a Turing machine}. This is the \textbf{Church--Turing thesis}: the class of ``computable functions'' is exactly the class of functions computable by Turing machines. It is not a theorem in the usual sense---it is a definition-by-consensus of what ``computable'' means. No one has ever found a function that is computable by some reasonable method but not by a Turing machine.
+Turing's insight was that \emph{anything that can be computed by any reasonable device can be computed by a Turing machine}. This is the \textbf{Church--Turing thesis}: the class of ``computable functions'' is exactly the class of functions computable by Turing machines. It is not a theorem in the usual sense---it is a definition-by-consensus of what ``computable'' means. No one has ever found a function that is computable by some reasonable method but not by a Turing machine.
 
 We can now restate Hilbert's tenth problem in the language of computability:
 
@@ -89,7 +89,7 @@ We can now restate Hilbert's tenth problem in the language of computability:
 Is there a Turing machine $M$ such that, for every Diophantine equation $p(x_1, \ldots, x_n) = 0$ with integer coefficients, $M$ halts and outputs ``yes'' if the equation has integer solutions, and ``no'' otherwise?
 \end{problem_statement}
 
-The answer to this question is one of the most profound results in twentieth-century mathematics.
+The answer to this question is one of the significant results in twentieth-century mathematics.
 
 % ------------------------------------------------------------
 \section{Key Developments}
@@ -107,11 +107,11 @@ Davis showed that if one could prove a certain conjecture---now called the \text
 Every recursively enumerable (computably enumerable) set is Diophantine.
 \end{quote}
 
-\paragraph{Robinson (1950s--1960s).} Julia Robinson made a crucial contribution by showing that a certain set---the set of numbers that are `` Fibonacci-like'' in a specific technical sense---was Diophantine, assuming the DPRM conjecture. Her work established a deep connection between the theory of Diophantine equations and the theory of computation.
+\paragraph{Robinson (1950s--1960s).} Julia Robinson made a contribution by showing that a certain set---the set of numbers that are `` Fibonacci-like'' in a specific technical sense---was Diophantine, assuming the DPRM conjecture. Her work established a connection between the theory of Diophantine equations and the theory of computation.
 
 \paragraph{Putnam (1960).} Hilary Putnam, building on Davis's and Robinson's work, showed that if the DPRM conjecture held for a certain restricted class of Diophantine equations, then Hilbert's tenth problem would have a negative answer.
 
-\paragraph{Matiyasevich (1970).} The final piece fell into place when the young Soviet mathematician Yuri Matiyasevich proved the DPRM conjecture in 1970. His proof was a masterful combination of number theory and recursion theory, using properties of \textbf{Fibonacci numbers} to show that every recursively enumerable set can be represented as the set of values of a Diophantine polynomial.
+\paragraph{Matiyasevich (1970).} The final piece fell into place when the young Soviet mathematician Yuri Matiyasevich proved the DPRM conjecture in 1970. His proof was a combination of number theory and recursion theory, using properties of \textbf{Fibonacci numbers} to show that every recursively enumerable set can be represented as the set of values of a Diophantine polynomial.
 
 \subsection{The DPRM Theorem}
 
@@ -189,11 +189,11 @@ To put it another way: because Turing machines can compute anything that any rea
 
 \subsection{Why This Is Surprising}
 
-The undecidability of Hilbert's tenth problem is remarkable for several reasons.
+The undecidability of Hilbert's tenth problem is notable for several reasons.
 
 First, Diophantine equations are \emph{purely number-theoretic objects}. They involve only integers, addition, multiplication, and equality. There is no mention of Turing machines, algorithms, or computation in the definition. Yet the theory of these simple objects is powerful enough to encode all of computation.
 
-Second, the result shows a profound \emph{unexpected connection} between two areas of mathematics that seem, at first glance, to have nothing in common: \textbf{number theory} and \textbf{computability theory}. Number theory studies properties of integers; computability theory studies what can and cannot be computed. The DPRM theorem reveals that these two subjects are deeply intertwined.
+Second, the result shows an unexpected connection between two areas of mathematics that seem, at first glance, to have nothing in common: \textbf{number theory} and \textbf{computability theory}. Number theory studies properties of integers; computability theory studies what can and cannot be computed. The DPRM theorem reveals that these two subjects are intertwined.
 
 Third, the result is \emph{negative}: it tells us that certain questions cannot be answered by any finite procedure, no matter how clever. This is a fundamental limitation on the power of algorithmic reasoning in mathematics.
 
@@ -201,10 +201,10 @@ Finally, the result is somewhat paradoxical. Individual Diophantine equations ca
 
 \subsection{The Modern Perspective}
 
-The DPRM theorem remains one of the most elegant and surprising results in mathematical logic. It has been refined and extended in various directions:
+The DPRM theorem remains one of the elegant and surprising results in mathematical logic. It has been refined and extended in various directions:
 
 \begin{itemize}
-    \item \textbf{Bounds on the polynomial.} Matiyasevich's original proof used polynomials with many variables. Subsequent work has reduced the number of variables needed. It is now known that there exists a single polynomial in 9 variables whose positive values are exactly the set of prime numbers---a stunning fact that would have astonished Diophantus.
+    \item \textbf{Bounds on the polynomial.} Matiyasevich's original proof used polynomials with many variables. Subsequent work has reduced the number of variables needed. It is now known that there exists a single polynomial in 9 variables whose positive values are exactly the set of prime numbers---a fact that would have surprised Diophantus.
 
     \item \textbf{Hilbert's Tenth Problem over other rings.} While Hilbert's tenth problem is undecidable over $\mathbb{Z}$, it has been solved positively over certain other rings. For example, the problem \emph{is} decidable over $\mathbb{Q}$ (the rational numbers)---though this was only proved in 2007 by Poonen, building on earlier work by Matiyasevich. The problem remains open over $\mathbb{Z}[i]$ (the Gaussian integers) and other rings.
 
@@ -216,7 +216,7 @@ The DPRM theorem remains one of the most elegant and surprising results in mathe
 % ------------------------------------------------------------
 
 \begin{solvedbox}
-Hilbert's tenth problem is \textbf{solved}. The answer is \emph{negative}: there is no general algorithm that decides, given a Diophantine equation, whether it has integer solutions. This was proved by Yuri Matiyasevich in 1970, completing work of Davis, Putnam, and Robinson. The key result---the DPRM theorem---establishes that every recursively enumerable set is Diophantine, linking number theory to computability theory in a profound way.
+Hilbert's tenth problem is \textbf{solved}. The answer is \emph{negative}: there is no general algorithm that decides, given a Diophantine equation, whether it has integer solutions. This was proved by Yuri Matiyasevich in 1970, completing work of Davis, Putnam, and Robinson. The key result---the DPRM theorem---establishes that every recursively enumerable set is Diophantine, linking number theory to computability theory.
 \end{solvedbox}
 
 % ------------------------------------------------------------

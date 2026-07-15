@@ -6,7 +6,7 @@
 \chapter{Quadratic Forms with Arbitrary Algebraic Coefficients}
 
 \begin{partiallybox}
-Hilbert's eleventh problem asks for a classification of quadratic forms over rings of algebraic integers. The central tool---the \textbf{Hasse--Minkowski theorem}---is fully established: a quadratic form represents zero over a number field if and only if it does so over every completion (the ``local--global principle''). However, a complete, elegant classification of quadratic forms over general number fields, analogous to the classical theory over $\mathbb{Q}$, remains an active area of research with deep connections to algebraic K-theory and the structure of the Witt ring.
+Hilbert's eleventh problem asks for a classification of quadratic forms over rings of algebraic integers. The central tool---the \textbf{Hasse--Minkowski theorem}---is fully established: a quadratic form represents zero over a number field if and only if it does so over every completion (the ``local--global principle''). However, a complete, elegant classification of quadratic forms over general number fields, analogous to the classical theory over $\mathbb{Q}$, remains an active area of research with connections to algebraic K-theory and the structure of the Witt ring.
 \end{partiallybox}
 
 % ------------------------------------------------------------
@@ -42,7 +42,7 @@ Every positive integer can be represented as the sum of four squares of integers
 \]
 \end{theorem}
 
-Lagrange's theorem tells us that the quadratic form $x^2 + y^2 + z^2 + w^2$ represents \emph{every} positive integer. This is a remarkable fact: four squares suffice, and three do not (since $7 = a^2 + b^2 + c^2$ has no integer solution, as one can check modulo~8).
+Lagrange's theorem tells us that the quadratic form $x^2 + y^2 + z^2 + w^2$ represents \emph{every} positive integer. This is a fact: four squares suffice, and three do not (since $7 = a^2 + b^2 + c^2$ has no integer solution, as one can check modulo~8).
 
 Lagrange's theorem was a starting point, not an endpoint. It raised natural questions: \emph{which} positive integers are represented by $x^2 + y^2$ (sums of two squares)? By $x^2 + 2y^2$? By $x^2 + 3y^2$? By $x^2 + xy + y^2$? Each of these questions leads into deep number theory.
 
@@ -82,7 +82,7 @@ The problem thus calls for a vast generalization of the classical theory of bina
 
 \subsection{The Hasse--Minkowski Theorem}
 
-The most profound result in the theory of quadratic forms---and the one most directly relevant to Hilbert's eleventh problem---is the \textbf{Hasse--Minkowski theorem}. It is a generalization of a principle that was discovered empirically: to understand whether a quadratic equation has solutions globally (over $\mathbb{Q}$ or a number field $K$), it suffices to check whether it has solutions ``locally''---at every place of the field.
+The most significant result in the theory of quadratic forms---and the one most directly relevant to Hilbert's eleventh problem---is the \textbf{Hasse--Minkowski theorem}. It is a generalization of a principle that was discovered empirically: to understand whether a quadratic equation has solutions globally (over $\mathbb{Q}$ or a number field $K$), it suffices to check whether it has solutions ``locally''---at every place of the field.
 
 To state the theorem, we need to understand what ``local'' and ``global'' mean.
 
@@ -116,7 +116,7 @@ In symbols:
     Q \text{ has a non-trivial zero over } K_v \text{ for all } v.
 \]
 
-This is the \textbf{local--global principle}: global representability is equivalent to local representability at every place. The theorem is striking because it says that \emph{there are no hidden global obstructions}: if a form behaves well at every prime and at infinity, it behaves well globally.
+This is the \textbf{local--global principle}: global representability is equivalent to local representability at every place. The theorem is notable because it says that \emph{there are no hidden global obstructions}: if a form behaves well at every prime and at infinity, it behaves well globally.
 
 \begin{remark}
 The condition $n \ge 3$ (at least three variables) is essential. For binary quadratic forms ($n = 2$), the local--global principle can fail. For example, the form $3x^2 + 2y^2$ represents zero locally at every place of $\mathbb{Q}$ but does not represent zero non-trivially over $\mathbb{Q}$. (The failure is subtle and involves the interaction of the discriminant with the class group.)
@@ -124,7 +124,7 @@ The condition $n \ge 3$ (at least three variables) is essential. For binary quad
 
 \subsubsection{Why the Local--Global Principle Is Deep}
 
-The Hasse--Minkowski theorem is not merely a clever observation---it is a theorem with deep structural content. Here is why.
+The Hasse--Minkowski theorem is not merely a clever observation---it is a theorem with structural content. Here is why.
 
 Over $\mathbb{R}$, the question ``does $Q$ represent zero?'' is easy: a quadratic form over $\mathbb{R}$ represents zero non-trivially if and only if it is \emph{indefinite} (has both positive and negative coefficients in a diagonal form). This is just Sylvester's law.
 
@@ -138,7 +138,7 @@ The \textbf{Brauer group} $\Br(K)$ of a field $K$ is an abelian group that class
 \[
     0 \longrightarrow \Br(K) \longrightarrow \bigoplus_v \Br(K_v) \longrightarrow \mathbb{Q}/\mathbb{Z} \longrightarrow 0.
 \]
-This sequence, due to Tate, encodes the local--global principle for the Brauer group and is the cohomological backbone of the Hasse--Minkowski theorem. The map to $\mathbb{Q}/\mathbb{Z}$ measures the ``defect'' of the local--global principle.
+This sequence, due to Tate, encodes the local--global principle for the Brauer group and is the cohomological foundation of the Hasse--Minkowski theorem. The map to $\mathbb{Q}/\mathbb{Z}$ measures the ``defect'' of the local--global principle.
 
 The Brauer group perspective shows that the Hasse--Minkowski theorem is not an isolated fact about quadratic forms---it is a special case of a broader principle governing the local--global behavior of algebraic objects over number fields.
 
@@ -159,7 +159,7 @@ A key concept in the modern theory is that of \textbf{Pfister forms}. A Pfister 
 \]
 where $\langle 1, -a_i \rangle$ denotes the binary form $x^2 - a_i y^2$. Pfister forms are multiplicative: the product of two Pfister forms is again a Pfister form (up to equivalence). They play a role analogous to that of prime numbers in the multiplicative structure of $\mathbb{Z}$: every quadratic form over $K$ can be ``decomposed'' in terms of Pfister forms.
 
-The deep theorem of Arason and Pfister (1972) shows that Pfister forms are precisely the forms that vanish on the \textbf{fundamental ideal} of the Witt ring---they are the ``atoms'' from which the Witt ring is built.
+The theorem of Arason and Pfister (1972) shows that Pfister forms are precisely the forms that vanish on the \textbf{fundamental ideal} of the Witt ring---they are the ``atoms'' from which the Witt ring is built.
 
 \subsection{Quadratic Forms over General Number Fields}
 
@@ -172,16 +172,16 @@ However, the \emph{classification} of quadratic forms over $\mathcal{O}_K$ (the 
     \item The \textbf{Brauer group} $\Br(K)$ (which governs the local--global principle).
 \end{itemize}
 
-For specific families of number fields---real quadratic fields, imaginary quadratic fields, cyclotomic fields---partial results are known, and the picture is rich and beautiful. But a unified, complete classification for arbitrary number fields remains elusive.
+For specific families of number fields---real quadratic fields, imaginary quadratic fields, cyclotomic fields---partial results are known, and the picture is complex. But a unified, complete classification for arbitrary number fields remains elusive.
 
 % ------------------------------------------------------------
 \section{Current Status}
 % ------------------------------------------------------------
 
 \begin{partiallybox}
-The Hasse--Minkowski theorem---the local--global principle for quadratic forms---is \textbf{fully established} over every number field. This is one of the great achievements of twentieth-century number theory.
+The Hasse--Minkowski theorem---the local--global principle for quadratic forms---is \textbf{fully established} over every number field. This is one of the major achievements of twentieth-century number theory.
 
-However, the full classification of quadratic forms over rings of algebraic integers (the precise content of Hilbert's eleventh problem) is \textbf{partially solved} and remains an active area of research. The Witt ring structure is well understood over $\mathbb{Q}$ and over many specific number fields, but a general, elegant theory for arbitrary number fields---particularly the classification of forms over $\mathcal{O}_K$ when $\Cl(K) \neq 1$---has not yet been achieved. The subject connects to deep current research in algebraic K-theory, arithmetic geometry, and the structure of Galois cohomology.
+However, the full classification of quadratic forms over rings of algebraic integers (the precise content of Hilbert's eleventh problem) is \textbf{partially solved} and remains an active area of research. The Witt ring structure is well understood over $\mathbb{Q}$ and over many specific number fields, but a general, elegant theory for arbitrary number fields---particularly the classification of forms over $\mathcal{O}_K$ when $\Cl(K) \neq 1$---has not yet been achieved. The subject connects to current research in algebraic K-theory, arithmetic geometry, and the structure of Galois cohomology.
 \end{partiallybox}
 
 % ------------------------------------------------------------

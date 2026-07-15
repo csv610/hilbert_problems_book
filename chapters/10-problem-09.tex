@@ -5,7 +5,7 @@
 \chapter{The Reciprocity Law for Algebraic Number Fields}
 
 \begin{partiallybox}
-Hilbert's ninth problem is \textbf{solved} in its original formulation: the Artin reciprocity theorem (1920s) provides the most general reciprocity law for abelian extensions of number fields, completing the vision of class field theory. However, the far-reaching \textbf{Langlands program}---which seeks to extend reciprocity to non-abelian extensions---remains one of the deepest ongoing programs in mathematics. The problem is both historically resolved and profoundly alive.
+Hilbert's ninth problem is \textbf{solved} in its original formulation: the Artin reciprocity theorem (1920s) provides the most general reciprocity law for abelian extensions of number fields, completing the vision of class field theory. However, the far-reaching \textbf{Langlands program}---which seeks to extend reciprocity to non-abelian extensions---remains one of the major ongoing programs in mathematics. The problem is both historically resolved and still relevant.
 \end{partiallybox}
 
 \section{Historical Context}
@@ -14,7 +14,7 @@ Number theory is, at its heart, the study of the integers and their properties. 
 \[
     x^2 \equiv a \pmod{p}
 \]
-have a solution? This question---the question of \emph{quadratic residues}---has fascinated mathematicians since antiquity, and its answer led to one of the most beautiful and surprising theorems in all of mathematics: the \textbf{law of quadratic reciprocity}.
+have a solution? This question---the question of \emph{quadratic residues}---has been studied since antiquity, and its answer led to one of the significant theorems in all of mathematics: the \textbf{law of quadratic reciprocity}.
 
 \subsection{Quadratic Residues and the Legendre Symbol}
 
@@ -39,11 +39,11 @@ In the 1740s, Leonhard Euler observed a striking pattern through extensive compu
 \emph{If $p$ and $q$ are distinct odd primes, then $\left(\frac{q}{p}\right) = 1$ whenever $p \equiv 1 \pmod{q}$, and $\left(\frac{q}{p}\right) = -1$ whenever $p$ is a primitive root mod $q$.}
 \end{quote}
 
-In modern language, Euler was saying that $\left(\frac{q}{p}\right)$ depends only on $p \pmod{q}$. This was remarkable: it said that whether $q$ is a square mod $p$ depends not on $p$ and $q$ separately, but on their relationship. But Euler could not prove it.
+In modern language, Euler was saying that $\left(\frac{q}{p}\right)$ depends only on $p \pmod{q}$. This was notable: it said that whether $q$ is a square mod $p$ depends not on $p$ and $q$ separately, but on their relationship. But Euler could not prove it.
 
 \subsection{Gauss's Theorem: The Law of Quadratic Reciprocity}
 
-Carl Friedrich Gauss proved Euler's conjecture in 1783 and published his celebrated proof in his \emph{Disquisitiones Arithmeticae} (1801). He called it the \emph{theorema aureum}---the \emph{golden theorem}---and was so proud of it that he gave eight different proofs over the course of his career.
+Carl Friedrich Gauss proved Euler's conjecture in 1783 and published his proof in his \emph{Disquisitiones Arithmeticae} (1801). He called it the \emph{theorema aureum}---the \emph{golden theorem}---and was so proud of it that he gave eight different proofs over the course of his career.
 
 \begin{theorem}[Law of Quadratic Reciprocity]
 Let $p$ and $q$ be distinct odd primes. Then
@@ -57,7 +57,7 @@ Equivalently:
 \end{itemize}
 \end{theorem}
 
-To this day, the quadratic reciprocity law is considered one of the most beautiful results in mathematics. It says that the question ``is $p$ a square mod $q$?'' is intimately related to the question ``is $q$ a square mod $p$?''---a symmetry that is completely unexpected. Two seemingly independent questions about two different primes turn out to be reflections of each other, linked by a simple parity condition.
+To this day, the quadratic reciprocity law is considered one of the fundamental results in mathematics. It says that the question ``is $p$ a square mod $q$?'' is intimately related to the question ``is $q$ a square mod $p$?''---a symmetry that is completely unexpected. Two seemingly independent questions about two different primes turn out to be reflections of each other, linked by a simple parity condition.
 
 Gauss's theorem also has two important supplements:
 \begin{itemize}
@@ -77,7 +77,7 @@ Gauss's law was not the end of the story---it was the beginning. Once mathematic
 
 \paragraph{The pattern.} A clear pattern emerged: each higher reciprocity law requires extending the number system. Quadratic reciprocity lives in $\mathbb{Z}$. Cubic reciprocity lives in $\mathbb{Z}[\omega]$. Quartic reciprocity lives in $\mathbb{Z}[i]$. The general reciprocity law for $n$th powers seems to require the $n$th cyclotomic field $\mathbb{Q}(\zeta_n)$, where $\zeta_n = e^{2\pi i/n}$.
 
-This led to a natural and profound question: \emph{can we formulate a reciprocity law for all number fields, not just cyclotomic ones?} What is the most general reciprocity law? This was the substance of Hilbert's ninth problem.
+This led to a general question: \emph{can we formulate a reciprocity law for all number fields, not just cyclotomic ones?} What is the most general reciprocity law? This was the substance of Hilbert's ninth problem.
 
 \section{The Problem}
 
@@ -85,11 +85,11 @@ This led to a natural and profound question: \emph{can we formulate a reciprocit
 Find the most general and natural reciprocity law for the Legendre symbols of arbitrary algebraic number fields. That is, given an algebraic number field $K$ (a finite extension of $\mathbb{Q}$), find a reciprocity law that governs the splitting of primes---extending quadratic reciprocity from $\mathbb{Z}$ to $K$.
 \end{problem_statement}
 
-Hilbert's phrasing is characteristically bold: he wanted a \emph{general} reciprocity law, one that would encompass all the known cases---quadratic, cubic, quartic---and go beyond them. The problem was not to find a formula for $\left(\frac{a}{p}\right)$ in some special case, but to discover the deep structural principle that \emph{explains why reciprocity holds at all}.
+Hilbert's phrasing is direct: he wanted a \emph{general} reciprocity law, one that would encompass all the known cases---quadratic, cubic, quartic---and go beyond them. The problem was not to find a formula for $\left(\frac{a}{p}\right)$ in some special case, but to discover the structural principle that \emph{explains why reciprocity holds at all}.
 
 \section{Key Developments}
 
-The resolution of Hilbert's ninth problem unfolded over the first half of the twentieth century, through the development of one of the most important theories in modern mathematics: \textbf{class field theory}.
+The resolution of Hilbert's ninth problem unfolded over the first half of the twentieth century, through the development of one of the major theories in modern mathematics: \textbf{class field theory}.
 
 \subsection{From Quadratic Reciprocity to Ideal Theory}
 
@@ -105,7 +105,7 @@ Hilbert also introduced the \emph{Hilbert symbol} $\left(\frac{a,b}{\mathfrak{p}
 
 \subsection{Takagi's Class Field Theory}
 
-The modern theory of class field theory was largely created by Teiji Takagi in the 1920s. Takagi proved a remarkable existence theorem:
+The modern theory of class field theory was largely created by Teiji Takagi in the 1920s. Takagi proved an existence theorem:
 
 \begin{theorem}[Takagi, 1920]
 For every \emph{ideal group} $H$ (containing the group of principal ideals, satisfying certain technical conditions), there exists a unique abelian extension $L/K$ such that the primes of $K$ that split completely in $L$ are precisely those lying in $H$.
@@ -132,7 +132,7 @@ defined on the group $I_K$ of fractional ideals of $K$ coprime to the ramified p
 
 The reciprocity law is precisely the second property: \emph{the Artin map is trivial on principal ideals}. This is the abstract form of ``what goes around comes around''---the idele-theoretic generalization of the fact that $a$ is a square mod $p$ whenever $a$ is itself a square.
 
-Artin's theorem is a masterpiece of abstraction. It unifies:
+Artin's theorem is an example of abstraction. It unifies:
 \begin{itemize}
     \item \textbf{Quadratic reciprocity} (the original law of Gauss).
     \item \textbf{Cubic and quartic reciprocity} (as special cases).
@@ -144,7 +144,7 @@ Artin's theorem is a masterpiece of abstraction. It unifies:
 
 Hasse contributed to the local version of class field theory (local reciprocity), while Andre Weil formulated reciprocity in terms of ideles in the 1930s, completing the picture for abelian extensions. But the question remained: \emph{what about non-abelian extensions?}
 
-This is where the story takes a dramatic turn. In 1967, Robert Langlands wrote a famous letter to Andre Weil, outlining a vast generalization of class field theory that would encompass not just abelian, but \emph{all} extensions of number fields.
+This is where the story takes a turn. In 1967, Robert Langlands wrote a famous letter to Andre Weil, outlining a vast generalization of class field theory that would encompass not just abelian, but \emph{all} extensions of number fields.
 
 \begin{quote}
 \emph{The Langlands program proposes that for every reductive group $G$ over a number field $K$, there is a correspondence between:
@@ -157,17 +157,17 @@ This is where the story takes a dramatic turn. In 1967, Robert Langlands wrote a
 When $G = \mathrm{GL}_1$, the Langlands program reduces to class field theory: automorphic representations of $\mathrm{GL}_1$ are just Hecke characters, and the reciprocity law is Artin's theorem. When $G = \mathrm{GL}_2$, the program predicts deep connections between:
 \begin{itemize}
     \item 2-dimensional Galois representations (Galois groups acting on vector spaces), and
-    \item modular forms (analytic functions with extraordinary symmetry properties).
+    \item modular forms (analytic functions with specific symmetry properties).
 \end{itemize}
 
-The proof of Fermat's Last Theorem by Andrew Wiles (1995) was essentially a proof of a special case of the Langlands program: the Taniyama--Shimura--Weil conjecture, which is the $\mathrm{GL}_2$ case. The proof of the Sato--Tate conjecture (2011) and the work on the local Langlands correspondence are further milestones. But the full Langlands program remains open, and it is now one of the grand organizing principles of modern number theory and representation theory.
+The proof of Fermat's Last Theorem by Andrew Wiles (1995) was essentially a proof of a special case of the Langlands program: the Taniyama--Shimura--Weil conjecture, which is the $\mathrm{GL}_2$ case. The proof of the Sato--Tate conjecture (2011) and the work on the local Langlands correspondence are further developments. But the full Langlands program remains open, and it is now one of the grand organizing principles of modern number theory and representation theory.
 
 \section{Current Status}
 
 \begin{partiallybox}
-The original form of Hilbert's ninth problem---find the most general reciprocity law for abelian extensions---is \textbf{solved}: the Artin reciprocity theorem provides a complete answer, and class field theory is one of the crowning achievements of 20th-century mathematics.
+The original form of Hilbert's ninth problem---find the most general reciprocity law for abelian extensions---is \textbf{solved}: the Artin reciprocity theorem provides a complete answer, and class field theory is one of the major achievements of 20th-century mathematics.
 
-However, the \emph{spirit} of the problem---understand the deepest principles governing the splitting of primes in arbitrary extensions---lives on in the Langlands program. The Langlands program is very much \textbf{ongoing}, with major milestones (Fermat's Last Theorem, Sato--Tate, local Langlands) achieved but the full vision still distant. Hilbert's ninth problem is thus both historically resolved and profoundly alive.
+However, the \emph{spirit} of the problem---understand the fundamental principles governing the splitting of primes in arbitrary extensions---lives on in the Langlands program. The Langlands program is very much \textbf{ongoing}, with major milestones (Fermat's Last Theorem, Sato--Tate, local Langlands) achieved but the full vision still distant. Hilbert's ninth problem is thus both historically resolved and still relevant.
 \end{partiallybox}
 
 \section*{Common Questions}
@@ -175,10 +175,10 @@ However, the \emph{spirit} of the problem---understand the deepest principles go
 \begin{description}[font=\bfseries, leftmargin=2em, style=nextline]
 
 \item[Q: What does reciprocity have to do with ``solving equations''?]\hfill\\
-The most basic Diophantine equation is $x^2 = a \pmod{p}$---does $a$ have a square root modulo $p$? The Legendre symbol $\bigl(\frac{a}{p}\bigr)$ answers this question. Reciprocity laws tell us that the answer depends not on $p$ in isolation, but on $p$'s relationship to $a$ (and vice versa). Quadratic reciprocity specifically says that $\bigl(\frac{p}{q}\bigr)$ and $\bigl(\frac{q}{p}\bigr)$ are nearly the same---the question ``is $p$ a square mod $q$?'' and ``is $q$ a square mod $p$?'' are linked by a simple sign. This symmetry is not just beautiful; it gives an efficient computational method to decide solvability without enumerating squares.
+The most basic Diophantine equation is $x^2 = a \pmod{p}$---does $a$ have a square root modulo $p$? The Legendre symbol $\bigl(\frac{a}{p}\bigr)$ answers this question. Reciprocity laws tell us that the answer depends not on $p$ in isolation, but on $p$'s relationship to $a$ (and vice versa). Quadratic reciprocity specifically says that $\bigl(\frac{p}{q}\bigr)$ and $\bigl(\frac{q}{p}\bigr)$ are nearly the same---the question ``is $p$ a square mod $q$?'' and ``is $q$ a square mod $p$?'' are linked by a simple sign. This symmetry gives an efficient computational method to decide solvability without enumerating squares.
 
 \item[Q: I've heard of quadratic reciprocity---what makes it ``the most beautiful theorem''?]\hfill\\
-Gauss called it the \emph{theorema aureum} (golden theorem). Its beauty lies in the unexpected symmetry it reveals: two seemingly independent questions about different primes turn out to be mirrors of each other. The statement is simple enough to explain to a beginner, yet it connects modular arithmetic, the geometry of numbers, and complex analysis. Moreover, the theorem spawns entire fields of inquiry---higher reciprocity laws, class field theory, and the Langlands program. The single equation $\bigl(\frac{p}{q}\bigr)\bigl(\frac{q}{p}\bigr) = (-1)^{\frac{p-1}{2}\frac{q-1}{2}}$ is a remarkably compact expression for a deep structural fact about prime numbers.
+Gauss called it the \emph{theorema aureum} (golden theorem). Its significance lies in the unexpected symmetry it reveals: two seemingly independent questions about different primes turn out to be mirrors of each other. The statement is simple enough to explain to a beginner, yet it connects modular arithmetic, the geometry of numbers, and complex analysis. Moreover, the theorem spawns entire fields of inquiry---higher reciprocity laws, class field theory, and the Langlands program. The single equation $\bigl(\frac{p}{q}\bigr)\bigl(\frac{q}{p}\bigr) = (-1)^{\frac{p-1}{2}\frac{q-1}{2}}$ is a compact expression for a structural fact about prime numbers.
 
 \item[Q: What is the Langlands program in one paragraph?]\hfill\\
 The Langlands program is a vast web of conjectures proposing a fundamental correspondence between two seemingly unrelated worlds: \emph{Galois representations} (symmetries of number fields) and \emph{automorphic forms} (highly symmetric analytic functions on adele groups). When the Galois representation is one-dimensional (abelian), the correspondence reduces to class field theory---Artin reciprocity. For higher dimensions, it predicts that every $n$-dimensional Galois representation corresponds to an automorphic form on $\mathrm{GL}_n$. Fermat's Last Theorem was proved by establishing a $\mathrm{GL}_2$ case (the modularity theorem). The full program is one of the grand unifying visions of modern mathematics, but it remains largely unproven.

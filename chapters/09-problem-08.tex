@@ -50,13 +50,13 @@ The Goldbach Conjecture (binary version) is \textbf{unsolved}. It has been verif
 \section{Historical Context}
 % ------------------------------------------------------------
 
-The story of the Goldbach Conjecture begins not in a lecture hall or a journal, but in a letter. In 1742, the Prussian mathematician Christian Goldbach (1690--1764) wrote to Leonhard Euler, then the most prominent mathematician in Europe, with a simple but tantalizing observation. Goldbach noticed that many even numbers can be written as the sum of two prime numbers. For instance:
+The story of the Goldbach Conjecture begins not in a lecture hall or a journal, but in a letter. In 1742, the Prussian mathematician Christian Goldbach (1690--1764) wrote to Leonhard Euler, then the most prominent mathematician in Europe, with a simple observation. Goldbach noticed that many even numbers can be written as the sum of two prime numbers. For instance:
 \[
     4 = 2 + 2, \quad 6 = 3 + 3, \quad 8 = 3 + 5, \quad 10 = 3 + 7 = 5 + 5.
 \]
 Goldbach proposed that \emph{every} even integer greater than 2 has this property. Euler replied that he believed the conjecture to be true but was unable to prove it. Thus began one of the oldest and most famous open problems in number theory.
 
-The problem is remarkable for its simplicity. Anyone who understands what a prime number is can state the conjecture, and yet nearly three centuries of effort have failed to produce a proof. It is a humbling reminder that the distribution of prime numbers---the ``atoms'' of arithmetic---remains deeply mysterious.
+The problem is notable for its simplicity. Anyone who understands what a prime number is can state the conjecture, and yet nearly three centuries of effort have failed to produce a proof. It is a reminder that the distribution of prime numbers---the ``atoms'' of arithmetic---remains not fully understood.
 
 \subsection{The Distribution of Primes}
 
@@ -68,7 +68,7 @@ A \textbf{prime number} is an integer $p > 1$ whose only positive divisors are $
 \]
 Primes become sparser as we look at larger numbers, but they never stop appearing---Euclid proved this over two thousand years ago. The fundamental question is: \emph{how} sparse?
 
-The \textbf{prime-counting function} $\pi(x)$ counts the number of primes less than or equal to $x$. Gauss and Legendre, in the late eighteenth century, conjectured on the basis of numerical evidence that $\pi(x)$ grows approximately like $x / \ln x$. This conjecture was eventually proved and refined into one of the crowning achievements of nineteenth-century mathematics.
+The \textbf{prime-counting function} $\pi(x)$ counts the number of primes less than or equal to $x$. Gauss and Legendre, in the late eighteenth century, conjectured on the basis of numerical evidence that $\pi(x)$ grows approximately like $x / \ln x$. This conjecture was eventually proved and refined into one of the major results of nineteenth-century mathematics.
 
 \begin{theorem}[Prime Number Theorem]
 \label{thm:pnt}
@@ -107,7 +107,7 @@ The ternary conjecture is ``weaker'' in the sense that it follows from the binar
 
 \subsection{Computational Evidence}
 
-The Goldbach Conjecture has been verified by computer for all even integers up to $4 \times 10^{18}$---a staggering $4$ quintillion. This verification was carried out by Oliveira e Silva, Sa da Fonseca, and others using distributed computing. The conjecture holds without exception.
+The Goldbach Conjecture has been verified by computer for all even integers up to $4 \times 10^{18}$---$4$ quintillion. This verification was carried out by Oliveira e Silva, Sa da Fonseca, and others using distributed computing. The conjecture holds without exception.
 
 But as Hardy and Littlewood were fond of emphasizing, numerical verification is not proof. The history of number theory is littered with conjectures that held for millions of cases before failing. (For example, $\sum_{k=1}^{n} k^2 = n(n+1)(2n+1)/6$ holds for all $n$, but a similar-looking formula involving primes might fail only at astronomically large values.)
 
@@ -117,7 +117,7 @@ To appreciate the scale of the verification: the number $4 \times 10^{18}$ is ro
 \section{Key Developments}
 % ------------------------------------------------------------
 
-The Goldbach Conjecture has resisted proof for nearly three centuries, but the effort has produced some of the most important tools in analytic number theory.
+The Goldbach Conjecture has resisted proof for nearly three centuries, but the effort has produced some of the significant tools in analytic number theory.
 
 \subsection{The Hardy--Littlewood Circle Method}
 
@@ -143,7 +143,7 @@ where $\mathfrak{S}(n)$ is the \textbf{Goldbach singular series} and $C$ is a po
 \[
     \mathfrak{S}(n) = 2 \prod_{p > 2} \left( 1 - \frac{1}{(p-1)^2} \right) \prod_{\substack{p \mid n \\ p > 2}} \frac{p - 1}{p - 2}.
 \]
-This product converges to a positive constant, so the heuristic prediction is that $R(n) \to \infty$ as $n \to \infty$---in fact, $R(n)$ grows roughly like $n / (\ln n)^2$. The conjecture, in other words, should be ``true with room to spare.''
+This product converges to a positive constant, so the heuristic prediction is that $R(n) \to \infty$ as $n \to \infty$---in fact, $R(n)$ grows roughly like $n / (\ln n)^2$. The conjecture, in other words, should be true.
 
 \subsection{Vinogradov's Theorem (1937)}
 
@@ -155,7 +155,7 @@ Every sufficiently large odd integer is the sum of three primes.
 
 ``Sufficiently large'' here means that there exists some constant $N_0$ such that every odd $n > N_0$ works. Vinogradov's proof did not specify a value for $N_0$, and it was far too large to be checked computationally. The ternary Goldbach Conjecture for smaller odd numbers remained open for decades.
 
-Vinogradov's method was a tour de force of analytic number theory. He refined the circle method to handle the error terms that arise when approximating sums over primes by integrals, using deep estimates for exponential sums over primes. His work established the circle method as the central tool in additive number theory and influenced generations of mathematicians.
+Vinogradov's method was a significant achievement in analytic number theory. He refined the circle method to handle the error terms that arise when approximating sums over primes by integrals, using deep estimates for exponential sums over primes. His work established the circle method as the central tool in additive number theory and influenced generations of mathematicians.
 
 \subsection{Chen's Theorem (1973)}
 
@@ -177,7 +177,7 @@ Chen's theorem is the strongest result of its kind, and despite decades of effor
 
 \subsection{Helfgott's Proof of the Ternary Conjecture (2013)}
 
-The ternary Goldbach Conjecture was the subject of a remarkable proof by the Peruvian--French mathematician Harald Helfgott. Building on work by Vinogradov, Montgomery, and Vaughan, Helfgott completed the proof in two stages:
+The ternary Goldbach Conjecture was the subject of a proof by the Peruvian--French mathematician Harald Helfgott. Building on work by Vinogradov, Montgomery, and Vaughan, Helfgott completed the proof in two stages:
 
 \begin{enumerate}
     \item \textbf{Large values (2013):} Helfgott proved that every odd $n > 10^{29}$ is the sum of three primes, making explicit the implicit constant in Vinogradov's theorem. His method used refined estimates for the circle method and computer-assisted verification of certain bounds.
@@ -188,7 +188,7 @@ The ternary Goldbach Conjecture was the subject of a remarkable proof by the Per
 Every odd integer $n > 5$ is the sum of three primes.
 \end{theorem}
 
-Helfgott's proof is notable not only for its mathematical content but also for its methodology. The proof combines traditional analytic arguments with extensive computer verification---a ``proof by calculation'' for the small cases, and a ``proof by analysis'' for the large ones. The computer-assisted parts have been independently verified using the Coq proof assistant, giving the result an extraordinary level of certainty.
+Helfgott's proof is notable not only for its mathematical content but also for its methodology. The proof combines traditional analytic arguments with extensive computer verification---a ``proof by calculation'' for the small cases, and a ``proof by analysis'' for the large ones. The computer-assisted parts have been independently verified using the Coq proof assistant, giving the result a high level of certainty.
 
 The ternary Goldbach Conjecture is therefore \emph{solved}. But the binary Goldbach Conjecture---the original problem posed by Goldbach---remains wide open.
 

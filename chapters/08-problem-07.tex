@@ -12,11 +12,11 @@ Hilbert's seventh problem asks whether $e^\pi$ is transcendental. It is. The Gel
 
 \subsection{What Does It Mean for a Number to Be Irrational, Algebraic, or Transcendental?}
 
-Before we can appreciate the depth of Hilbert's question, we need to understand a hierarchy of ``complexity'' that mathematicians use to classify real (and complex) numbers. This hierarchy is one of the most beautiful ideas in all of number theory.
+Before we can appreciate the depth of Hilbert's question, we need to understand a hierarchy of ``complexity'' that mathematicians use to classify real (and complex) numbers. This hierarchy is one of the significant ideas in number theory.
 
 A real number is \textbf{rational} if it can be expressed as a fraction $p/q$ where $p$ and $q$ are integers with $q \neq 0$. The rational numbers---$\frac{1}{2}$, $-\frac{3}{4}$, $0 = \frac{0}{1}$, $7 = \frac{7}{1}$---are the numbers we encounter most readily in everyday life.
 
-A real number that is \emph{not} rational is called \textbf{irrational}. The ancient Greeks discovered, to their astonishment, that $\sqrt{2}$ is irrational: there is no fraction equal to it. The proof is one of the most elegant arguments in mathematics, and we will review it in the exercises below.
+A real number that is \emph{not} rational is called \textbf{irrational}. The ancient Greeks discovered, to their astonishment, that $\sqrt{2}$ is irrational: there is no fraction equal to it. The proof is a standard argument in mathematics, and we will review it in the exercises below.
 
 But irrationality is only the first step on the ladder. An \textbf{algebraic number} is any real (or complex) number that is a root of a polynomial equation with integer coefficients:
 \[
@@ -32,7 +32,7 @@ Here is the hierarchy, from simplest to most exotic:
     \underbrace{\mathbb{Q}}_{\text{rational}} \;\subset\; \underbrace{\text{algebraic numbers}}_{\text{roots of polynomials}} \;\subset\; \underbrace{\mathbb{R}}_{\text{real numbers}}
 \]
 
-The transcendental numbers are those real numbers that fall outside the algebraic numbers---the ``gaps'' in the algebraic landscape. For a long time, it was not even clear that transcendental numbers \emph{existed}. The proof that they do was one of the great achievements of 19th-century mathematics.
+The transcendental numbers are those real numbers that fall outside the algebraic numbers---the ``gaps'' in the algebraic landscape. For a long time, it was not even clear that transcendental numbers \emph{existed}. The proof that they do was a significant achievement of 19th-century mathematics.
 
 \begin{figure}[htbp]
 \centering
@@ -61,17 +61,17 @@ The transcendental numbers are those real numbers that fall outside the algebrai
 
 \subsection{The First Examples}
 
-The first number proven to be transcendental was $e$ (Euler's number, approximately $2.71828\ldots$). In 1873, Charles Hermite proved that $e$ is transcendental. His proof was a tour de force of analysis, exploiting the rapidly converging series
+The first number proven to be transcendental was $e$ (Euler's number, approximately $2.71828\ldots$). In 1873, Charles Hermite proved that $e$ is transcendental. His proof was a technical achievement in analysis, exploiting the rapidly converging series
 \[
     e = \sum_{n=0}^{\infty} \frac{1}{n!}
 \]
-and the remarkable fact that this series converges so quickly that it ``outruns'' any polynomial approximation.
+and the fact that this series converges so quickly that it ``outruns'' any polynomial approximation.
 
-Nine years later, in 1882, Ferdinand Lindemann extended Hermite's methods to prove the transcendence of $\pi$. This was a landmark achievement, and it settled one of the oldest open problems in mathematics: the impossibility of \emph{squaring the circle}---constructing, with compass and straightedge alone, a square whose area equals that of a given circle. Since compass-and-straightedge constructions can only produce algebraic numbers, and $\pi$ is transcendental, the task is impossible.
+Nine years later, in 1882, Ferdinand Lindemann extended Hermite's methods to prove the transcendence of $\pi$. This result settled one of the oldest open problems in mathematics: the impossibility of \emph{squaring the circle}---constructing, with compass and straightedge alone, a square whose area equals that of a given circle. Since compass-and-straightedge constructions can only produce algebraic numbers, and $\pi$ is transcendental, the task is impossible.
 
 \subsection{Lindemann's Proof That \texorpdfstring{$\pi$}{pi} Is Transcendental}
 
-Lindemann's argument is beautiful in its broad outlines. We sketch the key idea.
+Lindemann's argument is clear in its broad outlines. We sketch the key idea.
 
 Suppose, for contradiction, that $\pi$ is algebraic. Then $i\pi$ is also algebraic (since $i$ is algebraic: it is a root of $x^2 + 1 = 0$). By Euler's identity, $e^{i\pi} = -1$. So we would have an \emph{algebraic} exponent---$i\pi$---giving rise to an \emph{algebraic} value---$-1$---via the exponential function.
 
@@ -113,13 +113,13 @@ This is exactly what the Gelfond--Schneider theorem says.
 
 \subsection{The Gelfond--Schneider Theorem}
 
-In 1934, independently and almost simultaneously, Alexander Gelfond and Theodor Schneider proved one of the crown jewels of 20th-century number theory:
+In 1934, independently and almost simultaneously, Alexander Gelfond and Theodor Schneider proved one of the fundamental results of 20th-century number theory:
 
 \begin{theorem}[Gelfond--Schneider, 1934]
 Let $a$ and $b$ be algebraic numbers with $a \neq 0, 1$ and $b$ irrational. Then $a^b$ is transcendental.
 \end{theorem}
 
-The power of this theorem is immense. Here are some of its immediate consequences:
+This theorem has significant consequences. Here are some of its immediate consequences:
 
 \begin{itemize}
     \item $2^{\sqrt{2}}$ is transcendental. (Here $a = 2$, $b = \sqrt{2}$, and $\sqrt{2}$ is irrational.)
@@ -129,7 +129,7 @@ The power of this theorem is immense. Here are some of its immediate consequence
 
 \subsection{Why \texorpdfstring{$e^\pi$}{e^pi} Is Transcendental: The Clever Trick}
 
-Let us spell out the argument for $e^\pi$ in detail, since it is one of the most beautiful deductions in all of mathematics.
+Let us spell out the argument for $e^\pi$ in detail, since it is one of the well-known deductions in mathematics.
 
 We begin with Euler's identity:
 \[
@@ -150,7 +150,7 @@ Now apply the Gelfond--Schneider theorem with $a = -1$ and $b = -i$:
 \end{itemize}
 Therefore $a^b = (-1)^{-i} = e^\pi$ is transcendental.
 
-This is a remarkable chain of reasoning: we start with the geometry of the circle (Euler's identity connects $e$, $\pi$, and $i$), apply a deep theorem about algebraic exponents, and conclude something profound about a concrete, computable constant.
+This is a chain of reasoning: we start with the geometry of the circle (Euler's identity connects $e$, $\pi$, and $i$), apply a deep theorem about algebraic exponents, and conclude something specific about a concrete, computable constant.
 
 \subsection{The Proof Idea of Gelfond--Schneider}
 
@@ -173,7 +173,7 @@ where the $\alpha_i$ and $\beta_i$ are algebraic numbers. Showing that such a li
 
 \subsection{Baker's Theorem: Linear Forms in Logarithms}
 
-The Gelfond--Schneider theorem was extended dramatically by Alan Baker in 1966. Baker proved the following far-reaching generalization:
+The Gelfond--Schneider theorem was extended by Alan Baker in 1966. Baker proved the following generalization:
 
 \begin{theorem}[Baker, 1966]
 If $\alpha_1, \ldots, \alpha_n$ are nonzero algebraic numbers and $\beta_1, \ldots, \beta_n$ are algebraic with $1, \beta_1, \ldots, \beta_n$ linearly independent over $\mathbb{Q}$, then\linebreak
@@ -194,7 +194,7 @@ The Gelfond--Schneider theorem is sometimes called one of the four fundamental t
 Hilbert's seventh problem is \textbf{solved}. The Gelfond--Schneider theorem (1934) proves that $e^\pi$ is transcendental. The broader question of which values of $a^b$ are transcendental is largely settled by the Gelfond--Schneider theorem and Baker's theorem, though many specific questions remain open.
 \end{solvedbox}
 
-Despite these triumphs, transcendental number theory remains a field of deep open problems. Among the most famous:
+Despite these results, transcendental number theory remains a field of open problems. Among the most famous:
 
 \begin{itemize}
     \item \textbf{Is $\pi + e$ transcendental?} We know that both $\pi$ and $e$ are transcendental, but we do not know whether their sum is. It is conjectured to be, but no proof is known.

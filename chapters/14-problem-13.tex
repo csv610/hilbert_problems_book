@@ -44,7 +44,7 @@ In 1545, Gerolamo Cardano published the solution in his book \emph{Ars Magna}. T
 \[
     x = \sqrt[3]{-\frac{q}{2} + \sqrt{\frac{q^2}{4} + \frac{p^3}{27}}} + \sqrt[3]{-\frac{q}{2} - \sqrt{\frac{q^2}{4} + \frac{p^3}{27}}}.
 \]
-This is a remarkable expression: it builds the root from the coefficients $p$ and $q$ using only arithmetic, square roots, and cube roots. The discovery was a triumph, and Cardano credited the method to Niccol\`o Tartaglia, who had shared it with him under a vow of secrecy---a story of rivalry and betrayal that has fascinated historians ever since.
+This is a notable expression: it builds the root from the coefficients $p$ and $q$ using only arithmetic, square roots, and cube roots. The discovery was a breakthrough, and Cardano credited the method to Niccol\`o Tartaglia, who had shared it with him under a vow of secrecy---a story of rivalry and betrayal that has fascinated historians ever since.
 
 There is a subtlety in Cardano's formula that would prove deeply important later. The expression under the square root,
 \[
@@ -74,17 +74,17 @@ The definitive proof came in 1824 from Niels Henrik Abel. Abel proved what is no
 There is no formula in radicals for the roots of the general polynomial equation of degree five or higher.
 \end{theorem}
 
-This was a watershed moment. The quest that had occupied algebraists for three centuries ended not in triumph but in a proof of impossibility. But Abel's theorem, while conclusive, left a deeper question unanswered: \emph{why} is the quintic different from the cubic and quartic? What structural property distinguishes the solvable degrees from the unsolvable ones?
+This was a turning point. The quest that had occupied algebraists for three centuries ended not in a solution but in a proof of impossibility. But Abel's theorem, while conclusive, left a deeper question unanswered: \emph{why} is the quintic different from the cubic and quartic? What structural property distinguishes the solvable degrees from the unsolvable ones?
 
 The answer to that question required an entirely new branch of mathematics.
 
 \subsection{Galois and the Birth of Group Theory}
 
-In the early 1830s, a young French mathematician named\'{E}variste Galois developed a theory that answered Abel's question in the most beautiful and general way possible. Galois's ideas, communicated in a letter written the night before he died in a duel at the age of 20, laid the foundations for \textbf{group theory} and \textbf{field theory}---two pillars of modern algebra.
+In the early 1830s, a young French mathematician named\'{E}variste Galois developed a theory that answered Abel's question in a general way. Galois's ideas, communicated in a letter written the night before he died in a duel at the age of 20, laid the foundations for \textbf{group theory} and \textbf{field theory}---two pillars of modern algebra.
 
 Galois's key insight was this: the solvability of a polynomial equation by radicals is controlled by the \emph{symmetries} of its roots. Specifically, the roots of a polynomial permute among themselves in ways that preserve all the algebraic relations satisfied by the roots. These permutations form a group---the \textbf{Galois group} of the polynomial. And the equation can be solved by radicals if and only if this group has a specific structural property: it must be a \textbf{solvable group}.
 
-Galois's work was published posthumously in 1846, by Joseph Liouville, thirteen years after Galois's death. The full impact of his ideas took decades to unfold, but today Galois theory is one of the most important and elegant chapters of mathematics.
+Galois's work was published posthumously in 1846, by Joseph Liouville, thirteen years after Galois's death. The full impact of his ideas took decades to unfold, but today Galois theory is one of the standard chapters of mathematics.
 
 % ------------------------------------------------------------
 \section{The Problem}
@@ -146,7 +146,7 @@ The question ``is $S_n$ solvable?'' has a clean answer:
     \item $S_n$ is \textbf{not} solvable for $n \geq 5$.
 \end{itemize}
 
-The reason $S_n$ fails to be solvable for $n \geq 5$ is that the \textbf{alternating group} $A_n$ (the subgroup of even permutations) is \emph{simple} for $n \geq 5$---meaning it has no nontrivial normal subgroups. Since $A_n$ is non-abelian for $n \geq 5$, there is no way to build a composition series with abelian quotients. The simplicity of $A_5$, first proved by Galois, is one of the most important facts in algebra.
+The reason $S_n$ fails to be solvable for $n \geq 5$ is that the \textbf{alternating group} $A_n$ (the subgroup of even permutations) is \emph{simple} for $n \geq 5$---meaning it has no nontrivial normal subgroups. Since $A_n$ is non-abelian for $n \geq 5$, there is no way to build a composition series with abelian quotients. The simplicity of $A_5$, first proved by Galois, is one of the fundamental facts in algebra.
 
 Since the general polynomial of degree $n$ has Galois group $S_n$:
 \begin{itemize}
@@ -168,7 +168,7 @@ This was already known in its general form from Galois theory, long before Hilbe
 
 Hilbert conjectured that the roots of the general seventh degree equation could \emph{not} be expressed as finite compositions of continuous functions of two variables. This is a stronger statement than the non-existence of a radical formula: it says that even allowing arbitrary continuous two-variable functions (not just arithmetic operations and radicals), the decomposition is impossible.
 
-The resolution of Hilbert's problem came in stages. In 1957, A.\,N. Kolmogorov and V.\,I. Arnold proved a related result---the \textbf{Kolmogorov--Arnold representation theorem}---which states that every continuous function of several variables can be represented as a finite composition of continuous functions of \emph{one} variable and addition. This result, while not directly answering Hilbert's question, showed that the world of function compositions is richer than one might expect.
+The resolution of Hilbert's problem came in stages. In 1957, A.\,N. Kolmogorov and V.\,I. Arnold proved a related result---the \textbf{Kolmogorov--Arnold representation theorem}---which states that every continuous function of several variables can be represented as a finite composition of continuous functions of \emph{one} variable and addition. This result, while not directly answering Hilbert's question, showed that the world of function compositions is more varied than one might expect.
 
 For the specific case of the seventh degree equation, the non-solvability by radicals (from Galois theory) and the deeper analysis of algebraic dependencies among the roots showed that the roots cannot be decomposed into a tree of two-variable functions in the manner Hilbert envisioned. The algebraic structure of the splitting field of the general seventh degree polynomial is ``irreducibly complex''---it cannot be broken into simpler pieces.
 
@@ -186,7 +186,7 @@ Newton's method converges \emph{quadratically}: the number of correct digits rou
 
 More sophisticated methods include the \textbf{companion matrix} approach: form a $7 \times 7$ matrix whose characteristic polynomial is $f(x)$, and compute its eigenvalues numerically using the QR algorithm. This is how most computer algebra systems (MATLAB, Mathematica, Maple) actually solve polynomial equations.
 
-The contrast between the impossibility of a radical formula and the ease of numerical approximation is striking. It illustrates a broader theme in mathematics: \emph{exact} and \emph{approximate} answers to the same question can have completely different levels of difficulty.
+The contrast between the impossibility of a radical formula and the ease of numerical approximation is notable. It illustrates a broader theme in mathematics: \emph{exact} and \emph{approximate} answers to the same question can have completely different levels of difficulty.
 
 % ------------------------------------------------------------
 \section{Current Status}

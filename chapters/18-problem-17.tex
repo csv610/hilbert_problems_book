@@ -5,14 +5,14 @@
 \chapter{Representation by Quadratic Forms}
 
 \begin{solvedbox}
-Hilbert's Seventeenth Problem asks whether every non-negative polynomial over the real numbers can be written as a sum of squares of rational functions. Emil Artin solved this in the affirmative in 1927, proving a deep result that connects real algebraic geometry, the theory of ordered fields, and the structure of positive semidefinite forms. His theorem remains a cornerstone of real algebraic geometry today.
+Hilbert's Seventeenth Problem asks whether every non-negative polynomial over the real numbers can be written as a sum of squares of rational functions. Emil Artin solved this in the affirmative in 1927, proving a result that connects real algebraic geometry, the theory of ordered fields, and the structure of positive semidefinite forms. His theorem remains a cornerstone of real algebraic geometry today.
 \end{solvedbox}
 
 % ------------------------------------------------------------
 \section{Historical Context}
 % ------------------------------------------------------------
 
-The question of representing numbers and functions as sums of squares is one of the oldest in number theory. Its origins stretch back centuries, and its influence runs deep through modern mathematics.
+The question of representing numbers and functions as sums of squares is one of the oldest in number theory. Its origins stretch back centuries, and its influence runs through modern mathematics.
 
 \subsection{Sums of Squares of Integers}
 
@@ -23,7 +23,7 @@ The most ancient form of this question is deceptively simple: \emph{which positi
 
     \item \textbf{Sums of three squares.} Legendre proved that a positive integer is a sum of three squares if and only if it is not of the form $4^a(8b+7)$ for non-negative integers $a, b$. The excluded values---numbers like $7, 15, 23, 28, 31, \ldots$---cannot be represented.
 
-    \item \textbf{Sums of four squares.} The great theorem of \textbf{Lagrange} (1770) states that \emph{every} positive integer is a sum of four squares. That is, for every $n \geq 1$, there exist integers $a_1, a_2, a_3, a_4$ such that
+    \item \textbf{Sums of four squares.} The theorem of \textbf{Lagrange} (1770) states that \emph{every} positive integer is a sum of four squares. That is, for every $n \geq 1$, there exist integers $a_1, a_2, a_3, a_4$ such that
     \[
         n = a_1^2 + a_2^2 + a_3^2 + a_4^2.
     \]
@@ -67,7 +67,7 @@ By the multiplicative property, every positive integer is a sum of four squares.
 
 Hilbert's insight was to ask the same question not for integers, but for \emph{polynomials} and \emph{rational functions}. If every positive integer is a sum of four squares, is every polynomial that is non-negative (on $\mathbb{R}$ or $\mathbb{Q}$) a sum of squares of polynomials?
 
-This is a natural question because polynomials behave in many ways like integers: they can be added, multiplied, and factored. The theory of quadratic forms---which studies expressions like $a_1 x_1^2 + a_2 x_2^2 + \cdots + a_n x_n^2$---was already well-developed by Hilbert's time, with deep results from Gauss, Hermite, Minkowski, and Hasse. Hilbert wanted to know whether this theory extended naturally to the polynomial setting.
+This is a natural question because polynomials behave in many ways like integers: they can be added, multiplied, and factored. The theory of quadratic forms---which studies expressions like $a_1 x_1^2 + a_2 x_2^2 + \cdots + a_n x_n^2$---was already well-developed by Hilbert's time, with results from Gauss, Hermite, Minkowski, and Hasse. Hilbert wanted to know whether this theory extended naturally to the polynomial setting.
 
 % ------------------------------------------------------------
 \section{Worked Examples: PSD vs.\ SOS}
@@ -87,7 +87,7 @@ so it is both PSD and SOS. This is the simplest illustration of the fact that ev
 
 In 1888, Hilbert proved a surprising theorem: for polynomials in two or more variables of degree at least $4$, \emph{not} every non-negative polynomial is a sum of squares of polynomials. His proof was non-constructive---it showed existence of such polynomials without producing a single explicit example. Hilbert used dimension-counting arguments on the cones of PSD and SOS forms, showing that the SOS cone is strictly contained in the PSD cone when $n \geq 2$ and $\deg f \geq 4$.
 
-This was a stunning result: it showed that the integer analogy breaks down for polynomials. Some non-negative polynomials simply cannot be written as sums of squares of polynomials. The question Hilbert posed in his 1900 address was whether allowing \emph{rational functions} instead of polynomials would remedy this gap.
+This was a result with significant implications: it showed that the integer analogy breaks down for polynomials. Some non-negative polynomials simply cannot be written as sums of squares of polynomials. The question Hilbert posed in his 1900 address was whether allowing \emph{rational functions} instead of polynomials would remedy this gap.
 
 \subsection{The Motzkin Polynomial: An Explicit Counterexample}
 
@@ -164,7 +164,7 @@ The answer to Hilbert's question is \emph{yes}. This was proved by the Austrian 
 Let $f \in \mathbb{R}[x_1, \ldots, x_n]$ be a polynomial that is non-negative on $\mathbb{R}^n$. Then $f$ can be written as a sum of squares of rational functions with real coefficients.
 \end{theorem}
 
-Artin's proof was a landmark in algebra and real algebraic geometry. Rather than constructing the rational functions explicitly (which is in general impossible), Artin proved their \emph{existence} using deep results from the theory of ordered fields.
+Artin's proof was a result in algebra and real algebraic geometry. Rather than constructing the rational functions explicitly (which is in general impossible), Artin proved their \emph{existence} using results from the theory of ordered fields.
 
 \subsection{The Proof Idea: Ordered Fields and Formally Real Fields}
 
@@ -185,7 +185,7 @@ The field $\mathbb{R}(x_1,\ldots,x_n)$ is formally real because it embeds in $\m
     \item By the Artin--Schreier theorem, an element of a formally real field that is non-negative in every ordering is a sum of squares in that field. Since $\mathbb{R}(x_1,\ldots,x_n)$ is formally real and $f$ is non-negative in all orderings, $f$ is a sum of squares of rational functions.
 \end{enumerate}
 
-This argument is a masterpiece of abstract algebra: it proves the existence of a representation without constructing it.
+This argument is an example of abstract algebra: it proves the existence of a representation without constructing it.
 
 \subsection{Schreier's Contributions}
 
@@ -195,7 +195,7 @@ Schreier's work was cut short by his untimely death at age 28, just two years af
 
 \subsection{The Real Nullstellensatz and Positivstellensatz}
 
-Artin's theorem is part of a larger family of results known as \textbf{real algebraic geometry}. The most important generalization is the \textbf{Positivstellensatz}, proved by Stengle in 1974.
+Artin's theorem is part of a larger family of results known as \textbf{real algebraic geometry}. The most generalization is the \textbf{Positivstellensatz}, proved by Stengle in 1974.
 
 \begin{theorem}[Stengle's Positivstellensatz, 1974]
 Let $f, g_1, \ldots, g_m, h_1, \ldots, h_r \in \mathbb{R}[x_1,\ldots,x_n]$, and let
@@ -229,13 +229,13 @@ The core observation is this: checking whether a polynomial $f$ is non-negative 
     \item \textbf{Applications.} SOS optimization is used in control theory (Lyapunov function synthesis), robotics (motion planning, verification), power systems (optimal power flow), machine learning (certified robustness), and many other fields. Software toolboxes like YALMIP, SOSOPT, and TSSOS make these techniques accessible to practitioners.
 \end{itemize}
 
-The connection to Hilbert's problem is profound: Artin's theorem guarantees that the SOS hierarchy over rational functions is \emph{complete}---every non-negative polynomial has a certificate. The SOS hierarchy over polynomials, by contrast, is incomplete (as Motzkin shows), but computationally more convenient. Understanding this trade-off between completeness and tractability is an active area of research.
+The connection to Hilbert's problem is significant: Artin's theorem guarantees that the SOS hierarchy over rational functions is \emph{complete}---every non-negative polynomial has a certificate. The SOS hierarchy over polynomials, by contrast, is incomplete (as Motzkin shows), but computationally more convenient. Understanding this trade-off between completeness and tractability is an active area of research.
 
 \subsection{The Real Spectrum and Beyond}
 
 Artin's theorem can be understood through the lens of the \textbf{real spectrum} of a ring---a geometric object that encodes all orderings of a field or ring. The real spectrum of $\mathbb{R}[x_1, \ldots, x_n]$ consists of all prime ideals equipped with a sign function, and the connection to sums of squares is mediated by the Positivstellensatz.
 
-The modern formulation, due to Schweighofer and others, states roughly that a polynomial $f$ is a sum of squares in the fraction field if and only if it is non-negative on the real spectrum. This gives a complete algebraic characterization of when Hilbert's representation is possible, and it connects to deep results in model theory (the Tarski--Seidenberg theorem on quantifier elimination for the theory of real closed fields).
+The modern formulation, due to Schweighofer and others, states roughly that a polynomial $f$ is a sum of squares in the fraction field if and only if it is non-negative on the real spectrum. This gives a complete algebraic characterization of when Hilbert's representation is possible, and it connects to results in model theory (the Tarski--Seidenberg theorem on quantifier elimination for the theory of real closed fields).
 
 % ------------------------------------------------------------
 \section{Current Status: Solved}

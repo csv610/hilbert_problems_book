@@ -12,11 +12,11 @@
 \section{Historical Context: The Foundational Crisis}
 % -----------------------------------------------------------
 
-By the end of the nineteenth century, mathematics faced a crisis of confidence. The subject had grown enormously in scope and power, but no one could say with certainty that its foundations were secure.
+By the end of the nineteenth century, mathematics faced a crisis of confidence. The subject had grown substantially in scope and power, but no one could say with certainty that its foundations were secure.
 
 \subsection{The Dream of Rigor}
 
-Since the time of Euclid, mathematicians had organized their knowledge into systems of \emph{axioms}---self-evident truths from which all theorems follow by logical deduction. Geometry had been axiomatized with impressive precision by Hilbert himself in his \emph{Grundlagen der Geometrie} (1899). But arithmetic---the simplest and most fundamental branch of mathematics---had never received the same treatment.
+Since the time of Euclid, mathematicians had organized their knowledge into systems of \emph{axioms}---self-evident truths from which all theorems follow by logical deduction. Geometry had been axiomatized with great precision by Hilbert himself in his \emph{Grundlagen der Geometrie} (1899). But arithmetic---the simplest and most fundamental branch of mathematics---had never received the same treatment.
 
 What would a complete, rigorous axiomatization of arithmetic look like? Two efforts in particular set the stage.
 
@@ -81,17 +81,17 @@ The idea was to establish a hierarchy of certainty:
     \item \emph{Set-theoretic} methods (involving the actual infinite): the most powerful but least secure.
 \end{enumerate}
 
-A finitary consistency proof for arithmetic would show that the ``infinitary'' arithmetic is as reliable as the finitary methods used to prove it. This would be a triumph of Hilbert's program---a guarantee that mathematics, built step by step from the ground up, stands on solid foundations.
+A finitary consistency proof for arithmetic would show that the ``infinitary'' arithmetic is as reliable as the finitary methods used to prove it. This would be a validation of Hilbert's program---a guarantee that mathematics, built step by step from the ground up, stands on solid foundations.
 
 % -----------------------------------------------------------
 \section{Key Developments}
 % -----------------------------------------------------------
 
-The story of Problem 2 spans three decades and involves some of the deepest mathematics of the twentieth century.
+The story of Problem 2 spans three decades and involves some of the significant mathematics of the twentieth century.
 
 \subsection{G\"odel's Incompleteness Theorems (1931)}
 
-In 1931, a twenty-five-year-old Austrian logician named Kurt G\"odel published a short paper that changed the course of mathematics and philosophy. Its title was ``\"Uber formal unentscheidbare S\"atze der \emph{Principia Mathematica} und verwandter Systeme I'' (``On Formally Undecidable Propositions of \emph{Principia Mathematica} and Related Systems I'').
+In 1931, a twenty-five-year-old Austrian logician named Kurt G\"odel published a short paper that influenced the course of mathematics and philosophy. Its title was ``\"Uber formal unentscheidbare S\"atze der \emph{Principia Mathematica} und verwandter Systeme I'' (``On Formally Undecidable Propositions of \emph{Principia Mathematica} and Related Systems I'').
 
 \paragraph{The First Incompleteness Theorem.}
 
@@ -104,11 +104,11 @@ Any consistent, recursively axiomatized formal system $F$ that is capable of exp
 
 In other words, no matter how we choose our axioms (as long as they are consistent, can be listed by a computer program, and are strong enough to do arithmetic), there will always be true statements about the natural numbers that the system cannot prove.
 
-The proof is a masterpiece of self-reference. G\"odel showed how to encode statements \emph{about} the system as statements \emph{within} the system---a technique now called \emph{G\"odel numbering}. He then constructed a sentence $G$ that effectively says: ``This sentence is not provable in $F$.'' If $F$ is consistent, then $G$ is true but unprovable.
+The proof is a sophisticated example of self-reference. G\"odel showed how to encode statements \emph{about} the system as statements \emph{within} the system---a technique now called \emph{G\"odel numbering}. He then constructed a sentence $G$ that effectively says: ``This sentence is not provable in $F$.'' If $F$ is consistent, then $G$ is true but unprovable.
 
 \paragraph{The Second Incompleteness Theorem.}
 
-Even more devastating for Hilbert's program was G\"odel's second result:
+Even more significant for Hilbert's program was G\"odel's second result:
 
 \begin{theorem}[G\"odel's Second Incompleteness Theorem, 1931]
 \label{thm:godel-second}
@@ -131,7 +131,7 @@ The Peano axioms (P1)--(P5) do not by themselves constitute a recursively axioma
 
 \subsection{The Significance of G\"odel's Results}
 
-G\"odel's theorems were a shock. The mathematical community had broadly hoped---as Hilbert had---that a consistency proof could be achieved. The theorems did not say that arithmetic is inconsistent, or that mathematics is unreliable. They said something more subtle: \emph{the certainty of arithmetic cannot be established by arithmetic itself.}
+G\"odel's theorems were unexpected. The mathematical community had broadly hoped---as Hilbert had---that a consistency proof could be achieved. The theorems did not say that arithmetic is inconsistent, or that mathematics is unreliable. They said something more subtle: \emph{the certainty of arithmetic cannot be established by arithmetic itself.}
 
 To see why this matters, consider an analogy. Imagine a court system in which each defendant is judged by a jury drawn from the same community. G\"odel's theorem says: if the jury (arithmetic) is consistent, then the jury cannot certify its own consistency. To verify that the jury is fair, you must appeal to a \emph{higher} court.
 
@@ -157,26 +157,26 @@ Gentzen's proof uses \emph{cut elimination} (a technique for simplifying proofs)
 This is a \emph{relative consistency proof}: it says, ``If you trust transfinite induction up to $\varepsilon_0$, then you may trust Peano Arithmetic.'' It does not give an absolute, self-certifying proof---G\"odel's theorem guarantees that no such proof exists. But it does identify precisely \emph{how much more} than finitary reasoning is needed.
 
 \begin{remark}
-Gentzen's result is often summarized as: ``The consistency of PA requires the ordinal $\varepsilon_0$.'' More precisely, the \emph{proof-theoretic ordinal} of Peano Arithmetic is $\varepsilon_0$. This ordinal measures the ``proof-theoretic strength'' of the system and has become a central concept in proof theory.
+Gentzen's result is often summarized as: ``The consistency of PA requires the ordinal $\varepsilon_0$.'' More precisely, the \emph{proof-theoretic ordinal} of Peano Arithmetic is $\varepsilon_0$. This ordinal measures the ``proof-theoretic strength'' of the system and has become a key concept in proof theory.
 \end{remark}
 
 % -----------------------------------------------------------
 \section{What This Means for Mathematics}
 % -----------------------------------------------------------
 
-The resolution of Hilbert's Problem 2 is one of the most philosophically significant events in the history of mathematics. Several lessons emerge:
+The resolution of Hilbert's Problem 2 is one of the most significant events in the history of mathematics. Several lessons emerge:
 
 \begin{enumerate}
     \item \textbf{Mathematics cannot fully justify itself from within.} G\"odel's theorem shows that any sufficiently powerful consistent system contains truths it cannot prove, and cannot prove its own consistency. The dream of a self-sufficient, self-certifying foundation for mathematics is impossible.
 
     \item \textbf{Consistency proofs are possible---at a cost.} Gentzen showed that consistency of arithmetic \emph{can} be proved, but only by using methods that go beyond arithmetic itself. The cost is always an assumption: to prove $T$ consistent, you need a system $T'$ stronger than $T$.
 
-    \item \textbf{The finitist program was partially vindicated.} Hilbert's hope for an absolute, finitary proof was dashed. But the \emph{methodology} of proof theory---formalizing consistency questions, measuring the strength of systems, identifying the precise assumptions needed---became one of the great achievements of twentieth-century mathematics.
+    \item \textbf{The finitist program was partially vindicated.} Hilbert's hope for an absolute, finitary proof was dashed. But the \emph{methodology} of proof theory---formalizing consistency questions, measuring the strength of systems, identifying the precise assumptions needed---became one of the major achievements of twentieth-century mathematics.
 
     \item \textbf{The foundations of mathematics remain debated.} The impossibility of absolute justification means that mathematicians must, in some sense, \emph{choose} their axioms. This choice is guided by intuition, utility, and fruitfulness---not by a mechanical procedure that can guarantee consistency.
 \end{enumerate}
 
-For the undergraduate reader, the essential takeaway is this: the incompleteness theorems are not a statement about the \emph{failure} of mathematics. They are a deep and beautiful result about its \emph{limits}---limits that, once understood, open the door to a richer understanding of what mathematical truth means.
+For the undergraduate reader, the essential takeaway is this: the incompleteness theorems are not a statement about the \emph{failure} of mathematics. They are a significant result about its \emph{limits}---limits that, once understood, open the door to a richer understanding of what mathematical truth means.
 
 % -----------------------------------------------------------
 \section*{Common Questions}

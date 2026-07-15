@@ -5,7 +5,7 @@
 \chapter{The Further Development of the Calculus of Variations}
 
 \begin{partiallybox}
-\textbf{Partially solved.} Hilbert's twenty-third and final problem called for the further development of the calculus of variations---a field that, by 1900, already had a rich history stretching back a century. Hilbert envisioned extending the direct method to more general problems and establishing rigorous foundations for the existence and regularity of minimizers. The response to this challenge has been extraordinary: the theory of the calculus of variations has grown into a vast edifice encompassing functional analysis, partial differential equations, geometric measure theory, and optimal control. Existence theorems are now available in remarkable generality (Tonelli, Morrey, De Giorgi), and the connection to PDE theory is deep and well understood. Yet fundamental questions remain open---regularity in the fully nonlinear case, the calculus of variations on manifolds, and the interplay between geometry and minimization continue to generate active research. The problem is best described as \emph{partially solved}: the foundations are secure, but the edifice is still growing.
+\textbf{Partially solved.} Hilbert's twenty-third and final problem called for the further development of the calculus of variations---a field that, by 1900, already had a rich history stretching back a century. Hilbert envisioned extending the direct method to more general problems and establishing rigorous foundations for the existence and regularity of minimizers. The response to this challenge has been significant: the theory of the calculus of variations has grown into a vast edifice encompassing functional analysis, partial differential equations, geometric measure theory, and optimal control. Existence theorems are now available in significant generality (Tonelli, Morrey, De Giorgi), and the connection to PDE theory is significant and well understood. Yet fundamental questions remain open---regularity in the fully nonlinear case, the calculus of variations on manifolds, and the interplay between geometry and minimization continue to generate active research. The problem is best described as \emph{partially solved}: the foundations are secure, but the edifice is still growing.
 \end{partiallybox}
 
 % ------------------------------------------------------------
@@ -96,15 +96,15 @@ since $\eta(a) = \eta(b) = 0$. Therefore,
 Since this holds for all admissible $\eta$, the fundamental lemma of the calculus of variations implies $F_y - \frac{d}{dx} F_{y'} = 0$ on $[a,b]$.
 \end{proof}
 
-Lagrange's great innovation was not just the equation itself, but the \emph{method}: he introduced the idea of varying the function $y$ by an infinitesimal amount and requiring the first-order change in $J$ to vanish. This is the prototype of all variational arguments, and it connects directly to the idea of a \emph{directional derivative} in infinite-dimensional spaces---a connection that would not be made precise until the twentieth century.
+Lagrange's significant innovation was not just the equation itself, but the \emph{method}: he introduced the idea of varying the function $y$ by an infinitesimal amount and requiring the first-order change in $J$ to vanish. This is the prototype of all variational arguments, and it connects directly to the idea of a \emph{directional derivative} in infinite-dimensional spaces---a connection that would not be made precise until the twentieth century.
 
 \subsection{Weierstrass and the Rigorization}
 
-By the late nineteenth century, the calculus of variations had produced many beautiful results, but its foundations were shaky. Euler and Lagrange had derived necessary conditions for extrema (the Euler--Lagrange equation), but the \emph{sufficiency}---the conditions under which a solution to the Euler--Lagrange equation actually minimizes the functional---was not understood.
+By the late nineteenth century, the calculus of variations had produced many notable results, but its foundations were shaky. Euler and Lagrange had derived necessary conditions for extrema (the Euler--Lagrange equation), but the \emph{sufficiency}---the conditions under which a solution to the Euler--Lagrange equation actually minimizes the functional---was not understood.
 
 Karl Weierstrass, in his lectures at Berlin in the 1870s, put the subject on a rigorous footing. He introduced the concept of a \textbf{strong minimum} versus a \textbf{weak minimum}, and he gave a necessary condition (the \textbf{Weierstrass $E$-function}) that a minimizer must satisfy. He also constructed counterexamples showing that solutions to the Euler--Lagrange equation need not be minimizers without additional hypotheses.
 
-But Weierstrass also identified a deeper problem: \emph{does a minimizer exist at all?} Given a functional $J[y]$, is there always a function $y$ that achieves the infimum? Weierstrass's own work on the Dirichlet principle (which we discussed in Chapter~\ref{ch:problem-20}) showed that the answer can be no: one can have a sequence of functions with $J[y_n] \to \inf J$, but no function $y$ with $J[y] = \inf J$. The infimum is not always a minimum.
+But Weierstrass also identified a more fundamental problem: \emph{does a minimizer exist at all?} Given a functional $J[y]$, is there always a function $y$ that achieves the infimum? Weierstrass's own work on the Dirichlet principle (which we discussed in Chapter~\ref{ch:problem-20}) showed that the answer can be no: one can have a sequence of functions with $J[y_n] \to \inf J$, but no function $y$ with $J[y] = \inf J$. The infimum is not always a minimum.
 
 This is the central problem that Hilbert's twenty-third problem addresses: \emph{under what conditions does a minimizer exist, and how can we prove existence directly?}
 
@@ -144,7 +144,7 @@ Hilbert's problem is deliberately open-ended. It does not ask for a single theor
 
 \subsection{Tonelli's Existence Theorem (1910s--1920s)}
 
-The first systematic answer to the existence question came from Leonida Tonelli, who developed the direct method into a powerful and general tool over the course of two decades, culminating in his magisterial \emph{Theorie der Funktionen} (1921--1923).
+The first systematic answer to the existence question came from Leonida Tonelli, who developed the direct method into a powerful and general tool over the course of two decades, culminating in his comprehensive \emph{Theorie der Funktionen} (1921--1923).
 
 Tonelli's key contribution was to identify the right class of functionals for which the direct method works. A functional of the form
 \[
@@ -178,7 +178,7 @@ Tonelli's theorem is the cornerstone of the modern calculus of variations. Its h
 
 \subsection{The Connection to Functional Analysis}
 
-The direct method reveals a deep connection between the calculus of variations and \textbf{functional analysis}---the study of infinite-dimensional vector spaces with topological structure.
+The direct method reveals a significant connection between the calculus of variations and \textbf{functional analysis}---the study of infinite-dimensional vector spaces with topological structure.
 
 The key spaces are:
 
@@ -229,13 +229,13 @@ A natural question arises: if $u \in H^1(\Omega)$ minimizes $J[u]$ and $F$ is sm
 
 For \textbf{quadratic} functionals (where $F$ is a quadratic form in $p$), the Euler--Lagrange equation is linear, and elliptic regularity theory (Chapter~\ref{ch:problem-19}) shows that $u$ is as smooth as the data permits: $u \in C^\infty(\Omega)$ if $F$ and $\Omega$ are smooth, and in fact $u$ is real-analytic.
 
-For \textbf{nonlinear} functionals, regularity is more subtle. The fundamental result is:
+For \textbf{nonlinear} functionals, regularity is more subtle. The important result is:
 
 \begin{theorem}[Interior Regularity for Minimizers]
 Let $u \in H^1(\Omega)$ minimize $J[u]$ where $F$ is $C^2$ and uniformly convex in $p$. Then $u \in C^{1,\alpha}_{\mathrm{loc}}(\Omega)$ for some $\alpha \in (0,1)$---that is, $u$ has locally H\"older-continuous first derivatives.
 \end{theorem}
 
-This is a deep result, proved in stages by De Giorgi (1957), Nash (1958), and Morrey (1968). The regularity is in general \emph{not} better than $C^{1,\alpha}$: there are examples of minimizers that are not $C^2$. This stands in stark contrast to the linear case, where analyticity is the norm.
+This is a significant result, proved in stages by De Giorgi (1957), Nash (1958), and Morrey (1968). The regularity is in general \emph{not} better than $C^{1,\alpha}$: there are examples of minimizers that are not $C^2$. This stands in stark contrast to the linear case, where analyticity is the norm.
 
 \subsection{Optimal Control Theory}
 
@@ -280,17 +280,17 @@ Einstein's field equations can be derived from the \textbf{Einstein--Hilbert act
 % ------------------------------------------------------------
 
 \begin{partiallybox}
-Hilbert's twenty-third problem is \textbf{partially solved} in the following sense. The foundations of the calculus of variations are secure: Tonelli's existence theorem provides minimizers for a wide class of problems, the direct method is a powerful and flexible tool, and the connection to functional analysis and PDE theory is deep and well understood. Regularity theory for minimizers of convex functionals is well developed (De Giorgi--Nash--Morrey), and optimal control theory has extended the variational framework to problems with constraints and discontinuities.
+Hilbert's twenty-third problem is \textbf{partially solved} in the following sense. The foundations of the calculus of variations are secure: Tonelli's existence theorem provides minimizers for a wide class of problems, the direct method is a powerful and flexible tool, and the connection to functional analysis and PDE theory is significant and well understood. Regularity theory for minimizers of convex functionals is well developed (De Giorgi--Nash--Morrey), and optimal control theory has extended the variational framework to problems with constraints and discontinuities.
 
 However, major questions remain open:
 \begin{itemize}
     \item \textbf{Regularity for non-convex problems:} For functionals that are not convex in the gradient, minimizers may have singularities, and the regularity theory is far from complete.
-    \item \textbf{The calculus of variations on manifolds:} Minimizing functionals defined on spaces of maps between Riemannian manifolds (harmonic maps, minimal immersions) presents fundamental difficulties related to the topology of the target space.
+    \item \textbf{The calculus of variations on manifolds:} Minimizing functionals defined on spaces of maps between Riemannian manifolds (harmonic maps, minimal immersions) presents significant difficulties related to the topology of the target space.
     \item \textbf{Stochastic variational problems:} Variational principles involving randomness (stochastic differential games, mean-field games) are a rapidly growing area.
     \item \textbf{Computational methods:} While the finite element method is mature, the numerical analysis of variational problems with singularities, free boundaries, and high-dimensional parameter spaces remains challenging.
 \end{itemize}
 
-The spirit of Hilbert's challenge---to develop the calculus of variations into a complete and rigorous theory---has been largely fulfilled, but the subject continues to evolve and to surprise.
+The spirit of Hilbert's challenge---to develop the calculus of variations into a complete and rigorous theory---has been substantially fulfilled, but the subject continues to evolve and to surprise.
 \end{partiallybox}
 
 % ------------------------------------------------------------

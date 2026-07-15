@@ -5,7 +5,7 @@
 \chapter{The Monodromy Theorem}
 
 \begin{solvedbox}
-\textbf{Solved.} Hilbert's twenty-first problem asked for a proof of the \emph{monodromy theorem}---that a function analytically continued along paths in a simply connected domain always returns to its original value---and its extension to more general situations. The theorem was proved in the late nineteenth century by Poincar\'e and others, and it has since become a foundational result in complex analysis. Its modern formulation, cast in the language of covering spaces and the fundamental group, is a standard part of the graduate curriculum and a bridge between analysis and topology.
+\textbf{Solved.} Hilbert's twenty-first problem asked for a proof of the \emph{monodromy theorem}---that a function analytically continued along paths in a simply connected domain always returns to its original value---and its extension to more general situations. The theorem was proved in the late nineteenth century by Poincar\'e and others, and it has since become a standard result in complex analysis. Its modern formulation, cast in the language of covering spaces and the fundamental group, is a standard part of the graduate curriculum and a bridge between analysis and topology.
 \end{solvedbox}
 
 % ------------------------------------------------------------
@@ -22,7 +22,7 @@ Bernhard Riemann (1826--1866) gave the decisive insight. In his 1851 doctoral di
 
 Consider the function $w = \sqrt{z}$. If we start at $z = 1$ with $\sqrt{1} = 1$ and continuously deform $z$ along a circle $|z| = 1$ back to $z = 1$, the value of $\sqrt{z}$ does \emph{not} return to $1$; it returns to $-1$. We must traverse the circle \emph{twice} to return to the original value. Riemann's idea was to replace the single complex plane with a two-sheeted surface---two copies of $\mathbb{C}$ glued along a ray from the origin---on which $\sqrt{z}$ becomes a genuine single-valued function.
 
-This was revolutionary. Rather than viewing multivaluedness as a problem to be avoided, Riemann embraced it as a feature of the underlying geometry. The function was not poorly defined; the domain was too simple.
+This was significant. Rather than viewing multivaluedness as a problem to be avoided, Riemann embraced it as a feature of the underlying geometry. The function was not poorly defined; the domain was too simple.
 
 \subsection{Analytic Continuation}
 
@@ -40,7 +40,7 @@ But what if the paths are \emph{not} homotopic? What if the domain has holes? Th
 
 If we analytically continue a function along every closed loop in a domain $\Omega$, we obtain a permutation of the branches of the function. The collection of all such permutations, for all closed loops, forms a group---the \textbf{monodromy group}.
 
-Poincar\'e formalized this idea in the 1880s and 1890s, in the context of his work on Fuchsian and Kleinian groups. Fuchsian groups are discrete subgroups of $\mathrm{PSL}(2, \mathbb{R})$ acting on the upper half-plane, and they arise as monodromy groups of second-order linear ODEs with regular singular points. Kleinian groups are their analogues for the Riemann sphere. Poincar\'e showed that the monodromy group encodes deep information about the global behavior of analytic functions and the geometry of the surfaces on which they live.
+Poincar\'e formalized this idea in the 1880s and 1890s, in the context of his work on Fuchsian and Kleinian groups. Fuchsian groups are discrete subgroups of $\mathrm{PSL}(2, \mathbb{R})$ acting on the upper half-plane, and they arise as monodromy groups of second-order linear ODEs with regular singular points. Kleinian groups are their analogues for the Riemann sphere. Poincar\'e showed that the monodromy group encodes significant information about the global behavior of analytic functions and the geometry of the surfaces on which they live.
 
 Hilbert, in his 1900 address, saw the monodromy theorem as a problem that deserved a rigorous and general treatment. The naive statement---that continuation along closed loops returns to the starting value---is true only in simply connected domains. The general question, for multiply connected domains, is exactly the question of the fundamental group and its action on the space of analytic continuations.
 
@@ -74,7 +74,7 @@ For a simply connected domain, every closed loop is contractible to a point, and
 
 \subsection{The Monodromy Theorem for Simply Connected Domains}
 
-The monodromy theorem is one of the most fundamental results in complex analysis.
+The monodromy theorem is one of the most important results in complex analysis.
 
 \begin{theorem}[Monodromy Theorem]
 \label{thm:monodromy}
@@ -95,7 +95,7 @@ The key insight is that analytic continuation is a \emph{local-to-global} princi
 
 \subsection{Covering Spaces and the Fundamental Group}
 
-The monodromy theorem admits a beautiful reformulation in the language of algebraic topology, which became standard in the twentieth century.
+The monodromy theorem admits a notable reformulation in the language of algebraic topology, which became standard in the twentieth century.
 
 \begin{definition}[Fundamental group]
 Let $X$ be a topological space and $x_0 \in X$ a base point. The \textbf{fundamental group} $\pi_1(X, x_0)$ is the group of homotopy classes of closed loops in $X$ based at $x_0$, with the operation given by concatenation of loops.
@@ -152,7 +152,7 @@ In general, a function with $n$ branches has a monodromy group that is a subgrou
 
 The monodromy theorem was proved in various forms by Poincar\'e (1880s--1890s), and its connection to covering spaces was clarified by the development of algebraic topology in the early twentieth century. The modern formulation, using the language of the fundamental group and covering spaces, was fully articulated by Heinz Hopf and others in the 1920s and 1930s.
 
-Lars Ahlfors, in his influential textbook \emph{Complex Analysis} (1953), presented the monodromy theorem as one of the central results of the subject, emphasizing its role as a bridge between local and global analysis. The theorem has since become standard material in any graduate course in complex analysis.
+Lars Ahlfors, in his standard textbook \emph{Complex Analysis} (1953), presented the monodromy theorem as one of the central results of the subject, emphasizing its role as a bridge between local and global analysis. The theorem has since become standard material in any graduate course in complex analysis.
 
 \subsection{Applications and Extensions}
 

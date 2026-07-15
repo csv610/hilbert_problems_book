@@ -12,7 +12,7 @@ Hilbert's fourteenth problem asked whether certain algebraic invariants can alwa
 \section{Historical Context}
 % ------------------------------------------------------------
 
-Invariant theory is one of the great achievements of nineteenth-century algebra, a subject that for decades consumed some of the finest mathematical minds in Europe. At its heart is a beautiful question: \emph{what quantities remain unchanged when you transform a mathematical object?}
+Invariant theory is one of the major achievements of nineteenth-century algebra, a subject that for decades consumed some of the finest mathematical minds in Europe. At its heart is a fundamental question: \emph{what quantities remain unchanged when you transform a mathematical object?}
 
 \subsection{What Is an Invariant?}
 
@@ -65,14 +65,14 @@ The central question became: \emph{given a group action on a polynomial ring, ca
 \begin{itemize}
     \item \textbf{Sylvester} (1850s) made early progress on classifying invariants of binary forms.
     \item \textbf{Cayley} computed explicit invariants for various classical groups.
-    \item \textbf{Gordan} (1868) proved the \emph{finite basis theorem} for the binary case: every ring of invariants of a binary form has a finite generating set. This was a monumental computational achievement---Gordan's proof was long and constructive.
+    \item \textbf{Gordan} (1868) proved the \emph{finite basis theorem} for the binary case: every ring of invariants of a binary form has a finite generating set. This was a significant computational achievement---Gordan's proof was long and constructive.
 \end{itemize}
 
 \subsection{Hilbert's Finite Basis Theorem (1888)}
 
 When David Hilbert arrived at the problem, the prevailing opinion---expressed by Gordan himself---was that the proof of the finite basis theorem for more than two variables would require immense computation. As Gordan reportedly said: \emph{``Das ist nicht Mathematik. Das ist Theologie.''} (``This is not mathematics. This is theology.'')
 
-Hilbert proved the general finite basis theorem by a short, elegant, purely existence proof---no computation at all.
+Hilbert proved the general finite basis theorem by a short, purely existence proof---no computation at all.
 
 \begin{theorem}[Hilbert's Basis Theorem, 1888]
 \label{thm:hilbert-basis}
@@ -124,7 +124,7 @@ The Nullstellensatz has several important consequences:
 
 \subsection{Noether's Theorem on Chain Conditions (1921)}
 
-Emmy Noether---one of the most important algebraists of the twentieth century---gave an axiomatic framework for Hilbert's Basis Theorem that revealed the true algebraic structure underneath.
+Emmy Noether---one of the significant algebraists of the twentieth century---gave an axiomatic framework for Hilbert's Basis Theorem that revealed the true algebraic structure underneath.
 
 \begin{definition}[Noetherian ring]
 A ring $R$ is \textbf{Noetherian} if it satisfies the \textbf{ascending chain condition} (ACC) on ideals: every ascending chain of ideals
@@ -140,7 +140,7 @@ Equivalently, every ideal of a Noetherian ring is finitely generated. Noether pr
 If $R$ is Noetherian, then $R[x]$ is Noetherian.
 \end{theorem}
 
-This is precisely Hilbert's Basis Theorem, restated in the language that now bears Noether's name. The proof is short enough to be a standard exercise in a first course in abstract algebra---a far cry from Gordan's massive computations.
+This is precisely Hilbert's Basis Theorem, restated in the language that now bears Noether's name. The proof is short enough to be a standard exercise in a first course in abstract algebra---different from Gordan's extensive computations.
 
 Noether's framework also includes the \textbf{descending chain condition} (DCC), leading to Artinian rings. The interplay between ascending and descending chain conditions is a central theme of module theory.
 
@@ -256,8 +256,8 @@ Hilbert's fourteenth problem is \textbf{partially solved}.
 \item[Q: What is an invariant, concretely?]\hfill\\
 An invariant is a property of a mathematical object that does not change under a specified set of transformations. For example, the discriminant $b^2 - 4ac$ of a quadratic polynomial $ax^2 + bx + c$ does not change when you translate the variable ($x \mapsto x + t$), so it is an invariant under translation. More generally, invariants are functions, numbers, or algebraic structures that remain unchanged under the action of a group---the symmetric polynomials $e_1, \dots, e_n$ are invariants under permuting the variables.
 
-\item[Q: Why did Hilbert's finite basis theorem stun the mathematical world?]\hfill\\
-Before Hilbert, invariant theorists computed explicit invariante after invariante by brute force, producing ever-lengthening lists with no end in sight. Hilbert's finite basis theorem proved that the ring of invariants of a polynomial representation of $\mathrm{GL}_n$ is \emph{finitely generated}---there is a finite list of ``building block'' invariants from which all others can be built. This was shocking because it showed a fundamental finiteness where mathematicians expected none. Gordan, the ``king of invariant theory,'' famously protested, ``Das ist nicht Mathematik; das ist Theologie!'' (That is not mathematics; that is theology!)
+\item[Q: Why did Hilbert's finite basis theorem change the mathematical landscape?]\hfill\\
+Before Hilbert, invariant theorists computed explicit invariants one after another by brute force, producing ever-lengthening lists with no end in sight. Hilbert's finite basis theorem proved that the ring of invariants of a polynomial representation of $\mathrm{GL}_n$ is \emph{finitely generated}---there is a finite list of ``building block'' invariants from which all others can be built. This was unexpected because it showed a fundamental finiteness where mathematicians expected none. Gordan, the ``king of invariant theory,'' famously protested, ``Das ist nicht Mathematik; das ist Theologie!'' (That is not mathematics; that is theology!)
 
 \item[Q: How are invariants used in modern machine learning?]\hfill\\
 Invariant theory is central to geometric deep learning and equivariant neural networks. When a learning task has symmetries (rotations, translations, permutations), building those symmetries directly into the architecture---via invariant or equivariant layers---dramatically improves sample efficiency and generalization. For example, graph neural networks use permutation-equivariant message passing; convolutional neural networks use translation equivariance; and group-equivariant networks generalize these ideas using representation theory, directly inspired by Hilbert's invariant-theoretic machinery.

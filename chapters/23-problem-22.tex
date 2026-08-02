@@ -14,15 +14,15 @@
 
 \subsection{Riemann's Vision}
 
-In the mid-nineteenth century, Bernhard Riemann introduced a significant idea: to study complex-analytic functions not on flat subsets of the complex plane, but on \emph{curved surfaces} on which a complex structure could be defined. These objects, later named \textbf{Riemann surfaces} in his honor, arose naturally as the natural domains of multivalued functions such as $w = \sqrt{z}$ or $w = \log z$.
+In the mid-nineteenth century, Bernhard Riemann\index{Riemann, Bernhard} introduced a significant idea: to study complex-analytic functions not on flat subsets of the complex plane, but on \emph{curved surfaces} on which a complex structure could be defined. These objects, later named \textbf{Riemann surfaces}\index{Riemann surface} in his honor, arose naturally as the natural domains of multivalued functions such as $w = \sqrt{z}$ or $w = \log z$.
 
 Riemann's significant achievement was his \emph{mapping theorem}, which he announced in his 1851 doctoral dissertation:
 
-\begin{theorem}[Riemann Mapping Theorem]
+\begin{theorem}[Riemann Mapping Theorem]\label{thm:riemann-mapping}
 Let $\Omega \subset \mathbb{C}$ be a simply connected open set that is not all of $\mathbb{C}$. Then there exists a biholomorphic map (a conformal equivalence) $f \colon \Omega \to \mathbb{D}$, where $\mathbb{D} = \{z \in \mathbb{C} : |z| < 1\}$ is the open unit disk.
 \end{theorem}
 
-This theorem says that, from the viewpoint of complex analysis, every simply connected region in the plane (other than the plane itself) ``looks like'' the unit disk. The proof, which Riemann sketched using methods from physics, was made rigorous by Karl Weierstrass and later by Poincar\'e and others. But Riemann's vision went further. He asked: \emph{can every Riemann surface be described in some standard, uniform way?}
+This theorem says that, from the viewpoint of complex analysis, every simply connected region in the plane (other than the plane itself) ``looks like'' the unit disk. The proof, which Riemann sketched using methods from physics, was made rigorous by Karl Weierstrass and later by Poincar\'e\index{Poincar\'e, Henri} and others. But Riemann's vision went further. He asked: \emph{can every Riemann surface be described in some standard, uniform way?}
 
 \subsection{The Concept of Uniformization}
 
@@ -102,7 +102,7 @@ These three models---sphere, plane, and disk---are the ``building blocks'' from 
 \section{The Uniformization Theorem}
 % -----------------------------------------------------------
 
-The resolution of Hilbert's Problem~22 is the following important theorem, due independently to Koebe and Poincar\'e.
+The resolution of Hilbert's Problem~22 is the following important theorem, due independently to Koebe\index{Koebe, Paul} and Poincar\'e.
 
 \begin{theorem}[Koebe--Poincar\'e Uniformization Theorem, 1907]
 \label{thm:uniformization}
@@ -113,6 +113,28 @@ Every simply connected Riemann surface is biholomorphic to exactly one of the fo
 \end{theorem}
 
 In other words, if $X$ is a simply connected Riemann surface, then $X$ is conformally equivalent to the sphere, the plane, or the disk---and no other possibilities exist. The three models are mutually inequivalent: the sphere is compact, the plane is parabolic (its Green's function is identically zero), and the disk is hyperbolic (it admits a bounded nonconstant holomorphic function).
+
+% ------------------------------------------------------------
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=0.9]
+  % Sphere
+  \draw[thick] (0,0) circle (1.5);
+  \node at (0,0) {Sphere $\widehat{\mathbb{C}}$};
+  \node[below, font=\small] at (0,-1.8) {Elliptic ($g=0$)};
+  % Plane
+  \draw[thick] (4,0) rectangle (7,3);
+  \node at (5.5,1.5) {Plane $\mathbb{C}$};
+  \node[below, font=\small] at (5.5,-0.3) {Parabolic ($g=1$)};
+  % Disk
+  \draw[thick] (9,1.5) circle (1.5);
+  \node at (9,1.5) {Disk $\mathbb{D}$};
+  \node[below, font=\small] at (9,-0.3) {Hyperbolic ($g\geq 2$)};
+\end{tikzpicture}
+\caption{The three uniformization models: the sphere (elliptic geometry, genus 0), the plane (parabolic geometry, genus 1), and the disk (hyperbolic geometry, genus $\geq 2$). Every simply connected Riemann surface is conformally equivalent to exactly one of these.}
+\label{fig:uniformization-models}
+\end{figure}
+% ------------------------------------------------------------
 
 \subsection{The General Uniformization Theorem}
 
@@ -273,6 +295,16 @@ A Fuchsian group is a discrete subgroup of $\mathrm{PSL}(2,\mathbb{R})$, the gro
 \end{description}
 
 % -----------------------------------------------------------
+\section*{Key Takeaways}
+
+\begin{enumerate}
+    \item Hilbert's twenty-second problem asked for a uniformization of analytic functions.
+    \item The Riemann mapping theorem states that any simply connected domain (other than $\mathbb{C}$) is conformally equivalent to the unit disk.
+    \item The uniformization theorem classifies simply connected Riemann surfaces.
+    \item Every simply connected Riemann surface is conformally equivalent to the sphere, plane, or disk.
+    \item This connects complex analysis to topology and geometry.
+\end{enumerate}
+
 \section{Exercises}
 % -----------------------------------------------------------
 

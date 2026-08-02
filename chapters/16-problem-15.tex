@@ -62,9 +62,30 @@ with $\dim F_i = i$. Given a sequence of integers $\sigma = (a_1, a_2, \ldots, a
 The sequence $\sigma = (a_1, \ldots, a_k)$ is called a \textbf{partition} fitting inside a $k \times (n-k)$ rectangle.
 \end{definition}
 
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=0.8]
+  \draw[thick] (0,0) rectangle (1,1);
+  \draw[thick] (1,0) rectangle (2,1);
+  \draw[thick] (2,0) rectangle (3,1);
+  \draw[thick] (0,1) rectangle (1,2);
+  \draw[thick] (1,1) rectangle (2,2);
+  \draw[thick] (0,2) rectangle (1,3);
+  \node at (0.5,0.5) {1};
+  \node at (1.5,0.5) {2};
+  \node at (2.5,0.5) {3};
+  \node at (0.5,1.5) {4};
+  \node at (1.5,1.5) {5};
+  \node at (0.5,2.5) {6};
+  \node[font=\small] at (1.5,-0.5) {Partition $\lambda = (3,2,1)$};
+\end{tikzpicture}
+\caption{A Young diagram representing the partition $\lambda = (3,2,1)$, used in Schubert calculus.}
+\label{fig:young-diagram}
+\end{figure}
+
 Each Schubert variety $\Sigma_\sigma$ has dimension $|\sigma| = a_1 + a_2 + \cdots + a_k$, and its \textbf{cohomology class} $[\Sigma_\sigma] \in H^{2(k(n-k) - |\sigma|)}(\Gr(k,n))$ is independent of the choice of flag (for generic flags). The collection of these classes forms a $\mathbb{Z}$-basis for the cohomology ring:
 
-\begin{theorem}
+\begin{theorem}\label{thm:schubert-basis}
 The cohomology ring $H^*(\Gr(k,n), \mathbb{Z})$ is freely generated as a $\mathbb{Z}$-module by the Schubert classes $\sigma_\lambda$ indexed by partitions $\lambda$ fitting inside a $k \times (n-k)$ box:
 \[
     H^*(\Gr(k,n), \mathbb{Z}) = \bigoplus_{\lambda \subseteq k \times (n-k)} \mathbb{Z} \cdot \sigma_\lambda.
@@ -73,7 +94,7 @@ The cohomology ring $H^*(\Gr(k,n), \mathbb{Z})$ is freely generated as a $\mathb
 
 Schubert's calculus, then, amounts to computing \emph{intersection products} of these classes. If $\lambda$ and $\mu$ are partitions, what is $\sigma_\lambda \cdot \sigma_\mu$ in the cohomology ring? The answer is given by the \textbf{Littlewood--Richardson rule}:
 
-\begin{theorem}[Littlewood--Richardson Rule]
+\begin{theorem}[Littlewood--Richardson Rule]\label{thm:littlewood-richardson}
 For partitions $\lambda, \mu$ of size $|\lambda|$ and $|\mu|$, the product
 \[
     \sigma_\lambda \cdot \sigma_\mu = \sum_{\nu} c_{\lambda\mu}^{\nu} \, \sigma_\nu
@@ -115,7 +136,7 @@ Recall that the Grassmannian $\Gr(k, n)$ carries a natural \textbf{tautological 
 
 For example, in $\Gr(1, n) = \mathbb{P}^{n-1}$, the Schubert class $\sigma_1$ is the hyperplane class $c_1(\mathcal{Q})$. More generally:
 
-\begin{theorem}
+\begin{theorem}\label{thm:grassmannian-quotient}
 The cohomology ring of the Grassmannian can be presented as a \textbf{quotient of a polynomial ring}:
 \[
     H^*(\Gr(k,n), \mathbb{Z}) \cong \mathbb{Z}[c_1, c_2, \ldots, c_k, \bar{c}_1, \bar{c}_2, \ldots, \bar{c}_{n-k}] / I
@@ -199,6 +220,16 @@ The foundational challenge---rigorous intersection theory---is fully solved. Sch
 \end{description}
 
 % ------------------------------------------------------------
+\section*{Key Takeaways}
+
+\begin{enumerate}
+    \item Hilbert's fifteenth problem asked for a rigorous foundation for Schubert's enumerative calculus.
+    \item Schubert calculus computes intersection numbers on Grassmannians.
+    \item The Littlewood--Richardson rule gives explicit combinatorial formulas for intersection products.
+    \item Modern intersection theory provides a rigorous foundation using Chow rings.
+    \item The problem connects algebraic geometry to combinatorics.
+\end{enumerate}
+
 \section*{Exercises}
 % ------------------------------------------------------------
 

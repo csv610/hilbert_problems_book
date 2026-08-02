@@ -171,6 +171,29 @@ where the $\Gamma^k_{ij}$ are the Christoffel symbols derived from the metric $g
 \end{itemize}
 These three examples---Euclidean, spherical, and hyperbolic---represent the three types of constant-curvature geometry, and they illustrate how different the ``shortest path'' can look depending on the underlying metric.
 
+% ------------------------------------------------------------
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1.2]
+  % Draw sphere outline
+  \draw[thick] (0,0) circle (2);
+  % Draw equator
+  \draw[dashed, gray] (-2,0) -- (2,0);
+  % Draw a great circle arc (geodesic) from point A to point B
+  \draw[blue, thick] (-1.5,1.3) to[bend right=20] (1.5,1.3);
+  % Draw a non-geodesic path (longer)
+  \draw[red, thick, dashed] (-1.5,1.3) -- (0,1.8) -- (1.5,1.3);
+  % Labels
+  \node[blue] at (-1.5,1.6) {$A$};
+  \node[blue] at (1.5,1.6) {$B$};
+  \node[below, font=\small] at (0,-2.3) {Great circle arc (geodesic)};
+  \node[above, font=\small, red] at (0,1.9) {Non-geodesic path};
+\end{tikzpicture}
+\caption{On a sphere, the shortest path between two points is a great circle arc (blue), not a straight line drawn on a flat map (red dashed). This is why airline routes appear curved on flat maps.}
+\label{fig:geodesic-sphere}
+\end{figure}
+% ------------------------------------------------------------
+
 \subsubsection*{Worked Example: Geodesics on a Sphere via the Euler--Lagrange Equation}
 
 Let us derive the geodesics on a sphere of radius $R$ using the calculus of variations. In spherical coordinates $(\theta,\phi)$, where $\theta\in[0,\pi]$ is the polar angle and $\phi\in[0,2\pi)$ the azimuthal angle, the metric is
@@ -362,6 +385,17 @@ Finding the shortest path between two points is a calculus of variations problem
 No. On a sphere, two antipodal points are connected by infinitely many great-circle geodesics (all great circles through both poles). On a cylinder, two points can be connected by geodesics that wind around different numbers of times. In a flat torus, there are infinitely many geodesics between any two points. Uniqueness of geodesics is a special property of certain spaces (like Euclidean space or hyperbolic space with no conjugate points), not a general property.
 
 \end{description}
+
+\section{Key Takeaways}
+
+\begin{enumerate}
+    \item Hilbert's fourth problem asks to characterize all metrics whose geodesics are straight lines.
+    \item A \emph{geodesic} is a curve that is locally the shortest path between its endpoints.
+    \item In Euclidean space with the standard metric, geodesics are straight lines. In other geometries (spherical, hyperbolic, Finsler), geodesics can be curves.
+    \item The Hopf--Rinow theorem guarantees that geodesics exist between any two points in a complete Riemannian manifold.
+    \item The problem connects to Finsler geometry, which generalizes Riemannian geometry by allowing asymmetric and non-smooth metrics.
+    \item Hilbert's fourth problem has been partially solved: Pogorelov (1973) characterized Finsler metrics whose geodesics are straight lines.
+\end{enumerate}
 
 \section{Exercises}
 

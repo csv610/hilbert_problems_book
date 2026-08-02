@@ -83,6 +83,21 @@ The idea was to establish a hierarchy of certainty:
 
 A finitary consistency proof for arithmetic would show that the ``infinitary'' arithmetic is as reliable as the finitary methods used to prove it. This would be a validation of Hilbert's program---a guarantee that mathematics, built step by step from the ground up, stands on solid foundations.
 
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+  \draw[thick, fill=blue!10] (0,0) circle (2.5);
+  \node at (0,2.8) {All formal systems};
+  \draw[thick, fill=green!10] (-1.2,-0.5) circle (1.5);
+  \node at (-1.2,-0.5) {Consistent};
+  \draw[thick, fill=red!10] (1.2,-0.5) circle (1.5);
+  \node at (1.2,-0.5) {Complete};
+  \node[font=\small] at (0,-1.8) {Gödel: No system in the overlap contains arithmetic};
+\end{tikzpicture}
+\caption{Gödel's Incompleteness Theorem: no consistent formal system containing arithmetic can be complete.}
+\label{fig:godel-incompleteness}
+\end{figure}
+
 % -----------------------------------------------------------
 \section{Key Developments}
 % -----------------------------------------------------------
@@ -203,6 +218,19 @@ Because consistency is not obvious: PA is a very strong system with infinitely m
 Possibly. G\"odel's sentence for PA is undecidable in PA but decidable in ZFC. But there are statements that are independent of ZFC (like CH, discussed in Chapter~2). Whether there are statements that are independent of all ``reasonable'' extensions of ZFC is an open question. Some set theorists believe that CH might be absolutely undecidable, though this is deeply controversial.
 
 \end{description}
+
+% -----------------------------------------------------------
+\section*{Key Takeaways}
+% -----------------------------------------------------------
+
+\begin{enumerate}
+    \item Hilbert's second problem asked for a proof that the axioms of arithmetic are consistent---that is, that no contradiction can be derived from them.
+    \item Russell and Whitehead's \textit{Principia Mathematica} attempted to ground all of mathematics in logic, but introduced complications (Russell's paradox, type theory).
+    \item G\"odel's First Incompleteness Theorem (1931): any consistent, recursively axiomatized system containing basic arithmetic is incomplete---there exist statements that are neither provable nor disprovable.
+    \item G\"odel's Second Incompleteness Theorem (1931): such a system cannot prove its own consistency.
+    \item Gentzen (1936) proved the consistency of Peano Arithmetic using transfinite induction up to the ordinal $\varepsilon_0$---a proof that goes beyond the system itself.
+    \item Hilbert's program, in its original form, cannot be carried out: no sufficiently strong consistent system can certify its own consistency.
+\end{enumerate}
 
 % -----------------------------------------------------------
 \section{Exercises}

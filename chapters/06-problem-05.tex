@@ -39,6 +39,23 @@ Before diving into the resolution, let us make sure we understand the objects at
 A \textbf{Lie group} $G$ is a smooth manifold that is also a group, such that the multiplication map $\mu(g,h) = g \cdot h$ and the inversion map $\iota(g) = g^{-1}$ are smooth (infinitely differentiable) maps.
 \end{definition}
 
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=0.9]
+  \draw[thick] (0,0) circle (2);
+  \draw[thick, ->] (0,0) -- (1.5,1.2);
+  \draw[thick, ->] (0,0) -- (-1.2,1.5);
+  \draw[thick, ->] (0,0) -- (0.3,-1.8);
+  \node at (0,0) {$e$};
+  \node[font=\small] at (1.8,1.2) {$R_x(\theta)$};
+  \node[font=\small] at (-1.8,1.5) {$R_y(\phi)$};
+  \node[font=\small] at (0.3,-2.3) {$R_z(\psi)$};
+  \node[font=\small] at (0,2.5) {Rotation group $\mathrm{SO}(3)$};
+\end{tikzpicture}
+\caption{The rotation group $\mathrm{SO}(3)$ is a Lie group: a smooth manifold where group operations (composition, inversion) are smooth.}
+\label{fig:lie-group}
+\end{figure}
+
 Here are some fundamental examples:
 
 \begin{itemize}
@@ -196,7 +213,7 @@ The resolution of Hilbert's fifth problem came in stages, over several decades:
 
 \paragraph{Gleason, Montgomery, and Zippin (1950s).} The full resolution came in the early 1950s. David Gleason proved that every finite-dimensional locally compact topological group has \emph{no small subgroups}: there exists a neighbourhood of the identity containing no nontrivial subgroup. This seemingly technical property turns out to be the key to constructing a Lie algebra from the group alone. Deane Montgomery and Leo Zippin, building on Gleason's work, proved the general theorem:
 
-\begin{theorem}[Solution to Hilbert's Fifth Problem]
+\begin{theorem}[Solution to Hilbert's Fifth Problem]\label{thm:hilbert-5}
 Every topological group that is a topological manifold---equivalently, every locally Euclidean topological group---admits a unique analytic structure making it a Lie group.
 \end{theorem}
 
@@ -265,6 +282,16 @@ Yes, many important Lie groups are both compact and non-abelian. The rotation gr
 For a matrix group, the exponential map is the usual matrix exponential: $\exp(X) = I + X + \frac{X^2}{2!} + \frac{X^3}{3!} + \cdots$. This always converges for any square matrix $X$. For $\SO(3)$, $\exp$ maps a skew-symmetric matrix (representing an axis and angle of rotation) to the corresponding rotation matrix. The exponential map is surjective onto the connected component of the identity for compact Lie groups, but it is not injective---$\exp(\theta X)$ and $\exp((\theta+2\pi)X)$ give the same group element.
 
 \end{description}
+
+\section*{Key Takeaways}
+
+\begin{enumerate}
+    \item Hilbert's fifth problem asked whether every locally Euclidean topological group is necessarily a Lie group.
+    \item A Lie group is a group that is also a smooth manifold, with smooth group operations.
+    \item The problem was solved in the affirmative by Montgomery, Zippin, and Gleason in the 1950s.
+    \item The solution showed that continuity of group operations implies differentiability.
+    \item This was a vindication of Lie's original vision: the smooth structure is a consequence of the group structure.
+\end{enumerate}
 
 \section*{Exercises}
 

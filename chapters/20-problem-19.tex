@@ -63,6 +63,18 @@ This classification is more than a taxonomy. The \emph{type} of an equation dete
 Are the solutions to \textbf{regular problems} in the calculus of variations necessarily \textbf{analytic functions}---that is, functions that can be locally represented by convergent power series?
 \end{problem_statement}
 
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1.2]
+  \draw[thick, fill=blue!10] (0,0) .. controls (1,1.5) and (3,1.5) .. (4,0) .. controls (3,-1) and (1,-1) .. cycle;
+  \node at (2,0) {$\Omega$};
+  \draw[thick, red] (0,0) .. controls (1,1.5) and (3,1.5) .. (4,0) .. controls (3,-1) and (1,-1) .. cycle;
+  \node[red, font=\small] at (4.3,0.8) {$\partial\Omega$};
+\end{tikzpicture}
+\caption{A domain $\Omega$ with boundary $\partial\Omega$. Elliptic regularity says solutions are smooth up to the boundary.}
+\label{fig:domain-boundary}
+\end{figure}
+
 To understand this question, we need to recall what the calculus of variations is about. A \textbf{variational problem} asks: among all functions (or surfaces, or curves) satisfying certain boundary conditions, which one minimizes (or maximizes) a given integral? For example: among all curves connecting two points in the plane, which one has the shortest length? The answer, of course, is a straight line. But for more complicated integrals---involving derivatives of the unknown function---the minimizing function satisfies a differential equation derived from the \textbf{Euler--Lagrange equation}.
 
 A variational problem is called \textbf{regular} if the integrand (the function being integrated) satisfies certain smoothness and convexity conditions, and the minimizing function is known to exist. Hilbert's question is: must this minimizing function be not just continuous, and not just differentiable, but in fact \emph{analytic}?
@@ -79,7 +91,7 @@ In modern language, the question is equivalent to asking: if a function $u$ sati
 
 The first major result came notably quickly. In 1904, just four years after Hilbert's lecture, Sergei Bernstein proved that solutions of certain elliptic PDEs are analytic.
 
-\begin{theorem}[Bernstein, 1904]
+\begin{theorem}[Bernstein, 1904]\label{thm:bernstein}
 Let $u$ be a solution of the equation
 \[
     F(x, y, u_x, u_y, u_{xx}, u_{xy}, u_{yy}) = 0
@@ -104,7 +116,7 @@ This question turned out to be one of the central problems of twentieth-century 
 \paragraph{The De Giorgi--Nash theorem.}
 In 1956--57, Ennio De Giorgi and John Nash independently proved one of the most surprising results in the theory of PDEs:
 
-\begin{theorem}[De Giorgi, 1956; Nash, 1957]
+\begin{theorem}[De Giorgi, 1956; Nash, 1957]\label{thm:de-giorgi-nash}
 Let $u$ be a weak solution of a second-order elliptic equation
 \[
     \sum_{i,j=1}^n a^{ij}(x) \, u_{x_i x_j} = 0
@@ -125,7 +137,7 @@ The Moser--Nash theorem, proved independently by Jürgen Moser in 1960, provided
 \paragraph{Further regularity: the Schauder theory.}
 If the coefficients of the elliptic equation are not just measurable but \emph{H\"older continuous} (i.e., the equation is in Schauder class), then Schauder theory, developed in the 1930s by Erhard Schauder, gives much stronger regularity:
 
-\begin{theorem}[Schauder estimates]
+\begin{theorem}[Schauder estimates]\label{thm:schauder}
 If $a^{ij} \in C^{0,\alpha}(\Omega)$ (H\"older continuous with exponent $\alpha$) and $u$ is a $C^2$ solution of $\sum a^{ij} u_{x_i x_j} = f$ with $f \in C^{0,\alpha}$, then $u \in C^{2,\alpha}$---the solution gains two derivatives in H\"older regularity compared to the right-hand side.
 \end{theorem}
 
@@ -150,7 +162,7 @@ The connection to Hilbert's problem is direct: a minimal surface is a solution t
 
 A significant result connecting the regularity of minimal surfaces to the theory of harmonic functions is the following:
 
-\begin{theorem}[Hildebrandt--Weyl--Widman, 1970]
+\begin{theorem}[Hildebrandt--Weyl--Widman, 1970]\label{thm:hww}
 A minimal surface that is a local area minimizer (not necessarily a global minimizer) is smooth and even analytic at every interior point. More precisely, if a minimal surface is a solution to the minimal surface equation in a domain $\Omega \subset \mathbb{R}^2$, then the solution is analytic in $\Omega$.
 \end{theorem}
 
@@ -205,6 +217,16 @@ Start with a weak solution that is only known to be in $H^1$ (one weak derivativ
 \end{description}
 
 % ------------------------------------------------------------
+\section*{Key Takeaways}
+
+\begin{enumerate}
+    \item Hilbert's nineteenth problem asked whether solutions of elliptic PDEs are always analytic.
+    \item Bernstein (1904) proved analyticity for certain elliptic equations in 2D.
+    \item De Giorgi and Nash (1956--57) proved that solutions are H\"older continuous.
+    \item Schauder theory gives higher regularity when coefficients are smooth.
+    \item The problem is solved: solutions of elliptic PDEs are analytic when coefficients are analytic.
+\end{enumerate}
+
 \section{Exercises}
 % ------------------------------------------------------------
 

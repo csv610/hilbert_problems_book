@@ -110,19 +110,19 @@ The translational part of $\Gamma$---the set of translations in $\Gamma$---forms
 
 The foundational results in the theory of crystallographic groups are the two theorems of \textbf{Ludwig Bieberbach}, proved in 1910 and 1911.
 
-\begin{theorem}[Bieberbach's First Theorem, 1911]
+\begin{theorem}[Bieberbach's First Theorem, 1911]\label{thm:bieberbach-1}
 Let $\Gamma_1$ and $\Gamma_2$ be two crystallographic groups in $\mathbb{R}^n$. If $\Gamma_1$ and $\Gamma_2$ are isomorphic as abstract groups, then their translation lattices are \textbf{commensurable}---that is, there exists a finite-index sublattice of $\Lambda_1$ that is also a finite-index sublattice of $\Lambda_2$.
 \end{theorem}
 
 This theorem is sometimes stated more precisely: isomorphic crystallographic groups have lattices that are ``almost the same''---they differ by at most a finite amount.
 
-\begin{theorem}[Bieberbach's Second Theorem, 1910]
+\begin{theorem}[Bieberbach's Second Theorem, 1910]\label{thm:bieberbach-2}
 In each dimension $n$, there are only \textbf{finitely many} crystallographic groups, up to affine equivalence. That is, if $\Gamma_1$ and $\Gamma_2$ are crystallographic groups in $\mathbb{R}^n$ and their translation lattices are isomorphic as abstract lattices (related by an element of $\mathrm{GL}(n, \mathbb{R})$), then $\Gamma_1$ and $\Gamma_2$ are conjugate in the affine group.
 \end{theorem}
 
 An equivalent and perhaps more intuitive formulation:
 
-\begin{corollary}
+\begin{corollary}\label{cor:bieberbach-finite}
 There are exactly $n$ crystallographic groups in dimension $n$, up to affine equivalence---where ``affine equivalence'' means that two groups are related by an invertible affine map $x \mapsto Mx + b$ with $M \in \mathrm{GL}(n, \mathbb{R})$.
 \end{corollary}
 
@@ -134,13 +134,13 @@ Bieberbach's theorems were significant achievements. The second theorem, in part
 
 A key ingredient in the theory is the \textbf{crystallographic restriction}: which finite groups can appear as the point group of a crystallographic group?
 
-\begin{theorem}[Crystallographic Restriction]
+\begin{theorem}[Crystallographic Restriction]\label{thm:crystallographic-restriction}
 Let $G$ be a finite subgroup of $\mathrm{GL}(n, \mathbb{Z})$---that is, a finite group of integer matrices. Then the only possible orders of elements of $G$ are $1, 2, 3, 4,$ and $6$.
 \end{theorem}
 
 This is a classical result. The proof uses the fact that the characteristic polynomial of an element of $G$ must have integer coefficients and all roots on the unit circle (since the matrix is of finite order). The only cyclotomic polynomials with integer coefficients and degree $\leq n$ that can arise this way correspond to roots of unity of order $1, 2, 3, 4, 6$.
 
-In two dimensions, this means the only rotational symmetries possible in a wallpaper pattern are by $180°$, $120°$, $90°$, and $60°$---angles of order $2, 3, 4, 6$. This is why the triangular, square, and hexagonal tilings are the only regular ones, and why five-fold symmetry (pentagonal tiling) is impossible in a periodic pattern.
+In two dimensions, this means the only rotational symmetries possible in a wallpaper pattern are by $180^\circ$, $120^\circ$, $90^\circ$, and $60^\circ$---angles of order $2, 3, 4, 6$. This is why the triangular, square, and hexagonal tilings are the only regular ones, and why five-fold symmetry (pentagonal tiling) is impossible in a periodic pattern.
 
 \subsection{The Classification of Space Groups}
 
@@ -162,7 +162,7 @@ In dimension 4, the classification was completed by Plesken and Povolotsky in 19
 
 Bieberbach's second theorem asserts that isomorphic crystallographic groups are affine-equivalent---but it does not say \emph{how} to determine when two groups are isomorphic. A natural conjecture arose:
 
-\begin{conjecture}[Bieberbach Conjecture]
+\begin{conjecture}[Bieberbach Conjecture]\label{conj:bieberbach}
 If two crystallographic groups $\Gamma_1$ and $\Gamma_2$ in $\mathbb{R}^n$ are isomorphic as abstract groups, then their lattices are \emph{isometric}---related by an orthogonal transformation (not merely a general linear transformation).
 \end{conjecture}
 
@@ -221,6 +221,16 @@ The sphere packing problem asks for the densest arrangement of non-overlapping e
 \end{description}
 
 % ------------------------------------------------------------
+\section*{Key Takeaways}
+
+\begin{enumerate}
+    \item Hilbert's eighteenth problem asked about tessellations and crystallographic groups.
+    \item The crystallographic restriction states that only rotations of order 1, 2, 3, 4, 6 are possible in periodic tilings.
+    \item Bieberbach's theorems classify crystallographic groups in each dimension.
+    \item There are 17 wallpaper groups in 2D and 230 space groups in 3D.
+    \item The Bieberbach conjecture was disproved in high dimensions by Dranishnikov (1989).
+\end{enumerate}
+
 \section*{Exercises}
 % ------------------------------------------------------------
 
@@ -243,9 +253,9 @@ The sphere packing problem asks for the densest arrangement of non-overlapping e
 
     \item \textbf{Wallpaper groups: the role of rotations.}
     \begin{enumerate}
-        \item The crystallographic restriction implies that a wallpaper group can only contain rotations by multiples of $60°$, $90°$, $120°$, or $180°$. Explain why a rotation by $72°$ (five-fold symmetry) is impossible in any periodic tiling.
+        \item The crystallographic restriction implies that a wallpaper group can only contain rotations by multiples of $60^\circ$, $90^\circ$, $120^\circ$, or $180^\circ$. Explain why a rotation by $72^\circ$ (five-fold symmetry) is impossible in any periodic tiling.
         \item Sketch a tiling with 4-fold rotational symmetry and identify the center of rotation.
-        \item Explain informally why there are exactly 17 wallpaper groups, by considering the possible combinations of: translations (2 independent directions), rotations (by $60°, 90°, 120°, 180°$), and reflections.
+        \item Explain informally why there are exactly 17 wallpaper groups, by considering the possible combinations of: translations (2 independent directions), rotations (by $60^\circ, 90^\circ, 120^\circ, 180^\circ$), and reflections.
     \end{enumerate}
 
     \item \textbf{The crystallographic restriction in $\mathbb{R}^3$.}

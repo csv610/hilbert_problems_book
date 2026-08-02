@@ -24,13 +24,13 @@ make clean  # removes auxiliary files
 - 23 problem chapters + introduction + retrospective
 - 4 appendices (timeline, glossary, notation, further reading)
 - Prerequisite table, FAQs per chapter, exercises
-- ~274 pages, 0 errors on build
+- ~292 pages, 0 errors on build
 
 ## Structure
 
 ```
 hilbert_book.tex          — main document (preamble, includes)
-chapters/                 — 25 chapter files
+chapters/                 — 25 chapter files (00–25)
 appendices/               — timeline, glossary, notation, further-reading
 frontpage.png             — cover image
 Makefile                  — build automation

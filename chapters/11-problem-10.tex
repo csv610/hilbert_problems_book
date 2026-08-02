@@ -8,13 +8,13 @@
 \section{Historical Context}
 % ------------------------------------------------------------
 
-The story of Diophantine equations begins in the ancient world. Diophantus of Alexandria, a Greek mathematician who lived around 250~CE, wrote a series of books he called \emph{Arithmetica}---a collection of problems asking for integer or rational solutions to polynomial equations. Unlike his contemporaries, who worked primarily with geometric methods, Diophantus focused on pure number-theoretic questions: find whole numbers that satisfy a given algebraic relation.
+The story of Diophantine equations begins in the ancient world. Diophantus\index{Diophantus} of Alexandria, a Greek mathematician who lived around 250~CE, wrote a series of books he called \emph{Arithmetica}---a collection of problems asking for integer or rational solutions to polynomial equations. Unlike his contemporaries, who worked primarily with geometric methods, Diophantus focused on pure number-theoretic questions: find whole numbers that satisfy a given algebraic relation.
 
 Consider, for example, the equation
 \[
     x^2 + y^2 = z^2.
 \]
-This asks for \emph{integer} solutions $(x, y, z)$. We all know some: $(3, 4, 5)$, $(5, 12, 13)$, $(8, 15, 17)$. These are the Pythagorean triples---the side lengths of right triangles with integer sides. The problem of characterizing \emph{all} such triples occupied mathematicians for centuries, from Diophantus himself to Fermat in the seventeenth century.
+This asks for \emph{integer} solutions $(x, y, z)$. We all know some: $(3, 4, 5)$, $(5, 12, 13)$, $(8, 15, 17)$. These are the Pythagorean triples---the side lengths of right triangles with integer sides. The problem of characterizing \emph{all} such triples occupied mathematicians for centuries, from Diophantus himself to Fermat\index{Fermat, Pierre de} in the seventeenth century.
 
 But Diophantus's equations were not limited to quadratics. He also studied equations like
 \[
@@ -55,6 +55,23 @@ Note the emphasis on \emph{integer} solutions. Over the real numbers, the equati
 \begin{problem_statement}[Hilbert's Tenth Problem]
 Is there a general algorithm that, given any Diophantine equation, decides whether or not it has solutions in integers?
 \end{problem_statement}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=stealth, node distance=2.5cm]
+  \node (halt) [draw, rounded corners] {Halting Problem};
+  \node (turing) [draw, below of=halt] {Turing Machines};
+  \node (re) [draw, below of=turing] {Recursively Enumerable Sets};
+  \node (dprm) [draw, below of=re] {DPRM Theorem};
+  \node (h10) [draw, thick, fill=yellow!20, below of=dprm] {Hilbert's Tenth Problem};
+  \draw[->] (halt) -- (turing);
+  \draw[->] (turing) -- (re);
+  \draw[->] (re) -- (dprm);
+  \draw[->] (dprm) -- (h10);
+\end{tikzpicture}
+\caption{The reduction chain from the Halting Problem to Hilbert's Tenth Problem.}
+\label{fig:h10-reduction}
+\end{figure}
 
 Before we can answer this question, we need to be precise about what ``algorithm'' means. This requires a detour into the foundations of computability theory.
 
@@ -117,7 +134,7 @@ Every recursively enumerable (computably enumerable) set is Diophantine.
 
 The heart of the resolution is the following theorem, which bears the initials of all four contributors:
 
-\begin{theorem}[Matiyasevich, 1970]
+\begin{theorem}[Matiyasevich\index{Matiyasevich, Yuri}, 1970]
 \label{thm:dprm}
 Every recursively enumerable set is Diophantine.
 \end{theorem}
@@ -153,7 +170,7 @@ The number of variables $k$ can be large (the original proof used around 9 or 10
 
 The DPRM theorem immediately implies that Hilbert's tenth problem has a negative answer:
 
-\begin{theorem}[Matiyasevich, 1970]
+\begin{theorem}[Matiyasevich, 1970]\label{thm:matiyasevich}
 Hilbert's tenth problem is undecidable. There is no algorithm that, given a Diophantine equation, decides whether it has integer solutions.
 \end{theorem}
 
@@ -249,6 +266,16 @@ No. Undecidability says there is no \emph{universal} algorithm that works for ev
 \end{description}
 
 % ------------------------------------------------------------
+\section*{Key Takeaways}
+
+\begin{enumerate}
+    \item Hilbert's tenth problem asked for a general algorithm to decide whether Diophantine equations have integer solutions.
+    \item Matiyasevich (1970) proved that no such algorithm exists: Hilbert's tenth problem is undecidable.
+    \item The proof uses the DPRM theorem, which characterizes recursively enumerable sets as Diophantine sets.
+    \item This connects number theory to computability theory in a profound way.
+    \item The result shows that some mathematical questions are inherently uncomputable.
+\end{enumerate}
+
 \section*{Exercises}
 % ------------------------------------------------------------
 

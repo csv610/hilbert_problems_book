@@ -70,9 +70,24 @@ In 1799, Paolo Ruffini published a proof that the general quintic equation canno
 
 The definitive proof came in 1824 from Niels Henrik Abel. Abel proved what is now called the \textbf{Abel--Ruffini theorem}:
 
-\begin{theorem}[Abel--Ruffini]
+\begin{theorem}[Abel--Ruffini]\label{thm:abel-ruffini}
 There is no formula in radicals for the roots of the general polynomial equation of degree five or higher.
 \end{theorem}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=stealth, node distance=1.5cm]
+  \node (f) {$\mathbb{Q}(\alpha)$};
+  \node[above of=f] (k) {$K$};
+  \node[above of=k] (l) {$L$};
+  \node[right of=l, xshift=1cm] (g) {$G = \mathrm{Gal}(L/\mathbb{Q})$};
+  \draw[->] (f) -- (k) node[midway, left] {$\sqrt[n_1]{}$};
+  \draw[->] (k) -- (l) node[midway, left] {$\sqrt[n_2]{}$};
+  \draw[->] (l) -- (g) node[midway, above] {Galois};
+\end{tikzpicture}
+\caption{A solvable polynomial equation corresponds to a tower of radical extensions.}
+\label{fig:solvable-tower}
+\end{figure}
 
 This was a turning point. The quest that had occupied algebraists for three centuries ended not in a solution but in a proof of impossibility. But Abel's theorem, while conclusive, left a deeper question unanswered: \emph{why} is the quintic different from the cubic and quartic? What structural property distinguishes the solvable degrees from the unsolvable ones?
 
@@ -129,7 +144,7 @@ where each $G_i$ is a normal subgroup of $G_{i+1}$ and each quotient $G_{i+1}/G_
 
 The connection to polynomial equations is given by the following fundamental theorem:
 
-\begin{theorem}[Galois]
+\begin{theorem}[Galois]\label{thm:galois-solvable}
 A polynomial equation is solvable by radicals if and only if its Galois group is a solvable group.
 \end{theorem}
 
@@ -222,6 +237,16 @@ The Galois group of a general polynomial of degree $n$ is the symmetric group $S
 \end{description}
 
 % ------------------------------------------------------------
+\section*{Key Takeaways}
+
+\begin{enumerate}
+    \item Hilbert's thirteenth problem asked whether the solution of the seventh-degree equation $x^7 + ax^3 + bx^2 + cx + 1 = 0$ can be written as a composition of continuous functions of two variables.
+    \item The Abel--Ruffini theorem states that the general polynomial of degree $\geq 5$ cannot be solved by radicals.
+    \item Galois theory connects solvability by radicals to the structure of the Galois group.
+    \item Kolmogorov and Arnold proved that any continuous function can be represented as a composition of continuous functions of fewer variables.
+    \item This problem connects algebra to analysis in unexpected ways.
+\end{enumerate}
+
 \section*{Exercises}
 % ------------------------------------------------------------
 

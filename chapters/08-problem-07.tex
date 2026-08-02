@@ -77,7 +77,7 @@ Suppose, for contradiction, that $\pi$ is algebraic. Then $i\pi$ is also algebra
 
 Lindemann proved a powerful general result that rules this out:
 
-\begin{theorem}[Lindemann, 1882]
+\begin{theorem}[Lindemann, 1882]\label{thm:lindemann}
 If $\alpha$ is a nonzero algebraic number, then $e^\alpha$ is transcendental.
 \end{theorem}
 
@@ -115,7 +115,7 @@ This is exactly what the Gelfond--Schneider theorem says.
 
 In 1934, independently and almost simultaneously, Alexander Gelfond and Theodor Schneider proved one of the fundamental results of 20th-century number theory:
 
-\begin{theorem}[Gelfond--Schneider, 1934]
+\begin{theorem}[Gelfond--Schneider, 1934]\label{thm:gelfond-schneider}
 Let $a$ and $b$ be algebraic numbers with $a \neq 0, 1$ and $b$ irrational. Then $a^b$ is transcendental.
 \end{theorem}
 
@@ -175,7 +175,7 @@ where the $\alpha_i$ and $\beta_i$ are algebraic numbers. Showing that such a li
 
 The Gelfond--Schneider theorem was extended by Alan Baker in 1966. Baker proved the following generalization:
 
-\begin{theorem}[Baker, 1966]
+\begin{theorem}[Baker, 1966]\label{thm:baker}
 If $\alpha_1, \ldots, \alpha_n$ are nonzero algebraic numbers and $\beta_1, \ldots, \beta_n$ are algebraic with $1, \beta_1, \ldots, \beta_n$ linearly independent over $\mathbb{Q}$, then\linebreak
 \[
     \beta_1 \log \alpha_1 + \beta_2 \log \alpha_2 + \cdots + \beta_n \log \alpha_n \neq 0.
@@ -229,6 +229,16 @@ No. The theorem requires that the \emph{exponent} be an algebraic irrational num
 Baker's theorem provides explicit lower bounds on how close a linear combination of logarithms of algebraic numbers can be to zero. ``Effectively computable'' means that given specific algebraic numbers, you can actually calculate a concrete number $C > 0$ such that the linear form must be larger than $C$ (unless it is identically zero). This is crucial for applications: it means you can algorithmically bound how large a solution to a Diophantine equation can be, which often reduces solving the equation to checking finitely many cases. Without effective bounds, you would know a solution cannot be too close to zero, but you wouldn't know how close is ``too close.''
 
 \end{description}
+
+\section*{Key Takeaways}
+
+\begin{enumerate}
+    \item Hilbert's seventh problem asked whether $e^{\pi}$ is transcendental.
+    \item Lindemann proved in 1882 that $\pi$ is transcendental using the Lindemann--Weierstrass theorem.
+    \item Gelfond and Schneider independently proved in 1934 that $e^{\pi}$ is transcendental.
+    \item Baker's theorem (1966) generalized this to linear forms in logarithms.
+    \item These results are fundamental to transcendental number theory.
+\end{enumerate}
 
 \section*{Exercises}
 

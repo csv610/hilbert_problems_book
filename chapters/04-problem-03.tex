@@ -113,7 +113,7 @@ The difficulty is that the formula $V = \tfrac{1}{3}Bh$ tells us that volume is 
 
 Before diving into three dimensions, we should appreciate why the two-dimensional case is so clean. The result that area completely determines scissors congruence for polygons is known as the \textbf{Wallace--Bolyai--Gerwien theorem}, established independently by William Wallace in 1807 and by Farkas Bolyai and Paul Gerwien in 1833.
 
-\begin{theorem}[Wallace--Bolyai--Gerwien, 1807/1833]
+\begin{theorem}[Wallace--Bolyai--Gerwien, 1807/1833]\label{thm:wbg}
 Two polygons in the plane are scissors congruent if and only if they have the same area.
 \end{theorem}
 
@@ -160,7 +160,7 @@ The key properties are:
     \item \textbf{Obstruction:} If $P$ and $Q$ are scissors congruent, then $\delta(P) = \delta(Q)$.
 \end{enumerate}
 
-\begin{theorem}[Dehn, 1901]
+\begin{theorem}[Dehn, 1901]\label{thm:dehn}
 There exists a tetrahedron $T$ whose volume equals that of a cube $C$, but $\delta(T) \neq \delta(C)$. In particular, $T$ and $C$ are \emph{not} scissors congruent.
 \end{theorem}
 
@@ -252,7 +252,7 @@ Dehn's invariant answered Hilbert's question in the negative, but it left open a
 
 Jean-Pierre Sydler (1922--2016) settled this completely.
 
-\begin{theorem}[Sydler, 1965]
+\begin{theorem}[Sydler, 1965]\label{thm:sydler}
 Two polyhedra in $\mathbb{R}^3$ are scissors congruent if and only if they have the same volume and the same Dehn invariant.
 \end{theorem}
 
@@ -339,6 +339,19 @@ Yes---any polyhedron that can tile space by translations (like a cube) must have
 The tensor product $\mathbb{R} \otimes_{\mathbb{Q}} (\mathbb{R}/\pi\mathbb{Q})$ is used because the Dehn invariant must be additive under cutting (cutting a polyhedron adds edge lengths and preserves angles) and must vanish for degenerate decompositions involving ``trivial'' rational combinations of angles. The tensor product is the natural algebraic gadget that enforces bilinearity: length and angle contributions combine multiplicatively, and rational multiples of $\pi$ (corresponding to straight lines and flat angles) collapse to zero.
 
 \end{description}
+
+% ------------------------------------------------------------
+\section*{Key Takeaways}
+% ------------------------------------------------------------
+
+\begin{enumerate}
+    \item Two polyhedra are \emph{scissors congruent} if one can be cut into finitely many pieces and reassembled to form the other.
+    \item In 2D, area is a complete invariant for scissors congruence (Wallace--Bolyai--Gerwien theorem).
+    \item In 3D, volume alone is not enough: the \emph{Dehn invariant} provides an additional obstruction.
+    \item The Dehn invariant is computed from edge lengths and dihedral angles: $\delta(P) = \sum_i \ell_i \otimes \theta_i \in \mathbb{R} \otimes (\mathbb{R}/\pi\mathbb{Z})$.
+    \item Dehn (1901) showed that a regular tetrahedron and a cube of the same volume are \emph{not} scissors congruent, answering Hilbert's third problem in the negative.
+    \item Sydler (1965) proved that volume and the Dehn invariant together form a complete set of invariants for scissors congruence in 3D.
+\end{enumerate}
 
 % ------------------------------------------------------------
 \section{Exercises}

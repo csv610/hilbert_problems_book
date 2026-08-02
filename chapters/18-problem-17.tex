@@ -174,9 +174,26 @@ The key idea is the following. Consider the field $\mathbb{R}(x_1, \ldots, x_n)$
 
 Artin's insight was to study all possible total orderings of $\mathbb{R}(x_1,\ldots,x_n)$ that extend the usual ordering of $\mathbb{R}$. The key theorem from the Artin--Schreier theory of ordered fields states:
 
-\begin{theorem}[Artin--Schreier]
+\begin{theorem}[Artin--Schreier]\label{thm:artin-schreier}
 A field $K$ is formally real if and only if it admits a total ordering compatible with its field operations. Moreover, in a formally real field $K$, an element $a$ is a sum of squares in $K$ if and only if $a$ is non-negative in \emph{every} ordering of $K$.
 \end{theorem}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=stealth, node distance=1.8cm]
+  \node (f) {$f \geq 0$ on $\mathbb{R}^n$?};
+  \node[below left of=f, xshift=-1cm] (yes) {Yes};
+  \node[below right of=f, xshift=1cm] (no) {No};
+  \node[below of=yes] (sos) {$f$ is sum of squares?};
+  \node[below of=no] (notsos) {$f$ is not SOS};
+  \draw[->] (f) -- (yes);
+  \draw[->] (f) -- (no);
+  \draw[->] (yes) -- (sos);
+  \draw[->] (no) -- (notsos);
+\end{tikzpicture}
+\caption{Artin's theorem: every polynomial non-negative on $\mathbb{R}^n$ is a sum of squares of rational functions.}
+\label{fig:sos-decision}
+\end{figure}
 
 The field $\mathbb{R}(x_1,\ldots,x_n)$ is formally real because it embeds in $\mathbb{R}$ (choose any point where all rational functions in question are defined). The proof of Artin's theorem proceeds in two steps:
 
@@ -197,7 +214,7 @@ Schreier's work was cut short by his untimely death at age 28, just two years af
 
 Artin's theorem is part of a larger family of results known as \textbf{real algebraic geometry}. The most generalization is the \textbf{Positivstellensatz}, proved by Stengle in 1974.
 
-\begin{theorem}[Stengle's Positivstellensatz, 1974]
+\begin{theorem}[Stengle's Positivstellensatz, 1974]\label{thm:positivstellensatz}
 Let $f, g_1, \ldots, g_m, h_1, \ldots, h_r \in \mathbb{R}[x_1,\ldots,x_n]$, and let
 \[
     S = \{x \in \mathbb{R}^n : g_1(x) \geq 0, \ldots, g_m(x) \geq 0,\; h_1(x) \neq 0, \ldots, h_r(x) \neq 0\}.
@@ -274,6 +291,16 @@ Hilbert originally listed the problem as ``\emph{Representation of definite form
 \end{description}
 
 % ------------------------------------------------------------
+\section*{Key Takeaways}
+
+\begin{enumerate}
+    \item Hilbert's seventeenth problem asked whether every positive semidefinite polynomial is a sum of squares.
+    \item Artin's theorem (1927) states that every positive semidefinite polynomial over $\mathbb{R}$ is a sum of squares of rational functions.
+    \item The Artin--Schreier theorem connects orderings of fields to sums of squares.
+    \item The Positivstellensatz provides a more general characterization.
+    \item This connects real algebraic geometry to optimization.
+\end{enumerate}
+
 \section*{Exercises}
 % ------------------------------------------------------------
 

@@ -35,7 +35,7 @@ shows that the product of two sums of two squares is again a sum of two squares-
 
 The oldest result in the theory of quadratic forms is a theorem of Lagrange (1770):
 
-\begin{theorem}[Lagrange]
+\begin{theorem}[Lagrange]\label{thm:lagrange-four-squares}
 Every positive integer can be represented as the sum of four squares of integers:
 \[
     n = a^2 + b^2 + c^2 + d^2, \qquad a, b, c, d \in \mathbb{Z}.
@@ -43,6 +43,29 @@ Every positive integer can be represented as the sum of four squares of integers
 \end{theorem}
 
 Lagrange's theorem tells us that the quadratic form $x^2 + y^2 + z^2 + w^2$ represents \emph{every} positive integer. This is a fact: four squares suffice, and three do not (since $7 = a^2 + b^2 + c^2$ has no integer solution, as one can check modulo~8).
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[x=0.5cm]
+  \draw[thick, ->] (0,0) -- (20,0);
+  \foreach \x in {1,...,19}
+    \draw (\x,0.1) -- (\x,-0.1) node[below, font=\small] {$\x$};
+  \node[green!60!black, font=\small] at (1,0.5) {$\checkmark$};
+  \node[green!60!black, font=\small] at (2,0.5) {$\checkmark$};
+  \node[green!60!black, font=\small] at (4,0.5) {$\checkmark$};
+  \node[green!60!black, font=\small] at (5,0.5) {$\checkmark$};
+  \node[green!60!black, font=\small] at (8,0.5) {$\checkmark$};
+  \node[green!60!black, font=\small] at (9,0.5) {$\checkmark$};
+  \node[green!60!black, font=\small] at (10,0.5) {$\checkmark$};
+  \node[green!60!black, font=\small] at (13,0.5) {$\checkmark$};
+  \node[green!60!black, font=\small] at (16,0.5) {$\checkmark$};
+  \node[green!60!black, font=\small] at (17,0.5) {$\checkmark$};
+  \node[red, font=\small] at (3,1.2) {$3$ not sum of 2 squares};
+  \node[font=\small] at (10,1.5) {Numbers representable as $a^2 + b^2$};
+\end{tikzpicture}
+\caption{Which positive integers are sums of two squares? The answer involves prime factorization.}
+\label{fig:sums-of-squares}
+\end{figure}
 
 Lagrange's theorem was a starting point, not an endpoint. It raised natural questions: \emph{which} positive integers are represented by $x^2 + y^2$ (sums of two squares)? By $x^2 + 2y^2$? By $x^2 + 3y^2$? By $x^2 + xy + y^2$? Each of these questions leads into deep number theory.
 
@@ -214,6 +237,16 @@ Indirectly, yes. Lagrange's theorem says that $x^2 + y^2 + z^2 + w^2$ represents
 \end{description}
 
 % ------------------------------------------------------------
+\section*{Key Takeaways}
+
+\begin{enumerate}
+    \item Hilbert's eleventh problem asked about the representation of numbers by quadratic forms.
+    \item Lagrange's four-square theorem (1770) states that every positive integer is a sum of four squares.
+    \item The Hasse--Minkowski theorem characterizes when a quadratic form represents zero over the rationals.
+    \item The local--global principle states that a global property can be decided by checking it locally.
+    \item This connects number theory to algebra and analysis.
+\end{enumerate}
+
 \section*{Exercises}
 % ------------------------------------------------------------
 

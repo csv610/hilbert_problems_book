@@ -45,7 +45,7 @@ In modern language, Euler was saying that $\left(\frac{q}{p}\right)$ depends onl
 
 Carl Friedrich Gauss proved Euler's conjecture in 1783 and published his proof in his \emph{Disquisitiones Arithmeticae} (1801). He called it the \emph{theorema aureum}---the \emph{golden theorem}---and was so proud of it that he gave eight different proofs over the course of his career.
 
-\begin{theorem}[Law of Quadratic Reciprocity]
+\begin{theorem}[Law of Quadratic Reciprocity]\label{thm:quadratic-reciprocity}
 Let $p$ and $q$ be distinct odd primes. Then
 \[
     \left(\frac{p}{q}\right)\left(\frac{q}{p}\right) = (-1)^{\frac{p-1}{2} \cdot \frac{q-1}{2}}.
@@ -66,6 +66,25 @@ Gauss's theorem also has two important supplements:
 \end{itemize}
 
 Together, these results allow us to compute $\left(\frac{a}{p}\right)$ for any $a$ and $p$ using only factorization into primes.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=stealth, node distance=2cm]
+  \node (quad) {Quadratic Reciprocity};
+  \node[below of=quad] (cubic) {Cubic Reciprocity};
+  \node[below of=cubic] (higher) {Higher Reciprocity};
+  \node[right of=higher, xshift=2cm] (class) {Class Field Theory};
+  \node[above of=class, yshift=-0.5cm] (artin) {Artin Reciprocity};
+  \node[above of=artin, yshift=-0.5cm] (langlands) {Langlands Program};
+  \draw[->] (quad) -- (cubic);
+  \draw[->] (cubic) -- (higher);
+  \draw[->] (higher) -- (class);
+  \draw[->] (class) -- (artin);
+  \draw[->] (artin) -- (langlands);
+\end{tikzpicture}
+\caption{The hierarchy of reciprocity laws, from quadratic reciprocity to the Langlands program.}
+\label{fig:reciprocity-hierarchy}
+\end{figure}
 
 \subsection{Higher Reciprocity Laws}
 
@@ -107,7 +126,7 @@ Hilbert also introduced the \emph{Hilbert symbol} $\left(\frac{a,b}{\mathfrak{p}
 
 The modern theory of class field theory was largely created by Teiji Takagi in the 1920s. Takagi proved an existence theorem:
 
-\begin{theorem}[Takagi, 1920]
+\begin{theorem}[Takagi, 1920]\label{thm:takagi}
 For every \emph{ideal group} $H$ (containing the group of principal ideals, satisfying certain technical conditions), there exists a unique abelian extension $L/K$ such that the primes of $K$ that split completely in $L$ are precisely those lying in $H$.
 \end{theorem}
 
@@ -117,7 +136,7 @@ This is an \emph{existence theorem}: it says that every ``reasonable'' set of sp
 
 The culmination of class field theory came with Emil Artin's reciprocity theorem in the 1920s. Artin's theorem is the precise, general reciprocity law that Hilbert had sought.
 
-\begin{theorem}[Artin Reciprocity Theorem]
+\begin{theorem}[Artin Reciprocity Theorem]\label{thm:artin-reciprocity}
 Let $K$ be a number field and $L/K$ a finite abelian extension with Galois group $G = \Gal(L/K)$. Then there exists a canonical surjective homomorphism (the \textbf{Artin map})
 \[
     \left(\frac{L/K}{\cdot}\right) : I_K \to G,
@@ -196,6 +215,16 @@ An extension $L/K$ is \emph{abelian} if its Galois group (the group of field aut
 The Langlands program is a vast collection of conjectures, some of which have been proved and many of which remain open. The $\mathrm{GL}_1$ case is class field theory (proved). The $\mathrm{GL}_2$ case over $\mathbb{Q}$ was largely proved by the modularity theorem (Wiles et al., 1995) and subsequent work. The local Langlands correspondence for $\mathrm{GL}_n$ over $p$-adic fields was proved by Harris--Taylor and Henniart (2000). However, the full global Langlands correspondence for arbitrary reductive groups over arbitrary number fields remains one of the deepest open problems in mathematics. Progress continues steadily, but a complete proof is likely decades away.
 
 \end{description}
+
+\section*{Key Takeaways}
+
+\begin{enumerate}
+    \item Hilbert's ninth problem asked for general reciprocity laws in number theory.
+    \item Quadratic reciprocity, proved by Gauss, is the first reciprocity law.
+    \item Takagi's existence theorem (1920) and Artin's reciprocity theorem (1927) form the core of class field theory.
+    \item The Langlands program generalizes these ideas to non-abelian extensions.
+    \item Reciprocity laws connect algebraic number theory to harmonic analysis.
+\end{enumerate}
 
 \section*{Exercises}
 

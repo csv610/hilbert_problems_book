@@ -13,7 +13,7 @@
 \section{Historical Context}
 % ------------------------------------------------------------
 
-The study of boundary value problems begins with a question that seems almost childishly simple. Imagine a flat metal plate shaped like a disk. You heat the edge of the plate to various prescribed temperatures---say, $100°$ on the left half and $0°$ on the right half. After a long time, the temperature distribution inside the plate settles into a steady state. What is that steady-state temperature at each interior point?
+The study of boundary value problems begins with a question that seems almost childishly simple. Imagine a flat metal plate shaped like a disk. You heat the edge of the plate to various prescribed temperatures---say, $100^\circ$ on the left half and $0^\circ$ on the right half. After a long time, the temperature distribution inside the plate settles into a steady state. What is that steady-state temperature at each interior point?
 
 This is \textbf{Dirichlet's problem}, one of the oldest and most important questions in mathematical physics. Mathematically, a steady-state temperature distribution $u(x, y)$ satisfies \textbf{Laplace's equation}:
 \[
@@ -45,7 +45,7 @@ A function satisfying Laplace's equation is called \textbf{harmonic}. The proble
     \pgfmathsetmacro{\x}{3*cos(\angle)}
     \pgfmathsetmacro{\y}{3*sin(\angle)}
     \fill[red!70] (\x,\y) circle (2pt);
-    \node[temp, above] at (\x,\y+0.2) {\temp°};
+    \node[temp, above] at (\x,\y+0.2) {\temp$^\circ$};
 }
 
 \foreach \angle in {190,200,...,350} {
@@ -53,7 +53,7 @@ A function satisfying Laplace's equation is called \textbf{harmonic}. The proble
     \pgfmathsetmacro{\x}{3*cos(\angle)}
     \pgfmathsetmacro{\y}{3*sin(\angle)}
     \fill[blue!70] (\x,\y) circle (2pt);
-    \node[temp, below] at (\x,\y-0.2) {\temp°};
+    \node[temp, below] at (\x,\y-0.2) {\temp$^\circ$};
 }
 
 % Interior temperature distribution
@@ -66,11 +66,11 @@ A function satisfying Laplace's equation is called \textbf{harmonic}. The proble
 \draw[flow] (-2.5, -1) -- (-1, -0.5);
 
 % Interior temperatures (interpolated)
-\node[temp, color=orange!80] at (0, 1.5) {$\approx 60°$};
-\node[temp, color=orange!80] at (0, -1.5) {$\approx 60°$};
-\node[temp, color=orange!80] at (0, 0) {$\approx 50°$};
-\node[temp, color=orange!80] at (1.5, 0) {$\approx 30°$};
-\node[temp, color=orange!80] at (-1.5, 0) {$\approx 70°$};
+\node[temp, color=orange!80] at (0, 1.5) {$\approx 60^\circ$};
+\node[temp, color=orange!80] at (0, -1.5) {$\approx 60^\circ$};
+\node[temp, color=orange!80] at (0, 0) {$\approx 50^\circ$};
+\node[temp, color=orange!80] at (1.5, 0) {$\approx 30^\circ$};
+\node[temp, color=orange!80] at (-1.5, 0) {$\approx 70^\circ$};
 
 % Labels
 \node[below, align=center, text width=8cm] at (0, -4.0) {
@@ -79,7 +79,7 @@ A function satisfying Laplace's equation is called \textbf{harmonic}. The proble
 };
 
 \end{tikzpicture}
-\caption{The Dirichlet problem on a disk. Boundary temperatures are prescribed (100° on the left half, 0° on the right half). The harmonic function $u$ inside the disk satisfies Laplace's equation $\Delta u = 0$ and represents the steady-state temperature distribution, which minimizes the total energy (Dirichlet integral).}
+\caption{The Dirichlet problem on a disk. Boundary temperatures are prescribed (100$^\circ$ on the left half, 0$^\circ$ on the right half). The harmonic function $u$ inside the disk satisfies Laplace's equation $\Delta u = 0$ and represents the steady-state temperature distribution, which minimizes the total energy (Dirichlet integral).}
 \label{fig:dirichlet}
 \end{figure}
 
@@ -220,7 +220,7 @@ The idea is to build the solution as the \emph{upper envelope} of all subharmoni
 \]
 Perron showed that $\overline{u}$ is harmonic in $\Omega$. Whether it solves the Dirichlet problem---that is, whether $\overline{u}$ takes the correct boundary values---depends on the geometry of $\partial\Omega$.
 
-\begin{theorem}[Perron's Method]
+\begin{theorem}[Perron's Method]\label{thm:perron}
 If $\overline{u}$ is the Perron solution and $g$ is continuous on $\partial\Omega$, then $\overline{u}$ solves the Dirichlet problem if and only if every boundary point is \textbf{regular} (in the sense of Wiener's criterion, which relates to the ``thickness'' of the complement of $\Omega$ near the point).
 \end{theorem}
 
@@ -232,7 +232,7 @@ A natural question arises: if the weak solution is only in $H^1(\Omega)$, how sm
 
 The answer is one of the key results of PDE theory: \textbf{elliptic regularity}.
 
-\begin{theorem}[Elliptic Regularity]
+\begin{theorem}[Elliptic Regularity]\label{thm:elliptic-regularity}
 Let $\Omega$ be a bounded domain with smooth boundary, and let $u$ be a weak solution to $\Delta u = 0$ in $\Omega$. Then $u$ is real-analytic in $\Omega$. More generally, if $u$ solves $Lu = f$ where $L$ is a linear elliptic operator with smooth coefficients and $f$ is smooth, then $u$ is smooth up to the boundary.
 \end{theorem}
 
@@ -298,6 +298,16 @@ Physical intuition strongly suggested that minimizing an energy should produce a
 \end{description}
 
 % ------------------------------------------------------------
+\section*{Key Takeaways}
+
+\begin{enumerate}
+    \item Hilbert's twentieth problem asked about boundary value problems for PDEs.
+    \item The Dirichlet problem asks for a harmonic function with prescribed boundary values.
+    \item Sobolev spaces provide a framework for weak solutions.
+    \item The Dirichlet principle, once criticized by Weierstrass, was rehabilitated by Hilbert.
+    \item Modern PDE theory uses functional analysis to prove existence and regularity.
+\end{enumerate}
+
 \section*{Exercises}
 % ------------------------------------------------------------
 

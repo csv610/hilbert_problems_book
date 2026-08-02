@@ -11,37 +11,20 @@ The Goldbach Conjecture (binary version) is \textbf{unsolved}. It has been verif
 % ------------------------------------------------------------
 \begin{figure}[htbp]
 \centering
-\begin{tikzpicture}
-  \draw[thick,->] (0,0) -- (7,0) node[below] {even number};
-  \draw[thick,->] (0,0) -- (0,4.5) node[left] {representations};
-  \foreach \x/\lbl in {1/4,2/6,3/8,4/10,5/12,6/14}
-    \draw (\x,0.1) -- (\x,-0.1) node[below] {$\lbl$};
-  \draw (0,0) rectangle (1,1);
-  \node at (0.5,0.5) {$2+2$};
-  \draw (1,0) rectangle (2,1);
-  \node at (1.5,0.5) {$3+3$};
-  \draw (2,0) rectangle (3,3);
-  \node at (2.5,1.5) {$3+5$};
-  \draw (2,1) rectangle (3,2);
-  \node at (2.5,1.5) {$5+3$};
-  \draw (3,0) rectangle (4,2);
-  \node at (3.5,1) {$3+7$};
-  \draw (3,1) rectangle (4,2);
-  \node at (3.5,1) {$5+5$};
-  \draw (3,2) rectangle (4,3);
-  \draw (4,0) rectangle (5,3);
-  \node at (4.5,1.5) {$5+7$};
-  \draw (4,1) rectangle (5,3);
-  \node at (4.5,1.5) {$7+5$};
-  \draw (4,2) rectangle (5,3);
-  \draw (5,0) rectangle (6,4);
-  \node at (5.5,2) {$3+11$};
-  \draw (5,1) rectangle (6,4);
-  \node at (5.5,2) {$7+7$};
-  \draw (5,2) rectangle (6,4);
-  \draw (5,3) rectangle (6,4);
-  \node at (5.5,2) {$11+3$};
-  \draw (5,4) rectangle (6,5);
+\begin{tikzpicture}[x=1.2cm, y=0.4cm]
+  % Axes
+  \draw[thick,->] (0,0) -- (7.5,0) node[below] {even number};
+  \draw[thick,->] (0,0) -- (0,5.5) node[left] {representations};
+  % X-axis labels
+  \foreach \x/\lbl in {1/4, 2/6, 3/8, 4/10, 5/12, 6/14}
+    \draw (\x,0.15) -- (\x,-0.15) node[below, font=\small] {$\lbl$};
+  % Bars (height = number of representations)
+  \draw[fill=blue!30] (0.6,0) rectangle (1.4,1) node[midway,font=\small] {$2{+}2$};
+  \draw[fill=blue!30] (1.6,0) rectangle (2.4,1) node[midway,font=\small] {$3{+}3$};
+  \draw[fill=blue!30] (2.6,0) rectangle (3.4,2) node[midway,font=\small] {$3{+}5,\;5{+}3$};
+  \draw[fill=blue!30] (3.6,0) rectangle (4.4,2) node[midway,font=\small] {$3{+}7,\;5{+}5$};
+  \draw[fill=blue!30] (4.6,0) rectangle (5.4,3) node[midway,font=\small] {$5{+}7,\;7{+}5$};
+  \draw[fill=blue!30] (5.6,0) rectangle (6.4,4) node[midway,font=\small] {$3{+}11,\;7{+}7,\;11{+}3$};
 \end{tikzpicture}
 \caption{Goldbach representations for small even numbers. Each bar shows the number of ways to write the even number as a sum of two primes. For example, $10 = 3+7 = 5+5$ has two representations.}
 \label{fig:goldbach}
@@ -79,7 +62,7 @@ As $x \to \infty$,
 Equivalently, $\pi(x) \sim \operatorname{Li}(x)$, where $\operatorname{Li}(x) = \int_2^x \frac{dt}{\ln t}$ is the \emph{logarithmic integral}, a somewhat better approximation.
 \end{theorem}
 
-The Prime Number Theorem was proved independently by Jacques Hadamard and Charles-Jean de la Vall\'ee Poussin in 1896, using deep methods from complex analysis. Their proofs relied on the fact that the Riemann zeta function $\zeta(s) = \sum_{n=1}^{\infty} n^{-s}$ has no zeros on the line $\Re(s) = 1$ in the complex plane. (This is a weaker statement than the famous Riemann Hypothesis, which asserts that \emph{all} nontrivial zeros lie on the line $\Re(s) = \tfrac{1}{2}$.)
+The Prime Number Theorem\index{Prime Number Theorem} was proved independently by Jacques Hadamard and Charles-Jean de la Vall\'ee Poussin in 1896, using deep methods from complex analysis. Their proofs relied on the fact that the Riemann zeta function $\zeta(s) = \sum_{n=1}^{\infty} n^{-s}$ has no zeros on the line $\Re(s) = 1$ in the complex plane. (This is a weaker statement than the famous Riemann Hypothesis, which asserts that \emph{all} nontrivial zeros lie on the line $\Re(s) = \tfrac{1}{2}$.)
 
 The Prime Number Theorem tells us that a ``random'' large integer $n$ has probability approximately $1/\ln n$ of being prime. This heuristic is the starting point for understanding Goldbach's Conjecture.
 
@@ -121,7 +104,7 @@ The Goldbach Conjecture has resisted proof for nearly three centuries, but the e
 
 \subsection{The Hardy--Littlewood Circle Method}
 
-The most powerful approach to the Goldbach Conjecture is the \textbf{circle method}, developed by G.\,H.\ Hardy and J.\,E.\ Littlewood in the 1920s. The idea is to translate the additive problem (``can $n$ be written as $p + q$?'') into a problem about complex analysis.
+The most powerful approach to the Goldbach Conjecture is the \textbf{circle method}\index{circle method}, developed by G.\,H.\ Hardy\index{Hardy, G. H.} and J.\,E.\ Littlewood\index{Littlewood, J. E.} in the 1920s. The idea is to translate the additive problem (``can $n$ be written as $p + q$?'') into a problem about complex analysis.
 
 The starting point is a \emph{generating function}. For an even integer $n$, the number of ways to write $n = p + q$ with $p$ and $q$ prime is
 \[
@@ -147,9 +130,9 @@ This product converges to a positive constant, so the heuristic prediction is th
 
 \subsection{Vinogradov's Theorem (1937)}
 
-The first major result using the circle method came from the Soviet mathematician Ivan Vinogradov (1891--1983). In 1937, he proved:
+The first major result using the circle method came from the Soviet mathematician Ivan Vinogradov\index{Vinogradov, Ivan} (1891--1983). In 1937, he proved:
 
-\begin{theorem}[Vinogradov, 1937]
+\begin{theorem}[Vinogradov, 1937]\label{thm:vinogradov}
 Every sufficiently large odd integer is the sum of three primes.
 \end{theorem}
 
@@ -159,9 +142,9 @@ Vinogradov's method was a significant achievement in analytic number theory. He 
 
 \subsection{Chen's Theorem (1973)}
 
-The closest result to the binary Goldbach Conjecture is due to the Chinese mathematician Chen Jingrun (1933--2001):
+The closest result to the binary Goldbach Conjecture is due to the Chinese mathematician Chen Jingrun\index{Chen, Jingrun} (1933--2001):
 
-\begin{theorem}[Chen, 1973]
+\begin{theorem}[Chen, 1973]\label{thm:chen}
 Every sufficiently large even integer is the sum of a prime and a \emph{semiprime}---that is, a product of at most two primes.
 \end{theorem}
 
@@ -177,14 +160,14 @@ Chen's theorem is the strongest result of its kind, and despite decades of effor
 
 \subsection{Helfgott's Proof of the Ternary Conjecture (2013)}
 
-The ternary Goldbach Conjecture was the subject of a proof by the Peruvian--French mathematician Harald Helfgott. Building on work by Vinogradov, Montgomery, and Vaughan, Helfgott completed the proof in two stages:
+The ternary Goldbach Conjecture was the subject of a proof by the Peruvian--French mathematician Harald Helfgott\index{Helfgott, Harald}. Building on work by Vinogradov, Montgomery, and Vaughan, Helfgott completed the proof in two stages:
 
 \begin{enumerate}
     \item \textbf{Large values (2013):} Helfgott proved that every odd $n > 10^{29}$ is the sum of three primes, making explicit the implicit constant in Vinogradov's theorem. His method used refined estimates for the circle method and computer-assisted verification of certain bounds.
     \item \textbf{Small values (2013):} Together with David Platt, Helfgott used computer verification to check the ternary Goldbach Conjecture for all odd $n$ up to $10^{29}$.
 \end{enumerate}
 
-\begin{theorem}[Helfgott, 2013]
+\begin{theorem}[Helfgott, 2013]\label{thm:helfgott}
 Every odd integer $n > 5$ is the sum of three primes.
 \end{theorem}
 
@@ -251,6 +234,20 @@ Chen's theorem (1973) states that every sufficiently large even integer is the s
 Unlike the Riemann Hypothesis or the Poincaré Conjecture, the Goldbach conjecture does not have a Clay Millennium Prize ($1$ million). However, it is widely considered one of the most famous unsolved problems in mathematics, and proving it would bring immense recognition and likely several major prizes (Fields Medal, Abel Prize, etc.). There is also a standing offer of \$1 million from a private publisher (Faber and Faber) that was announced in 2000, though its terms are somewhat unusual and time-limited. The real reward would be the mathematical insight needed to crack the problem, which would almost certainly revolutionize our understanding of prime numbers.
 
 \end{description}
+
+% ------------------------------------------------------------
+\section*{Key Takeaways}
+% ------------------------------------------------------------
+
+\begin{enumerate}
+    \item The Goldbach Conjecture states that every even integer greater than 2 can be expressed as the sum of two primes.
+    \item The conjecture has been verified computationally for all even integers up to $4 \times 10^{18}$, but no general proof exists.
+    \item The Prime Number Theorem tells us that a ``random'' large integer $n$ has probability approximately $1/\ln n$ of being prime.
+    \item The Hardy--Littlewood circle method is the most powerful approach to additive problems about primes.
+    \item Vinogradov (1937) proved that every sufficiently large odd integer is the sum of three primes.
+    \item Chen (1973) proved that every sufficiently large even integer is the sum of a prime and a semiprime.
+    \item Helfgott (2013) completed the proof of the ternary Goldbach Conjecture, but the binary case remains open.
+\end{enumerate}
 
 % ------------------------------------------------------------
 \section{Exercises}

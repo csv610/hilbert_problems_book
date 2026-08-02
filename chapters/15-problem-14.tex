@@ -81,6 +81,22 @@ Let $R$ be a Noetherian ring (a ring in which every ascending chain of ideals st
 As a consequence: every ideal in $k[x_1, \ldots, x_n]$ is finitely generated, and the ring of invariants of any group action on $k[x_1, \ldots, x_n]$ by polynomial automorphisms is finitely generated.
 \end{theorem}
 
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[>=stealth, node distance=2cm]
+  \node (i1) {$I_1$};
+  \node[right of=i1] (i2) {$I_2$};
+  \node[right of=i2] (i3) {$I_3$};
+  \node[right of=i3] (id) {$\cdots$};
+  \draw[->] (i1) -- (i2) node[midway, above] {$\subseteq$};
+  \draw[->] (i2) -- (i3) node[midway, above] {$\subseteq$};
+  \draw[->] (i3) -- (id) node[midway, above] {$\subseteq$};
+  \node[below of=i2, yshift=0.5cm] {In a Noetherian ring, this chain stabilizes};
+\end{tikzpicture}
+\caption{The ascending chain condition: in a Noetherian ring, every ascending chain of ideals eventually stabilizes.}
+\label{fig:acc}
+\end{figure}
+
 The key insight was that one does not need to \emph{find} the generators---one only needs to know they \emph{exist}. Hilbert's proof was by contradiction: if an ideal were not finitely generated, one could construct an infinite ascending chain of ideals, contradicting a chain condition argument.
 
 Gordan's reaction was characteristically blunt, but he eventually acknowledged the power of Hilbert's method. And Hilbert's approach opened the door to an entirely new style of algebra: the \emph{abstract, structural} style that would dominate twentieth-century algebra.
@@ -105,7 +121,7 @@ The context was invariant theory: Hilbert wanted to know whether the ring of inv
 
 The first major tool related to Hilbert's fourteenth problem is the \textbf{Nullstellensatz}---the ``theorem of the zeros''---which Hilbert himself proved in 1893. It is one of the foundational results of algebraic geometry.
 
-\begin{theorem}[Hilbert's Nullstellensatz]
+\begin{theorem}[Hilbert's Nullstellensatz]\label{thm:nullstellensatz}
 Let $k$ be an algebraically closed field (such as $\mathbb{C}$), and let $I \subseteq k[x_1, \ldots, x_n]$ be an ideal. If a polynomial $f \in k[x_1, \ldots, x_n]$ vanishes at every point where all polynomials in $I$ vanish, then there exist a positive integer $m$ and a polynomial $g \in I$ such that
 \[
     f^m \in I.
@@ -136,7 +152,7 @@ eventually stabilizes, meaning there exists $N$ such that $I_n = I_N$ for all $n
 
 Equivalently, every ideal of a Noetherian ring is finitely generated. Noether proved:
 
-\begin{theorem}[Noether, 1921]
+\begin{theorem}[Noether, 1921]\label{thm:noether}
 If $R$ is Noetherian, then $R[x]$ is Noetherian.
 \end{theorem}
 
@@ -195,6 +211,16 @@ Hilbert's fourteenth problem is \textbf{partially solved}.
 \end{partiallybox}
 
 % ------------------------------------------------------------
+\section*{Key Takeaways}
+
+\begin{enumerate}
+    \item Hilbert's fourteenth problem asked whether the ring of invariants of a polynomial ring under a linear group action is always finitely generated.
+    \item Hilbert's basis theorem (1888) states that polynomial rings are Noetherian.
+    \item The Nullstellensatz connects algebraic geometry to commutative algebra.
+    \item Nagata (1959) found a counterexample to Hilbert's conjecture.
+    \item The problem stimulated the development of invariant theory and algebraic geometry.
+\end{enumerate}
+
 \section{Exercises}
 % ------------------------------------------------------------
 

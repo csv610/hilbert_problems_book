@@ -12,11 +12,11 @@
 \section{Historical Context}
 % ------------------------------------------------------------
 
-In the closing decades of the nineteenth century, Georg Cantor (1845--1918) created something entirely new: a rigorous theory of \emph{infinite sets}. Before Cantor, infinity was treated with suspicion---a vague philosophical notion rather than a mathematical object. Cantor changed that. He showed that infinite sets can be compared in size, that some infinities are strictly larger than others, and that this comparison obeys precise mathematical laws.
+In the closing decades of the nineteenth century, Georg Cantor\index{Cantor, Georg} (1845--1918) created something entirely new: a rigorous theory of \emph{infinite sets}. Before Cantor, infinity was treated with suspicion---a vague philosophical notion rather than a mathematical object. Cantor changed that. He showed that infinite sets can be compared in size, that some infinities are strictly larger than others, and that this comparison obeys precise mathematical laws.
 
-The key idea is \textbf{cardinality}. Two sets $A$ and $B$ have the same cardinality if there exists a bijection $f\colon A \to B$. If such a bijection exists, we say $|A| = |B|$. If every function from $A$ to $B$ fails to be surjective (onto), we say $|A| < |B|$.
+The key idea is \textbf{cardinality}\index{cardinality}. Two sets $A$ and $B$ have the same cardinality if there exists a bijection $f\colon A \to B$. If such a bijection exists, we say $|A| = |B|$. If every function from $A$ to $B$ fails to be surjective (onto), we say $|A| < |B|$.
 
-Cantor proved in 1874 that the natural numbers $\mathbb{N} = \{0, 1, 2, 3, \ldots\}$ and the real numbers $\mathbb{R}$ do \emph{not} have the same cardinality. His original proof used a clever argument about bounded monotone sequences, but the argument he published in 1891---his famous \emph{diagonal argument}---is the one that has endured.
+Cantor proved in 1874 that the natural numbers $\mathbb{N} = \{0, 1, 2, 3, \ldots\}$ and the real numbers $\mathbb{R}$ do \emph{not} have the same cardinality. His original proof used a clever argument about bounded monotone sequences, but the argument he published in 1891---his famous \emph{diagonal argument}\index{diagonal argument}---is the one that has endured.
 
 \begin{theorem}[Cantor's Diagonal Argument, 1891]
 \label{thm:diagonal}
@@ -160,9 +160,9 @@ Cantor himself died in 1918, having never resolved the question. The tools of th
 
 \subsection{G\"odel's Constructible Universe (1940)}
 
-In 1931, Kurt G\"odel (1906--1978) had already influenced the mathematical community with his \emph{incompleteness theorems}, which showed that any consistent formal system powerful enough to describe arithmetic contains true statements that cannot be proved within the system. This raised a natural question: could the Continuum Hypothesis be one of those undecidable statements?
+In 1931, Kurt G\"odel\index{G\"odel, Kurt} (1906--1978) had already influenced the mathematical community with his \emph{incompleteness theorems}, which showed that any consistent formal system powerful enough to describe arithmetic contains true statements that cannot be proved within the system. This raised a natural question: could the Continuum Hypothesis be one of those undecidable statements?
 
-G\"odel made significant progress in 1940. He introduced a construction called the \textbf{constructible universe}, denoted $L$.
+G\"odel made significant progress in 1940. He introduced a construction called the \textbf{constructible universe}\index{constructible universe}, denoted $L$.
 
 The idea is as follows. Start with the empty set and build upward, at each stage adding only those sets that are ``definable'' in a precise sense. More formally, define a hierarchy of sets $L_\alpha$, indexed by ordinal numbers $\alpha$:
 \begin{itemize}
@@ -185,7 +185,7 @@ This was a significant result. It showed that CH \emph{cannot be disproved} from
 
 \subsection{Cohen's Forcing (1963)}
 
-The answer came in 1963, when Paul Cohen (1928--2007) introduced a revolutionary new technique called \textbf{forcing}.
+The answer came in 1963, when Paul Cohen\index{Cohen, Paul} (1928--2007) introduced a revolutionary new technique called \textbf{forcing}\index{forcing}.
 
 Cohen's method works in the opposite direction from G\"odel's. Instead of building an inner model where CH holds, forcing constructs a \emph{generic extension} of a model of ZFC in which CH fails.
 
@@ -204,7 +204,7 @@ The technical details of forcing are demanding, but the essential idea is a soph
 
 Combining G\"odel's and Cohen's results gives a notable conclusion:
 
-\begin{theorem}
+\begin{theorem}\label{thm:ch-independence}
 If ZFC is consistent, then CH is \textbf{independent} of ZFC. That is, ZFC $\not\vdash$ CH and ZFC $\not\vdash$ $\neg$CH.
 \end{theorem}
 
@@ -293,6 +293,19 @@ $\aleph_1$ is the first uncountable cardinal---the cardinality of the set of all
 No. Standard large cardinal axioms (measurable, strong, Woodin, supercompact) are all consistent with both CH and $\neg$CH. This is one of the most striking facts about independence: even very strong axioms do not settle the size of the continuum. Woodin's $\Omega$-conjecture and the search for a ``canonical'' model of set theory that might settle CH is one of the most active areas of research. See Chapter~21 for more on large cardinals.
 
 \end{description}
+
+% ------------------------------------------------------------
+\section*{Key Takeaways}
+% ------------------------------------------------------------
+
+\begin{enumerate}
+    \item The Continuum Hypothesis asks whether there is a set whose cardinality lies strictly between that of the natural numbers and the real numbers.
+    \item Cantor proved that $|\mathbb{R}| > |\mathbb{N}|$ using his diagonal argument, establishing that the continuum is uncountable.
+    \item G\"odel (1940) showed that CH is \emph{consistent} with ZFC by constructing the constructible universe $L$.
+    \item Cohen (1963) showed that $\neg$CH is also consistent with ZFC using the method of forcing.
+    \item Therefore, CH is \emph{independent} of ZFC: it can be neither proved nor disproved from the standard axioms of set theory.
+    \item The independence of CH means that the ``size'' of the continuum is not determined by the usual axioms of mathematics---new axioms would be needed to settle it.
+\end{enumerate}
 
 % ------------------------------------------------------------
 \section*{Exercises}

@@ -41,7 +41,7 @@ Thus a line ($d=1$) has genus 0, a conic ($d=2$) has genus 0, a cubic ($d=3$) ha
 
 Riemann discovered that the genus controls the space of functions on the curve. This insight was made precise by his student Gustav Roch in the \textbf{Riemann--Roch theorem}, one of the fundamental results in algebraic geometry.
 
-\begin{theorem}[Riemann--Roch]
+\begin{theorem}[Riemann--Roch]\label{thm:riemann-roch}
 Let $C$ be a smooth algebraic curve of genus $g$, and let $D$ be a divisor (a formal sum of points on $C$). Then
 \[
     \ell(D) - \ell(K - D) = \deg(D) - g + 1
@@ -50,6 +50,26 @@ where $\ell(D)$ is the dimension of the space of meromorphic functions $f$ with 
 \end{theorem}
 
 For a curve, the canonical divisor $K$ has degree $2g - 2$. When $\deg(D) > 2g - 2$, the term $\ell(K - D)$ vanishes, and the theorem gives an exact formula for $\ell(D)$. The Riemann--Roch theorem shows that the \emph{topology} (the genus) of a curve completely determines many of its algebraic properties---a connection between topology and algebra.
+
+% ------------------------------------------------------------
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=0.8]
+  % Draw torus (Riemann surface of genus 1)
+  \draw[thick] (0,0) ellipse (2.5 and 1);
+  \draw[thick] (-2.5,0) -- (-2.5,-2);
+  \draw[thick] (2.5,0) -- (2.5,-2);
+  \draw[thick] (-2.5,-2) arc (180:360:2.5 and 1);
+  \draw[dashed] (0,-2) ellipse (0.8 and 0.3);
+  % Labels
+  \node at (0,1.3) {Genus $g = 1$ (torus)};
+  \node at (0,-2.8) {$b_0 = 1$, $b_1 = 2$, $b_2 = 1$};
+  \node at (0,-3.3) {$\chi = 0$};
+\end{tikzpicture}
+\caption{A Riemann surface of genus 1 (a torus). The Betti numbers are $b_0 = 1$ (one connected component), $b_1 = 2$ (two independent loops), $b_2 = 1$ (one void). The Euler characteristic is $\chi = 1 - 2 + 1 = 0$.}
+\label{fig:riemann-surface-genus-1}
+\end{figure}
+% ------------------------------------------------------------
 
 \subsection{From Curves to Surfaces: Early Topological Questions}
 
@@ -131,7 +151,7 @@ where $H^{p,q}(X)$ is the space of harmonic $(p,q)$-forms, or equivalently the D
 
 One of the tools for understanding the topology of algebraic varieties is the \textbf{Lefschetz hyperplane theorem}, proved by \textbf{Solomon Lefschetz} (1884--1972) and later generalized by others.
 
-\begin{theorem}[Lefschetz Hyperplane Theorem]
+\begin{theorem}[Lefschetz Hyperplane Theorem]\label{thm:lefschetz}
 Let $X \subset \mathbb{P}^n$ be a smooth projective variety of dimension $d$, and let $H$ be a smooth hyperplane section (i.e., $H = X \cap \{L = 0\}$ for a general linear form $L$). Then the restriction maps
 \[
     H_k(H, \mathbb{Z}) \to H_k(X, \mathbb{Z})
@@ -155,7 +175,7 @@ The Weil conjectures concern the \textbf{zeta function} of a smooth projective v
 \]
 where $N_n = \#X(\mathbb{F}_{q^n})$ is the number of $\mathbb{F}_{q^n}$-rational points of $X$.
 
-\begin{theorem}[Weil Conjectures -- proved]
+\begin{theorem}[Weil Conjectures -- proved]\label{thm:weil-conjectures}
 The zeta function $Z(X, t)$ of a smooth projective variety $X$ over $\mathbb{F}_q$ is a \textbf{rational function}:
 \[
 Z(X, t) = \frac{P_1(t)\cdots P_{2d-1}(t)}{P_0(t)\cdots P_{2d}(t)},
@@ -184,7 +204,7 @@ The Weil conjectures demonstrate that the topology of an algebraic variety (enco
 
 The most famous open problem arising from Hilbert's sixteenth problem is the \textbf{Hodge conjecture}, one of the seven \textbf{Clay Millennium Problems}, carrying a prize of one million dollars.
 
-\begin{conjecture}[Hodge Conjecture]
+\begin{conjecture}[Hodge Conjecture]\label{conj:hodge}
 Let $X$ be a smooth complex projective variety of dimension $n$. Then every \textbf{Hodge class}---every element of $H^{2k}(X, \mathbb{Q}) \cap H^{k,k}(X)$---is a rational linear combination of classes of algebraic subvarieties of codimension~$k$.
 \end{conjecture}
 
@@ -250,6 +270,16 @@ Part~A concerns the topology of real algebraic curves in $\mathbb{P}^2$: how man
 \end{description}
 
 % ------------------------------------------------------------
+\section*{Key Takeaways}
+
+\begin{enumerate}
+    \item Hilbert's sixteenth problem asked about the topology of algebraic curves and surfaces.
+    \item The Riemann--Roch theorem relates the geometry of a curve to its topology.
+    \item Hodge theory connects topology to complex geometry via harmonic forms.
+    \item The Weil conjectures (proved by Deligne) connect topology to number theory.
+    \item The Hodge conjecture, one of the Clay Millennium Problems, remains open.
+\end{enumerate}
+
 \section*{Exercises}
 % ------------------------------------------------------------
 

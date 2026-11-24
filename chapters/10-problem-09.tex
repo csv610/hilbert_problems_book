@@ -31,19 +31,13 @@ For example, modulo $7$, the squares are $1^2 \equiv 1$, $2^2 \equiv 4$, $3^2 \e
 
 Computing Legendre symbols for small primes is straightforward---just check all the squares. But is there a \emph{pattern}? Is there a rule that tells us, without computation, whether $a$ is a square mod $p$?
 
-\subsection{Euler's Conjecture}
+\subsection{From Euler and Legendre to Gauss}
 
-In the 1740s, Leonhard Euler observed a striking pattern through extensive computation. He conjectured:
-
-\begin{quote}
-\emph{If $p$ and $q$ are distinct odd primes, then $\left(\frac{q}{p}\right) = 1$ whenever $p \equiv 1 \pmod{q}$, and $\left(\frac{q}{p}\right) = -1$ whenever $p$ is a primitive root mod $q$.}
-\end{quote}
-
-In modern language, Euler was saying that $\left(\frac{q}{p}\right)$ depends only on $p \pmod{q}$. This was notable: it said that whether $q$ is a square mod $p$ depends not on $p$ and $q$ separately, but on their relationship. But Euler could not prove it.
+Euler investigated patterns in quadratic residues and anticipated parts of the reciprocity phenomenon, but he did not state the modern quadratic reciprocity law in the form given below. Legendre formulated the law in terms of the Legendre symbol and published an attempted proof in the late eighteenth century; that proof had a gap. Gauss recorded his first complete proof in 1796 and published it in the \emph{Disquisitiones Arithmeticae} in 1801. He returned to the theorem repeatedly and gave several different proofs.
 
 \subsection{Gauss's Theorem: The Law of Quadratic Reciprocity}
 
-Carl Friedrich Gauss proved Euler's conjecture in 1783 and published his proof in his \emph{Disquisitiones Arithmeticae} (1801). He called it the \emph{theorema aureum}---the \emph{golden theorem}---and was so proud of it that he gave eight different proofs over the course of his career.
+Gauss called the theorem the \emph{theorema aureum}---the \emph{golden theorem}---and regarded it as a landmark result. Its precise statement is:
 
 \begin{theorem}[Law of Quadratic Reciprocity]\label{thm:quadratic-reciprocity}
 Let $p$ and $q$ be distinct odd primes. Then

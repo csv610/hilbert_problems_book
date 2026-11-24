@@ -2,8 +2,7 @@
 % Chapter 25: Retrospective — The Legacy of Hilbert's Problems
 % ============================================================
 
-\chapter*{Retrospective: The Legacy of Hilbert's Problems}
-\addcontentsline{toc}{chapter}{Retrospective: The Legacy of Hilbert's Problems}
+\chapter[Retrospective]{Retrospective: The Legacy of Hilbert's Problems}
 
 We have now journeyed through all twenty-three of Hilbert's problems. Each chapter has told its own story---of a question posed, of tools forged, of answers found or still sought. But a book about twenty-three problems is also a book about something larger: the nature of mathematical ambition, the arc of mathematical progress, and the curious fact that the most significant questions of one century become the foundational theorems of the next.
 
@@ -149,7 +148,7 @@ In 2000, the Clay Mathematics Institute announced seven ``Millennium Prize Probl
 \begin{center}
 \small
 \renewcommand{\arraystretch}{1.2}
-\begin{tabular}{cll}
+\begin{tabularx}{\textwidth}{c X p{5.5cm}}
 \toprule
 \textbf{\#} & \textbf{Problem} & \textbf{Status} \\
 \midrule
@@ -158,15 +157,15 @@ In 2000, the Clay Mathematics Institute announced seven ``Millennium Prize Probl
 3 & Navier--Stokes Existence and Smoothness & Open \\
 4 & P vs. NP & Open \\
 5 & Poincar\'e Conjecture & Solved (Perelman, 2003) \\
-6 & Riemann Hypothesis & Open \\
+6 & Riemann Hypothesis & Claimed proof under review (as of November 2026) \\
 7 & Yang--Mills Existence and Mass Gap & Open \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{center}
 
 The most striking aspect of this list is how different it is from Hilbert's. Hilbert's problems were rooted in the mathematics of 1900---classical analysis, number theory, algebraic geometry, the foundations of mathematics. The Millennium Problems reflect the mathematics of 2000---computational complexity, gauge theory, partial differential equations, the geometry of manifolds. The mathematical universe has expanded significantly in a century.
 
-Yet there are continuities. The Riemann Hypothesis, arguably the most famous open problem in all of mathematics, is closely related to Hilbert's eighth problem (the Goldbach conjecture and the distribution of primes). The Birch and Swinnerton-Dyer conjecture is a descendant of Hilbert's tenth problem (Diophantine equations) and his ninth problem (reciprocity laws). The Hodge conjecture is a descendant of Hilbert's sixteenth problem (topology of algebraic varieties). The Poincar\'e conjecture, now solved, was in the spirit of Hilbert's fifth problem (the relationship between topology and algebra).
+Yet there are continuities. The Riemann Hypothesis, the subject of a claimed proof currently under review as of November 2026, is closely related to Hilbert's eighth problem (the Goldbach conjecture and the distribution of primes). The Birch and Swinnerton-Dyer conjecture is a descendant of Hilbert's tenth problem (Diophantine equations) and his ninth problem (reciprocity laws). The Hodge conjecture is a descendant of Hilbert's sixteenth problem (topology of algebraic varieties). The Poincar\'e conjecture, now solved, was in the spirit of Hilbert's fifth problem (the relationship between topology and algebra).
 
 \subsection{The Langlands Program}
 
@@ -203,7 +202,7 @@ The experience of studying Hilbert's problems suggests several principles for ap
 
     \item \textbf{Connect to other areas.} The most significant advances often come from unexpected connections. Hilbert's tenth problem connected number theory to computability theory. Riemann--Hilbert connected differential equations to algebraic geometry. The Langlands program connects number theory with representation theory. If a problem resists direct attack, look for connections to other fields.
 
-    \item \textbf{Be patient.} Hilbert posed his problems in 1900. The Goldbach conjecture is still open in 2026. The Riemann Hypothesis, posed in 1859, remains unsolved. Mathematics operates on a timescale that is longer than a human career. The problems you work on may not be solved in your lifetime---but the tools you develop may help someone else solve them.
+    \item \textbf{Be patient.} Hilbert posed his problems in 1900. The binary Goldbach conjecture remains open. A claimed proof of the Riemann Hypothesis was announced in November 2026 and is undergoing mathematical review as of this writing. Mathematics operates on a timescale that is longer than a human career. The problems you work on may not be solved in your lifetime---but the tools you develop may help someone else solve them.
 
     \item \textbf{Don't be afraid of failure.} Almost every major theorem in this book was preceded by failed attempts. Weierstrass's counterexample destroyed the Dirichlet principle---and Hilbert's rescue of it led to the direct method, one of the most important techniques in analysis. G\"odel's theorem was a ``failure'' of Hilbert's program---and it opened up a universe of mathematical logic that Hilbert could not have imagined. Failure is not the opposite of progress; it is a form of progress.
 \end{enumerate}
@@ -235,18 +234,18 @@ The following table summarizes the current status of all twenty-three of Hilbert
 \footnotesize
 \setlength{\tabcolsep}{3.5pt}
 \renewcommand{\arraystretch}{1.15}
-\begin{tabular}{c >{\raggedright\arraybackslash}p{3.8cm} >{\raggedright\arraybackslash}p{1.6cm} >{\raggedright\arraybackslash}p{3.8cm}}
+\begin{tabular}{c >{\raggedright\arraybackslash}p{3.8cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{3.8cm}}
 \toprule
 \textbf{\#} & \textbf{Problem} & \textbf{Status} & \textbf{Key Figures} \\
 \midrule
 1 & Continuum Hypothesis & Independent & G\"odel, Cohen \\
 2 & Consistency of Arithmetic & Resolved (neg.) & G\"odel \\
 3 & Equality of Volumes (Tetrahedra) & Solved & Dehn (1901) \\
-4 & Shortest Path = Straight Line (Geodesics) & Solved & Hilbert (1904) \\
+4 & Straight Lines as Shortest Paths & Substantial progress; broad classification open & Hamel, Busemann \\
 5 & Continuous Groups = Manifolds (Lie Groups) & Solved & Cartan, von Neumann \\
 6 & Axioms of Physics & Partially Solved & von Neumann, Kolmogorov \\
 7 & Irrationality of $e^\pi$ & Solved & Gelfond, Schneider (1934) \\
-8 & Riemann Hypothesis and Goldbach & Open & Riemann, Helfgott \\
+8 & Riemann Hypothesis and Goldbach & RH claim under review; binary Goldbach open & Riemann, Helfgott \\
 9 & Reciprocity Laws (General) & Solved / open extensions & Artin, Hasse, Takagi \\
 10 & Decision Problem for Dioph. Equations & Solved over $\mathbb{Z}$ & Davis, Putnam, Robinson, Matiyasevich \\
 11 & Quadratic Forms & Partially Solved & Hasse, Minkowski \\

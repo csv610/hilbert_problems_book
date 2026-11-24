@@ -3,6 +3,7 @@
 LATEX = pdflatex
 LATEXFLAGS = -interaction=nonstopmode
 BIBTEX = bibtex
+MAKEINDEX = makeindex
 
 MAIN = hilbert_book
 
@@ -12,6 +13,7 @@ all: $(MAIN).pdf
 
 $(MAIN).pdf: $(MAIN).tex chapters/*.tex appendices/*.tex
 	$(LATEX) $(LATEXFLAGS) $(MAIN).tex
+	$(MAKEINDEX) $(MAIN).idx
 	$(LATEX) $(LATEXFLAGS) $(MAIN).tex
 	$(LATEX) $(LATEXFLAGS) $(MAIN).tex
 

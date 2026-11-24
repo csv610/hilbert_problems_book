@@ -12,6 +12,7 @@
 \usepackage{enumitem}
 \usepackage{booktabs}
 \usepackage{array}
+\usepackage{tabularx}
 \usepackage{index}
 \usepackage{xcolor}
 \usepackage{tcolorbox}
@@ -96,6 +97,10 @@
 
 \begin{document}
 
+% Avoid duplicate PDF page anchors on the title pages. Front matter uses Roman
+% numbering, then main matter restarts Arabic numbering.
+\hypersetup{pageanchor=false}
+
 % Cover page
 \begin{titlepage}
 \centering
@@ -114,6 +119,9 @@ All rights reserved. No part of this publication may be reproduced, distributed,
 
 \maketitle
 
+\frontmatter
+\hypersetup{pageanchor=true}
+
 \input{chapters/00-frontmatter}
 
 \tableofcontents
@@ -121,6 +129,7 @@ All rights reserved. No part of this publication may be reproduced, distributed,
 \mainmatter
 
 \input{chapters/01-introduction}
+\renewcommand{\thesection}{\thechapter.\arabic{section}}
 
 % The 23 Problems
 \setcounter{chapter}{0}

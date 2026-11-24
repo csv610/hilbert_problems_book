@@ -2,10 +2,10 @@
 % Chapter 9: Hilbert's Problem 8 — The Riemann Hypothesis and Goldbach
 % ============================================================
 
-\chapter{The Riemann Hypothesis and the Goldbach Conjecture}
+\chapter[Riemann Hypothesis and Goldbach]{The Riemann Hypothesis and the Goldbach Conjecture}
 
 \begin{unsolvedbox}
-Hilbert's eighth problem has two principal parts. The Riemann Hypothesis and the binary Goldbach Conjecture both remain open. The ternary Goldbach Conjecture was proved by Helfgott in 2013, and the binary conjecture has been verified computationally through the published verification bound discussed below.
+Hilbert's eighth problem has several principal parts. The binary Goldbach Conjecture remains open, while the ternary Goldbach Conjecture was proved by Helfgott in 2013. A claimed Lean-formalized proof of the Riemann Hypothesis was announced on 20 November 2026. As of 24 November 2026, that claim is undergoing mathematical review; the status below distinguishes the announcement from an established, independently assessed resolution. The binary Goldbach conjecture has also been verified computationally through the published bound discussed below.
 \end{unsolvedbox}
 
 % ------------------------------------------------------------
@@ -77,7 +77,7 @@ Every nontrivial zero of the analytically continued Riemann zeta function
 $\zeta(s)$ has real part $\operatorname{Re}(s)=\tfrac12$.
 \end{problem_statement}
 
-The Riemann Hypothesis remains open. It is one of the Clay Millennium Prize Problems and is closely connected with the error term in the distribution of prime numbers. It should not be confused with the Prime Number Theorem: the latter is known and only requires that $\zeta(s)$ have no zeros on the line $\operatorname{Re}(s)=1$.
+The Riemann Hypothesis is one of the Clay Millennium Prize Problems and is closely connected with the error term in the distribution of prime numbers. A Lean-formalized proof was publicly claimed on 20 November 2026. At the time of writing (24 November 2026), the announcement is undergoing broader mathematical review; readers should consult current sources before treating it as an accepted resolution. It should not be confused with the Prime Number Theorem: the latter is known and only requires that $\zeta(s)$ have no zeros on the line $\operatorname{Re}(s)=1$.
 
 \begin{problem_statement}[Goldbach's Conjecture, 1742]
 Every even integer $n > 2$ can be expressed as the sum of two primes. That is, for every even $n > 2$, there exist primes $p$ and $q$ such that
@@ -185,7 +185,7 @@ Helfgott's proof is notable not only for its mathematical content but also for i
 The ternary Goldbach Conjecture is therefore \emph{solved}. But the binary Goldbach Conjecture---the original problem posed by Goldbach---remains wide open.
 
 % ------------------------------------------------------------
-\section{Current Status: Both Principal Parts Remain Open}
+\section{Current Status: Goldbach Open; RH Claim Under Review}
 % ------------------------------------------------------------
 
 The two principal parts of Hilbert's eighth problem remain open. For Goldbach:
@@ -197,7 +197,7 @@ The two principal parts of Hilbert's eighth problem remain open. For Goldbach:
     \item No proof strategy is known that would definitively settle the conjecture.
 \end{itemize}
 
-For the Riemann Hypothesis, extensive numerical evidence and many partial results are known, but no proof or disproof has been established.
+For the Riemann Hypothesis, extensive numerical evidence and many partial results are known. A Lean-formalized proof was announced on 20 November 2026; as of 24 November 2026, broader mathematical review is ongoing and this book does not treat the announcement as a settled resolution. For current reporting, see \url{https://www.nature.com/articles/d41586-026-03812-7} and \url{https://apnews.com/article/anthropic-claude-math-solution-ai-4fe8b69a891f160f9e7f0c85af8c55c8}.
 
 The difficulty is fundamentally about the limitations of current analytic methods. The circle method works beautifully for three or more variables, where the major arcs dominate and the error terms can be controlled. But for two variables, the minor arcs contribute too much, and the method falls short. New ideas---perhaps from additive combinatorics, the theory of exponential sums, or entirely new directions---may be needed.
 
@@ -242,7 +242,7 @@ No. The Goldbach conjecture uses the modern definition of primes: an integer $p 
 Chen's theorem (1973) states that every sufficiently large even integer is the sum of a prime and a number that is either prime or a product of two primes (a \emph{semiprime}). In symbols, $n = p + q$ where $p$ is prime and $q$ is either prime or $q = q_1 q_2$ with $q_1, q_2$ prime. This is tantalizingly close to Goldbach: the only ``defect'' is that one term might be a product of two primes instead of a single prime. More than fifty years later, nobody has been able to eliminate this possibility. The result represents the limit of what sieve methods can achieve for the binary problem.
 
 \item[Q: Are there any prizes for proving the Goldbach conjecture?]\hfill\\
-Unlike the Riemann Hypothesis or the Poincaré Conjecture, the Goldbach conjecture does not have a Clay Millennium Prize ($1$ million). However, it is widely considered one of the most famous unsolved problems in mathematics, and proving it would bring immense recognition and likely several major prizes (Fields Medal, Abel Prize, etc.). There is also a standing offer of \$1 million from a private publisher (Faber and Faber) that was announced in 2000, though its terms are somewhat unusual and time-limited. The real reward would be the mathematical insight needed to crack the problem, which would almost certainly revolutionize our understanding of prime numbers.
+Unlike the Riemann Hypothesis, the Goldbach conjecture is not one of the Clay Millennium Prize Problems. The Poincaré Conjecture was one, but it has been solved. Goldbach remains one of the best-known open problems in mathematics. There is also a historical million-dollar offer from the publisher Faber and Faber, announced in 2000; readers should check whether its terms remain active. The main reward would be the mathematical insight needed to prove the conjecture and deepen our understanding of prime numbers.
 
 \end{description}
 

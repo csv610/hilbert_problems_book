@@ -4,9 +4,9 @@
 
 \chapter{The Shortest Path Between Two Points}
 
-\begin{solvedbox}
-Hilbert's Fourth Problem asks whether the straight line is always the shortest path between two points, and more broadly, what foundations are needed to make rigorous the notion of ``distance'' in geometry. The problem is resolved: the development of metric spaces, Riemannian geometry, and Finsler geometry provides a complete and flexible framework in which the question of shortest paths---and the role of straight lines---is fully understood.
-\end{solvedbox}
+\begin{partiallybox}
+Hilbert's Fourth Problem asks for geometries in which straight line segments are shortest connections, and for a characterization of the corresponding metrics under suitable axioms. Many important classes of solutions are known, especially in Finsler and projective geometry, but the broad problem has several formulations and no single complete classification. Metric spaces, Riemannian geometry, and Finsler geometry provide useful frameworks; their development alone does not settle the classification question.
+\end{partiallybox}
 
 \section{Historical Context}
 
@@ -25,7 +25,7 @@ Hilbert himself had already grappled with these questions in his 1899 masterpiec
 Hilbert's Fourth Problem can be stated informally:
 
 \begin{problem_statement}
-Is the straight line the shortest connection between two points? More precisely, can we axiomatize geometry so that the straight line is always characterized as the shortest path, and what are the proper foundations for the concept of distance?
+Which metrics on a projective domain have straight line segments as geodesics? What additional axioms on distance and congruence determine the resulting geometries?
 \end{problem_statement}
 
 To make this question precise, we need to address three sub-questions:
@@ -323,18 +323,18 @@ G^i(x,y) = \frac{1}{4}\, g^{i\ell}(x,y)\left(
 \]
 with $g_{ij}(x,y) = \frac12\frac{\partial^2 F^2}{\partial y^i\,\partial y^j}$ the Finsler metric tensor (now direction-dependent). When $F$ comes from a Riemannian metric, $g_{ij}$ is independent of $y$ and $2G^i$ reduces to $\Gamma^i_{jk}(x)\,y^j y^k$.
 
-Finsler geometry provides the most general framework in which Hilbert's question can be posed. The answer: it depends on the metric. Geodesics are well-defined curves of minimal length, but they may or may not be ``straight'' in any conventional sense.
+Finsler geometry is a central framework for Hilbert's question. The classification depends on the chosen regularity, reversibility, completeness, and other hypotheses; different versions admit different families of solutions.
 
 \subsection{The Role of Hilbert's Problem}
 
-Hilbert's Fourth Problem was, in a sense, a question about foundations: what is the right framework for discussing ``distance'' and ``shortest path''? The answer came not from a single theorem, but from the gradual development of a rich mathematical landscape:
+Hilbert's Fourth Problem helped develop a rich mathematical landscape:
 \begin{itemize}
     \item Fr\'echet's metric spaces provided the abstract framework.
     \item Riemannian geometry provided the tools for studying distance on curved spaces.
     \item Finsler geometry generalized Riemannian geometry to the most flexible setting.
     \item The theory of geodesics unified the concept of ``straight line'' across all these settings.
 \end{itemize}
-Hilbert's question was not so much a problem to be ``solved'' as a direction to be explored---and the exploration led to some of the significant geometry of the 20th century.
+The problem is best treated as a family of classification questions: several substantial cases have been resolved, while broader formulations continue to be studied.
 
 \section{Why This Matters: Geodesics in Physics}
 
@@ -358,9 +358,9 @@ Thus Hilbert's fourth problem---the question of what it means for a path to be t
 
 \section{Current Status}
 
-\begin{solvedbox}
-Hilbert's Fourth Problem is resolved. The proper foundations for the concept of distance---metric spaces, Riemannian geometry, and Finsler geometry---are well established. The question of when the ``straight line'' is the shortest path is fully understood: it is a property of the metric, not an absolute truth. The development of these frameworks constitutes a complete answer to the foundational question Hilbert posed.
-\end{solvedbox}
+\begin{partiallybox}
+Hilbert's Fourth Problem has substantial solutions under specific hypotheses, but its broad formulation does not have one complete classification. Any statement of its status should specify the class of metrics and the conditions imposed. The general theory of metrics whose geodesics are straight lines remains an active area of geometry.
+\end{partiallybox}
 
 \section*{Common Questions}
 
@@ -394,7 +394,7 @@ No. On a sphere, two antipodal points are connected by infinitely many great-cir
     \item In Euclidean space with the standard metric, geodesics are straight lines. In other geometries (spherical, hyperbolic, Finsler), geodesics can be curves.
     \item The Hopf--Rinow theorem guarantees that geodesics exist between any two points in a complete Riemannian manifold.
     \item The problem connects to Finsler geometry, which generalizes Riemannian geometry by allowing asymmetric and non-smooth metrics.
-    \item Hilbert's fourth problem has been partially solved: Pogorelov (1973) characterized Finsler metrics whose geodesics are straight lines.
+    \item Many precise versions have substantial solutions, but there is no single classification covering every broad interpretation of Hilbert's question.
 \end{enumerate}
 
 \section{Exercises}

@@ -92,9 +92,9 @@ A finitary consistency proof for arithmetic would show that the ``infinitary'' a
   \node at (-1.2,-0.5) {Consistent};
   \draw[thick, fill=red!10] (1.2,-0.5) circle (1.5);
   \node at (1.2,-0.5) {Complete};
-  \node[font=\small] at (0,-1.8) {Gödel: No system in the overlap contains arithmetic};
+  \node[font=\small, align=center] at (0,-1.8) {No consistent, computably axiomatized\ system containing arithmetic is complete};
 \end{tikzpicture}
-\caption{Gödel's Incompleteness Theorem: no consistent formal system containing arithmetic can be complete.}
+\caption{Incompleteness applies to consistent, computably axiomatized systems strong enough to express arithmetic; it does not apply to every formal system.}
 \label{fig:godel-incompleteness}
 \end{figure}
 
@@ -117,9 +117,9 @@ G\"odel showed:
 Any consistent, recursively axiomatized formal system $F$ that is capable of expressing basic arithmetic is \emph{incomplete}: there exist statements in the language of $F$ that are neither provable nor refutable in $F$.
 \end{theorem}
 
-In other words, no matter how we choose our axioms (as long as they are consistent, can be listed by a computer program, and are strong enough to do arithmetic), there will always be true statements about the natural numbers that the system cannot prove.
+More precisely, the Gödel--Rosser incompleteness theorem says that every consistent, computably axiomatized theory strong enough to express elementary arithmetic has a sentence it can neither prove nor refute. Calling such a sentence true in the standard natural numbers requires a soundness assumption; consistency alone does not imply that.
 
-The proof is a sophisticated example of self-reference. G\"odel showed how to encode statements \emph{about} the system as statements \emph{within} the system---a technique now called \emph{G\"odel numbering}. He then constructed a sentence $G$ that effectively says: ``This sentence is not provable in $F$.'' If $F$ is consistent, then $G$ is true but unprovable.
+The proof is a sophisticated example of self-reference. G\"odel showed how to encode statements \emph{about} the system as statements \emph{within} the system---a technique now called \emph{G\"odel numbering}. His sentence $G$ effectively says: ``This sentence is not provable in $F$.'' Consistency implies that $F$ does not prove $G$; the original argument uses a stronger assumption such as \emph{$\omega$-consistency} to show that $F$ does not prove $\neg G$. Rosser later obtained an independent sentence from consistency alone.
 
 \paragraph{The Second Incompleteness Theorem.}
 
@@ -138,7 +138,7 @@ Let $\mathrm{Con}(F)$ denote the formalized statement ``$F$ is consistent.'' The
     F \text{ is consistent} \;\Longrightarrow\; F \nvdash \mathrm{Con}(F).
 \]
 
-This is a precise mathematical theorem, not a philosophical opinion. It shows that any proof of $\mathrm{Con}(F)$ must necessarily use methods \emph{stronger} than $F$ itself---methods that go beyond finitary reasoning.
+This is a precise mathematical theorem, not a philosophical opinion. It shows that $F$ itself cannot prove its standard formal consistency statement. It does not, by itself, classify which external methods count as finitary.
 
 \begin{remark}
 The Peano axioms (P1)--(P5) do not by themselves constitute a recursively axiomatized system, because the induction axiom (P5) is schema---an infinite collection of axioms, one for each formula $\varphi$. However, the first-order theory \emph{Peano Arithmetic} (PA), which takes (P1)--(P4) plus the induction schema, is recursively axiomatized and falls squarely within G\"odel's theorem.
@@ -200,7 +200,7 @@ For the undergraduate reader, the essential takeaway is this: the incompleteness
 \begin{description}[font=\bfseries, leftmargin=2em, style=nextline]
 
 \item[Q: Does G\"odel's theorem mean we can't know anything for sure?]\hfill\\
-No. G\"odel's incompleteness theorems are about what can be proved \emph{within} a given formal system, not about what is true or what we can know by other means. We can know that $2+2=4$ perfectly well. The theorems say that if a system is strong enough to do arithmetic, it cannot prove its own consistency and will contain true statements it cannot prove. This is a limit on formal proof, not on knowledge.
+No. G\"odel's incompleteness theorems are about what can be proved \emph{within} a given formal system, not about what is true or what we can know by other means. We can know that $2+2=4$ perfectly well. The theorems say that a consistent, computably axiomatized system strong enough to do arithmetic has a sentence it can neither prove nor refute, and cannot prove its own standard consistency statement. This is a limit on formal proof, not on knowledge.
 
 \item[Q: Why can't PA prove its own consistency but ZFC can?]\hfill\\
 ZFC cannot prove its own consistency either! G\"odel's theorem applies to ZFC just as it applies to PA. But ZFC can prove the consistency of PA because ZFC is stronger than PA---it assumes the existence of infinite sets that PA does not. This is always a \emph{relative} consistency: if you trust ZFC, you can trust PA. But you cannot use ZFC to certify ZFC itself.
@@ -209,7 +209,7 @@ ZFC cannot prove its own consistency either! G\"odel's theorem applies to ZFC ju
 A statement is \emph{provable} if there exists a finite sequence of logical deductions from axioms that ends with that statement. A statement is \emph{true in the standard model} of arithmetic if it accurately describes the actual natural numbers $\{0,1,2,\dots\}$. G\"odel showed there are true statements about arithmetic that are not provable in PA. Being true is a semantic notion (about what is the case); being provable is a syntactic notion (about what follows from axioms).
 
 \item[Q: How can a statement be ``true but not provable''? Who decides what's true?]\hfill\\
-``True'' here means ``true in the standard model $\mathbb{N}$''---the actual natural numbers as we intuitively understand them. G\"odel's sentence $G$ says ``$G$ is not provable in PA.'' If PA were to prove $G$, it would prove a statement asserting its own unprovability, making PA inconsistent. So if PA is consistent, $G$ is not provable in PA---and therefore $G$ is true. Truth is determined by the structure of $\mathbb{N}$, not by our proof systems.
+``True'' here means ``true in the standard model $\mathbb{N}$.'' For G\"odel's sentence $G$, consistency implies that PA does not prove $G$; an additional soundness condition is needed to infer that $G$ is true and independent of PA. Consistency alone does not rule out PA proving a false sentence such as $\neg G$.
 
 \item[Q: If PA is consistent, why do we need a proof of consistency at all?]\hfill\\
 Because consistency is not obvious: PA is a very strong system with infinitely many axioms, and it is easy to accidentally introduce a contradiction when designing such a system. Before Gentzen, no one knew with certainty whether PA was consistent. Moreover, the philosophical program of formalism (Hilbert's program) demanded a finitary proof of consistency as a foundation for all of mathematics. Gentzen's proof showed that consistency \emph{can} be proved, but only by stepping outside PA.
@@ -225,7 +225,7 @@ Possibly. G\"odel's sentence for PA is undecidable in PA but decidable in ZFC. B
 
 \begin{enumerate}
     \item Hilbert's second problem asked for a proof that the axioms of arithmetic are consistent---that is, that no contradiction can be derived from them.
-    \item Russell and Whitehead's \textit{Principia Mathematica} attempted to ground all of mathematics in logic, but introduced complications (Russell's paradox, type theory).
+    \item Russell and Whitehead's \textit{Principia Mathematica} attempted to ground mathematics in logic using a type theory designed to avoid paradoxes such as Russell's.
     \item G\"odel's First Incompleteness Theorem (1931): any consistent, recursively axiomatized system containing basic arithmetic is incomplete---there exist statements that are neither provable nor disprovable.
     \item G\"odel's Second Incompleteness Theorem (1931): such a system cannot prove its own consistency.
     \item Gentzen (1936) proved the consistency of Peano Arithmetic using transfinite induction up to the ordinal $\varepsilon_0$---a proof that goes beyond the system itself.

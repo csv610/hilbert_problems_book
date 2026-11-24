@@ -4,9 +4,9 @@
 
 \chapter{Constructive Theory of Algebraic Invariants}
 
-\begin{partiallybox}
-Hilbert's fourteenth problem asked whether certain subrings of finitely generated algebras are themselves finitely generated. The answer is \textbf{no in general}: Nagata produced a counterexample in 1959. Positive finite-generation theorems remain fundamental for important classes such as finite and reductive group actions, while explicit computation of generators remains an active subject.
-\end{partiallybox}
+\begin{solvedbox}
+Hilbert's fourteenth problem asks whether certain subalgebras of finitely generated algebras are finitely generated. The answer is \textbf{no in general}: Nagata produced a counterexample in 1959. Finite generation does hold under important additional hypotheses, including reductive group actions in characteristic zero.
+\end{solvedbox}
 
 % ------------------------------------------------------------
 \section{Historical Context}
@@ -78,7 +78,7 @@ Hilbert proved the general finite basis theorem by a short, purely existence pro
 \label{thm:hilbert-basis}
 Let $R$ be a Noetherian ring (a ring in which every ascending chain of ideals stabilizes). Then the polynomial ring $R[x]$ is also Noetherian. In particular, $k[x_1, \ldots, x_n]$ is Noetherian for any field $k$.
 
-As a consequence: every ideal in $k[x_1, \ldots, x_n]$ is finitely generated, and the ring of invariants of any group action on $k[x_1, \ldots, x_n]$ by polynomial automorphisms is finitely generated.
+As a consequence, every ideal in $k[x_1, \ldots, x_n]$ is finitely generated. This theorem alone does \emph{not} imply that invariant subrings are finitely generated; additional hypotheses on the group action are needed.
 \end{theorem}
 
 \begin{figure}[htbp]
@@ -135,7 +135,7 @@ The Nullstellensatz has several important consequences:
 \begin{itemize}
     \item \textbf{The correspondence between ideals and varieties:} it provides a dictionary between algebraic objects (ideals) and geometric objects (varieties), which is the foundation of algebraic geometry.
     \item \textbf{Maximal ideals are well-understood:} the maximal ideals of $k[x_1, \ldots, x_n]$ are exactly the ideals of the form $(x_1 - a_1, \ldots, x_n - a_n)$ for points $(a_1, \ldots, a_n) \in k^n$.
-    \item \textbf{Hilbert's Basis Theorem} follows from the Nullstellensatz (though historically, the Basis Theorem came first and was used in the proof of the Nullstellensatz).
+    \item The Nullstellensatz is proved using tools including the Hilbert Basis Theorem; it does not imply that arbitrary subrings of polynomial rings are finitely generated.
 \end{itemize}
 
 \subsection{Noether's Theorem on Chain Conditions (1921)}
@@ -193,7 +193,7 @@ Hilbert's fourteenth problem, interpreted in modern terms, asks about the \emph{
 
 In 1959, Masayoshi Nagata showed that Hilbert's fourteenth problem, as literally stated, has a negative answer: there exists a finitely generated algebra $R$ over a field $k$ and a subfield $L$ of the fraction field of $R$ such that $R \cap L$ is \emph{not} finitely generated.
 
-This was a surprise. But the counterexample is ``artificial'' in the sense that it does not arise from classical invariant theory. For all natural classes of invariant rings---those arising from polynomial representations of reductive groups---the finite generation property holds, by work of Hochschild, Nagata himself, and Mumford. The lesson is that Hilbert's problem is \emph{subtly} different from the finite basis theorem, and the answer depends on the precise formulation.
+Nagata's construction is itself an invariant-theoretic example, arising from a non-reductive group action. For invariant rings of reductive groups in characteristic zero, finite generation does hold. The lesson is that Hilbert's problem is distinct from the finite basis theorem: a Noetherian ambient polynomial ring does not force every invariant subring to be finitely generated.
 
 % ------------------------------------------------------------
 \section{Current Status}

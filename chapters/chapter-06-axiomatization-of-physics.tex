@@ -116,28 +116,22 @@ are a direct consequence. The Hamiltonian formulation, obtained via the Legendre
 \dot{q}_i = \frac{\partial H}{\partial p_i}, \qquad \dot{p}_i = -\frac{\partial H}{\partial q_i}.
 \]
 
-This is perhaps the closest physics comes to the Euclidean model of axiomatization: a single elegant principle (least action) from which the entire theory follows. Noether's theorem, proved by Emmy Noether in 1918, shows that every continuous symmetry of the action corresponds to a conserved quantity---energy from time-translation invariance, momentum from spatial translation, angular momentum from rotation. This deep connection between symmetry and conservation is itself a success of the axiomatic approach.
+This is perhaps the closest physics comes to the Euclidean model of axiomatization: a single elegant principle (stationary action) from which the equations of motion follow. Noether's theorem, proved by Emmy Noether in 1918, associates conserved quantities to differentiable continuous symmetries of the action, subject to the usual boundary-term conditions---energy from time-translation invariance, momentum from spatial translation, and angular momentum from rotation.
 
 \subsection{The Axiomatization of Quantum Mechanics}
 
 The most successful axiomatization of a physical theory came in 1932, when John von Neumann published \emph{Mathematische Grundlagen der Quantenmechanik}---\emph{Mathematical Foundations of Quantum Mechanics}.
 
-Von Neumann's axioms placed quantum mechanics on a foundation as rigorous as Euclidean geometry. We can state them as six clear postulates:
+Von Neumann gave a mathematically influential formulation of quantum mechanics. Its core postulates can be summarized as follows:
 
 \begin{enumerate}
-    \item \textbf{States.} The state of a quantum system is represented by a unit vector $|\psi\rangle$ in a complex, separable Hilbert space $\mathcal{H}$. (More generally, mixed states are represented by density operators $\rho$: positive, trace-class operators with $\operatorname{Tr}(\rho) = 1$.)
+    \item \textbf{States.} A pure state is represented by a unit vector $|\psi\rangle$ in a complex Hilbert space $\mathcal{H}$, with vectors differing by an overall phase representing the same state. More generally, mixed states are represented by density operators $\rho$: positive, trace-class operators with $\operatorname{Tr}(\rho)=1$.
 
-    \item \textbf{Observables.} Every measurable physical quantity corresponds to a self-adjoint linear operator $A$ on $\mathcal{H}$. The operator's spectral decomposition encodes the possible values of the observable.
+    \item \textbf{Observables.} In the standard Hilbert-space formalism, an observable is represented by a self-adjoint operator $A$ on $\mathcal{H}$ (often unbounded, with a specified dense domain). Its spectral measure encodes measurement probabilities and possible values.
 
-    \item \textbf{Measurement outcomes.} The only possible results of measuring an observable $A$ are the eigenvalues of $A$. If $A$ has discrete spectrum $\{a_n\}$ with corresponding eigenvectors $\{|a_n\rangle\}$, the outcome must be one of the $a_n$.
+    \item \textbf{Measurement probabilities (Born rule).} For a Borel set $B\subseteq\mathbb{R}$, the probability that a measurement of $A$ in state $|\psi\rangle$ yields a value in $B$ is $\langle\psi,E_A(B)\psi\rangle$, where $E_A$ is the projection-valued spectral measure of $A$. In the discrete, non-degenerate case this reduces to $P(a_n)=|\langle a_n|\psi\rangle|^2$.
 
-    \item \textbf{Born rule.} When the system is in state $|\psi\rangle$, the probability of obtaining eigenvalue $a_n$ upon measuring $A$ is
-    \[
-        P(a_n) = |\langle a_n | \psi \rangle|^2,
-    \]
-    where $|a_n\rangle$ is the normalized eigenvector corresponding to $a_n$. For continuous spectra, the probability density is $|\langle x | \psi \rangle|^2$.
-
-    \item \textbf{Time evolution.} The state evolves according to the Schr\"odinger equation:
+    \item \textbf{Time evolution.} For a time-independent self-adjoint Hamiltonian $H$, the state evolves unitarily according to the Schr\"odinger equation:
     \[
         i\hbar \frac{\partial}{\partial t}|\Psi(t)\rangle = H|\Psi(t)\rangle,
     \]
@@ -146,26 +140,26 @@ Von Neumann's axioms placed quantum mechanics on a foundation as rigorous as Euc
     \item \textbf{Composite systems.} The Hilbert space of a composite system is the tensor product of the Hilbert spaces of its subsystems: $\mathcal{H}_{\text{total}} = \mathcal{H}_1 \otimes \mathcal{H}_2 \otimes \cdots \otimes \mathcal{H}_n$. This axiom is the source of quantum entanglement: states that cannot be written as simple products of subsystem states.
 \end{enumerate}
 
-This was axiomatization in Hilbert's sense: a compact set of precise statements from which the entire formalism of quantum mechanics could be derived. The Hilbert space framework was not merely a convenience---it was the \emph{appropriate} setting, forced upon us by the physics.
+This was a major mathematical formulation of nonrelativistic quantum mechanics, not a derivation of all physics from a uniquely forced axiom system. The precise domains of unbounded observables, measurement-update rules, and the interpretation of the formalism require additional care.
 
-But von Neumann went further. He proved \textbf{uniqueness theorems} showing that certain axioms for quantum mechanics are essentially forced: any framework satisfying basic physical desiderata (such as the existence of continuous time evolution and the probabilistic interpretation of measurements) must reduce to the Hilbert space formalism. This is analogous to how the axioms of an ordered complete field characterize the real numbers up to isomorphism.
+The Hilbert-space formalism is mathematically powerful and widely used. It is not uniquely forced by a short list of physical desiderata in the same sense that the complete ordered-field axioms characterize the real numbers; alternative formulations and interpretations exist.
 
 \subsubsection{The Measurement Problem}
 
-Despite the elegance of von Neumann's axioms, they contain a deep tension. The Schr\"odinger equation (axiom~5) describes deterministic, unitary evolution. But measurement (axioms~3--4) involves a fundamentally different process: the state ``collapses'' to an eigenvector of the measured observable, and the outcome is probabilistic. These two processes---unitary evolution and collapse---are logically incompatible within a single axiomatic framework.
+Despite the elegance of the Hilbert-space formalism, there is a deep tension between its unitary time-evolution postulate (item~4) and the additional measurement-probability and state-update rules. In the textbook idealized account, measurement updates the state to the eigenspace associated with the outcome, which is probabilistic. These prescriptions are not a single unitary evolution law; how to understand their relation is the measurement problem.
 
 This is the \textbf{measurement problem}. The Schr\"odinger equation predicts that a cat in a box with a radioactive source evolves into a superposition of ``alive'' and ``dead.'' But we never observe such superpositions at the macroscopic scale. Something must give.
 
 Several interpretations attempt to resolve this tension:
 
 \begin{itemize}
-    \item \textbf{Copenhagen interpretation} (Bohr, Heisenberg): The wave function is not a physical object but a tool for calculating probabilities. ``Measurement'' is a primitive concept that cannot be analyzed further. The collapse is real but occurs only when a classical measuring apparatus interacts with a quantum system. The boundary between quantum and classical is left deliberately vague.
+    \item \textbf{Copenhagen-family interpretations} (associated with Bohr and Heisenberg): These emphasize the role of measurement and classical descriptions, but there is no single universally agreed Copenhagen axiom set. Different versions interpret the wave function and state update differently.
 
     \item \textbf{Many-worlds interpretation} (Everett, 1957): The wave function never collapses. Instead, all outcomes of a measurement occur, each in a different branch of the universal wave function. The appearance of probability arises from the observer's inability to know which branch they inhabit. This interpretation is elegant (it requires no collapse postulate) but raises deep questions about probability and the meaning of the Born rule.
 
     \item \textbf{Bohmian mechanics} (de Broglie, Bohm, 1952): Particles have definite positions at all times, guided by a ``pilot wave'' that satisfies the Schr\"odinger equation. The wave function does not collapse; it simply evolves deterministically. The apparent randomness of measurement outcomes arises from our ignorance of the initial positions. This restores realism and determinism at the cost of introducing non-locality.
 
-    \item \textbf{QBism} (Fuchs, 2000s): A radical Bayesian interpretation in which the wave function represents an agent's personal degrees of belief, not an objective state of the world. Measurement updates beliefs via conditionalization, not physical collapse. This dissolves the measurement problem but raises questions about the intersubjective agreement of science.
+    \item \textbf{QBism} (Fuchs and collaborators): An interpretation in which quantum states encode an agent's probabilities for experiences. It offers a distinct response to the measurement problem rather than a universally accepted resolution.
 \end{itemize}
 
 The measurement problem remains one of the significant conceptual puzzles in physics. It is not merely a philosophical curiosity---it directly impacts the search for a theory of quantum gravity, where the nature of time and measurement become even more acute.

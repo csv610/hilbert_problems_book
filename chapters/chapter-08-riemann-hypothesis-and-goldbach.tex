@@ -37,7 +37,7 @@ The story of the Goldbach Conjecture begins not in a lecture hall or a journal, 
 \[
     4 = 2 + 2, \quad 6 = 3 + 3, \quad 8 = 3 + 5, \quad 10 = 3 + 7 = 5 + 5.
 \]
-Goldbach proposed that \emph{every} even integer greater than 2 has this property. Euler replied that he believed the conjecture to be true but was unable to prove it. Thus began one of the oldest and most famous open problems in number theory.
+Goldbach's original proposal, expressed with a convention that treated 1 as prime, was that every integer greater than 2 is a sum of three primes. Euler reformulated it as the modern binary conjecture for even integers greater than 2. Thus began one of the oldest and most famous open problems in number theory.
 
 The problem is notable for its simplicity. Anyone who understands what a prime number is can state the conjecture, and yet nearly three centuries of effort have failed to produce a proof. It is a reminder that the distribution of prime numbers---the ``atoms'' of arithmetic---remains not fully understood.
 
@@ -172,15 +172,15 @@ Chen's theorem is the strongest result of its kind, and despite decades of effor
 The ternary Goldbach Conjecture was the subject of a proof by the Peruvian--French mathematician Harald Helfgott\index{Helfgott, Harald}. Building on work by Vinogradov, Montgomery, and Vaughan, Helfgott completed the proof in two stages:
 
 \begin{enumerate}
-    \item \textbf{Large values (2013):} Helfgott proved that every odd $n > 10^{29}$ is the sum of three primes, making explicit the implicit constant in Vinogradov's theorem. His method used refined estimates for the circle method and computer-assisted verification of certain bounds.
-    \item \textbf{Small values (2013):} Together with David Platt, Helfgott used computer verification to check the ternary Goldbach Conjecture for all odd $n$ up to $10^{29}$.
+    \item \textbf{Large values (2013):} Helfgott obtained an analytic result covering every odd $n > 10^{27}$, making explicit the threshold in Vinogradov's theorem by refined circle-method estimates and extensive computation.
+    \item \textbf{Remaining finite range:} Together with David Platt, he verified the ternary conjecture computationally through $8.875\times 10^{30}$, covering all cases below the analytic threshold.
 \end{enumerate}
 
 \begin{theorem}[Helfgott, 2013]\label{thm:helfgott}
 Every odd integer $n > 5$ is the sum of three primes.
 \end{theorem}
 
-Helfgott's proof is notable not only for its mathematical content but also for its methodology. The proof combines traditional analytic arguments with extensive computer verification---a ``proof by calculation'' for the small cases, and a ``proof by analysis'' for the large ones. The computer-assisted parts have been independently verified using the Coq proof assistant, giving the result a high level of certainty.
+Helfgott's proof is notable for combining analytic estimates with extensive computer verification of finite ranges and numerical bounds. The computational verification was carried out with David Platt; it is not a Coq formalization.
 
 The ternary Goldbach Conjecture is therefore \emph{solved}. But the binary Goldbach Conjecture---the original problem posed by Goldbach---remains wide open.
 

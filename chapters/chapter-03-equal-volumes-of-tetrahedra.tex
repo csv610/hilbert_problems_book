@@ -262,25 +262,7 @@ This is a notable result. It says that volume and the Dehn invariant together fo
 \section{Higher Dimensions and the Hadwiger Invariants}
 % ------------------------------------------------------------
 
-What about scissors congruence in four dimensions and higher? The situation becomes dramatically more complex. In dimensions $n \geq 4$, volume alone is no longer sufficient, and the Dehn invariant---which depends on dihedral angles (one-dimensional edges)---is only the first in an infinite family of invariants.
-
-In a groundbreaking series of papers, Hugo Hadwiger and his school developed a general theory of \textbf{Hadwiger invariants}. For polyhedra in $\mathbb{R}^n$, there are $n$ independent invariants of scissors congruence, each corresponding to a different ``dimension'' of the polyhedron's structure:
-
-\begin{itemize}
-    \item The \textbf{volume} ($n$-dimensional measure) is invariant.
-    \item The \textbf{Dehn invariant} (involving edge lengths and dihedral angles) is the second invariant.
-    \item For $n \geq 4$, additional invariants arise from the $(n-2)$-dimensional faces, involving their volumes and the angles at which they meet.
-\end{itemize}
-
-The classification is governed by the scissors congruence group, which in dimension $n$ is known to be isomorphic to
-\[
-\mathbb{R} \;\oplus\; \bigoplus_{k=1}^{\lfloor n/2 \rfloor} \mathbb{R} \otimes_{\mathbb{Z}} \bigl( \mathbb{R} / \pi\mathbb{Q} \bigr)^{\otimes k},
-\]
-up to subtleties involving the rational structure. This deep connection to algebraic K-theory was discovered by Dupont, Sah, and others in the 1970s and 1980s. The scissors congruence groups are intimately related to the \textbf{Bloch group}, which plays a role in the study of hyperbolic manifolds and special values of $L$-functions.
-
-\begin{remark}
-For a taste of how quickly the complexity grows: in dimension $4$, the additional invariants involve sums of products of dihedral angles from complementary pairs of faces. These are no longer just weighted by lengths but by areas of faces, and the algebraic structure required to capture them is much richer. The theory is far from complete in higher dimensions, but it has deep connections to number theory, algebraic topology, and mathematical physics.
-\end{remark}
+In dimensions $n \geq 4$, volume alone is still not a complete invariant. Generalized Dehn--Hadwiger invariants provide a complete criterion for scissors congruence of Euclidean polytopes, but their formulation and algebraic structure are substantially more involved than the three-dimensional Dehn invariant. Jessen's work and later treatments by Hadwiger, Dupont, and Sah develop this higher-dimensional theory. It is therefore misleading to describe the classification as simply open or as a fixed list of $n$ elementary invariants.
 
 % ------------------------------------------------------------
 \section{Significance and Legacy}
@@ -304,7 +286,7 @@ Hilbert's choice of this problem also reflected his philosophical commitment to 
 
 The Dehn invariant has become a fundamental tool in \emph{geometric topology} and \emph{algebraic K-theory}. The group of scissors congruence classes of polyhedra in $\mathbb{R}^3$ (with a suitable notion of ``addition'' given by disjoint union) can be described explicitly using the Dehn invariant. This group, and its higher-dimensional analogues, are closely related to the algebraic K-theory of $\mathbb{Z}$ and to the Bloch group---objects that lie at the intersection of algebra, topology, and number theory.
 
-In dimensions $n \geq 4$, the situation is much more complex. Sydler showed that the analogues of volume and the Dehn invariant are still relevant, but additional invariants are needed. The complete classification of scissors congruence in higher dimensions remains an active area of research, connected to deep questions in algebraic K-theory and motivic cohomology.
+In higher dimensions, generalized Dehn--Hadwiger invariants give the corresponding scissors-congruence criteria. Their relation to group homology and algebraic K-theory continues to be studied.
 
 % ------------------------------------------------------------
 \section{Current Status}
@@ -327,7 +309,7 @@ Volume is only one invariant of a polyhedron. Imagine two jigsaw puzzles with th
 The impossibility of squaring the circle is a different issue---it concerns ruler-and-compass constructions, not cutting and reassembling. Scissors congruence in the plane (the Wallace--Bolyai--Gerwien theorem) tells us that any two polygons of equal area are scissors congruent. For circles, the problem is that a circle is not a polygon; cutting a circle into finitely many pieces and reassembling them into a square is impossible because circles are curved and the theorem only applies to polygons. The Dehn invariant is about 3D polyhedra, not 2D shapes.
 
 \item[Q: Is scissors congruence the same as ``having the same volume'' in higher dimensions?]\hfill\\
-In dimensions $n \geq 4$, volume alone is no longer sufficient to determine scissors congruence, just as it fails in 3D. Higher-dimensional analogues of the Dehn invariant exist, and the classification of scissors congruence classes becomes tied to algebraic $K$-theory---a deep area of abstract algebra. The complete picture in dimensions 4 and above is still not fully understood.
+No. As in three dimensions, higher-dimensional polytopes have generalized Dehn--Hadwiger invariants in addition to volume. These give a complete scissors-congruence criterion, though they are more complicated to state.
 
 \item[Q: What exactly is a dihedral angle, and why does it matter for the Dehn invariant?]\hfill\\
 A dihedral angle is the angle between two faces of a polyhedron along their shared edge---think of the angle you'd measure if you opened a book. The Dehn invariant sums $(\text{edge length}) \otimes (\text{dihedral angle modulo } \pi\mathbb{Q})$ over all edges. The key point is that volume alone collapses many distinctions, but the Dehn invariant captures the fine-grained angular structure that prevents reassembly.
@@ -348,7 +330,7 @@ The tensor product $\mathbb{R} \otimes_{\mathbb{Q}} (\mathbb{R}/\pi\mathbb{Q})$ 
     \item Two polyhedra are \emph{scissors congruent} if one can be cut into finitely many pieces and reassembled to form the other.
     \item In 2D, area is a complete invariant for scissors congruence (Wallace--Bolyai--Gerwien theorem).
     \item In 3D, volume alone is not enough: the \emph{Dehn invariant} provides an additional obstruction.
-    \item The Dehn invariant is computed from edge lengths and dihedral angles: $\delta(P) = \sum_i \ell_i \otimes \theta_i \in \mathbb{R} \otimes (\mathbb{R}/\pi\mathbb{Z})$.
+    \item The Dehn invariant is computed from edge lengths and dihedral angles: $\delta(P) = \sum_i \ell_i \otimes [\theta_i] \in \mathbb{R} \otimes_{\mathbb{Z}} (\mathbb{R}/\pi\mathbb{Q})$.
     \item Dehn (1901) showed that a regular tetrahedron and a cube of the same volume are \emph{not} scissors congruent, answering Hilbert's third problem in the negative.
     \item Sydler (1965) proved that volume and the Dehn invariant together form a complete set of invariants for scissors congruence in 3D.
 \end{enumerate}

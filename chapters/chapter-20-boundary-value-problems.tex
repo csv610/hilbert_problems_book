@@ -221,7 +221,7 @@ The idea is to build the solution as the \emph{upper envelope} of all subharmoni
 Perron showed that $\overline{u}$ is harmonic in $\Omega$. Whether it solves the Dirichlet problem---that is, whether $\overline{u}$ takes the correct boundary values---depends on the geometry of $\partial\Omega$.
 
 \begin{theorem}[Perron's Method]\label{thm:perron}
-If $\overline{u}$ is the Perron solution and $g$ is continuous on $\partial\Omega$, then $\overline{u}$ solves the Dirichlet problem if and only if every boundary point is \textbf{regular} (in the sense of Wiener's criterion, which relates to the ``thickness'' of the complement of $\Omega$ near the point).
+For continuous boundary data $g$, the Perron solution approaches $g$ at every regular boundary point. If every boundary point is regular, it extends continuously to the boundary with values $g$; at an irregular point, this boundary convergence can fail for some continuous data.
 \end{theorem}
 
 For domains with smooth boundaries, all boundary points are regular, and Perron's method gives a complete solution to the Dirichlet problem. For domains with cusps or other pathological features, boundary points may be irregular, and the Dirichlet problem may fail to have a classical solution.
@@ -233,7 +233,7 @@ A natural question arises: if the weak solution is only in $H^1(\Omega)$, how sm
 The answer is one of the key results of PDE theory: \textbf{elliptic regularity}.
 
 \begin{theorem}[Elliptic Regularity]\label{thm:elliptic-regularity}
-Let $\Omega$ be a bounded domain with smooth boundary, and let $u$ be a weak solution to $\Delta u = 0$ in $\Omega$. Then $u$ is real-analytic in $\Omega$. More generally, if $u$ solves $Lu = f$ where $L$ is a linear elliptic operator with smooth coefficients and $f$ is smooth, then $u$ is smooth up to the boundary.
+If $u$ is a weak solution to $\Delta u = 0$ in an open set $\Omega$, then $u$ is real-analytic in the interior. More generally, smooth coefficients and smooth $f$ give interior smoothness for solutions of $Lu=f$; smoothness up to a smooth boundary also requires suitable smooth boundary data and the corresponding elliptic boundary conditions.
 \end{theorem}
 
 The regularity theorem says that weak solutions are actually classical solutions---and more. The smoothness of the solution is inherited from the smoothness of the equation and the domain, not from the regularity of the initial guess. This is notable: the weak formulation is a technical device for proving existence, but the conclusion is as strong as one could hope for.

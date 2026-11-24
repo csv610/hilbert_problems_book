@@ -37,7 +37,7 @@ The story begins in 1696, when Johann Bernoulli posed a challenge to the mathema
 
 This is the \textbf{brachistochrone problem} (from the Greek \emph{brachistos}, ``shortest,'' and \emph{chronos}, ``time''). The answer is not a straight line---that would be the shortest \emph{distance}, but not the fastest \emph{path}. The bead gains speed as it descends, so a path that dips steeply at the start and then levels out can be faster than the direct route.
 
-The solution, found independently by Newton, Leibniz, L'H\^opital, and the Bernoulli brothers, is a \textbf{cycloid}---the curve traced by a point on the rim of a rolling wheel. If $A$ is at the origin and $B$ is at $(x_1, y_1)$ with $y_1 < 0$ (taking the $y$-axis pointing downward), the cycloid is parametrized by
+The solution, found independently by Newton, Leibniz, L'H\^opital, and the Bernoulli brothers, is a \textbf{cycloid}---the curve traced by a point on the rim of a rolling wheel. If $A$ is at the origin and $B$ is at $(x_1, y_1)$ with $y_1 > 0$ (taking the $y$-axis to point downward), the cycloid is parametrized by
 \[
     x = R(\theta - \sin\theta), \qquad y = R(1 - \cos\theta),
 \]
@@ -119,7 +119,7 @@ Hilbert's approach, which we also encountered in Chapter~\ref{ch:problem-20}, wa
     \item \textbf{Lower semicontinuity:} Show that $J[y] \leq \liminf J[y_n]$, so $y$ is a minimizer.
 \end{enumerate}
 
-The difficulty lies in steps 3 and 4: one needs the right notion of convergence, and one needs the functional to be lower semicontinuous with respect to that convergence. Hilbert's insight was that \emph{weak convergence} in a Hilbert space---convergence that preserves inner products but not norms---provides the right framework. The functional $J[y]$, when it is convex and coercive, is weakly lower semicontinuous, and bounded sequences in Hilbert spaces have weakly convergent subsequences (by the Banach--Alaoglu theorem).
+The difficulty lies in steps 3 and 4: one needs the right notion of convergence, and one needs the functional to be lower semicontinuous with respect to that convergence. In a Hilbert space, weak convergence means convergence of inner products against each fixed vector; norms need not converge. Convex, norm-lower-semicontinuous functionals are weakly lower semicontinuous, and bounded sequences in a Hilbert space have weakly convergent subsequences.
 
 % ------------------------------------------------------------
 \section{The Problem}
@@ -152,7 +152,7 @@ Tonelli's key contribution was to identify the right class of functionals for wh
 \]
 admits a minimizer if:
 \begin{enumerate}
-    \item $F$ is \textbf{convex} in the gradient variable $p = \nabla y$.
+    \item $F$ is \textbf{convex} in $(y,p)$, where $p = \nabla y$; convexity in $p$ alone is not enough for the general existence claim below.
     \item $F$ satisfies a \textbf{coercivity} condition: $F(x, y, p) \to \infty$ as $|p| \to \infty$.
     \item The admissible functions satisfy appropriate boundary conditions and lie in a suitable Sobolev space.
 \end{enumerate}
@@ -162,8 +162,8 @@ admits a minimizer if:
 Let $\Omega \subset \mathbb{R}^n$ be a bounded domain with Lipschitz boundary, and let $F: \Omega \times \mathbb{R} \times \mathbb{R}^n \to \mathbb{R}$ be a function satisfying:
 \begin{enumerate}
     \item $F$ is measurable in $x$ and continuous in $(y, p)$;
-    \item $F$ is convex in $p$ for each $(x, y)$;
-    \item There exist constants $c_0 > 0$ and $c_1 \geq 0$ such that $F(x, y, p) \geq c_0 |p|^2 - c_1$ for all $(x, y, p)$.
+    \item $F(x,\cdot,\cdot)$ is convex in $(y,p)$ for almost every $x$;
+    \item There are constants $c>0$ and $C\geq 0$ such that $c(|y|^2+|p|^2)-C \leq F(x,y,p) \leq C(1+|y|^2+|p|^2)$ almost everywhere.
 \end{enumerate}
 Let $g \in H^1(\Omega)$ be given boundary data. Then the functional
 \[
@@ -174,7 +174,7 @@ attains its minimum on the set $\{u \in H^1(\Omega) : u - g \in H^1_0(\Omega)\}$
 
 The proof is a direct application of the direct method. The coercivity condition ensures that minimizing sequences are bounded in $H^1(\Omega)$. Since $H^1(\Omega)$ is a reflexive Banach space (it is a Hilbert space), the Banach--Alaoglu theorem provides a weakly convergent subsequence. The convexity of $F$ in $p$ ensures that $J$ is weakly lower semicontinuous---the key technical ingredient. The infimum is therefore attained.
 
-Tonelli's theorem is the cornerstone of the modern calculus of variations. Its hypotheses are general enough to cover most problems arising in physics and geometry, and its conclusion is as strong as one could hope: a minimizer exists.
+This is a convenient sufficient version of the direct-method existence theorem, not the most general statement of Tonelli's results. More general integrands require carefully stated growth, lower-semicontinuity, and coercivity hypotheses.
 
 \subsection{The Connection to Functional Analysis}
 

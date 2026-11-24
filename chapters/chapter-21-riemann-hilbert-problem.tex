@@ -136,13 +136,7 @@ Let $\Omega$ be a simply connected open set in $\mathbb{C}$, and let $\gamma \co
 \end{theorem}
 
 \begin{proof}
-Since $\Omega$ is simply connected, the loop $\gamma$ is homotopic to the constant loop at $z_0$ within $\Omega$. That is, there exists a continuous map $H \colon [0,1] \times [0,1] \to \Omega$ with $H(0,t) = H(1,t) = z_0$ for all $t$, and $H(s,0) = \gamma(s)$ for all $s$.
-
-For each $t$, the path $\gamma_t(s) = H(s,t)$ is a closed loop based at $z_0$. Let $f_t$ denote the result of analytically continuing $f_0$ along $\gamma_t$. We need to show that $f_1 = f_0$.
-
-The function $F(s,t) = f_t(s)$---the value obtained by continuing along $\gamma_t$ to the point $H(s,t)$---is jointly continuous in $(s,t)$ (by the continuity of analytic continuation with respect to deformation of paths) and analytic in $z = H(s,t)$ for each fixed $t$. The key point is that analytic continuation depends continuously on the path, and the space of analytic function elements at $z_0$ is \emph{discrete} (by the identity theorem, two function elements at $z_0$ are either equal or different in a neighborhood of $z_0$).
-
-Since $t \mapsto f_t$ is continuous and the target is discrete, it must be constant. Therefore $f_1 = f_0$.
+Because analytic continuation is possible along every path in $\Omega$, the germs obtained by continuing the initial germ define a covering of $\Omega$ by its continuation surface. The path-lifting and homotopy-lifting properties of a covering imply that homotopic paths with fixed endpoints have lifts with the same endpoint. In a simply connected domain every loop is homotopic, with base point fixed, to the constant loop. Its lift therefore ends at the starting germ, which is the asserted conclusion. This argument uses the covering and homotopy properties of analytic continuation; it does not require the space of all germs to be discrete.
 \end{proof}
 
 The key insight is that analytic continuation is a \emph{local-to-global} principle: the local uniqueness of analytic functions (the identity theorem) forces global consistency when the domain has no holes.

@@ -302,14 +302,14 @@ This separation---between the axiomatic definition of ``straight line'' and the 
 Riemannian geometry measures lengths using an inner product on tangent spaces. Paul Finsler, in his 1918 thesis, generalized this further. A \textbf{Finsler metric} replaces the inner product with a more general \emph{norm} on each tangent space.
 
 \begin{definition}
-A \textbf{Finsler metric} on a manifold $M$ is a function $F : TM \to [0,\infty)$ (where $TM$ is the tangent bundle) satisfying:
+A (smooth, strongly convex) \textbf{Finsler metric} on a manifold $M$ is a function $F : TM \to [0,\infty)$ (where $TM$ is the tangent bundle) satisfying:
 \begin{enumerate}
-    \item \textbf{Positive homogeneity:} $F(\lambda v) = |\lambda| \, F(v)$ for all $\lambda \in \mathbb{R}$ and tangent vectors $v$.
+    \item \textbf{Positive homogeneity:} $F(\lambda v) = \lambda \, F(v)$ for all $\lambda > 0$ and tangent vectors $v$.
     \item \textbf{Strong convexity:} The function $v \mapsto F(v)^2$ is smooth and its Hessian is positive definite away from the zero section.
 \end{enumerate}
 \end{definition}
 
-Every Riemannian metric is a Finsler metric (take $F(v) = \sqrt{g(v,v)}$), but Finsler metrics are more general. A simple example is the \emph{taxicab norm} on $\mathbb{R}^2$: $F(v) = |v_1| + |v_2|$. In Finsler geometry, the shortest path depends not only on where you are but also on the direction you are traveling. This makes Finsler geometry natural for modeling anisotropic media.
+Every Riemannian metric is a Finsler metric (take $F(v) = \sqrt{g(v,v)}$), but Finsler metrics are more general and need not be reversible: in general $F(v)$ need not equal $F(-v)$. The taxicab norm $F(v)=|v_1|+|v_2|$ illustrates a nonsmooth, non-strictly-convex length structure, but it is not a smooth, strongly convex Finsler metric under the definition above. Finsler geometry models direction-dependent lengths, including anisotropic media.
 
 The geodesic equation also generalizes. In Riemannian geometry the Christoffel symbols depend only on position; in Finsler geometry they depend on velocity as well. The Finsler geodesic equation is
 \[
@@ -340,11 +340,11 @@ The problem is best treated as a family of classification questions: several sub
 
 The mathematics of shortest paths is not merely abstract. In 1915, Albert Einstein formulated his general theory of relativity, which describes gravity as the curvature of spacetime. In this theory, massive objects curve the four-dimensional spacetime manifold, and freely falling particles move along \emph{timelike geodesics} of this curved spacetime.
 
-The geodesic equation in general relativity is formally identical to the one in Riemannian geometry:
+The geodesic equation in general relativity has the same coordinate form as the Riemannian geodesic equation, but spacetime carries a \emph{Lorentzian} (pseudo-Riemannian), not positive-definite Riemannian, metric:
 \[
 \frac{d^2 x^\mu}{d\tau^2} + \Gamma^\mu_{\nu\rho}\,\frac{dx^\nu}{d\tau}\frac{dx^\rho}{d\tau} = 0,
 \]
-where $\tau$ is proper time along the particle's worldline and the Christoffel symbols $\Gamma^\mu_{\nu\rho}$ are computed from the spacetime metric $g_{\mu\nu}$, which satisfies Einstein's field equations.
+where $\tau$ is an affine parameter (proper time for a massive particle) and the Christoffel symbols $\Gamma^\mu_{\nu\rho}$ are computed from the spacetime metric $g_{\mu\nu}$, which satisfies Einstein's field equations. Timelike geodesics locally extremize proper time; they are not generally shortest paths in a positive-definite metric.
 
 \begin{example}[Light deflection by the Sun]
 One of the classic tests of general relativity is the bending of starlight by the Sun's gravitational field. Light follows \emph{null geodesics} ($ds^2 = 0$) through curved spacetime. Near the Sun, the spacetime metric is approximately the Schwarzschild metric
@@ -393,7 +393,7 @@ No. On a sphere, two antipodal points are connected by infinitely many great-cir
     \item A \emph{geodesic} is a curve that is locally the shortest path between its endpoints.
     \item In Euclidean space with the standard metric, geodesics are straight lines. In other geometries (spherical, hyperbolic, Finsler), geodesics can be curves.
     \item The Hopf--Rinow theorem guarantees that geodesics exist between any two points in a complete Riemannian manifold.
-    \item The problem connects to Finsler geometry, which generalizes Riemannian geometry by allowing asymmetric and non-smooth metrics.
+    \item The problem connects to Finsler geometry, which generalizes Riemannian geometry through direction-dependent norms; the regular Finsler definition imposes smoothness and strong convexity away from zero.
     \item Many precise versions have substantial solutions, but there is no single classification covering every broad interpretation of Hilbert's question.
 \end{enumerate}
 
@@ -427,7 +427,7 @@ No. On a sphere, two antipodal points are connected by infinitely many great-cir
     \begin{enumerate}
         \item Verify the three metric axioms.
         \item Is this metric complete? (A metric space is \emph{complete} if every Cauchy sequence converges.)
-        \item Can you find a bijection from $((0,\infty), d)$ to $(\mathbb{R}, d_E)$ that is an isometry?
+        \item The map $x \mapsto 1/x$ is an isometry from this space onto $(0,\infty)$ with its usual metric. Use this to show that the space is incomplete and cannot be isometric to the complete metric space $\mathbb{R}$.
     \end{enumerate}
 
     \item \textbf{Geodesics in hyperbolic space.} In the Poincar\'e disk model of the hyperbolic plane, the metric is
@@ -436,7 +436,7 @@ No. On a sphere, two antipodal points are connected by infinitely many great-cir
     \]
     Show that geodesics through the origin are straight line segments. (Geodesics \emph{not} through the origin are arcs of circles perpendicular to the boundary circle $x^2 + y^2 = 1$.)
 
-    \item $\star$ \textbf{Finsler metric from a norm.} Let $\|\cdot\|$ be any norm on $\mathbb{R}^n$. Define $F : \mathbb{R}^n \to [0,\infty)$ by $F(v) = \|v\|$. Verify that $F$ defines a Finsler metric on $\mathbb{R}^n$. What are the geodesics in this case? (Hint: they are straight lines, but parameterized proportionally to arc length.)
+    \item $\star$ \textbf{A smooth Finsler metric.} On $\mathbb{R}^2$, set $F(v_1,v_2)=\sqrt{v_1^2+v_2^2}+\tfrac12 v_1$. Check positive homogeneity and note that $F(v)\neq F(-v)$ in general. This is a (non-reversible) Randers norm; its translation-invariant geodesics are straight lines, parametrized at constant Finsler speed.
 
     \item \textbf{Shortest path in the supremum metric.} In the supremum metric $d_\infty(x,y) = \max\{|x_1-y_1|,|x_2-y_2|\}$ on $\mathbb{R}^2$, describe all shortest paths from $(0,0)$ to $(1,1)$. Draw the ``unit sphere'' for this metric. How many shortest paths are there?
 

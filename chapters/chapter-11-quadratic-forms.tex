@@ -129,7 +129,7 @@ We say that a quadratic form $Q$ over $K$ \textbf{represents zero locally} if $Q
 
 \begin{theorem}[Hasse--Minkowski]
 \label{thm:hasse-minkowski}
-Let $K$ be a number field and let $Q$ be a quadratic form over $K$ in $n \ge 3$ variables. Then $Q$ represents zero over $K$ (has a non-trivial zero in $K^n$) if and only if $Q$ represents zero over $K_v$ for every place $v$ of $K$.
+Let $K$ be a number field and let $Q$ be a quadratic form over $K$. Then $Q$ is isotropic over $K$ (has a non-trivial zero) if and only if it is isotropic over every completion $K_v$ of $K$. More generally, two quadratic forms over $K$ are isometric if and only if they are isometric over every $K_v$.
 \end{theorem}
 
 In symbols:
@@ -142,7 +142,7 @@ In symbols:
 This is the \textbf{local--global principle}: global representability is equivalent to local representability at every place. The theorem is notable because it says that \emph{there are no hidden global obstructions}: if a form behaves well at every prime and at infinity, it behaves well globally.
 
 \begin{remark}
-The condition $n \ge 3$ (at least three variables) is essential. For binary quadratic forms ($n = 2$), the local--global principle can fail. For example, the form $3x^2 + 2y^2$ represents zero locally at every place of $\mathbb{Q}$ but does not represent zero non-trivially over $\mathbb{Q}$. (The failure is subtle and involves the interaction of the discriminant with the class group.)
+There is no such dimension restriction for isotropy over a number field. In the binary case, isotropy reduces to whether the negative discriminant is a square, and the local-to-global principle for squares gives the same conclusion. For example, $3x^2+2y^2=0$ is not a counterexample: it has no non-trivial solution over $\mathbb{Q}_2$, since $-6$ has odd $2$-adic valuation and hence is not a square there.
 \end{remark}
 
 \subsubsection{Why the Local--Global Principle Is Deep}
@@ -182,7 +182,7 @@ A key concept in the modern theory is that of \textbf{Pfister forms}. A Pfister 
 \]
 where $\langle 1, -a_i \rangle$ denotes the binary form $x^2 - a_i y^2$. Pfister forms are multiplicative: the product of two Pfister forms is again a Pfister form (up to equivalence). They play a role analogous to that of prime numbers in the multiplicative structure of $\mathbb{Z}$: every quadratic form over $K$ can be ``decomposed'' in terms of Pfister forms.
 
-The theorem of Arason and Pfister (1972) shows that Pfister forms are precisely the forms that vanish on the \textbf{fundamental ideal} of the Witt ring---they are the ``atoms'' from which the Witt ring is built.
+The Arason--Pfister Hauptsatz gives a dimension bound: an anisotropic quadratic form in the $n$th power $I^n$ of the fundamental ideal of the Witt ring has dimension at least $2^n$, with equality forcing it to be similar to an $n$-fold Pfister form. Pfister forms are important building blocks, but an arbitrary quadratic form is not simply a Pfister form.
 
 \subsection{Quadratic Forms over General Number Fields}
 
@@ -217,7 +217,7 @@ However, the full classification of quadratic forms over rings of algebraic inte
 The local--global principle says that for certain problems, a solution exists over a number field $K$ (the ``global'' field) if and only if solutions exist over every completion of $K$ (the ``local'' fields). The completions are $\mathbb{R}$ (or $\mathbb{C}$) at the infinite place and the $p$-adic fields $K_\mathfrak{p}$ at each prime ideal. For a concrete example: take $Q(x,y,z) = x^2 + y^2 - 2z^2$ over $\mathbb{Q}$. To check locally, we ask: (1) Over $\mathbb{R}$, is the form indefinite? Yes, because $1^2 + 0^2 - 2\cdot 0^2 > 0$ and $0^2 + 0^2 - 2\cdot 1^2 < 0$, so there is a nontrivial real zero. (2) Over each $\mathbb{Q}_p$, does $x^2 + y^2 \equiv 2z^2 \pmod{p}$ have a non-trivial solution? The Hasse--Minkowski theorem guarantees that if all local checks pass, a global rational solution exists---and indeed $1^2 + 1^2 = 2\cdot 1^2$ gives $(1,1,1)$ globally.
 
 \item[Q: Why is the $n=2$ case special in the Hasse--Minkowski theorem?]\hfill\\
-The Hasse--Minkowski theorem requires $n \ge 3$ variables. For binary quadratic forms ($n=2$), the local--global principle can fail. For example, $3x^2 + 2y^2$ represents zero locally at every place of $\mathbb{Q}$ but does \emph{not} represent zero nontrivially over $\mathbb{Q}$. The obstruction is tied to the class group: for binary forms, the condition for representing zero involves not just local solvability but also the behavior of the discriminant in the class group. In cohomological terms, the failure is measured by the Tate--Shafarevich group of a certain algebraic torus. This is why the theorem explicitly requires $n \ge 3$.
+The local--global theorem for isotropy also covers binary forms over number fields. For $3x^2+2y^2$, isotropy would require $-6$ to be a square in the field; it is not even a square in $\mathbb{Q}_2$, so this example fails the local hypothesis. Local--global failures do occur for other arithmetic representation problems, especially integral representation, but they should not be confused with Hasse--Minkowski isotropy over a number field.
 
 \item[Q: How do quadratic forms relate to the geometry of conic sections?]\hfill\\
 A quadratic form in three variables $Q(x,y,z) = 0$ is precisely the equation of a conic in projective space. Over $\mathbb{R}$, the classification of conics (ellipses, parabolas, hyperbolas) corresponds to the signature of the quadratic form: positive definite (ellipse), degenerate (parabola), or indefinite (hyperbola). The Hasse--Minkowski theorem therefore tells us exactly when a conic over $\mathbb{Q}$ has a rational point: it must have a real point and a $p$-adic point for every prime $p$. This is a complete solution to the ancient problem of finding rational points on conics, which goes back to Diophantus and Fermat.
@@ -226,7 +226,7 @@ A quadratic form in three variables $Q(x,y,z) = 0$ is precisely the equation of 
 The Witt ring $W(K)$ is the algebraic structure that organizes all quadratic forms over a field $K$. Its elements are equivalence classes of forms, addition is orthogonal sum ($Q_1 \perp Q_2$), and multiplication is tensor product. The Witt ring captures fundamental invariants: the signature (for real embeddings), the discriminant, and the Hasse--Witt invariant. Understanding $W(K)$ for a number field $K$ is equivalent to understanding the classification problem Hilbert posed. It connects quadratic forms to Galois cohomology, K-theory, and the Brauer group, making it a central object in arithmetic geometry.
 
 \item[Q: What does ``a form represents zero'' mean, and why is that the central question?]\hfill\\
-A quadratic form $Q$ \emph{represents zero} if there exists a nontrivial vector $(x_1,\ldots,x_n)$ (not all zero) such that $Q(x_1,\ldots,x_n) = 0$. This is the most basic question about a form because once you know which forms represent zero, you can often understand representation of arbitrary values. For example, if $Q$ represents $c$ (i.e., $Q(x) = c$), then the form $Q(x) - c x_{n+1}^2$ in one more variable represents zero. The Hasse--Minkowski theorem gives a complete answer for $n \ge 3$: local solvability implies global solvability. This is why the problem of representing zero is the central question in the theory.
+A quadratic form $Q$ \emph{represents zero} if there exists a nontrivial vector $(x_1,\ldots,x_n)$ (not all zero) such that $Q(x_1,\ldots,x_n)=0$. This is the most basic field-level question about a form because it is governed by the Hasse--Minkowski theorem: over a number field, local isotropy at every completion is equivalent to global isotropy. Integral representation of a specified integer is a different, finer problem.
 
 \item[Q: What's the difference between a quadratic form over $\mathbb{Z}$ and over $\mathbb{Q}$?]\hfill\\
 Over $\mathbb{Q}$, the classification is coarser and simpler because you can scale variables freely. The Hasse--Minkowski theorem gives a complete local--global classification of forms over $\mathbb{Q}$ (and over any number field). Over $\mathbb{Z}$, the problem is much finer: you care about \emph{integer} solutions, not rational ones, and scaling is not allowed. The theory of integer quadratic forms includes Gauss's genus theory, the study of class numbers, and the representation of specific integers by specific forms. Lagrange's four-square theorem ($n = a^2 + b^2 + c^2 + d^2$) is an integer result. Moving from $\mathbb{Q}$ to $\mathbb{Z}$ is like moving from solving an equation to solving it with restricted resources.

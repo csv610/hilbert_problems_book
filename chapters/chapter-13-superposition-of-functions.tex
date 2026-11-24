@@ -1,0 +1,62 @@
+% ============================================================
+% Chapter 13: Problem 13 — Superposition of Functions
+% ============================================================
+
+\chapter{Superposition of Functions}
+
+\begin{solvedbox}
+In its continuous formulation, Hilbert's thirteenth problem has a positive answer. The Kolmogorov--Arnold superposition theorem represents every continuous function of finitely many real variables using continuous functions of one variable and addition. The algebraic-function version is a different question and remains open.
+\end{solvedbox}
+
+\section{Historical Context}
+
+Hilbert's thirteenth problem grew out of the general seventh-degree equation
+\[
+ x^7+a_1x^6+a_2x^5+a_3x^4+a_4x^3+a_5x^2+a_6x+a_7=0.
+\]
+He asked whether its roots could be expressed by superposing continuous functions of at most two variables. This was not the same as asking for a formula by arithmetic operations and radicals. The Abel--Ruffini theorem had already shown that the general equation of degree five or more has no solution by radicals.
+
+The distinction is essential: allowing arbitrary continuous functions gives a much broader class of operations than allowing radicals. Hilbert's question therefore belongs to the theory of representations of multivariable functions, not to the classification of solvable Galois groups.
+
+\section{The Problem}
+
+\begin{problem_statement}[Hilbert's Thirteenth Problem]
+Can every root of the general equation of degree seven be represented by a finite superposition of continuous functions of at most two variables?
+\end{problem_statement}
+
+In modern terms, the central continuous-function question is whether every continuous function of several variables can be built from continuous functions of one or two variables by composition. The precise formulation involves continuous functions chosen independently of the particular target function, together with outer functions that encode the target.
+
+\section{The Kolmogorov--Arnold Theorem}
+
+The decisive result is the superposition theorem of Andrey Kolmogorov and Vladimir Arnold. One standard form says that for every integer $n\geq 2$, there are continuous functions $\psi_{q,p}:[0,1]\to\mathbb{R}$, depending only on $n$, such that every continuous $f:[0,1]^n\to\mathbb{R}$ can be written
+\[
+ f(x_1,\ldots,x_n)=\sum_{q=0}^{2n}\Phi_q\!\left(\sum_{p=1}^{n}\psi_{q,p}(x_p)\right),
+\]
+for suitable continuous one-variable functions $\Phi_q$ depending on $f$. Thus multivariable continuous functions can be represented by finite compositions and sums of one-variable continuous functions. In particular, the continuous superposition problem posed by Hilbert has an affirmative answer.
+
+The representation theorem is an existence result. The functions in a representation need not be differentiable, and the theorem does not promise a numerically stable or economical formula. It should not be read as a practical algorithm for evaluating arbitrary multivariable functions.
+
+\section{What Was and Was Not Solved}
+
+The continuous version is solved, through work of Kolmogorov (1957) and Arnold (1957). A separate algebraic variant asks whether roots of the general seventh-degree equation can be expressed by superpositions of algebraic functions of two variables. The continuous representation theorem does not settle that algebraic question, which remains open.
+
+Solvability by radicals is another distinct issue. The general degree-seven polynomial has Galois group $S_7$, which is not solvable, so its roots cannot in general be expressed by radicals. That classical obstruction neither proves nor disproves representability by arbitrary continuous functions.
+
+\section{Common Questions}
+
+\begin{description}
+\item[Q: Does the theorem give an explicit formula for the roots?]\hfill\\
+No. It establishes existence of a superposition representation for continuous functions. It is not a radical formula or an efficient root-finding method.
+
+\item[Q: Is Hilbert's problem completely solved?]\hfill\\
+The continuous formulation has a positive solution. The distinct algebraic-function formulation remains open, so statements about the problem's status should specify which formulation is meant.
+\end{description}
+
+\section{Key Takeaways}
+
+\begin{itemize}
+    \item Hilbert 13 concerns representation by superpositions of functions, not simply solving a polynomial by radicals.
+    \item Kolmogorov and Arnold proved the continuous superposition theorem in 1957.
+    \item The theorem is existential and does not guarantee smoothness, numerical stability, or a practical algorithm.
+    \item The algebraic-function version remains open; the general seventh-degree equation is separately unsolvable by radicals.
+\end{itemize}

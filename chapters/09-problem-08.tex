@@ -1,11 +1,11 @@
 % ============================================================
-% Chapter 9: Hilbert's Problem 8 — The Goldbach Conjecture
+% Chapter 9: Hilbert's Problem 8 — The Riemann Hypothesis and Goldbach
 % ============================================================
 
-\chapter{The Goldbach Conjecture}
+\chapter{The Riemann Hypothesis and the Goldbach Conjecture}
 
 \begin{unsolvedbox}
-The Goldbach Conjecture (binary version) is \textbf{unsolved}. It has been verified computationally for all even integers up to $4 \times 10^{18}$, and the related ternary version was proved by Helfgott in 2013, but no general proof of the binary conjecture is known.
+Hilbert's eighth problem has two principal parts. The Riemann Hypothesis and the binary Goldbach Conjecture both remain open. The ternary Goldbach Conjecture was proved by Helfgott in 2013, and the binary conjecture has been verified computationally through the published verification bound discussed below.
 \end{unsolvedbox}
 
 % ------------------------------------------------------------
@@ -69,6 +69,15 @@ The Prime Number Theorem tells us that a ``random'' large integer $n$ has probab
 % ------------------------------------------------------------
 \section{The Problem}
 % ------------------------------------------------------------
+
+Hilbert's eighth problem also includes the Riemann Hypothesis.
+
+\begin{problem_statement}[Riemann Hypothesis]
+Every nontrivial zero of the analytically continued Riemann zeta function
+$\zeta(s)$ has real part $\operatorname{Re}(s)=\tfrac12$.
+\end{problem_statement}
+
+The Riemann Hypothesis remains open. It is one of the Clay Millennium Prize Problems and is closely connected with the error term in the distribution of prime numbers. It should not be confused with the Prime Number Theorem: the latter is known and only requires that $\zeta(s)$ have no zeros on the line $\operatorname{Re}(s)=1$.
 
 \begin{problem_statement}[Goldbach's Conjecture, 1742]
 Every even integer $n > 2$ can be expressed as the sum of two primes. That is, for every even $n > 2$, there exist primes $p$ and $q$ such that
@@ -176,10 +185,10 @@ Helfgott's proof is notable not only for its mathematical content but also for i
 The ternary Goldbach Conjecture is therefore \emph{solved}. But the binary Goldbach Conjecture---the original problem posed by Goldbach---remains wide open.
 
 % ------------------------------------------------------------
-\section{Current Status: Unsolved}
+\section{Current Status: Both Principal Parts Remain Open}
 % ------------------------------------------------------------
 
-The binary Goldbach Conjecture remains one of the most famous unsolved problems in mathematics. As of this writing:
+The two principal parts of Hilbert's eighth problem remain open. For Goldbach:
 
 \begin{itemize}
     \item The conjecture has been verified computationally for all even integers up to $4 \times 10^{18}$, with no counterexample found.
@@ -187,6 +196,8 @@ The binary Goldbach Conjecture remains one of the most famous unsolved problems 
     \item The ternary Goldbach Conjecture was proved by Helfgott (2013), but this does not resolve the binary case.
     \item No proof strategy is known that would definitively settle the conjecture.
 \end{itemize}
+
+For the Riemann Hypothesis, extensive numerical evidence and many partial results are known, but no proof or disproof has been established.
 
 The difficulty is fundamentally about the limitations of current analytic methods. The circle method works beautifully for three or more variables, where the major arcs dominate and the error terms can be controlled. But for two variables, the minor arcs contribute too much, and the method falls short. New ideas---perhaps from additive combinatorics, the theory of exponential sums, or entirely new directions---may be needed.
 

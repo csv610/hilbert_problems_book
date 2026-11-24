@@ -2,11 +2,11 @@
 % Chapter 22: Hilbert's Problem 21 — The Monodromy Theorem
 % ============================================================
 
-\chapter{The Monodromy Theorem}
+\chapter{The Riemann--Hilbert Existence Problem}
 
-\begin{solvedbox}
-\textbf{Solved.} Hilbert's twenty-first problem asked for a proof of the \emph{monodromy theorem}---that a function analytically continued along paths in a simply connected domain always returns to its original value---and its extension to more general situations. The theorem was proved in the late nineteenth century by Poincar\'e and others, and it has since become a standard result in complex analysis. Its modern formulation, cast in the language of covering spaces and the fundamental group, is a standard part of the graduate curriculum and a bridge between analysis and topology.
-\end{solvedbox}
+\begin{partiallybox}
+Hilbert's twenty-first problem asks for a Fuchsian linear differential equation with prescribed singular points and prescribed monodromy representation. The problem has a positive solution in important formulations, but the naive assertion for every prescribed representation is false: counterexamples to the scalar Fuchsian form were found by Bolibrukh. The modern theory distinguishes solvable generalized systems from the more restrictive Fuchsian realization problem.
+\end{partiallybox}
 
 % ------------------------------------------------------------
 \section{Historical Context}
@@ -49,8 +49,10 @@ Hilbert, in his 1900 address, saw the monodromy theorem as a problem that deserv
 % ------------------------------------------------------------
 
 \begin{problem_statement}[Hilbert's Twenty-First Problem]
-Prove the monodromy theorem: that a function element, analytically continued along all possible paths in a simply connected domain, returns to its original value at the starting point. Extend this result to more general domains, where the behavior of continuation is governed by the topology of the domain.
+Given distinct singular points on the Riemann sphere and a prescribed finite-dimensional representation of the fundamental group of their complement, prove the existence of a Fuchsian linear differential equation having those singularities and that monodromy representation.
 \end{problem_statement}
+
+This is the Riemann--Hilbert problem. The monodromy theorem discussed below is useful background about analytic continuation, but it is not the statement of Hilbert's twenty-first problem.
 
 Let us unpack the key concepts.
 
@@ -217,12 +219,12 @@ The monodromy theorem has applications throughout mathematics:
 \end{itemize}
 
 % ------------------------------------------------------------
-\section{Current Status: Solved}
+\section{Current Status: Partially Resolved}
 % ------------------------------------------------------------
 
-\begin{solvedbox}
-The monodromy theorem is \textbf{fully solved} in its classical form. The theorem for simply connected domains follows from basic topology (the triviality of the fundamental group), and the general theory of monodromy representations is a standard part of modern complex analysis and algebraic topology. The theorem has been extended in many directions: to several complex variables, to algebraic geometry (via the Riemann--Hilbert correspondence), and to the theory of perverse sheaves. The original problem posed by Hilbert has been comprehensively answered.
-\end{solvedbox}
+\begin{partiallybox}
+The original Riemann--Hilbert existence problem is \textbf{partially resolved}. Generalized regular-singular systems can be constructed from suitable monodromy data, and the Riemann--Hilbert correspondence gives a powerful modern framework. However, not every representation is realized by a Fuchsian system in the restrictive form originally requested; this is the source of the classical counterexamples. The monodromy theorem itself is a separate, standard theorem of complex analysis.
+\end{partiallybox}
 
 % ------------------------------------------------------------
 \section*{Common Questions}

@@ -19,7 +19,7 @@ By the nineteenth century, enumerative geometry had become a thriving discipline
 
     \item \textbf{How many conics are tangent to five given conics in the plane?} The answer, found by Georges--Henri Beauville and others, is~\textbf{3264}. This number arises from a careful intersection-theoretic computation on a suitable parameter space.
 
-    \item \textbf{How many straight lines pass through exactly 4 of 10 general points in $\mathbb{P}^3$?} The answer is~\textbf{1}. Such questions about configurations of points and lines pervade classical geometry.
+    \item \textbf{How many lines in $\mathbb{P}^3$ meet four general given lines?} The answer is~\textbf{2}. Such questions about configurations of points and lines pervade classical geometry.
 \end{itemize}
 
 But how does one \emph{prove} that these numbers are correct? For the 27 lines, one can verify the answer by direct computation. But for harder problems---like counting the conics tangent to five conics---direct enumeration is impractical. What is needed is a \emph{systematic theory}: a calculus for computing intersection numbers on parameter spaces.
@@ -38,7 +38,7 @@ Give a rigorous foundation to Schubert's enumerative calculus---that is, develop
 
 Hilbert was not asking for a computation of any specific number. He was asking for \emph{foundations}: a framework in which Schubert's intuitive arguments could be placed on rigorous footing, and in which new enumerative problems could be attacked systematically. This is a question about the \emph{structure} of intersection theory on algebraic varieties.
 
-To appreciate the scope of this request, consider what Schubert needed. The \textbf{Grassmannian} $\Gr(k, n)$ is the space of all $k$-dimensional linear subspaces of an $n$-dimensional vector space. For example, $\Gr(1, 3)$---the space of lines through the origin in $\mathbb{R}^3$---is the real projective plane $\mathbb{P}^2$. The Grassmannian is a smooth projective algebraic variety, and enumerative questions like ``how many lines lie on a cubic surface?'' translate into questions about \emph{intersection numbers} on $\Gr(k, n)$.
+To appreciate the scope of this request, consider what Schubert needed. The \textbf{Grassmannian} $\Gr(k, n)$ is the space of all $k$-dimensional linear subspaces of an $n$-dimensional vector space. For example, $\Gr(1, 3)$---the space of one-dimensional subspaces of $\mathbb{R}^3$---is the real projective plane $\mathbb{P}^2$. Lines in projective $3$-space are parameterized by $\Gr(2,4)$. The Grassmannian is a smooth projective algebraic variety, and enumerative questions like ``how many lines lie on a cubic surface?'' translate into questions about \emph{intersection numbers} on $\Gr(k, n)$.
 
 Schubert introduced special subvarieties of the Grassmannian---now called \textbf{Schubert varieties}---corresponding to subspaces that satisfy certain position conditions with respect to a fixed sequence of nested subspaces (a \textbf{flag}). These subvarieties have natural classes in the cohomology of the Grassmannian, and Schubert's ``calculus'' amounts to computing products of these classes. Hilbert wanted this computation justified.
 
@@ -83,7 +83,7 @@ The sequence $\sigma = (a_1, \ldots, a_k)$ is called a \textbf{partition} fittin
 \label{fig:young-diagram}
 \end{figure}
 
-Each Schubert variety $\Sigma_\sigma$ has dimension $|\sigma| = a_1 + a_2 + \cdots + a_k$, and its \textbf{cohomology class} $[\Sigma_\sigma] \in H^{2(k(n-k) - |\sigma|)}(\Gr(k,n))$ is independent of the choice of flag (for generic flags). The collection of these classes forms a $\mathbb{Z}$-basis for the cohomology ring:
+Each Schubert variety $\Sigma_\sigma$ has codimension $|\sigma| = a_1 + a_2 + \cdots + a_k$, hence dimension $k(n-k)-|\sigma|$. Its \textbf{cohomology class} $[\Sigma_\sigma]$ lies in $H^{2|\sigma|}(\Gr(k,n))$ and is independent of the choice of flag (for generic flags). The collection of these classes forms a $\mathbb{Z}$-basis for the cohomology ring:
 
 \begin{theorem}\label{thm:schubert-basis}
 The cohomology ring $H^*(\Gr(k,n), \mathbb{Z})$ is freely generated as a $\mathbb{Z}$-module by the Schubert classes $\sigma_\lambda$ indexed by partitions $\lambda$ fitting inside a $k \times (n-k)$ box:
@@ -112,7 +112,7 @@ While the Grassmannian is the most classical setting for Schubert calculus, Hilb
 Let $X$ be a smooth variety, and let $V$ and $W$ be subvarieties of $X$ meeting properly (i.e., every irreducible component of $V \cap W$ has codimension in $X$ equal to $\codim V + \codim W$). The \textbf{intersection multiplicity} of $V$ and $W$ at a component $Z$ of $V \cap W$ is a local integer $\operatorname{mult}_Z(V, W)$ that generalizes the familiar notion from Bézout's theorem.
 \end{definition}
 
-Fulton's \emph{Intersection Theory} (1984) provides a complete and rigorous foundation:
+Fulton's \emph{Intersection Theory} (1984), together with the development of Chow groups and refined Gysin maps, provides a rigorous foundation:
 
 \begin{itemize}
     \item For any pair of subvarieties $V, W$ of a smooth variety $X$ meeting properly, there is a well-defined \textbf{intersection product}
@@ -121,9 +121,9 @@ Fulton's \emph{Intersection Theory} (1984) provides a complete and rigorous foun
     \]
     in the Chow ring $A_*(X)$ of $X$, satisfying all the expected properties (linearity, symmetry, projection formula, etc.).
 
-    \item The theory extends to \textbf{singular} varieties via \textbf{resolution of singularities}: one pulls back to a smooth ambient space and computes there.
+    \item Singular varieties are handled directly using Chow groups, operational Chow rings, and refined intersection constructions; resolution of singularities is not a general substitute for a theory of intersections on singular spaces.
 
-    \item Fulton and MacPherson developed a \textbf{refined intersection product} on the Chow ring of singular varieties, allowing intersection-theoretic computations even when the varieties are not smooth.
+    \item Refined intersection products and bivariant theories organize the pullback, pushforward, and excess-intersection operations needed beyond the smooth proper-intersection case.
 \end{itemize}
 
 This framework gives Hilbert's fifteenth problem a satisfying answer: Schubert's calculus is a special case of Fulton's intersection theory applied to the Grassmannian. Every intersection number that Schubert computed (and many he could not) can be rigorously justified within this framework.
@@ -184,11 +184,11 @@ Beyond mirror symmetry, the landscape of enumerative geometry continues to expan
 \end{itemize}
 
 % ------------------------------------------------------------
-\section{Current Status: Partially Solved}
+\section{Current Status: Substantially Solved, with an Ongoing Program}
 % ------------------------------------------------------------
 
 \begin{partiallybox}
-Hilbert's fifteenth problem is \textbf{partially solved}. The foundational question---giving a rigorous theory of intersection numbers on algebraic varieties---was answered definitively by Fulton and MacPherson in the 1980s. Schubert calculus on the Grassmannian is fully understood via the Littlewood--Richardson rule, Schubert polynomials, and the cohomology of flag varieties. Quantum cohomology and Gromov--Witten theory extend enumerative geometry to curve-counting problems, with mirror symmetry providing powerful computational tools. However, many enumerative questions remain open or only partially answered: higher-genus curve counting, enumerative geometry over non-algebraically-closed fields, and the search for a unified foundation that encompasses all known intersection-theoretic frameworks are active areas of research. The spirit of Hilbert's challenge---to understand the structure behind counting solutions to geometric problems---continues to drive modern mathematics.
+Hilbert's fifteenth problem is \textbf{substantially solved in its foundational form}. The rigorous theory of intersection numbers and Schubert calculus is established through Chow rings, cohomology, Chern classes, and the Littlewood--Richardson rule. Quantum cohomology and Gromov--Witten theory extend enumerative geometry to curve-counting problems. Many broader enumerative questions remain active, including higher-genus counting and arithmetic enumerative geometry, so the research program inspired by Hilbert continues.
 \end{partiallybox}
 
 % ------------------------------------------------------------

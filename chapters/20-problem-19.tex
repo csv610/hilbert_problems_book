@@ -5,9 +5,9 @@
 \chapter{Regularity of Solutions of Differential Equations}
 \label{ch:problem-19}
 
-\begin{partiallybox}
-Hilbert's nineteenth problem asked whether solutions to regular problems in the calculus of variations are necessarily analytic functions. The answer, developed over the twentieth century, is one of the most significant chapters in the theory of partial differential equations. For \emph{elliptic} equations with smooth coefficients, solutions are indeed analytic (Bernstein, 1904; later generalizations). For equations with merely measurable coefficients, De Giorgi and Nash proved in the 1950s that solutions are at least H\"older continuous---a notable result, but far from analyticity. Regularity theory for minimal surfaces and other geometric variational problems has been developed extensively, yet complete regularity in the most general settings remains an open frontier. Hilbert's problem is therefore \textbf{partially solved}: we understand a great deal, but the full picture is not yet in hand.
-\end{partiallybox}
+\begin{solvedbox}
+Hilbert's nineteenth problem is \textbf{solved in its original regular setting}: minimizers of regular analytic variational problems are analytic in the interior. Modern elliptic regularity also explains what can fail when the coefficients are only smooth, measurable, or otherwise outside Hilbert's hypotheses. Broader regularity questions for degenerate, nonlinear, or singular problems remain active, but they should be distinguished from the original question.
+\end{solvedbox}
 
 % ------------------------------------------------------------
 \section{Historical Context}
@@ -119,7 +119,7 @@ In 1956--57, Ennio De Giorgi and John Nash independently proved one of the most 
 \begin{theorem}[De Giorgi, 1956; Nash, 1957]\label{thm:de-giorgi-nash}
 Let $u$ be a weak solution of a second-order elliptic equation
 \[
-    \sum_{i,j=1}^n a^{ij}(x) \, u_{x_i x_j} = 0
+    \sum_{i,j=1}^n \frac{\partial}{\partial x_i}\left(a^{ij}(x) \, u_{x_j}\right) = 0
 \]
 in a domain $\Omega \subset \mathbb{R}^n$, where the coefficients $a^{ij}(x)$ are bounded and measurable, and the equation is uniformly elliptic (i.e., there exist $\lambda, \Lambda > 0$ such that $\lambda |\xi|^2 \leq \sum a^{ij} \xi_i \xi_j \leq \Lambda |\xi|^2$ for all $\xi$). Then $u$ is \textbf{H\"older continuous}: there exist $\alpha \in (0, 1)$ and $C > 0$ such that
 \[
@@ -172,8 +172,8 @@ This result is the geometric analogue of Bernstein's theorem: it says that the s
 \section{Current Status}
 % ------------------------------------------------------------
 
-\begin{partiallybox}
-Hilbert's nineteenth problem is \textbf{partially solved}. The regularity theory for elliptic and parabolic PDEs is one of the significant achievements of twentieth-century mathematics, and its core is well understood:
+\begin{solvedbox}
+Hilbert's nineteenth problem is \textbf{solved in its original formulation}. The regularity theory for elliptic PDEs explains why analytic data and ellipticity force analytic interior solutions, while the De Giorgi--Nash and Schauder theories describe weaker regularity under weaker hypotheses. Important modern generalizations remain active research, but they do not reopen Hilbert's original regular problem.
 
 \begin{itemize}
     \item \textbf{Analytic coefficients, analytic solutions:} Bernstein's theorem and its generalizations show that elliptic equations with analytic coefficients have analytic solutions. This answers Hilbert's original question in the affirmative, under the hypothesis that the variational problem has analytic data.
@@ -188,7 +188,7 @@ Hilbert's nineteenth problem is \textbf{partially solved}. The regularity theory
 \end{itemize}
 
 The full answer to Hilbert's question, in its most general form, depends on what one means by ``regular problem.'' If the variational problem has analytic data, the answer is yes: solutions are analytic. If the data is merely smooth, solutions are smooth. If the data is merely measurable, solutions are H\"older continuous. The theory has grown far beyond what Hilbert imagined, touching on some of the most significant ideas in modern analysis. But there are still open questions---particularly for nonlinear and degenerate equations---that continue to challenge mathematicians.
-\end{partiallybox}
+\end{solvedbox}
 
 % ------------------------------------------------------------
 \section*{Common Questions}

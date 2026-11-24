@@ -1,8 +1,8 @@
 % ============================================================
-% Chapter 19: Problem 18 — Tessellation of Space
+% Chapter 19: Problem 18 — Space Groups, Tilings, and Sphere Packing
 % ============================================================
 
-\chapter{Tessellation of Space}
+\chapter{Space Groups, Tilings, and Sphere Packing}
 
 % ------------------------------------------------------------
 \begin{figure}[htbp]
@@ -110,23 +110,23 @@ The translational part of $\Gamma$---the set of translations in $\Gamma$---forms
 
 The foundational results in the theory of crystallographic groups are the two theorems of \textbf{Ludwig Bieberbach}, proved in 1910 and 1911.
 
-\begin{theorem}[Bieberbach's First Theorem, 1911]\label{thm:bieberbach-1}
-Let $\Gamma_1$ and $\Gamma_2$ be two crystallographic groups in $\mathbb{R}^n$. If $\Gamma_1$ and $\Gamma_2$ are isomorphic as abstract groups, then their translation lattices are \textbf{commensurable}---that is, there exists a finite-index sublattice of $\Lambda_1$ that is also a finite-index sublattice of $\Lambda_2$.
+\begin{theorem}[Bieberbach's First Theorem, 1910]\label{thm:bieberbach-1}
+Every crystallographic group $\Gamma \subseteq \operatorname{Isom}(\mathbb{R}^n)$ contains a translation subgroup $\Lambda \cong \mathbb{Z}^n$ of finite index. Equivalently, the quotient $\Gamma/\Lambda$ is finite.
 \end{theorem}
 
 This theorem is sometimes stated more precisely: isomorphic crystallographic groups have lattices that are ``almost the same''---they differ by at most a finite amount.
 
-\begin{theorem}[Bieberbach's Second Theorem, 1910]\label{thm:bieberbach-2}
-In each dimension $n$, there are only \textbf{finitely many} crystallographic groups, up to affine equivalence. That is, if $\Gamma_1$ and $\Gamma_2$ are crystallographic groups in $\mathbb{R}^n$ and their translation lattices are isomorphic as abstract lattices (related by an element of $\mathrm{GL}(n, \mathbb{R})$), then $\Gamma_1$ and $\Gamma_2$ are conjugate in the affine group.
+\begin{theorem}[Bieberbach's Second Theorem, 1911]\label{thm:bieberbach-2}
+Every isomorphism between crystallographic groups is induced, after choosing the usual affine realization, by an affine conjugacy. In particular, the translation subgroup is characteristic and is preserved by abstract group isomorphisms.
 \end{theorem}
 
 An equivalent and perhaps more intuitive formulation:
 
 \begin{corollary}\label{cor:bieberbach-finite}
-There are exactly $n$ crystallographic groups in dimension $n$, up to affine equivalence---where ``affine equivalence'' means that two groups are related by an invertible affine map $x \mapsto Mx + b$ with $M \in \mathrm{GL}(n, \mathbb{R})$.
+For each fixed dimension $n$, there are only finitely many crystallographic groups up to affine equivalence.
 \end{corollary}
 
-The number $n$ here refers to the \emph{number of abstract group types} compatible with a given lattice, counted across all lattice equivalence classes. The actual number of \emph{distinct space groups} in a given dimension is much larger and grows rapidly: there are 230 space groups in dimension 3, 1651 in dimension 4, and the counts in higher dimensions are enormous (though still finite).
+The finite number depends on $n$ and is not given by a simple formula such as $n$. There are 230 space groups in dimension 3 and 4895 in dimension 4; the counts in higher dimensions grow rapidly.
 
 Bieberbach's theorems were significant achievements. The second theorem, in particular, settled the question of whether the classification of crystallographic groups terminates: yes, in every dimension, the list is finite. The proof required sophisticated techniques from analysis and topology, and it was not simplified for decades.
 
@@ -134,11 +134,11 @@ Bieberbach's theorems were significant achievements. The second theorem, in part
 
 A key ingredient in the theory is the \textbf{crystallographic restriction}: which finite groups can appear as the point group of a crystallographic group?
 
-\begin{theorem}[Crystallographic Restriction]\label{thm:crystallographic-restriction}
-Let $G$ be a finite subgroup of $\mathrm{GL}(n, \mathbb{Z})$---that is, a finite group of integer matrices. Then the only possible orders of elements of $G$ are $1, 2, 3, 4,$ and $6$.
+\begin{theorem}[Crystallographic Restriction in the Plane]\label{thm:crystallographic-restriction}
+For a two-dimensional lattice, a rotational symmetry of a periodic pattern can have only order $1,2,3,4,$ or $6$. More generally, finite-order elements of $\mathrm{GL}(n,\mathbb{Z})$ can have other orders when $n\geq4$; the allowed orders are constrained by the degrees of cyclotomic polynomials that fit in dimension $n$.
 \end{theorem}
 
-This is a classical result. The proof uses the fact that the characteristic polynomial of an element of $G$ must have integer coefficients and all roots on the unit circle (since the matrix is of finite order). The only cyclotomic polynomials with integer coefficients and degree $\leq n$ that can arise this way correspond to roots of unity of order $1, 2, 3, 4, 6$.
+This is the familiar planar crystallographic restriction. It follows by applying the integer trace condition to a planar rotation: $2\cos(2\pi/m)$ must be an integer, which leaves $m=1,2,3,4,6$.
 
 In two dimensions, this means the only rotational symmetries possible in a wallpaper pattern are by $180^\circ$, $120^\circ$, $90^\circ$, and $60^\circ$---angles of order $2, 3, 4, 6$. This is why the triangular, square, and hexagonal tilings are the only regular ones, and why five-fold symmetry (pentagonal tiling) is impossible in a periodic pattern.
 
@@ -158,17 +158,11 @@ In dimension 3, this program was carried out by Fedorov (1891), Schoenflies (189
 
 In dimension 4, the classification was completed by Plesken and Povolotsky in 1996: there are exactly \textbf{4895} space groups in four dimensions (not 4895 abstract groups, but 4895 distinct conjugacy classes in $\mathrm{Isom}(\mathbb{R}^4)$). The number grows rapidly: in dimension 5, there are over $22{,}000$; in dimension 6, over $23{,}000$; and so on.
 
-\subsection{The Bieberbach Conjecture}
+\subsection{The Three Parts of Hilbert's Eighteenth Problem}
 
-Bieberbach's second theorem asserts that isomorphic crystallographic groups are affine-equivalent---but it does not say \emph{how} to determine when two groups are isomorphic. A natural conjecture arose:
+Hilbert's eighteenth problem was a package of three questions, not only a question about crystallographic groups. The first asks for finiteness of essentially different space groups in each dimension and is answered by Bieberbach's theorems. The second asks whether a polyhedron can tile space by congruent copies without being a fundamental domain for a symmetry group. Reinhardt constructed an anisohedral polyhedron, giving a negative answer to that question.
 
-\begin{conjecture}[Bieberbach Conjecture]\label{conj:bieberbach}
-If two crystallographic groups $\Gamma_1$ and $\Gamma_2$ in $\mathbb{R}^n$ are isomorphic as abstract groups, then their lattices are \emph{isometric}---related by an orthogonal transformation (not merely a general linear transformation).
-\end{conjecture}
-
-This conjecture was proved for $n \leq 3$ long ago. In full generality, it was disproved by \textbf{D.\,A. Dranishnikov} in 1989: he constructed a counterexample in dimension 32, showing that there exist isomorphic crystallographic groups whose lattices are not isometric. The correct statement is that the lattices are commensurable (Bieberbach's first theorem), but they need not be isometric.
-
-The study of when the Bieberbach conjecture does hold---for which dimensions, which classes of groups---remains an active area of research, with connections to the theory of lattices, quadratic forms, and the geometry of numbers.
+The third asks for the densest packing of congruent spheres. In dimension three this is the Kepler conjecture, proved by Thomas Hales (with later formal verification). In higher dimensions the optimal packing density is known only in selected dimensions, so the full higher-dimensional sphere-packing part remains open.
 
 \subsection{Applications to Crystallography and Physics}
 
@@ -189,7 +183,7 @@ The classification of space groups is not merely an exercise in abstract algebra
 % ------------------------------------------------------------
 
 \begin{solvedbox}
-Hilbert's eighteenth problem is \textbf{solved}. The classification of regular polytopes in all dimensions was completed by Schläfli in the nineteenth century (before Hilbert posed the problem). The theory of crystallographic groups was placed on a firm foundation by Bieberbach's theorems (1910--1911), which show that there are finitely many crystallographic groups in each dimension, up to affine equivalence. The enumeration of space groups in dimension 3 (230 groups) was completed by Fedorov, Schoenflies, and Barlow; higher-dimensional classifications have been carried out through dimension 6 and beyond. The Bieberbach conjecture about isometry of lattices was settled (in the negative) by Dranishnikov in 1989. The subject continues to thrive through applications in crystallography, materials science, and mathematical physics.
+Hilbert's eighteenth problem is \textbf{partially solved as a package}. Its space-group finiteness question and the three-dimensional anisohedral-tiling question are settled, and the three-dimensional Kepler conjecture is proved. The general sphere-packing problem in arbitrary dimension remains open. The subject continues to thrive through applications in crystallography, materials science, and mathematical physics.
 \end{solvedbox}
 
 % ------------------------------------------------------------
@@ -225,10 +219,10 @@ The sphere packing problem asks for the densest arrangement of non-overlapping e
 
 \begin{enumerate}
     \item Hilbert's eighteenth problem asked about tessellations and crystallographic groups.
-    \item The crystallographic restriction states that only rotations of order 1, 2, 3, 4, 6 are possible in periodic tilings.
+    \item In the plane, the crystallographic restriction allows rotations only of orders 1, 2, 3, 4, and 6; higher-dimensional lattices require a more nuanced statement.
     \item Bieberbach's theorems classify crystallographic groups in each dimension.
     \item There are 17 wallpaper groups in 2D and 230 space groups in 3D.
-    \item The Bieberbach conjecture was disproved in high dimensions by Dranishnikov (1989).
+    \item The space-group part is settled, while optimal sphere packing in arbitrary dimensions remains open.
 \end{enumerate}
 
 \section*{Exercises}

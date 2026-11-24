@@ -5,7 +5,7 @@
 \chapter{Solving the General Seventh Degree Equation}
 
 \begin{solvedbox}
-Hilbert's thirteenth problem asks whether the roots of the general seventh degree polynomial can be expressed as a finite composition of continuous functions of two variables. The answer is \emph{no} in the sense Hilbert intended: Galois theory shows that the general seventh degree equation cannot be solved by radicals at all, since its Galois group $S_7$ is not a solvable group. The broader question about compositions of functions was addressed through the lens of field theory and the structure of algebraic extensions.
+Hilbert's thirteenth problem asks whether the roots of the general seventh-degree equation can be represented using a finite composition of continuous functions of two variables. In this continuous formulation the answer is \emph{yes}: Kolmogorov and Arnold proved the required superposition theorem in 1957. This is distinct from solvability by radicals, which is impossible for the general seventh-degree equation.
 \end{solvedbox}
 
 % ------------------------------------------------------------
@@ -177,15 +177,15 @@ The general seventh degree polynomial
 \]
 has Galois group $S_7$ over $\mathbb{Q}(a_1, \ldots, a_7)$, the field of rational functions in seven variables. Since $S_7$ is not solvable (because $A_7$ is simple and non-abelian), the general seventh degree equation cannot be solved by radicals.
 
-This was already known in its general form from Galois theory, long before Hilbert posed his problem. What Hilbert added was a question about a \emph{finer} algebraic structure: even if radicals are not enough, could the roots be expressed using a more general but still ``simple'' class of compositions?
+This was already known in its general form from Galois theory, long before Hilbert posed his problem. What Hilbert added was a question about a broader class of compositions: even if radicals are not enough, could the roots be expressed using continuous two-variable functions?
 
 \subsection{Hilbert's Conjecture and Its Resolution}
 
 Hilbert conjectured that the roots of the general seventh degree equation could \emph{not} be expressed as finite compositions of continuous functions of two variables. This is a stronger statement than the non-existence of a radical formula: it says that even allowing arbitrary continuous two-variable functions (not just arithmetic operations and radicals), the decomposition is impossible.
 
-The resolution of Hilbert's problem came in stages. In 1957, A.\,N. Kolmogorov and V.\,I. Arnold proved a related result---the \textbf{Kolmogorov--Arnold representation theorem}---which states that every continuous function of several variables can be represented as a finite composition of continuous functions of \emph{one} variable and addition. This result, while not directly answering Hilbert's question, showed that the world of function compositions is more varied than one might expect.
+The resolution came in 1957, when A.\,N. Kolmogorov and V.\,I. Arnold proved the \textbf{Kolmogorov--Arnold representation theorem}: every continuous function of several variables can be represented using finitely many continuous functions of at most two variables. This gives an affirmative answer to the continuous formulation.
 
-For the specific case of the seventh degree equation, the non-solvability by radicals (from Galois theory) and the deeper analysis of algebraic dependencies among the roots showed that the roots cannot be decomposed into a tree of two-variable functions in the manner Hilbert envisioned. The algebraic structure of the splitting field of the general seventh degree polynomial is ``irreducibly complex''---it cannot be broken into simpler pieces.
+This theorem does not produce a radical formula and does not settle every algebraic-function variant of the problem. The general seventh-degree equation nevertheless remains non-solvable by radicals because its Galois group is $S_7$.
 
 \subsection{Numerical Methods: Practical Solutions}
 
@@ -208,7 +208,7 @@ The contrast between the impossibility of a radical formula and the ease of nume
 % ------------------------------------------------------------
 
 \begin{solvedbox}
-Hilbert's thirteenth problem is \textbf{solved} in the sense that Galois theory provides a complete answer: the general seventh degree equation cannot be solved by radicals because its Galois group $S_7$ is not solvable. The deeper question about compositions of continuous functions of two variables has also been resolved, confirming Hilbert's intuition that the seventh degree equation has an irreducibly complex algebraic structure. In practice, the roots of any specific seventh degree polynomial can be found to arbitrary precision using numerical methods.
+The continuous formulation of Hilbert's thirteenth problem is \textbf{solved affirmatively} by the Kolmogorov--Arnold superposition theorem. Separately, the general seventh-degree equation is not solvable by radicals because its Galois group is $S_7$. These are different notions of ``solving'' an equation; the superposition theorem does not contradict Abel--Ruffini. Specific polynomials can also be approximated numerically to arbitrary precision.
 \end{solvedbox}
 
 % ------------------------------------------------------------
@@ -217,7 +217,7 @@ Hilbert's thirteenth problem is \textbf{solved} in the sense that Galois theory 
 \begin{description}[font=\bfseries, leftmargin=2em, style=nextline]
 
 \item[Q: Abel proved the quintic is unsolvable by radicals. What does Hilbert's Problem~13 add?]\hfill\\
-Abel proved that the general quintic (degree~5) cannot be solved by radicals. Hilbert's problem asks what happens for degree~7 and higher. The answer is essentially the same: the general equation of degree $n \geq 5$ is not solvable by radicals, because its Galois group $S_n$ is not solvable. Hilbert's problem specifically highlights the seventh degree as a natural next step after the quintic, and it also probes a deeper question: whether a seventh-degree equation can be reduced using functions of just two variables.
+Abel proved that the general quintic (degree~5) cannot be solved by radicals. Hilbert's problem instead asks whether the seventh-degree roots can be represented by compositions of continuous functions of two variables. The Kolmogorov--Arnold theorem answers that continuous formulation affirmatively; the non-solvability of $S_7$ answers only the separate radical question.
 
 \item[Q: Does ``unsolvable by radicals'' mean we can't solve polynomial equations at all?]\hfill\\
 No. It means we cannot express the solutions using only addition, subtraction, multiplication, division, and root extraction ($\sqrt[n]{\phantom{x}}$). Solutions still exist (by the fundamental theorem of algebra), and we can approximate them numerically to any desired precision. Many equations can also be solved using special functions like modular forms or elliptic functions---``unsolvable by radicals'' only rules out one specific toolkit.
